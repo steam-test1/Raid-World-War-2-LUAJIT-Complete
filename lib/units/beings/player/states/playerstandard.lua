@@ -507,6 +507,8 @@ function PlayerStandard:_get_input(t, dt)
 		btn_run_release = released and self._controller:get_input_released("run"),
 		btn_run_state = downed and self._controller:get_input_bool("run"),
 		btn_switch_weapon_press = pressed and self._controller:get_input_pressed("switch_weapon"),
+		btn_next_weapon_press = pressed and self._controller:get_input_pressed("next_weapon"),
+		btn_previous_weapon_press = pressed and self._controller:get_input_pressed("previous_weapon"),
 		btn_use_item_press = pressed and self._controller:get_input_pressed("use_item"),
 		btn_use_item_release = released and self._controller:get_input_released("use_item"),
 		btn_melee_press = pressed and self._controller:get_input_pressed("melee"),
@@ -664,6 +666,8 @@ function PlayerStandard:_update_check_actions(t, dt)
 	new_action = new_action or self:_check_action_melee(t, input)
 	new_action = new_action or self:_check_action_reload(t, input)
 	new_action = new_action or self:_check_change_weapon(t, input)
+	new_action = new_action or self:_check_action_next_weapon(t, input)
+	new_action = new_action or self:_check_action_previous_weapon(t, input)
 	new_action = new_action or self:_check_action_primary_attack(t, input)
 	new_action = new_action or self:_check_action_equip(t, input)
 	new_action = new_action or self:_check_use_item(t, input)
@@ -2627,8 +2631,54 @@ function PlayerStandard:_check_change_weapon(t, input)
 		action_forbidden = action_forbidden or self._unit:inventory():num_selections() == 1 or self:_interacting() or self:_is_throwing_projectile() or self:_is_comm_wheel_active()
 
 		if not action_forbidden then
+			local data = nil
+			self._change_weapon_pressed_expire_t = t + 0.33
+
+			self:_start_action_unequip_weapon(t, data)
+
+			new_action = true
+		end
+	end
+
+	return new_action
+end
+
+function PlayerStandard:_check_action_next_weapon(t, input)
+	local new_action = nil
+	local action_wanted = input.btn_next_weapon_press
+
+	if action_wanted then
+		local action_forbidden = self:_changing_weapon()
+		action_forbidden = action_forbidden or self:_is_meleeing() or self._use_item_expire_t or self._change_item_expire_t
+		action_forbidden = action_forbidden or self._unit:inventory():num_selections() == 1 or self:_interacting() or self:_is_throwing_projectile() or self:_is_comm_wheel_active()
+
+		if not action_forbidden then
 			local data = {
 				next = true
+			}
+			self._change_weapon_pressed_expire_t = t + 0.33
+
+			self:_start_action_unequip_weapon(t, data)
+
+			new_action = true
+		end
+	end
+
+	return new_action
+end
+
+function PlayerStandard:_check_action_previous_weapon(t, input)
+	local new_action = nil
+	local action_wanted = input.btn_previous_weapon_press
+
+	if action_wanted then
+		local action_forbidden = self:_changing_weapon()
+		action_forbidden = action_forbidden or self:_is_meleeing() or self._use_item_expire_t or self._change_item_expire_t
+		action_forbidden = action_forbidden or self._unit:inventory():num_selections() == 1 or self:_interacting() or self:_is_throwing_projectile() or self:_is_comm_wheel_active()
+
+		if not action_forbidden then
+			local data = {
+				previous = true
 			}
 			self._change_weapon_pressed_expire_t = t + 0.33
 
@@ -4476,19 +4526,39 @@ function PlayerStandard:_start_action_unequip_weapon(t, data)
 end
 
 function PlayerStandard:_start_action_equip_weapon(t)
-	Application:debug("[PlayerStandard:_start_action_equip_weapon]", inspect(self._change_weapon_data))
-
-	if self._change_weapon_data.next then
-		if self._ext_inventory:equipped_selection() == PlayerInventory.SLOT_2 then
-			self._ext_inventory:equip_selection(PlayerInventory.SLOT_1, false)
+	if not self._change_weapon_data then
+		if self._ext_inventory:equipped_selection() == 2 then
+			self._ext_inventory:equip_selection(1, false)
 		else
-			self._ext_inventory:equip_selection(PlayerInventory.SLOT_2, false)
+			self._ext_inventory:equip_selection(2, false)
+		end
+	elseif self._change_weapon_data.next then
+		if self._ext_inventory:equipped_selection() == 2 then
+			self._ext_inventory:equip_selection(1, false)
+		elseif self._ext_inventory:equipped_selection() == 1 then
+			if managers.player:can_throw_grenade() then
+				self._ext_inventory:equip_selection(3, false)
+			else
+				self._ext_inventory:equip_selection(4, false)
+			end
+		elseif self._ext_inventory:equipped_selection() == 3 then
+			self._ext_inventory:equip_selection(4, false)
+		elseif self._ext_inventory:equipped_selection() == 4 then
+			self._ext_inventory:equip_selection(2, false)
 		end
 	elseif self._change_weapon_data.previous then
-		if self._ext_inventory:equipped_selection() == PlayerInventory.SLOT_1 then
-			self._ext_inventory:equip_selection(PlayerInventory.SLOT_2, false)
-		else
-			self._ext_inventory:equip_selection(PlayerInventory.SLOT_1, false)
+		if self._ext_inventory:equipped_selection() == 2 then
+			self._ext_inventory:equip_selection(4, false)
+		elseif self._ext_inventory:equipped_selection() == 1 then
+			self._ext_inventory:equip_selection(2, false)
+		elseif self._ext_inventory:equipped_selection() == 3 then
+			self._ext_inventory:equip_selection(1, false)
+		elseif self._ext_inventory:equipped_selection() == 4 then
+			if managers.player:can_throw_grenade() then
+				self._ext_inventory:equip_selection(3, false)
+			else
+				self._ext_inventory:equip_selection(1, false)
+			end
 		end
 	elseif self._change_weapon_data.selection_wanted then
 		self._ext_inventory:equip_selection(self._change_weapon_data.selection_wanted, false)

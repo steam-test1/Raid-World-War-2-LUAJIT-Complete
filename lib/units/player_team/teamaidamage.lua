@@ -226,6 +226,10 @@ function TeamAIDamage:damage_fire(attack_data)
 		return
 	end
 
+	if self._unit:brain():objective() and self._unit:brain():objective().type == "revive" then
+		return false
+	end
+
 	local attacker_unit = attack_data.attacker_unit
 
 	if attacker_unit and attacker_unit:base() and attacker_unit:base().thrower_unit then
@@ -332,7 +336,7 @@ function TeamAIDamage:damage_tase(attack_data)
 end
 
 function TeamAIDamage:_apply_damage(attack_data, result)
-	local damage = attack_data.damage
+	local damage = attack_data.damage * 0.8
 	damage = math.clamp(damage, self._HEALTH_TOTAL_PERCENT, self._HEALTH_TOTAL)
 	local damage_percent = math.ceil(damage / self._HEALTH_TOTAL_PERCENT)
 	damage = damage_percent * self._HEALTH_TOTAL_PERCENT

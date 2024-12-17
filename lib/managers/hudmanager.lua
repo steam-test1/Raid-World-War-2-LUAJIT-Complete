@@ -432,9 +432,17 @@ function HUDManager:show(name)
 		Application:error("ERROR! Component " .. tostring(name) .. " isn't loaded!")
 	end
 
+	self._hud_chat:clear()
+	self._hud_chat:unregister()
+
 	if name == PlayerBase.INGAME_HUD_SAFERECT then
-		self._hud_chat = self._hud_chat_ingame or self._hud_chat
+		self._hud_chat = self._hud_chat_ingame
+	elseif name == IngameWaitingForRespawnState.GUI_SPECTATOR then
+		self._hud_chat = self._hud_chat_respawn
 	end
+
+	self._hud_chat:register()
+	self._hud_chat:hide()
 end
 
 function HUDManager:hide(name)
@@ -457,10 +465,6 @@ function HUDManager:hide(name)
 		component.panel:hide()
 	elseif not component then
 		Application:error("ERROR! Component " .. tostring(name) .. " isn't loaded!")
-	end
-
-	if name == PlayerBase.INGAME_HUD_SAFERECT then
-		self._hud_chat = self._hud_chat_access or self._hud_chat
 	end
 end
 
