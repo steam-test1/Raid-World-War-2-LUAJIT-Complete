@@ -2,9 +2,9 @@ GuiTweakData = GuiTweakData or class()
 
 function GuiTweakData:init()
 	self.base_resolution = {
-		z = 60,
 		y = 1080,
-		x = 1920
+		x = 1920,
+		z = 60
 	}
 
 	self:_setup_layers()
@@ -367,16 +367,16 @@ end
 function GuiTweakData:_setup_crosshairs()
 	self.crosshairs = {
 		pistol = {
-			edge_pips_icon = "weapons_reticles_flatline",
-			degree_field = 360,
 			base_rotation = 0,
-			edge_pips = 4
+			edge_pips = 4,
+			edge_pips_icon = "weapons_reticles_flatline",
+			degree_field = 360
 		},
 		smg = {
-			edge_pips_icon = "weapons_reticles_flatline",
-			degree_field = 270,
 			base_rotation = 0,
-			edge_pips = 3
+			edge_pips = 3,
+			edge_pips_icon = "weapons_reticles_flatline",
+			degree_field = 270
 		},
 		lmg = {
 			core_dot = "weapons_reticles_static_diamond",
@@ -402,34 +402,34 @@ function GuiTweakData:_setup_crosshairs()
 		"weapons_reticles_bowbend"
 	}
 	self.crosshairs.assault_rifle = {
+		edge_pips_icon = "weapons_reticles_flatline",
 		core_dot = "weapons_reticles_static_dot",
 		degree_field = 360,
 		base_rotation = 0,
-		edge_pips = 4,
-		edge_pips_icon = "weapons_reticles_flatline"
+		edge_pips = 4
 	}
 	self.crosshairs.sniper = {
+		edge_pips_icon = "weapons_reticles_flatline",
 		core_dot = "weapons_reticles_static_tri_small",
 		degree_field = 270,
 		base_rotation = 0,
-		edge_pips = 3,
-		edge_pips_icon = "weapons_reticles_flatline"
+		edge_pips = 3
 	}
 	self.crosshairs.shotgun = {
+		edge_pips_icon = "weapons_reticles_bowbend",
 		core_dot = "weapons_reticles_static_dot",
 		degree_field = 360,
 		base_rotation = 0,
-		edge_pips = 4,
-		edge_pips_icon = "weapons_reticles_bowbend"
+		edge_pips = 4
 	}
 	self.crosshairs.shotgun_db = deep_clone(self.crosshairs.shotgun)
 	self.crosshairs.shotgun_db.edge_pips = 2
 	self.crosshairs.grenade = {
+		edge_pips_icon = nil,
 		core_dot = "weapons_reticles_static_diamond",
 		degree_field = 0,
 		base_rotation = 0,
-		edge_pips = 0,
-		edge_pips_icon = nil
+		edge_pips = 0
 	}
 end
 
@@ -5249,15 +5249,6 @@ function GuiTweakData:_setup_hud_icons()
 			42
 		}
 	}
-	self.icons.weapons_panel_gre_thermite = {
-		texture = "ui/updates/upd_blaze/atlas_weapon_icons",
-		texture_rect = {
-			96,
-			128,
-			42,
-			42
-		}
-	}
 	self.icons.missions_consumable_fury_railway = {
 		texture = "ui/atlas/raid_atlas_hud_raids_mini",
 		texture_rect = {
@@ -6963,15 +6954,6 @@ function GuiTweakData:_setup_skill_big_icons()
 			128
 		}
 	}
-	self.icons.weapon_gre_thermite_large = {
-		texture = "ui/updates/upd_blaze/atlas_weapon_icons",
-		texture_rect = {
-			0,
-			128,
-			96,
-			128
-		}
-	}
 end
 
 function GuiTweakData:_setup_backgrounds()
@@ -8600,12 +8582,12 @@ function GuiTweakData:_setup_old_tweak_data()
 	self.stats_present_multiplier = 10
 	self.armor_damage_shake_base = 1.1
 	self.buy_weapon_category_groups = {
-		grenade_launcher = "wpn_special",
 		crossbow = "wpn_special",
 		bow = "wpn_special",
 		flamethrower = "wpn_special",
 		minigun = "wpn_special",
-		saw = "wpn_special"
+		saw = "wpn_special",
+		grenade_launcher = "wpn_special"
 	}
 	self.weapon_texture_switches = {}
 end

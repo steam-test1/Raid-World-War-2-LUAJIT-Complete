@@ -38,8 +38,8 @@ function RaidMenuOptionsVideo:_layout_video()
 		text = managers.localization:to_upper_text("menu_options_video_advanced_button"),
 		on_click_callback = callback(self, self, "on_click_options_video_advanced_button"),
 		on_menu_move = {
-			up = "default_video",
-			down = "stepper_menu_resolution"
+			down = "stepper_menu_resolution",
+			up = "default_video"
 		}
 	}
 	self._btn_advanced_options = self._root_panel:long_tertiary_button(previous_panel)
@@ -114,8 +114,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._stepper_menu_window_mode = self._root_panel:stepper(previous_panel)
 	previous_panel = {
-		name = "effect_quality",
 		value_format = "%02d%%",
+		name = "effect_quality",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_effect_quality"),
@@ -172,8 +172,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._toggle_menu_camera_accel = self._root_panel:toggle_button(previous_panel)
 	previous_panel = {
-		name = "camera_shake",
 		value_format = "%02d%%",
+		name = "camera_shake",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_camera_shake"),
@@ -254,8 +254,8 @@ function RaidMenuOptionsVideo:data_source_stepper_menu_window_mode()
 		info = managers.localization:to_upper_text("menu_windowed")
 	})
 	table.insert(result, {
-		selected = true,
 		value = "WINDOWED_FULLSCREEN",
+		selected = true,
 		text = managers.localization:to_upper_text("menu_windowed_fullscreen"),
 		info = managers.localization:to_upper_text("menu_windowed_fullscreen")
 	})

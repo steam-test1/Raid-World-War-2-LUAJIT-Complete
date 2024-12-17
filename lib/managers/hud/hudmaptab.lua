@@ -138,8 +138,8 @@ function HUDMapTab:_create_map_background()
 	local map_texture = tweak_data.levels[self._current_level].map.texture
 	local background_panel_params = {
 		valign = "center",
-		halign = "center",
 		name = "map_background_panel",
+		halign = "center",
 		w = tweak_data.gui:icon_w(map_texture),
 		h = tweak_data.gui:icon_h(map_texture),
 		layer = HUDMapTab.BACKGROUND_LAYER

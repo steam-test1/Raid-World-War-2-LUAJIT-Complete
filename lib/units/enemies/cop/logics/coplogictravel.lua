@@ -765,8 +765,8 @@ function CopLogicTravel._chk_request_action_walk_to_advance_pos(data, my_data, s
 
 		local path = my_data.advance_path
 		local new_action_data = {
-			body_part = 2,
 			type = "walk",
+			body_part = 2,
 			nav_path = path,
 			variant = speed or "run",
 			end_rot = end_rot,

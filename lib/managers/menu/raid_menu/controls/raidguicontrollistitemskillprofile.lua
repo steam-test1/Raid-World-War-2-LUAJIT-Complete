@@ -116,9 +116,9 @@ function RaidGUIControlListItemSkillProfile:_layout_purchasable(item_data)
 
 	local gold_amount_footer = tweak_data.gui:get_full_gui_data("gold_amount_footer")
 	self._gold_icon = self._object:image({
+		h = 25,
 		w = 25,
 		name = "profile_gold_icon",
-		h = 25,
 		texture = gold_amount_footer.texture,
 		texture_rect = gold_amount_footer.texture_rect,
 		color = self.PURCHASE_COLOR

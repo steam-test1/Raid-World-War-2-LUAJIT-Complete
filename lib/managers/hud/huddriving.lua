@@ -42,8 +42,8 @@ end
 
 function HUDDriving:_create_panel(hud)
 	local panel_params = {
-		visible = false,
 		halign = "center",
+		visible = false,
 		valign = "bottom",
 		name = "driving_panel",
 		w = HUDDriving.W,
@@ -118,8 +118,8 @@ function HUDDriving:_create_carry_info()
 	local carry_info_panel_params = {
 		halign = "right",
 		valign = "scale",
-		y = 0,
 		name = "carry_info_panel",
+		y = 0,
 		x = carry_panel_x,
 		w = self._object:w() - carry_panel_x,
 		h = self._slot_panel:h() + 20
@@ -138,8 +138,8 @@ function HUDDriving:_create_carry_info()
 	carry_panel_background:set_bottom(carry_info_panel:h())
 
 	local carry_indicator_params = {
-		layer = 5,
 		name = "carry_indicator",
+		layer = 5,
 		texture = tweak_data.gui.icons[HUDDriving.CARRY_PANEL_INDICATOR_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDDriving.CARRY_PANEL_INDICATOR_ICON].texture_rect
 	}
@@ -150,12 +150,12 @@ function HUDDriving:_create_carry_info()
 
 	local carry_info_text_x = self._carry_indicator:x() + self._carry_indicator:w() + HUDDriving.CARRY_PANEL_PADDING_RIGHT
 	local carry_info_text_params = {
-		valign = "left",
 		halign = "center",
-		text = "",
 		vertical = "center",
-		align = "left",
+		valign = "left",
+		text = "",
 		name = "carry_info_text",
+		align = "left",
 		x = carry_info_text_x,
 		w = carry_info_panel:w() - carry_info_text_x,
 		font = HUDDriving.CARRY_INFO_TEXT_FONT,
@@ -169,8 +169,8 @@ end
 function HUDDriving:_create_button_prompts()
 	local button_prompts_panel_params = {
 		halign = "scale",
-		alpha = 0,
 		valign = "top",
+		alpha = 0,
 		name = "button_prompts_panel",
 		w = self._object:w(),
 		h = HUDDriving.BUTTON_PROMPTS_H
@@ -245,8 +245,8 @@ function HUDDriving:_create_button_prompt(prompt_name, prompt, buttons)
 
 	local button_prompt_params = {
 		valign = "center",
-		halign = "center",
 		vertical = "center",
+		halign = "center",
 		align = "center",
 		name = "button_prompt_" .. tostring(prompt_name),
 		font = HUDDriving.BUTTON_PROMPT_TEXT_FONT,

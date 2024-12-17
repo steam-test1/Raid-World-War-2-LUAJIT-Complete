@@ -249,8 +249,8 @@ function CopMovement:post_init()
 	self._machine:set_callback_object(self)
 
 	self._stance = {
-		name = "ntl",
 		code = 1,
+		name = "ntl",
 		values = {
 			1,
 			0,
@@ -1418,9 +1418,9 @@ function CopMovement:damage_clbk(my_unit, damage_info)
 		blocks = {
 			walk = -1,
 			tase = -1,
-			act = -1,
 			aim = -1,
-			action = -1
+			action = -1,
+			act = -1
 		}
 
 		if hurt_type == "bleedout" then
@@ -2226,9 +2226,9 @@ function CopMovement:sync_action_act_start(index, blocks_hurt, clamp_to_graph, n
 		variant = redir_name,
 		blocks = {
 			walk = -1,
-			idle = -1,
+			action = -1,
 			act = -1,
-			action = -1
+			idle = -1
 		},
 		start_rot = start_rot,
 		start_pos = start_pos,
@@ -2312,19 +2312,19 @@ function CopMovement:sync_action_hurt_end()
 
 		if hurt_type == "bleedout" or hurt_type == "fatal" then
 			local action_data = {
-				client_interrupt = true,
 				body_part = 1,
 				type = "act",
+				client_interrupt = true,
 				variant = "stand",
 				blocks = {
-					walk = -1,
 					hurt = -1,
-					stand = -1,
-					crouch = -1,
-					aim = -1,
+					walk = -1,
 					heavy_hurt = -1,
 					light_hurt = -1,
-					action = -1
+					aim = -1,
+					action = -1,
+					stand = -1,
+					crouch = -1
 				}
 			}
 			local res = CopMovement.action_request(self, action_data)

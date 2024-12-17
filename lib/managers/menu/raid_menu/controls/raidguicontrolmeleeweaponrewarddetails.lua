@@ -118,14 +118,14 @@ end
 
 function RaidGUIControlMeleeWeaponRewardDetails:_create_reward_image()
 	local reward_image_panel_params = {
-		name = "reward_image_panel",
 		layer = 10,
+		name = "reward_image_panel",
 		w = self._left_panel:w()
 	}
 	self._reward_image_panel = self._left_panel:panel(reward_image_panel_params)
 	local reward_image_params = {
-		name = "reward_image",
 		alpha = 0,
+		name = "reward_image",
 		texture = tweak_data.gui.icons[RaidGUIControlMeleeWeaponRewardDetails.REWARD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlMeleeWeaponRewardDetails.REWARD_ICON].texture_rect
 	}

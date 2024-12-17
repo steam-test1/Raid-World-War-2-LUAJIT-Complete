@@ -55,16 +55,16 @@ ElementSpecialObjective._HASTES = {
 	"run"
 }
 ElementSpecialObjective._DEFAULT_VALUES = {
+	base_chance = 1,
+	interval = -1,
+	path_style = 1,
 	ai_group = 1,
 	action_duration_max = 0,
 	action_duration_min = 0,
 	interaction_voice = 1,
 	interrupt_dmg = 0,
 	interrupt_dis = -1,
-	chance_inc = 0,
-	base_chance = 1,
-	interval = -1,
-	path_style = 1
+	chance_inc = 0
 }
 
 function ElementSpecialObjective:init(...)
@@ -492,17 +492,17 @@ function ElementSpecialObjective:get_objective(instigator)
 
 		if self._values.so_action then
 			action = {
-				needs_full_blend = true,
-				align_sync = true,
 				body_part = 1,
+				align_sync = true,
 				type = "act",
+				needs_full_blend = true,
 				variant = self._values.so_action,
 				blocks = {
 					action = -1,
-					hurt = -1,
 					heavy_hurt = -1,
-					walk = -1,
-					light_hurt = -1
+					hurt = -1,
+					light_hurt = -1,
+					walk = -1
 				}
 			}
 			objective.type = "act"

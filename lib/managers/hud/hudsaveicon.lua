@@ -80,11 +80,11 @@ end
 function HUDSaveIcon:_create_bullets()
 	local bullet_panel_params = {
 		w = 32,
-		x = 0,
-		y = 0,
 		name = "bullet_panel",
-		valign = "center",
 		halign = "left",
+		valign = "center",
+		y = 0,
+		x = 0,
 		h = self._panel:h()
 	}
 	self._bullet_panel = self._panel:panel(bullet_panel_params)

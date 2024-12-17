@@ -23,12 +23,12 @@ function RaidGUIControlDialogTest:init(parent, params)
 	})
 	local center_x, center_y = self._object:center()
 	self._title_label = self._object:label({
+		visible = false,
+		name = "dialog_title",
+		vertical = "center",
+		align = "center",
 		h = 32,
 		w = 576,
-		name = "dialog_title",
-		visible = false,
-		align = "center",
-		vertical = "center",
 		x = center_x,
 		y = center_y - 82,
 		text = self:translate("character_creation_create_title", true),
@@ -40,8 +40,8 @@ function RaidGUIControlDialogTest:init(parent, params)
 	self._title_label:set_visible(true)
 
 	self._input_box = self._object:input_field({
-		name = "input_field",
 		visible = false,
+		name = "input_field",
 		h = 48,
 		w = 430,
 		x = center_x,

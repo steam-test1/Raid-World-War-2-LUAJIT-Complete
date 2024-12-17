@@ -39,8 +39,8 @@ end
 
 function CoreWorldEventUnitElement:_world_name_raycast()
 	local ray = managers.editor:unit_by_raycast({
-		ray_type = "editor",
-		mask = 10
+		mask = 10,
+		ray_type = "editor"
 	})
 
 	if not ray or not ray.unit then
@@ -122,11 +122,11 @@ function CoreWorldEventUnitElement:_add_world_gui(world_name, events, event_list
 	h_sizer:add(world_name_ctrlr, 2, 1, "LEFT,ALIGN_CENTER_VERTICAL")
 
 	local events_params = {
-		tooltip = "Select an event from the combobox",
 		sorted = true,
 		sizer_proportions = 2,
 		ctrlr_proportions = 2,
 		name_proportions = 0,
+		tooltip = "Select an event from the combobox",
 		panel = panel,
 		sizer = h_sizer,
 		options = events,

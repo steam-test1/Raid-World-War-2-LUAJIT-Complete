@@ -1215,7 +1215,7 @@ function NetworkMatchMakingPSN:get_all_players_info()
 
 			if peer_data then
 				local peer_level = peer_data:level() or "-"
-				local peer_class = managers.network:session():all_peers()[peer_id]:blackmarket_outfit().skills or "-"
+				local peer_class = peer_data:class() or "-"
 				local peer_name = peer_data:name() or ""
 				local peer_nationality = peer_data:nationality() or ""
 				players_data = players_data .. peer_level .. "," .. peer_class .. "," .. peer_name .. "," .. peer_nationality .. ";"
@@ -2360,13 +2360,13 @@ function NetworkMatchMakingPSN:_error_message_solver(info)
 	end
 
 	local error_texts = {
+		["80022328"] = "dialog_err_room_allready_joined",
+		["80550d13"] = "dialog_err_room_no_longer_exists",
+		["80550d15"] = "dialog_err_room_no_longer_exists",
 		["80550d19"] = "dialog_err_room_is_full",
 		["80550D15"] = "dialog_err_failed_joining_lobby",
 		["80550C3A"] = "dialog_err_failed_joining_lobby",
 		["80550c30"] = "dialog_err_room_no_longer_exists",
-		["80022328"] = "dialog_err_room_allready_joined",
-		["80550d13"] = "dialog_err_room_no_longer_exists",
-		["80550d15"] = "dialog_err_room_no_longer_exists",
 		["8002233a"] = self._creating_lobby and "dialog_err_failed_creating_lobby" or self._searching_lobbys and "dialog_err_failed_searching_lobbys" or self._joining_lobby and "dialog_err_failed_joining_lobby" or nil,
 		["8002231d"] = self._creating_lobby and "dialog_err_failed_creating_lobby" or self._searching_lobbys and "dialog_err_failed_searching_lobbys" or self._joining_lobby and "dialog_err_failed_joining_lobby" or nil
 	}

@@ -53,9 +53,9 @@ end
 
 function HUDChatMessage:_create_panel(message_panel)
 	local panel_params = {
-		valign = "bottom",
 		name = "player_message_panel",
 		halign = "scale",
+		valign = "bottom",
 		w = HUDChatMessage.W
 	}
 	self._object = message_panel:panel(panel_params)
@@ -83,10 +83,10 @@ end
 
 function HUDChatMessage:_create_message_panel()
 	local message_panel_params = {
-		valign = "bottom",
 		name = "message_panel",
 		x = 0,
 		halign = "scale",
+		valign = "bottom",
 		y = self._name:y() + self._name:h(),
 		w = self._object:w(),
 		h = self._object:h() - self._name:h()

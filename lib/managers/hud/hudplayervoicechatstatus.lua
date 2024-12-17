@@ -32,9 +32,9 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_background()
 	local background_params = {
+		layer = 28,
 		name = "chat_background",
 		alpha = 0.75,
-		layer = 28,
 		texture = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_BG_BLACK].texture,
 		texture_rect = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_BG_BLACK].texture_rect
 	}
@@ -63,9 +63,9 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_voice_chat_indicator()
 	local chat_indicator_params_speaking = {
+		layer = 30,
 		name = "chat_indicator_speaking",
 		alpha = 1,
-		layer = 30,
 		texture = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_SPEAKING].texture,
 		texture_rect = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_SPEAKING].texture_rect,
 		color = tweak_data.gui.colors.raid_red

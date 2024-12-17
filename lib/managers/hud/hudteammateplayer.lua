@@ -234,9 +234,9 @@ end
 
 function HUDTeammatePlayer:_create_timer()
 	local timer_panel_params = {
+		name = "timer_panel",
 		layer = 5,
-		alpha = 0,
-		name = "timer_panel"
+		alpha = 0
 	}
 	self._timer_panel = self._status_panel:panel(timer_panel_params)
 	local timer_background_params = {
@@ -274,13 +274,13 @@ function HUDTeammatePlayer:_create_timer()
 	self._timer_bar:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_text_params = {
+		x = 0,
 		layer = 3,
 		text = "37",
-		y = 0,
-		x = 0,
-		name = "timer_text",
 		vertical = "center",
 		align = "center",
+		y = 0,
+		name = "timer_text",
 		w = self._timer_panel:w(),
 		h = self._timer_panel:h(),
 		font = tweak_data.gui.fonts[HUDTeammatePlayer.TIMER_FONT],
@@ -310,22 +310,22 @@ end
 
 function HUDTeammatePlayer:_create_voice_chat_indicator()
 	local voice_chat_panel_params = {
-		layer = 30,
 		name = " voice_chat_panel",
+		layer = 30,
 		w = HUDTeammatePlayer.CHAT_PANEL_W,
 		h = HUDTeammatePlayer.CHAT_PANEL_W
 	}
 	self._voice_chat_panel = self._right_panel:panel(voice_chat_panel_params)
 	local chat_indicator_params_speaking = {
-		alpha = 0,
 		name = "chat_indicator_speaking",
+		alpha = 0,
 		texture = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_SPEAKING].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_SPEAKING].texture_rect
 	}
 	self._chat_indicator_speaking = self._voice_chat_panel:bitmap(chat_indicator_params_speaking)
 	local chat_indicator_params_muted = {
-		alpha = 0,
 		name = "chat_indicator_muted",
+		alpha = 0,
 		texture = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_MUTED].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_MUTED].texture_rect
 	}
@@ -367,8 +367,8 @@ function HUDTeammatePlayer:_create_down_indicator()
 	local guis = tweak_data.gui:get_full_gui_data(HUDTeammatePeer.DOWN_ICON .. downs)
 	local down_indicator_params = {
 		layer = 30,
-		name = "down_indicator",
 		alpha = 1,
+		name = "down_indicator",
 		texture = guis.texture,
 		texture_rect = guis.texture_rect,
 		color = guis.color
@@ -392,12 +392,12 @@ end
 
 function HUDTeammatePlayer:_create_player_name()
 	local player_name_params = {
-		text = "",
-		y = 1,
 		x = 0,
-		name = "player_name",
+		text = "",
 		vertical = "center",
 		align = "left",
+		y = 1,
+		name = "player_name",
 		w = self._right_panel:w() - HUDTeammatePlayer.PLAYER_LEVEL_W - HUDTeammatePeer.CHAT_PANEL_W,
 		h = HUDTeammatePlayer.PLAYER_NAME_H,
 		font = tweak_data.gui.fonts[HUDTeammatePlayer.PLAYER_NAME_FONT],
@@ -409,9 +409,9 @@ end
 function HUDTeammatePlayer:_create_player_level()
 	local player_level_params = {
 		text = "",
-		name = "player_level",
 		vertical = "center",
 		align = "right",
+		name = "player_level",
 		x = self._right_panel:w() - HUDTeammatePlayer.PLAYER_LEVEL_W,
 		y = HUDTeammatePlayer.PLAYER_LEVEL_Y,
 		w = HUDTeammatePlayer.PLAYER_LEVEL_W,
@@ -602,10 +602,10 @@ function HUDTeammatePlayer:set_active_warcry(warcry)
 
 	local warcry_icon_name = tweak_data.warcry[warcry].hud_icon
 	local warcry_icon_params = {
+		alpha = 0,
 		valign = "center",
 		name = "warcry_icon",
 		halign = "center",
-		alpha = 0,
 		texture = tweak_data.gui.icons[warcry_icon_name].texture,
 		texture_rect = tweak_data.gui.icons[warcry_icon_name].texture_rect,
 		color = HUDTeammatePlayer.WARCRY_ACTIVE_COLOR

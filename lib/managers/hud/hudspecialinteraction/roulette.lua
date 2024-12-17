@@ -26,9 +26,9 @@ end
 function HUDSpecialInteractionRoulette:_create_bg_plate()
 	local gui_data = tweak_data.gui:get_full_gui_data(HUDSpecialInteractionRoulette.BACKGROUND_PLATE_IMAGE)
 	self._bg_plate = self._object:bitmap({
-		valign = "center",
 		name = "special_interaction_bg_plate",
 		halign = "center",
+		valign = "center",
 		texture = gui_data.texture,
 		texture_rect = gui_data.texture_rect,
 		color = gui_data.color
@@ -40,9 +40,9 @@ end
 function HUDSpecialInteractionRoulette:_create_pointer()
 	local gui_data = tweak_data.gui:get_full_gui_data(HUDSpecialInteractionRoulette.POINTER_GUI_ID)
 	self._pointer_texture = self._object:bitmap({
-		valign = "center",
 		name = "special_interaction_pointer_texture",
 		halign = "center",
+		valign = "center",
 		texture = gui_data.texture,
 		texture_rect = gui_data.texture_rect,
 		color = gui_data.color,
@@ -71,9 +71,9 @@ end
 function HUDSpecialInteractionRoulette:_create_wheel()
 	local gui_data = tweak_data.gui:get_full_gui_data(HUDSpecialInteractionRoulette.WHEEL_GUI_ID)
 	local circle = self._object:bitmap({
-		valign = "center",
 		name = "special_interaction_circle_texture",
 		halign = "center",
+		valign = "center",
 		texture = gui_data.texture,
 		texture_rect = gui_data.texture_rect,
 		color = gui_data.color,
@@ -84,8 +84,8 @@ function HUDSpecialInteractionRoulette:_create_wheel()
 	circle:set_center(self._object:center())
 
 	self._circle = {
-		completed = false,
 		valid = true,
+		completed = false,
 		circle = circle
 	}
 end

@@ -130,26 +130,26 @@ function OverlayPresenter:show_text(text, duration, color, nationality_icon)
 
 	local label = self.__subtitle_panel:child("label") or self.__subtitle_panel:text({
 		layer = 1,
-		y = 1,
-		x = 32,
-		name = "label",
 		wrap = true,
 		vertical = "top",
 		align = "center",
+		y = 1,
+		x = 32,
+		name = "label",
 		font = self.__font_name,
 		font_size = self.__font_size,
 		color = Color.white
 	})
 	local shadow = self.__subtitle_panel:child("shadow") or self.__subtitle_panel:text({
-		layer = 0,
-		y = 2,
-		x = 33,
-		name = "shadow",
 		word_wrap = true,
+		layer = 0,
 		visible = false,
 		wrap = true,
 		vertical = "top",
 		align = "center",
+		y = 2,
+		x = 33,
+		name = "shadow",
 		font = self.__font_name,
 		font_size = self.__font_size,
 		color = Color.black:with_alpha(0.5)
@@ -161,12 +161,12 @@ function OverlayPresenter:show_text(text, duration, color, nationality_icon)
 	if nationality_icon ~= nil then
 		local nation_icon = self.__subtitle_panel:child("nation_icon") or self.__subtitle_panel:bitmap({
 			w = 32,
-			y = 1,
-			x = 1,
-			name = "nation_icon",
 			visible = true,
 			layer = 1,
 			h = 32,
+			y = 1,
+			x = 1,
+			name = "nation_icon",
 			texture = nationality_icon.texture,
 			texture_rect = nationality_icon.texture_rect
 		})
@@ -263,12 +263,12 @@ function OverlayPresenter:_layout_text_field()
 	assert(self.__subtitle_panel)
 
 	return self.__subtitle_panel:child("layout") or self.__subtitle_panel:text({
-		name = "layout",
 		word_wrap = true,
 		visible = false,
 		wrap = true,
 		vertical = "top",
 		align = "center",
+		name = "layout",
 		width = self.__subtitle_panel:w() - 64,
 		font = self.__font_name,
 		font_size = self.__font_size

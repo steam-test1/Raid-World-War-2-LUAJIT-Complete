@@ -179,8 +179,8 @@ function CoreCounterUnitElement:_build_panel(panel, panel_sizer)
 		remove_result = callback(self, self, "_remove_unit")
 	})
 	self:_build_value_number(panel, panel_sizer, "counter_target", {
-		min = 0,
-		floats = 0
+		floats = 0,
+		min = 0
 	}, "Specifies how many times the counter should be executed before running its on executed")
 	self:_add_help_text("Units with number gui extension can have their value updated from a counter.")
 end
@@ -294,8 +294,8 @@ function CoreCounterOperatorUnitElement:_build_panel(panel, panel_sizer)
 		"set"
 	}, "Select an operation for the selected elements")
 	self:_build_value_number(panel, panel_sizer, "amount", {
-		min = 0,
-		floats = 0
+		floats = 0,
+		min = 0
 	}, "Amount to add, subtract or set to the counters.")
 	self:_add_help_text("This element can modify logic_counter element. Select counters to modify using insert and clicking on the elements.")
 end

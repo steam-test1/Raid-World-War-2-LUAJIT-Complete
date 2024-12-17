@@ -50,8 +50,8 @@ function GamePlayCentralManager:init()
 
 	self._mission_disabled_units = {}
 	self._heist_timer = {
-		start_time = 0,
-		running = false
+		running = false,
+		start_time = 0
 	}
 end
 

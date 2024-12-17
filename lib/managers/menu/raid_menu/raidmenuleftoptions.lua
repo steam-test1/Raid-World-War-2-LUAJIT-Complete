@@ -41,8 +41,8 @@ function RaidMenuLeftOptions:_layout_list_menu()
 	self.list_menu_options:set_selected(true)
 
 	local default_video_params = {
-		x = 1472,
 		y = 832,
+		x = 1472,
 		name = "default_video",
 		text = utf8.to_upper(managers.localization:text("menu_option_default")),
 		on_click_callback = callback(self, self, "_on_list_menu_options_item_selected", {
@@ -52,8 +52,8 @@ function RaidMenuLeftOptions:_layout_list_menu()
 	}
 	self._default_video_button = self._root_panel:long_secondary_button(default_video_params)
 	local reset_progress_params = {
-		x = 1472,
 		y = 768,
+		x = 1472,
 		name = "reset_progress",
 		text = utf8.to_upper(managers.localization:text("menu_clear_progress")),
 		on_click_callback = callback(self, self, "_on_list_menu_options_item_selected", {

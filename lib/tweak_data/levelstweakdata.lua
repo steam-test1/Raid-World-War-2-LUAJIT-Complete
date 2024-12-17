@@ -123,8 +123,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -156,8 +156,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -189,8 +189,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -222,8 +222,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -255,8 +255,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
 				y = -2850,
 				x = -200

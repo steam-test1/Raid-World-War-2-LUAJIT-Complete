@@ -34,10 +34,10 @@ function WaypointExt:add_waypoint_external(data)
 	self._icon_pos = position
 	self._icon_rot = rotation
 	self._waypoint_data = {
-		radius = 200,
-		no_sync = false,
 		waypoint_type = "unit_waypoint",
+		radius = 200,
 		waypoint_origin = "waypoint_extension",
+		no_sync = false,
 		icon = self._icon_name,
 		map_icon = self._map_icon,
 		unit = self._unit,

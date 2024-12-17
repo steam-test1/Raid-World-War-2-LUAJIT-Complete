@@ -16,19 +16,19 @@ function RaidMenuOptionsControlsKeybinds:_layout()
 	RaidMenuOptionsControlsKeybinds.super._layout(self)
 
 	self._keybind_panel = self._root_panel:panel({
+		name = "keybind_panel",
 		y = 0,
-		x = 0,
-		name = "keybind_panel"
+		x = 0
 	})
 	self._rarity_filters_tabs = self._root_panel:tabs({
-		initial_tab_idx = 1,
-		tab_align = "center",
 		tab_height = 64,
 		tab_width = 160,
 		name = "tabs_keybind_types",
 		y = 96,
 		x = 0,
 		dont_trigger_special_buttons = true,
+		initial_tab_idx = 1,
+		tab_align = "center",
 		on_click_callback = callback(self, self, "on_click_tabs_keybind_types"),
 		tabs_params = {
 			{
@@ -44,9 +44,9 @@ function RaidMenuOptionsControlsKeybinds:_layout()
 		}
 	})
 	local default_controls_keybinds_params = {
-		x = 1472,
 		name = "default_controls_keybinds",
 		y = 832,
+		x = 1472,
 		text = utf8.to_upper(managers.localization:text("menu_options_controls_default")),
 		on_click_callback = callback(self, self, "on_click_default_controls_keybinds"),
 		layer = RaidGuiBase.FOREGROUND_LAYER

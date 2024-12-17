@@ -52,8 +52,8 @@ function RaidJobManager:_set_selected_job(job_id)
 	self._current_job = nil
 
 	managers.statistics:stop_session({
-		success = false,
-		quit = true
+		quit = true,
+		success = false
 	})
 	managers.network:session():send_to_peers_synched("stop_statistics_session", false, true, "")
 
@@ -183,8 +183,8 @@ function RaidJobManager:start_selected_job()
 	self._previously_completed_job = nil
 
 	managers.statistics:start_session({
-		from_beginning = true,
-		drop_in = false
+		drop_in = false,
+		from_beginning = true
 	})
 	managers.network:session():send_to_peers_synched("start_statistics_session", true, false)
 	managers.network:session():send_to_peers_synched("sync_current_job", self._current_job.job_id)
@@ -231,8 +231,8 @@ end
 
 function RaidJobManager:_on_restart_to_camp()
 	managers.statistics:stop_session({
-		success = false,
-		quit = true
+		quit = true,
+		success = false
 	})
 	managers.lootdrop:reset_loot_value_counters()
 	managers.hud:reset_session_time()
@@ -892,8 +892,8 @@ function RaidJobManager:start_event(event_id)
 	managers.global_state:reset_flags_for_job("level_flag")
 	managers.global_state:set_flag(self._current_job.current_event_data.mission_flag)
 	managers.statistics:start_session({
-		from_beginning = false,
-		drop_in = false
+		drop_in = false,
+		from_beginning = false
 	})
 	managers.network:session():send_to_peers_synched("start_statistics_session", false, false)
 	managers.lootdrop:reset_loot_value_counters()

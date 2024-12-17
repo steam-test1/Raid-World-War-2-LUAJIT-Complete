@@ -51,9 +51,9 @@ function ElementSpawnCivilian:produce(params)
 			local spawn_ai = {
 				init_state = "idle",
 				objective = {
-					interrupt_dis = -1,
 					type = "act",
 					interrupt_health = 1,
+					interrupt_dis = -1,
 					action = action_data
 				}
 			}

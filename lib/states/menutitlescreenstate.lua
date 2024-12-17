@@ -55,12 +55,12 @@ function MenuTitlescreenState:setup()
 	self._background:set_center_x(panel:center_x())
 
 	local gradient_params = {
-		h = 320,
 		orientation = "vertical",
-		name = "text_background_gradient",
+		valign = "grow",
 		y = 0,
 		x = 0,
-		valign = "grow",
+		h = 320,
+		name = "text_background_gradient",
 		w = panel:w(),
 		gradient_points = {
 			0,
@@ -92,12 +92,12 @@ function MenuTitlescreenState:setup()
 
 	local legal_text_font_size = MenuTitlescreenState.LEGAL_TEXT_FONT_SIZE
 	local legal_text_params = {
-		vertical = "bottom",
-		wrap = true,
-		alpha = 0,
-		name = "legal_text",
-		layer = 50,
 		align = "center",
+		layer = 50,
+		vertical = "bottom",
+		alpha = 0,
+		wrap = true,
+		name = "legal_text",
 		w = self._workspace:panel():w(),
 		h = self._workspace:panel():h(),
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.LEGAL_TEXT_FONT, legal_text_font_size),
@@ -113,11 +113,11 @@ function MenuTitlescreenState:setup()
 
 	local press_any_key_font_size = MenuTitlescreenState.PRESS_ANY_KEY_TEXT_FONT_SIZE
 	local press_any_key_prompt_params = {
-		vertical = "bottom",
-		wrap = true,
-		alpha = 0,
-		name = "press_any_key_text",
 		align = "center",
+		vertical = "bottom",
+		alpha = 0,
+		wrap = true,
+		name = "press_any_key_text",
 		w = self._workspace:panel():w(),
 		h = self._workspace:panel():h(),
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.FONT, press_any_key_font_size),
@@ -135,10 +135,10 @@ function MenuTitlescreenState:setup()
 	local text_id = (IS_PS4 or IS_XB1) and "menu_press_start" or "menu_visit_forum3"
 	local din_path = tweak_data.gui:get_font_path(tweak_data.gui.fonts.din_compressed, tweak_data.gui.font_sizes.size_24)
 	local text = self._workspace:panel():text({
+		visible = false,
 		vertical = "bottom",
 		layer = 2,
 		align = "center",
-		visible = false,
 		text = managers.localization:text(text_id),
 		font = din_path,
 		font_size = tweak_data.gui.font_sizes.size_24,

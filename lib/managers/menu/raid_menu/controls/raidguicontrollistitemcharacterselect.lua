@@ -1,8 +1,8 @@
 RaidGUIControlListItemCharacterSelect = RaidGUIControlListItemCharacterSelect or class(RaidGUIControl)
 RaidGUIControlListItemCharacterSelect.SLOTS = {
 	{
-		x = 416,
-		y = 0
+		y = 0,
+		x = 416
 	},
 	{
 		y = 0,
@@ -67,30 +67,30 @@ function RaidGUIControlListItemCharacterSelect:_layout()
 		color = tweak_data.gui.colors.raid_red
 	})
 	self._profile_name_label = self._object:label({
+		h = 28,
 		w = 272,
 		text = "",
 		y = 21,
 		x = 128,
-		h = 28,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.medium,
 		color = tweak_data.gui.colors.raid_white
 	})
 	self._character_name_label = self._object:label({
+		h = 22,
 		w = 272,
 		text = "",
 		y = 53,
 		x = 128,
-		h = 22,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.extra_small,
 		color = tweak_data.gui.colors.raid_grey
 	})
 	self._nationality_flag = self._object:image({
+		h = 64,
 		w = 95,
 		y = 16,
 		x = 16,
-		h = 64,
 		texture = tweak_data.gui.icons.ico_flag_empty.texture,
 		texture_rect = tweak_data.gui.icons.ico_flag_empty.texture_rect
 	})

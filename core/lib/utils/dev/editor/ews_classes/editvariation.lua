@@ -14,12 +14,12 @@ function EditUnitVariation:init(editor)
 	local all_variations_sizer = EWS:BoxSizer("VERTICAL")
 	self._mesh_params = {
 		name = "Mesh:",
+		default = "default",
 		sorted = true,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Select a mesh variation from the combobox",
 		sizer_proportions = 2,
-		default = "default",
 		panel = panel,
 		sizer = all_variations_sizer,
 		options = {}
@@ -30,12 +30,12 @@ function EditUnitVariation:init(editor)
 
 	self._material_params = {
 		name = "Material:",
+		default = "default",
 		sorted = true,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Select a material variation from the combobox",
 		sizer_proportions = 2,
-		default = "default",
 		panel = panel,
 		sizer = all_variations_sizer,
 		options = {}

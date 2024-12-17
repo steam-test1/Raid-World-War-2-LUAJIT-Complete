@@ -39,9 +39,9 @@ function RaidGUIControlButtonSubtitle:init(parent, params)
 
 	self._on_click_callback = params.on_click_callback
 	local icon_params = {
+		x = 0,
 		name = "subtitle_icon",
 		y = 0,
-		x = 0,
 		layer = self._object:layer() + 1,
 		texture = tweak_data.gui.icons[self._params.icon].texture,
 		texture_rect = tweak_data.gui.icons[self._params.icon].texture_rect,
@@ -96,10 +96,10 @@ end
 
 function RaidGUIControlButtonSubtitle:_create_selectors()
 	local selector_panel_params = {
+		alpha = 0,
 		valign = "scale",
 		name = "selector_panel",
-		halign = "scale",
-		alpha = 0
+		halign = "scale"
 	}
 	self._selector_panel = self._object:panel(selector_panel_params)
 	local selector_top_left_params = {

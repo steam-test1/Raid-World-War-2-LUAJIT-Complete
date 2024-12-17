@@ -51,76 +51,76 @@ function DropLootTweakData:_init_pickups_properties()
 	}
 	self.candy_simple = {
 		health_restored = 20,
-		grenades_amount = 1,
 		candy_value = 1,
 		ammo_multiplier = 1.4,
+		grenades_amount = 1,
 		interaction_detail = {
-			icon = "status_effect_candy_simple",
-			text = "details_candy_simple"
+			text = "details_candy_simple",
+			icon = "status_effect_candy_simple"
 		}
 	}
 	self.candy_health_regen = {
 		candy_value = 2,
 		upgrade = "candy_health_regen",
 		interaction_detail = {
-			icon = "status_effect_candy_health_regen",
-			text = "details_candy_health_regen"
+			text = "details_candy_health_regen",
+			icon = "status_effect_candy_health_regen"
 		}
 	}
 	self.candy_god_mode = {
 		candy_value = 3,
 		upgrade = "candy_god_mode",
 		interaction_detail = {
-			icon = "status_effect_candy_god_mode",
-			text = "details_candy_god_mode"
+			text = "details_candy_god_mode",
+			icon = "status_effect_candy_god_mode"
 		}
 	}
 	self.candy_armor_pen = {
 		candy_value = 2,
 		upgrade = "candy_armor_pen",
 		interaction_detail = {
-			icon = "status_effect_candy_armor_pen",
-			text = "details_candy_armor_pen"
+			text = "details_candy_armor_pen",
+			icon = "status_effect_candy_armor_pen"
 		}
 	}
 	self.candy_unlimited_ammo = {
 		candy_value = 3,
 		upgrade = "candy_unlimited_ammo",
 		interaction_detail = {
-			icon = "status_effect_candy_unlimited_ammo",
-			text = "details_candy_unlimited_ammo"
+			text = "details_candy_unlimited_ammo",
+			icon = "status_effect_candy_unlimited_ammo"
 		}
 	}
 	self.candy_sprint_speed = {
 		candy_value = 2,
 		upgrade = "candy_sprint_speed",
 		interaction_detail = {
-			icon = "status_effect_candy_sprint_speed",
-			text = "details_candy_sprint_speed"
+			text = "details_candy_sprint_speed",
+			icon = "status_effect_candy_sprint_speed"
 		}
 	}
 	self.candy_jump_boost = {
 		candy_value = 3,
 		upgrade = "candy_jump_boost",
 		interaction_detail = {
-			icon = "status_effect_candy_jump_boost",
-			text = "details_candy_jump_boost"
+			text = "details_candy_jump_boost",
+			icon = "status_effect_candy_jump_boost"
 		}
 	}
 	self.candy_atk_dmg = {
 		candy_value = 2,
 		upgrade = "candy_attack_damage",
 		interaction_detail = {
-			icon = "status_effect_candy_attack_damage",
-			text = "details_candy_atk_dmg"
+			text = "details_candy_atk_dmg",
+			icon = "status_effect_candy_attack_damage"
 		}
 	}
 	self.candy_crit_chance = {
 		candy_value = 3,
 		upgrade = "candy_critical_hit_chance",
 		interaction_detail = {
-			icon = "status_effect_candy_critical_hit_chance",
-			text = "details_candy_crit_chance"
+			text = "details_candy_crit_chance",
+			icon = "status_effect_candy_critical_hit_chance"
 		}
 	}
 end

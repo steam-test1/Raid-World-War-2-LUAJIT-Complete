@@ -39,15 +39,15 @@ HUDTeammatePeer.HOST_ICON = "player_panel_host_indicator"
 HUDTeammatePeer.DOWN_ICON = "player_panel_lives_indicator_"
 HUDTeammatePeer.STATES = {
 	{
-		id = "dead",
 		control = "dead_icon",
+		id = "dead",
 		hidden = {
 			"warcry_panel"
 		}
 	},
 	{
-		id = "downed",
 		control = "timer_panel",
+		id = "downed",
 		hidden = {
 			"warcry_panel"
 		}
@@ -57,8 +57,8 @@ HUDTeammatePeer.STATES = {
 		id = "interaction"
 	},
 	{
-		id = "carry",
 		control = "carry_icon",
+		id = "carry",
 		hidden = {
 			"warcry_panel"
 		}
@@ -116,9 +116,9 @@ end
 
 function HUDTeammatePeer:_create_panel(teammates_panel)
 	local panel_params = {
-		halign = "left",
 		y = 0,
 		valign = "top",
+		halign = "left",
 		x = HUDTeammatePeer.DEFAULT_X,
 		w = HUDTeammatePeer.DEFAULT_W,
 		h = HUDTeammatePeer.DEFAULT_H,
@@ -140,9 +140,9 @@ end
 
 function HUDTeammatePeer:_create_status_panel()
 	local status_panel_params = {
-		name = "status_panel",
 		y = 0,
 		x = 0,
+		name = "status_panel",
 		w = self._left_panel:w(),
 		h = self._left_panel:h()
 	}
@@ -157,9 +157,9 @@ function HUDTeammatePeer:_create_warcry_bar()
 	}
 	local warcry_panel = self._left_panel:panel(warcry_panel_params)
 	local warcry_background_params = {
+		valign = "center",
 		name = "warcry_background",
 		halign = "center",
-		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.WARCRY_BG_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.WARCRY_BG_ICON].texture_rect
 	}
@@ -169,8 +169,8 @@ function HUDTeammatePeer:_create_warcry_bar()
 	warcry_background:set_center_y(warcry_panel:h() / 2)
 
 	local warcry_bar_params = {
-		name = "warcry_bar",
 		render_template = "VertexColorTexturedRadial",
+		name = "warcry_bar",
 		valign = "center",
 		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.WARCRY_BAR_ICON].texture,
@@ -197,9 +197,9 @@ function HUDTeammatePeer:_create_nationality_icon()
 	local nationality = "german"
 	local nationality_icon = "player_panel_nationality_" .. tostring(nationality)
 	local nationality_icon_params = {
+		valign = "center",
 		name = "nationality_icon",
 		halign = "center",
-		valign = "center",
 		texture = tweak_data.gui.icons[nationality_icon].texture,
 		texture_rect = tweak_data.gui.icons[nationality_icon].texture_rect
 	}
@@ -211,10 +211,10 @@ end
 
 function HUDTeammatePeer:_create_dead_icon()
 	local dead_icon_params = {
-		name = "dead_icon",
 		alpha = 0,
-		halign = "center",
 		valign = "center",
+		name = "dead_icon",
+		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.DEAD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.DEAD_ICON].texture_rect
 	}
@@ -227,10 +227,10 @@ end
 function HUDTeammatePeer:_create_carry_icon()
 	local temp_carry_icon = "carry_alive"
 	local carry_icon_params = {
-		name = "carry_icon",
 		alpha = 0,
-		halign = "center",
 		valign = "center",
+		name = "carry_icon",
+		halign = "center",
 		texture = tweak_data.gui.icons[temp_carry_icon].texture,
 		texture_rect = tweak_data.gui.icons[temp_carry_icon].texture_rect
 	}
@@ -243,10 +243,10 @@ end
 function HUDTeammatePeer:_create_special_interaction_icon()
 	local gui_icon = tweak_data.gui:get_full_gui_data(HUDNameLabel.LOCKPICK_ICON)
 	self._special_interaction_icon = self._status_panel:bitmap({
-		name = "special_interaction_icon",
 		alpha = 0,
-		halign = "center",
 		valign = "center",
+		name = "special_interaction_icon",
+		halign = "center",
 		texture = gui_icon.texture,
 		texture_rect = gui_icon.texture_rect
 	})
@@ -256,10 +256,10 @@ end
 
 function HUDTeammatePeer:_create_mounted_weapon_icon()
 	local mounted_weapon_icon_params = {
-		name = "mounted_weapon_icon",
 		alpha = 0,
-		halign = "center",
 		valign = "center",
+		name = "mounted_weapon_icon",
+		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.MOUNTED_WEAPON_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.MOUNTED_WEAPON_ICON].texture_rect
 	}
@@ -271,9 +271,9 @@ end
 
 function HUDTeammatePeer:_create_timer()
 	local timer_panel_params = {
-		name = "timer_panel",
 		alpha = 0,
 		layer = 5,
+		name = "timer_panel",
 		x = self._left_panel:x(),
 		y = self._left_panel:y(),
 		w = self._left_panel:w(),
@@ -281,10 +281,10 @@ function HUDTeammatePeer:_create_timer()
 	}
 	self._timer_panel = self._status_panel:panel(timer_panel_params)
 	local timer_background_params = {
-		name = "timer_background",
-		halign = "center",
 		layer = 1,
 		valign = "center",
+		name = "timer_background",
+		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.TIMER_BG_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.TIMER_BG_ICON].texture_rect
 	}
@@ -294,8 +294,8 @@ function HUDTeammatePeer:_create_timer()
 	timer_background:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_bar_params = {
-		name = "timer_bar",
 		render_template = "VertexColorTexturedRadial",
+		name = "timer_bar",
 		layer = 2,
 		valign = "center",
 		halign = "center",
@@ -315,13 +315,13 @@ function HUDTeammatePeer:_create_timer()
 	self._timer_bar:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_text_params = {
+		y = 0,
+		x = 0,
+		layer = 3,
 		name = "timer_text",
 		text = "37",
 		vertical = "center",
 		align = "center",
-		layer = 3,
-		y = 0,
-		x = 0,
 		w = self._timer_panel:w(),
 		h = self._timer_panel:h(),
 		font = tweak_data.gui.fonts[HUDTeammatePeer.TIMER_FONT],
@@ -336,18 +336,18 @@ end
 
 function HUDTeammatePeer:_create_interaction_meter()
 	local interaction_meter_panel_params = {
-		name = "interaction_meter_panel",
-		halign = "left",
 		alpha = 0,
 		layer = 4,
-		valign = "center"
+		valign = "center",
+		name = "interaction_meter_panel",
+		halign = "left"
 	}
 	self._interaction_meter_panel = self._status_panel:panel(interaction_meter_panel_params)
 	local interaction_meter_background_params = {
-		name = "interaction_meter_background",
-		halign = "scale",
 		layer = 1,
 		valign = "scale",
+		name = "interaction_meter_background",
+		halign = "scale",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.INTERACTION_METER_BG].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.INTERACTION_METER_BG].texture_rect
 	}
@@ -357,8 +357,8 @@ function HUDTeammatePeer:_create_interaction_meter()
 	interaction_meter_background:set_center_y(self._interaction_meter_panel:h() / 2)
 
 	local interaction_meter_params = {
-		name = "interaction_meter",
 		render_template = "VertexColorTexturedRadial",
+		name = "interaction_meter",
 		layer = 2,
 		valign = "scale",
 		halign = "scale",
@@ -383,9 +383,9 @@ function HUDTeammatePeer:_create_host_indicator()
 	local warcry_panel = self._left_panel:child("warcry_panel")
 	local warcry_background = warcry_panel:child("warcry_background")
 	local host_indicator_params = {
-		name = "host_indicator",
 		alpha = 0,
 		layer = 30,
+		name = "host_indicator",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.HOST_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.HOST_ICON].texture_rect
 	}
@@ -404,15 +404,15 @@ function HUDTeammatePeer:_create_voice_chat_indicator()
 	}
 	self._voice_chat_panel = self._right_panel:panel(voice_chat_panel_params)
 	local chat_indicator_params_speaking = {
-		name = "chat_indicator_speaking",
 		alpha = 0,
+		name = "chat_indicator_speaking",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_SPEAKING].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_SPEAKING].texture_rect
 	}
 	self._chat_indicator_speaking = self._voice_chat_panel:bitmap(chat_indicator_params_speaking)
 	local chat_indicator_params_muted = {
-		name = "chat_indicator_muted",
 		alpha = 0,
+		name = "chat_indicator_muted",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_MUTED].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.CHAT_ICON_MUTED].texture_rect
 	}
@@ -460,12 +460,12 @@ end
 
 function HUDTeammatePeer:_create_player_name()
 	local player_name_params = {
+		y = -2,
+		x = 0,
 		name = "player_name",
 		text = "",
 		vertical = "center",
 		align = "left",
-		y = -2,
-		x = 0,
 		w = self._right_panel:w() - HUDTeammatePeer.PLAYER_LEVEL_W - HUDTeammatePeer.CHAT_PANEL_W,
 		h = HUDTeammatePeer.PLAYER_NAME_H,
 		font = tweak_data.gui.fonts[HUDTeammatePeer.PLAYER_NAME_FONT],
@@ -497,17 +497,17 @@ end
 
 function HUDTeammatePeer:_create_player_health()
 	local health_panel_params = {
-		name = "health_panel",
 		x = 0,
+		name = "health_panel",
 		y = self._right_panel:h() / 2 - HUDTeammatePeer.PLAYER_HEALTH_H,
 		w = self._right_panel:w(),
 		h = HUDTeammatePeer.PLAYER_HEALTH_H
 	}
 	local health_panel = self._right_panel:panel(health_panel_params)
 	local health_background_params = {
+		valign = "center",
 		name = "health_background",
 		halign = "center",
-		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.PLAYER_HEALTH_BG_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.PLAYER_HEALTH_BG_ICON].texture_rect
 	}
@@ -533,8 +533,8 @@ end
 
 function HUDTeammatePeer:_create_equipment_panel()
 	local equipment_panel_params = {
-		name = "equipment_panel",
 		x = 0,
+		name = "equipment_panel",
 		y = self._right_panel:h() / 2,
 		w = self._right_panel:w(),
 		h = HUDTeammatePeer.EQUIPMENT_H
@@ -590,9 +590,9 @@ function HUDTeammatePeer:set_active_warcry(warcry)
 
 	local warcry_icon_name = tweak_data.warcry[warcry].hud_icon
 	local warcry_icon_params = {
+		valign = "center",
 		name = "warcry_icon",
 		halign = "center",
-		valign = "center",
 		texture = tweak_data.gui.icons[warcry_icon_name].texture,
 		texture_rect = tweak_data.gui.icons[warcry_icon_name].texture_rect,
 		alpha = self._active_states.warcry and 1 or 0

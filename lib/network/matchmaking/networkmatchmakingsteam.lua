@@ -896,7 +896,7 @@ function NetworkMatchMakingSTEAM:add_player_info(peer_id)
 
 			if peer_data then
 				local peer_level = peer_data:level() or ""
-				local peer_class = managers.network:session():all_peers()[peer_id]:blackmarket_outfit().skills or ""
+				local peer_class = peer_data:class() or ""
 				local peer_name = string.gsub(peer_data:name() or "", ",", "")
 				local peer_nationality = peer_data:character() or ""
 				players_info = peer_level .. "," .. peer_class .. "," .. peer_name .. "," .. peer_nationality

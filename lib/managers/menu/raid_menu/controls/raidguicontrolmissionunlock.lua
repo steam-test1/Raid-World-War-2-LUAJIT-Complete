@@ -36,9 +36,9 @@ end
 
 function RaidGUIControlMissionUnlock:_create_background()
 	local background_params = {
+		visible = false,
 		name = "background",
 		layer = 1,
-		visible = false,
 		color = tweak_data.gui.colors.raid_unlock_select_background
 	}
 	self._background = self._object:rect(background_params)
@@ -126,17 +126,17 @@ function RaidGUIControlMissionUnlock:_create_folder()
 	end
 
 	local folder_panel_params = {
+		name = "folder_panel",
 		h = 448,
-		layer = 5,
-		name = "folder_panel"
+		layer = 5
 	}
 	self._folder_panel = self._object:panel(folder_panel_params)
 
 	self._folder_panel:set_center_y(self._object:h() / 2)
 
 	local folder_image_params = {
-		name = "folder_image",
 		layer = 50,
+		name = "folder_image",
 		texture = tweak_data.gui.icons.folder_mission_selection.texture,
 		texture_rect = tweak_data.gui.icons.folder_mission_selection.texture_rect
 	}
@@ -166,11 +166,11 @@ function RaidGUIControlMissionUnlock:_create_folder()
 	self._mission_image:set_center_y(self._folder_image:center_y() - 20)
 
 	local mission_title_params = {
-		h = 32,
-		w = 192,
 		vertical = "center",
 		align = "center",
 		name = "folder_mission_title",
+		h = 32,
+		w = 192,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_32,
 		color = tweak_data.gui.colors.raid_light_red,
@@ -191,9 +191,9 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	local mission_photo_data = table.remove(mission_photos)
 	local mission_photo_params = {
+		static = true,
 		alpha = 0,
 		layer = 1,
-		static = true,
 		photo = mission_photo_data.photo
 	}
 	local mission_photo = self._folder_panel:create_custom_control(RaidGUIControlIntelImage, mission_photo_params)
@@ -207,10 +207,10 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	mission_photo:set_rotation(rotation)
 	table.insert(self._mission_photos, {
-		initial_alpha = 1,
 		final_alpha = 1,
 		initial_y = 0.25,
 		initial_x = 0.5,
+		initial_alpha = 1,
 		photo = mission_photo,
 		rotation = rotation,
 		position_x = position_x,
@@ -219,9 +219,9 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	mission_photo_data = table.remove(mission_photos)
 	mission_photo_params = {
+		static = true,
 		alpha = 0,
 		layer = 3,
-		static = true,
 		photo = mission_photo_data.photo
 	}
 	mission_photo = self._folder_panel:create_custom_control(RaidGUIControlIntelImage, mission_photo_params)
@@ -235,9 +235,9 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	mission_photo:set_rotation(rotation)
 	table.insert(self._mission_photos, {
-		initial_alpha = 1,
 		final_alpha = 1,
 		initial_x = 0.5,
+		initial_alpha = 1,
 		photo = mission_photo,
 		rotation = rotation,
 		position_x = position_x,
@@ -247,8 +247,8 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	mission_photo_data = table.remove(mission_photos)
 	mission_photo_params = {
-		alpha = 0,
 		static = true,
+		alpha = 0,
 		photo = mission_photo_data.photo,
 		layer = self._folder_mission_title:layer() + 1
 	}
@@ -263,10 +263,10 @@ function RaidGUIControlMissionUnlock:_create_folder()
 
 	mission_photo:set_rotation(rotation)
 	table.insert(self._mission_photos, {
-		initial_alpha = 0,
 		final_alpha = 1,
 		initial_y = 0.6,
 		initial_x = 0.5,
+		initial_alpha = 0,
 		photo = mission_photo,
 		rotation = rotation,
 		position_x = position_x,
@@ -300,10 +300,10 @@ end
 function RaidGUIControlMissionUnlock:_create_mission_description()
 	local mission_tweak_data = tweak_data.operations:mission_data(self._mission)
 	local mission_description_panel_params = {
-		h = 192,
 		w = 384,
 		alpha = 0,
 		name = "mission_description_panel",
+		h = 192,
 		y = RaidGUIControlMissionUnlock.DESCRIPTION_Y
 	}
 	self._description_panel = self._object:panel(mission_description_panel_params)
@@ -311,10 +311,10 @@ function RaidGUIControlMissionUnlock:_create_mission_description()
 	self._description_panel:set_center_x(self._object:w() / 2)
 
 	local mission_title_params = {
-		h = 32,
 		vertical = "center",
 		name = "mission_title",
 		align = "center",
+		h = 32,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_38,
 		color = tweak_data.gui.colors.raid_dirty_white,

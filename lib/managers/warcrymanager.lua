@@ -39,10 +39,6 @@ function WarcryManager:_setup()
 	end
 end
 
-function WarcryManager:get_active_warcry()
-	return self._active_warcry
-end
-
 function WarcryManager:set_warcry_post_effect(ids_effect)
 	local vp = managers.viewport:first_active_viewport()
 
@@ -323,8 +319,8 @@ end
 
 function WarcryManager:add_warcry_comm_wheel_option(index)
 	local warcry_comm_wheel_option = {
-		id = "warcry",
 		text_id = "com_wheel_warcry",
+		id = "warcry",
 		icon = tweak_data.warcry[self._active_warcry:get_type()].hud_icon,
 		color = Color.white,
 		clbk = callback(self, self, "activate_warcry")
@@ -366,9 +362,9 @@ function WarcryManager:_on_meter_full(skip_notification)
 			end
 
 			managers.hud:set_big_prompt({
-				id = "warcry_ready",
-				flares = true,
 				background = "backgrounds_warcry_msg",
+				flares = true,
+				id = "warcry_ready",
 				priority = true,
 				title = prompt_title,
 				description = prompt_desc,

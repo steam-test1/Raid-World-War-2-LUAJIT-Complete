@@ -113,10 +113,10 @@ end
 
 function RaidGUIControlWeaponSkillDesc:_create_labels()
 	local params_name_label = {
+		y = 0,
 		x = 0,
 		h = 38,
 		text = "UNKNOWN SKILL NAME",
-		y = 0,
 		name = self._params.name .. "_name_label",
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_38,
@@ -124,12 +124,12 @@ function RaidGUIControlWeaponSkillDesc:_create_labels()
 	}
 	self._name_label = self._object:label(params_name_label)
 	local params_status_label = {
-		x = 0,
-		h = 32,
-		text = "lol",
 		align = "left",
+		text = "lol",
 		vertical = "bottom",
 		y = 32,
+		x = 0,
+		h = 32,
 		name = self._params.name .. "_status_label",
 		w = RaidGUIControlWeaponSkillDesc.CONTENT_W,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -138,12 +138,12 @@ function RaidGUIControlWeaponSkillDesc:_create_labels()
 	}
 	self._status_label = self._object:label(params_status_label)
 	local params_desc_label = {
-		x = 0,
-		h = 100,
-		text = "Unknown skill description. Lorem ipsum glupsum tumsum. Kajaznam kolko ovog stane u tri linije mozda jos malo a mozda i ne.",
 		word_wrap = true,
 		wrap = true,
+		text = "Unknown skill description. Lorem ipsum glupsum tumsum. Kajaznam kolko ovog stane u tri linije mozda jos malo a mozda i ne.",
 		y = 96,
+		x = 0,
+		h = 100,
 		name = self._params.name .. "_desc_label",
 		w = RaidGUIControlWeaponSkillDesc.CONTENT_W,
 		font = tweak_data.gui.fonts.lato,
@@ -152,14 +152,14 @@ function RaidGUIControlWeaponSkillDesc:_create_labels()
 	}
 	self._desc_label = self._object:label(params_desc_label)
 	local tier_unlocks_at_level_label_params = {
-		x = 0,
 		visible = false,
-		layer = 1,
-		name = "cant_equip_explenation_label",
 		h = 58,
 		wrap = true,
 		align = "left",
 		text = "",
+		x = 0,
+		layer = 1,
+		name = "cant_equip_explenation_label",
 		y = self._desc_label:y(),
 		w = RaidGUIControlWeaponSkillDesc.CONTENT_W,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -171,9 +171,9 @@ end
 
 function RaidGUIControlWeaponSkillDesc:_create_progress_bar()
 	local progress_bar_panel_params = {
+		vertical = "bottom",
 		x = 0,
 		h = 32,
-		vertical = "bottom",
 		name = self._params.name .. "_progress_bar_panel",
 		w = RaidGUIControlWeaponSkillDesc.CONTENT_W
 	}
@@ -196,11 +196,11 @@ function RaidGUIControlWeaponSkillDesc:_create_progress_bar()
 	}
 	local progress_bar_background = self._progress_bar_panel:three_cut_bitmap(progress_bar_background_params)
 	local progress_bar_foreground_panel_params = {
-		x = 0,
 		valign = "scale",
-		halign = "scale",
 		layer = 2,
 		y = 0,
+		x = 0,
+		halign = "scale",
 		name = self._params.name .. "_progress_bar_foreground_panel",
 		w = self._progress_bar_panel:w(),
 		h = self._progress_bar_panel:h()
@@ -217,12 +217,12 @@ function RaidGUIControlWeaponSkillDesc:_create_progress_bar()
 	}
 	local progress_bar_background = self._progress_bar_foreground_panel:three_cut_bitmap(progress_bar_background_params)
 	local progress_bar_text_params = {
-		x = 0,
-		layer = 5,
-		text = "123/456",
 		align = "center",
+		text = "123/456",
 		vertical = "center",
 		y = -2,
+		x = 0,
+		layer = 5,
 		name = self._params.name .. "_progress_bar_text",
 		w = self._progress_bar_panel:w(),
 		h = self._progress_bar_panel:h(),

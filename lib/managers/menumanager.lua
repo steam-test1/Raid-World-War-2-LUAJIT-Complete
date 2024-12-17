@@ -38,451 +38,451 @@ function MenuManager:init(is_start_menu)
 
 	if is_start_menu then
 		local menu_main = {
+			id = "start_menu",
+			name = "menu_main",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/start_menu",
 			renderer = "MenuRenderer",
-			id = "start_menu",
-			name = "menu_main",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(menu_main)
 
 		local mission_join_menu = {
+			id = "mission_join_menu",
+			name = "mission_join_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/mission_join_menu",
 			renderer = "MenuRenderer",
-			id = "mission_join_menu",
-			name = "mission_join_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(mission_join_menu)
 
 		local raid_options_menu = {
+			id = "raid_options_menu",
+			name = "raid_options_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_options_menu",
 			renderer = "MenuRenderer",
-			id = "raid_options_menu",
-			name = "raid_options_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_options_menu)
 
 		local raid_menu_credits = {
+			id = "raid_credits_menu",
+			name = "raid_credits_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/show_credits_menu",
 			renderer = "MenuRenderer",
-			id = "raid_credits_menu",
-			name = "raid_credits_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_credits)
 
 		local raid_menu_options_controls = {
+			id = "raid_menu_options_controls",
+			name = "raid_menu_options_controls",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controls",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controls",
-			name = "raid_menu_options_controls",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controls)
 
 		local raid_menu_options_controls_keybinds = {
+			id = "raid_menu_options_controls_keybinds",
+			name = "raid_menu_options_controls_keybinds",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controls_keybinds",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controls_keybinds",
-			name = "raid_menu_options_controls_keybinds",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controls_keybinds)
 
 		local raid_menu_options_controller_mapping = {
+			id = "raid_menu_options_controller_mapping",
+			name = "raid_menu_options_controller_mapping",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controller_mapping",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controller_mapping",
-			name = "raid_menu_options_controller_mapping",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controller_mapping)
 
 		local raid_menu_options_video = {
+			id = "raid_menu_options_video",
+			name = "raid_menu_options_video",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_video",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_video",
-			name = "raid_menu_options_video",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_video)
 
 		local raid_menu_options_video_advanced = {
+			id = "raid_menu_options_video_advanced",
+			name = "raid_menu_options_video_advanced",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_video_advanced",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_video_advanced",
-			name = "raid_menu_options_video_advanced",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_video_advanced)
 
 		local raid_menu_options_interface = {
+			id = "raid_menu_options_interface",
+			name = "raid_menu_options_interface",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_interface",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_interface",
-			name = "raid_menu_options_interface",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_interface)
 
 		local raid_menu_options_sound = {
+			id = "raid_menu_options_sound",
+			name = "raid_menu_options_sound",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_sound",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_sound",
-			name = "raid_menu_options_sound",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_sound)
 
 		local raid_menu_options_network = {
+			id = "raid_menu_options_network",
+			name = "raid_menu_options_network",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_network",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_network",
-			name = "raid_menu_options_network",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_network)
 	else
 		local mission_join_menu = {
+			id = "mission_join_menu",
+			name = "mission_join_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/mission_join_menu",
 			renderer = "MenuRenderer",
-			id = "mission_join_menu",
-			name = "mission_join_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(mission_join_menu)
 
 		local mission_selection_menu = {
+			id = "mission_selection_menu",
+			name = "mission_selection_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/mission_selection_menu",
 			renderer = "MenuRenderer",
-			id = "mission_selection_menu",
-			name = "mission_selection_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(mission_selection_menu)
 
 		local mission_unlock_menu = {
+			id = "mission_unlock_menu",
+			name = "mission_unlock_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/mission_unlock_menu",
 			renderer = "MenuRenderer",
-			id = "mission_unlock_menu",
-			name = "mission_unlock_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(mission_unlock_menu)
 
 		local profile_selection_menu = {
+			id = "profile_selection_menu",
+			name = "profile_selection_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/profile_selection_menu",
 			renderer = "MenuRenderer",
-			id = "profile_selection_menu",
-			name = "profile_selection_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(profile_selection_menu)
 
 		local profile_creation_menu = {
+			id = "profile_creation_menu",
+			name = "profile_creation_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/profile_creation_menu",
 			renderer = "MenuRenderer",
-			id = "profile_creation_menu",
-			name = "profile_creation_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(profile_creation_menu)
 
 		local character_customization_menu = {
+			id = "character_customization_menu",
+			name = "character_customization_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/character_customization_menu",
 			renderer = "MenuRenderer",
-			id = "character_customization_menu",
-			name = "character_customization_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(character_customization_menu)
 
 		local raid_main_menu = {
+			id = "raid_main_menu",
+			name = "raid_main_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_main_menu",
 			renderer = "MenuRenderer",
-			id = "raid_main_menu",
-			name = "raid_main_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_main_menu)
 
 		local raid_options_menu = {
+			id = "raid_options_menu",
+			name = "raid_options_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_options_menu",
 			renderer = "MenuRenderer",
-			id = "raid_options_menu",
-			name = "raid_options_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_options_menu)
 
 		local challenge_cards_menu = {
+			id = "challenge_cards_menu",
+			name = "challenge_cards_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/challenge_cards_menu",
 			renderer = "MenuRenderer",
-			id = "challenge_cards_menu",
-			name = "challenge_cards_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(challenge_cards_menu)
 
 		local ready_up_menu = {
+			id = "ready_up_menu",
+			name = "ready_up_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/ready_up_menu",
 			renderer = "MenuRenderer",
-			id = "ready_up_menu",
-			name = "ready_up_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(ready_up_menu)
 
 		local challenge_cards_view_menu = {
+			id = "challenge_cards_view_menu",
+			name = "challenge_cards_view_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/challenge_cards_view_menu",
 			renderer = "MenuRenderer",
-			id = "challenge_cards_view_menu",
-			name = "challenge_cards_view_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(challenge_cards_view_menu)
 
 		local raid_experience_menu = {
+			id = "raid_menu_xp",
+			name = "raid_menu_xp",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/xp_menu",
 			renderer = "MenuRenderer",
-			id = "raid_menu_xp",
-			name = "raid_menu_xp",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_experience_menu)
 
 		local raid_post_game_breakdown_menu = {
+			id = "raid_menu_post_game_breakdown",
+			name = "raid_menu_post_game_breakdown",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/post_game_breakdown",
 			renderer = "MenuRenderer",
-			id = "raid_menu_post_game_breakdown",
-			name = "raid_menu_post_game_breakdown",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_post_game_breakdown_menu)
 
 		local raid_special_honors_menu = {
+			id = "raid_menu_special_honors",
+			name = "raid_menu_special_honors",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/special_honors",
 			renderer = "MenuRenderer",
-			id = "raid_menu_special_honors",
-			name = "raid_menu_special_honors",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_special_honors_menu)
 
 		local raid_loot_screen_menu = {
+			id = "raid_menu_loot_screen",
+			name = "raid_menu_loot_screen",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/loot_screen_menu",
 			renderer = "MenuRenderer",
-			id = "raid_menu_loot_screen",
-			name = "raid_menu_loot_screen",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_loot_screen_menu)
 
 		local raid_greed_loot_screen_menu = {
+			id = "raid_menu_greed_loot_screen",
+			name = "raid_menu_greed_loot_screen",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/greed_loot_screen_menu",
 			renderer = "MenuRenderer",
-			id = "raid_menu_greed_loot_screen",
-			name = "raid_menu_greed_loot_screen",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_greed_loot_screen_menu)
 
 		local raid_menu_weapon_select = {
+			id = "raid_menu_weapon_select",
+			name = "raid_menu_weapon_select",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/weapon_select_menu",
 			renderer = "MenuRenderer",
-			id = "raid_menu_weapon_select",
-			name = "raid_menu_weapon_select",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_weapon_select)
 
 		local raid_menu_credits = {
+			id = "raid_credits_menu",
+			name = "raid_credits_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/show_credits_menu",
 			renderer = "MenuRenderer",
-			id = "raid_credits_menu",
-			name = "raid_credits_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_credits)
 
 		local raid_menu_options_controls = {
+			id = "raid_menu_options_controls",
+			name = "raid_menu_options_controls",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controls",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controls",
-			name = "raid_menu_options_controls",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controls)
 
 		local raid_menu_options_controller_mapping = {
+			id = "raid_menu_options_controller_mapping",
+			name = "raid_menu_options_controller_mapping",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controller_mapping",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controller_mapping",
-			name = "raid_menu_options_controller_mapping",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controller_mapping)
 
 		local raid_menu_options_controls_keybinds = {
+			id = "raid_menu_options_controls_keybinds",
+			name = "raid_menu_options_controls_keybinds",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_controls_keybinds",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_controls_keybinds",
-			name = "raid_menu_options_controls_keybinds",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_controls_keybinds)
 
 		local raid_menu_options_video = {
+			id = "raid_menu_options_video",
+			name = "raid_menu_options_video",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_video",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_video",
-			name = "raid_menu_options_video",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_video)
 
 		local raid_menu_options_video_advanced = {
+			id = "raid_menu_options_video_advanced",
+			name = "raid_menu_options_video_advanced",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_video_advanced",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_video_advanced",
-			name = "raid_menu_options_video_advanced",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_video_advanced)
 
 		local raid_menu_options_interface = {
+			id = "raid_menu_options_interface",
+			name = "raid_menu_options_interface",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_interface",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_interface",
-			name = "raid_menu_options_interface",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_interface)
 
 		local raid_menu_options_sound = {
+			id = "raid_menu_options_sound",
+			name = "raid_menu_options_sound",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_sound",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_sound",
-			name = "raid_menu_options_sound",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_sound)
 
 		local raid_menu_options_network = {
+			id = "raid_menu_options_network",
+			name = "raid_menu_options_network",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/raid_menu_options_network",
 			renderer = "MenuRenderer",
-			id = "raid_menu_options_network",
-			name = "raid_menu_options_network",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(raid_menu_options_network)
 
 		local gold_asset_store_menu = {
+			id = "gold_asset_store_menu",
+			name = "gold_asset_store_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/gold_asset_store_menu",
 			renderer = "MenuRenderer",
-			id = "gold_asset_store_menu",
-			name = "gold_asset_store_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(gold_asset_store_menu)
 
 		local intel_menu = {
+			id = "intel_menu",
+			name = "intel_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/intel_menu",
 			renderer = "MenuRenderer",
-			id = "intel_menu",
-			name = "intel_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
 		self:register_menu(intel_menu)
 
 		local comic_book_menu = {
+			id = "comic_book_menu",
+			name = "comic_book_menu",
 			input = "MenuInput",
 			content_file = "gamedata/raid/menus/comic_book_menu",
 			renderer = "MenuRenderer",
-			id = "comic_book_menu",
-			name = "comic_book_menu",
 			callback_handler = MenuCallbackHandler:new()
 		}
 
@@ -1324,11 +1324,11 @@ function MenuManager:add_back_button(new_node)
 	new_node:delete_item("back")
 
 	local params = {
-		visible_callback = "is_pc_controller",
 		previous_node = true,
-		back = true,
+		name = "back",
+		visible_callback = "is_pc_controller",
 		text_id = "menu_back",
-		name = "back"
+		back = true
 	}
 	local new_item = new_node:create_item(nil, params)
 
@@ -1342,9 +1342,9 @@ end
 function MenuManager:_recompile(dir)
 	local source_files = self:_source_files(dir)
 	local t = {
-		verbose = false,
-		send_idstrings = false,
 		target_db_name = "all",
+		send_idstrings = false,
+		verbose = false,
 		platform = string.lower(SystemInfo:platform():s()),
 		source_root = managers.database:root_path() .. "/assets",
 		target_db_root = Application:base_path() .. "assets",
@@ -1857,9 +1857,9 @@ function MenuUpgrades:modify_node(node, up, ...)
 			new_node:add_item(new_node:create_item({
 				type = "MenuItemUpgrade"
 			}, {
+				name = "upgrade_lock",
 				localize = "false",
 				upgrade_lock = true,
-				name = "upgrade_lock",
 				text_id = managers.localization:text("menu_upgrades_locked", {
 					LEVEL = managers.upgrades:get_level_from_step(i)
 				})
@@ -1904,8 +1904,8 @@ function InviteFriendsPSN:refresh_node(node, friends)
 
 			if not item then
 				local params = {
-					callback = "invite_friend",
 					localize = "false",
+					callback = "invite_friend",
 					name = name,
 					friend = friend._id,
 					text_id = utf8.to_upper(friend._name),
@@ -1983,8 +1983,8 @@ function KickPlayer:modify_node(node, up)
 			local params = {
 				to_upper = false,
 				localize = false,
-				localize_help = false,
 				callback = "kick_player",
+				localize_help = false,
 				name = peer:name(),
 				text_id = peer:name() .. " (" .. (peer:level() or "") .. ")",
 				rpc = peer:rpc(),
@@ -2018,9 +2018,9 @@ function MutePlayer:modify_node(node, up)
 	if managers.network:session() then
 		for _, peer in pairs(managers.network:session():peers()) do
 			local params = {
-				to_upper = false,
 				callback = "mute_player",
 				localize = "false",
+				to_upper = false,
 				name = peer:name(),
 				text_id = peer:name() .. (peer:level() or "") .. ")",
 				rpc = peer:rpc(),
@@ -2028,32 +2028,32 @@ function MutePlayer:modify_node(node, up)
 			}
 			local data = {
 				{
+					y = 0,
 					x = 24,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 24,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "on",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				{
+					y = 0,
 					x = 0,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 0,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "off",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2077,9 +2077,9 @@ function MutePlayerXB1:modify_node(node, up)
 	if managers.network:session() then
 		for _, peer in pairs(managers.network:session():peers()) do
 			local params = {
-				to_upper = false,
 				callback = "mute_xb1_player",
 				localize = "false",
+				to_upper = false,
 				name = peer:name(),
 				text_id = peer:name(),
 				rpc = peer:rpc(),
@@ -2088,32 +2088,32 @@ function MutePlayerXB1:modify_node(node, up)
 			}
 			local data = {
 				{
+					y = 0,
 					x = 24,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 24,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "on",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				{
+					y = 0,
 					x = 0,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 0,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "off",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2137,9 +2137,9 @@ function MutePlayerPS4:modify_node(node, up)
 	if managers.network:session() then
 		for _, peer in pairs(managers.network:session():peers()) do
 			local params = {
-				to_upper = false,
 				callback = "mute_ps4_player",
 				localize = "false",
+				to_upper = false,
 				name = peer:name(),
 				text_id = peer:name(),
 				rpc = peer:rpc(),
@@ -2147,32 +2147,32 @@ function MutePlayerPS4:modify_node(node, up)
 			}
 			local data = {
 				{
+					y = 0,
 					x = 24,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 24,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "on",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				{
+					y = 0,
 					x = 0,
-					_meta = "option",
-					s_y = 24,
 					s_h = 24,
 					s_w = 24,
-					y = 0,
+					s_y = 24,
 					s_x = 0,
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
 					value = "off",
-					icon = "ui/main_menu/textures/debug_menu_tickbox"
+					icon = "ui/main_menu/textures/debug_menu_tickbox",
+					_meta = "option"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2196,9 +2196,9 @@ function ViewGamerCard:modify_node(node, up)
 	if managers.network:session() then
 		for _, peer in pairs(managers.network:session():peers()) do
 			local params = {
-				to_upper = false,
 				callback = "view_gamer_card",
 				localize = "false",
+				to_upper = false,
 				name = peer:name(),
 				text_id = peer:name(),
 				xuid = peer:xuid()
@@ -2236,38 +2236,38 @@ function MenuPSNHostBrowser:add_filter(node)
 	end
 
 	local params = {
-		callback = "choice_difficulty_filter_ps4",
-		filter = true,
+		name = "difficulty_filter",
 		help_id = "menu_diff_filter_help",
 		visible_callback = "is_ps4",
+		callback = "choice_difficulty_filter_ps4",
 		text_id = "menu_diff_filter",
-		name = "difficulty_filter"
+		filter = true
 	}
 	local data_node = {
 		{
+			text_id = "menu_all",
 			value = 0,
-			_meta = "option",
-			text_id = "menu_all"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_1",
 			value = 1,
-			_meta = "option",
-			text_id = "menu_difficulty_1"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_2",
 			value = 2,
-			_meta = "option",
-			text_id = "menu_difficulty_2"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_3",
 			value = 3,
-			_meta = "option",
-			text_id = "menu_difficulty_3"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_4",
 			value = 4,
-			_meta = "option",
-			text_id = "menu_difficulty_4"
+			_meta = "option"
 		},
 		type = "MenuItemMultiChoice"
 	}
@@ -2320,8 +2320,8 @@ function MenuPSNHostBrowser:refresh_node(node, info_list, friends_only)
 
 				if not item then
 					local params = {
-						callback = "connect_to_lobby",
 						localize = "false",
+						callback = "connect_to_lobby",
 						name = name_str,
 						text_id = name_str,
 						room_id = room.room_id,
@@ -2401,33 +2401,33 @@ function MenuSTEAMHostBrowser:add_filter(node)
 	end
 
 	local params = {
-		callback = "choice_distance_filter",
-		filter = true,
+		name = "server_filter",
 		help_id = "menu_dist_filter_help",
 		visible_callback = "is_pc_controller",
+		callback = "choice_distance_filter",
 		text_id = "menu_dist_filter",
-		name = "server_filter"
+		filter = true
 	}
 	local data_node = {
 		{
+			text_id = "menu_dist_filter_close",
 			value = 0,
-			_meta = "option",
-			text_id = "menu_dist_filter_close"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_dist_filter_default",
 			value = 1,
-			_meta = "option",
-			text_id = "menu_dist_filter_default"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_dist_filter_far",
 			value = 2,
-			_meta = "option",
-			text_id = "menu_dist_filter_far"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_dist_filter_worldwide",
 			value = 3,
-			_meta = "option",
-			text_id = "menu_dist_filter_worldwide"
+			_meta = "option"
 		},
 		type = "MenuItemMultiChoice"
 	}
@@ -2437,38 +2437,38 @@ function MenuSTEAMHostBrowser:add_filter(node)
 	node:add_item(new_item)
 
 	local params = {
-		callback = "choice_difficulty_filter",
-		filter = true,
+		name = "difficulty_filter",
 		help_id = "menu_diff_filter_help",
 		visible_callback = "is_pc_controller",
+		callback = "choice_difficulty_filter",
 		text_id = "menu_diff_filter",
-		name = "difficulty_filter"
+		filter = true
 	}
 	local data_node = {
 		{
+			text_id = "menu_all",
 			value = 0,
-			_meta = "option",
-			text_id = "menu_all"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_easy",
 			value = 1,
-			_meta = "option",
-			text_id = "menu_difficulty_easy"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_normal",
 			value = 2,
-			_meta = "option",
-			text_id = "menu_difficulty_normal"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_hard",
 			value = 3,
-			_meta = "option",
-			text_id = "menu_difficulty_hard"
+			_meta = "option"
 		},
 		{
+			text_id = "menu_difficulty_overkill",
 			value = 4,
-			_meta = "option",
-			text_id = "menu_difficulty_overkill"
+			_meta = "option"
 		},
 		type = "MenuItemMultiChoice"
 	}
@@ -2522,8 +2522,8 @@ function MenuSTEAMHostBrowser:refresh_node(node, info, friends_only)
 				print("ADD", name_str)
 
 				local params = {
-					callback = "connect_to_lobby",
 					localize = "false",
+					callback = "connect_to_lobby",
 					name = room.room_id,
 					text_id = name_str,
 					room_id = room.room_id,
@@ -2750,11 +2750,11 @@ function MenuResolutionCreator:modify_node(node)
 
 			if not new_node:item(res_string) then
 				local params = {
-					icon = "guis/textures/scrollarrow",
-					icon_visible_callback = "is_current_resolution",
 					callback = "change_resolution",
 					localize = "false",
 					icon_rotation = 90,
+					icon = "guis/textures/scrollarrow",
+					icon_visible_callback = "is_current_resolution",
 					name = res_string,
 					text_id = res_string,
 					resolution = res
@@ -2874,10 +2874,10 @@ function MenuManager.refresh_level_select(node, verify_dlc_owned)
 		print("lobby_mission_item")
 
 		local params = {
-			localize = "false",
-			callback = "choice_lobby_mission",
 			text_id = "menu_choose_mission",
-			name = "lobby_mission"
+			name = "lobby_mission",
+			localize = "false",
+			callback = "choice_lobby_mission"
 		}
 		local data_node = {
 			type = "MenuItemMultiChoice"
@@ -2894,10 +2894,10 @@ function MenuManager.refresh_level_select(node, verify_dlc_owned)
 			end
 		else
 			table.insert(data_node, {
-				localize = false,
-				_meta = "option",
 				text_id = "none",
-				value = "none"
+				value = "none",
+				localize = false,
+				_meta = "option"
 			})
 		end
 
@@ -3042,118 +3042,118 @@ MenuCustomizeControllerCreator.AXIS_ORDERED = {
 }
 MenuCustomizeControllerCreator.CONTROLS_INFO = {
 	move = {
-		category = "normal",
 		hidden = true,
-		type = "movement"
+		type = "movement",
+		category = "normal"
 	},
 	up = {
-		category = "normal",
+		text_id = "menu_button_move_forward",
 		type = "movement",
-		text_id = "menu_button_move_forward"
+		category = "normal"
 	},
 	down = {
-		category = "normal",
+		text_id = "menu_button_move_back",
 		type = "movement",
-		text_id = "menu_button_move_back"
+		category = "normal"
 	},
 	left = {
-		category = "normal",
+		text_id = "menu_button_move_left",
 		type = "movement",
-		text_id = "menu_button_move_left"
+		category = "normal"
 	},
 	right = {
-		category = "normal",
+		text_id = "menu_button_move_right",
 		type = "movement",
-		text_id = "menu_button_move_right"
+		category = "normal"
 	},
 	primary_attack = {
-		category = "normal",
+		text_id = "menu_button_fire_weapon",
 		type = "usage",
-		text_id = "menu_button_fire_weapon"
+		category = "normal"
 	},
 	secondary_attack = {
-		category = "normal",
+		text_id = "menu_button_aim_down_sight",
 		type = "usage",
-		text_id = "menu_button_aim_down_sight"
+		category = "normal"
 	},
 	primary_choice1 = {
-		category = "normal",
+		text_id = "menu_button_weapon_slot1",
 		type = "usage",
-		text_id = "menu_button_weapon_slot1"
+		category = "normal"
 	},
 	primary_choice2 = {
-		category = "normal",
+		text_id = "menu_button_weapon_slot2",
 		type = "usage",
-		text_id = "menu_button_weapon_slot2"
+		category = "normal"
 	},
 	primary_choice3 = {
-		category = "normal",
+		text_id = "menu_button_weapon_slot3",
 		type = "usage",
-		text_id = "menu_button_weapon_slot3"
+		category = "normal"
 	},
 	primary_choice4 = {
-		category = "normal",
+		text_id = "menu_button_weapon_slot4",
 		type = "usage",
-		text_id = "menu_button_weapon_slot4"
+		category = "normal"
 	},
 	switch_weapon = {
-		category = "normal",
+		text_id = "menu_button_switch_weapon",
 		type = "usage",
-		text_id = "menu_button_switch_weapon"
+		category = "normal"
 	},
 	reload = {
-		category = "normal",
+		text_id = "menu_button_reload",
 		type = "usage",
-		text_id = "menu_button_reload"
+		category = "normal"
 	},
 	run = {
-		category = "normal",
+		text_id = "menu_button_sprint",
 		type = "movement",
-		text_id = "menu_button_sprint"
+		category = "normal"
 	},
 	jump = {
-		category = "normal",
+		text_id = "menu_button_jump",
 		type = "movement",
-		text_id = "menu_button_jump"
+		category = "normal"
 	},
 	duck = {
-		category = "normal",
+		text_id = "menu_button_crouch",
 		type = "movement",
-		text_id = "menu_button_crouch"
+		category = "normal"
 	},
 	melee = {
-		category = "normal",
+		text_id = "menu_button_melee",
 		type = "usage",
-		text_id = "menu_button_melee"
+		category = "normal"
 	},
 	interact = {
-		category = "normal",
+		text_id = "menu_button_shout",
 		type = "usage",
-		text_id = "menu_button_shout"
+		category = "normal"
 	},
 	use_item = {
-		category = "normal",
+		text_id = "menu_button_deploy",
 		type = "usage",
-		text_id = "menu_button_deploy"
+		category = "normal"
 	},
 	toggle_chat = {
-		category = "normal",
+		text_id = "menu_button_chat_message",
 		type = "communication",
-		text_id = "menu_button_chat_message"
+		category = "normal"
 	},
 	push_to_talk = {
-		category = "normal",
+		text_id = "menu_button_push_to_talk",
 		type = "communication",
-		text_id = "menu_button_push_to_talk"
+		category = "normal"
 	},
 	continue = {
 		text_id = "menu_button_continue",
 		category = "normal"
 	},
 	weapon_firemode = {
-		category = "normal",
+		text_id = "menu_button_weapon_firemode",
 		type = "usage",
-		text_id = "menu_button_weapon_firemode"
+		category = "normal"
 	},
 	cash_inspect = {
 		text_id = "menu_button_cash_inspect",
@@ -3164,112 +3164,112 @@ MenuCustomizeControllerCreator.CONTROLS_INFO = {
 		category = "normal"
 	},
 	comm_wheel = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel",
 		type = "communication",
-		text_id = "menu_button_comm_wheel"
+		category = "normal"
 	},
 	comm_wheel_yes = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_yes",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_yes"
+		category = "normal"
 	},
 	comm_wheel_no = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_no",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_no"
+		category = "normal"
 	},
 	comm_wheel_found_it = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_found_it",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_found_it"
+		category = "normal"
 	},
 	comm_wheel_wait = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_wait",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_wait"
+		category = "normal"
 	},
 	comm_wheel_not_here = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_not_here",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_not_here"
+		category = "normal"
 	},
 	comm_wheel_follow_me = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_follow_me",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_follow_me"
+		category = "normal"
 	},
 	comm_wheel_assistance = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_assistance",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_assistance"
+		category = "normal"
 	},
 	comm_wheel_enemy = {
-		category = "normal",
+		text_id = "menu_button_comm_wheel_enemy",
 		type = "communication",
-		text_id = "menu_button_comm_wheel_enemy"
+		category = "normal"
 	},
 	activate_warcry = {
-		category = "normal",
+		text_id = "menu_button_activate_warcry",
 		type = "usage",
-		text_id = "menu_button_activate_warcry"
+		category = "normal"
 	},
 	toggle_hud = {
-		category = "normal",
+		text_id = "menu_button_toggle_hud",
 		type = "usage",
-		text_id = "menu_button_toggle_hud"
+		category = "normal"
 	},
 	drive = {
-		category = "vehicle",
 		hidden = true,
-		type = "movement"
+		type = "movement",
+		category = "vehicle"
 	},
 	accelerate = {
-		category = "vehicle",
+		text_id = "menu_button_accelerate",
 		type = "movement",
-		text_id = "menu_button_accelerate"
+		category = "vehicle"
 	},
 	brake = {
-		category = "vehicle",
+		text_id = "menu_button_brake",
 		type = "movement",
-		text_id = "menu_button_brake"
+		category = "vehicle"
 	},
 	turn_left = {
-		category = "vehicle",
+		text_id = "menu_button_turn_left",
 		type = "movement",
-		text_id = "menu_button_turn_left"
+		category = "vehicle"
 	},
 	turn_right = {
-		category = "vehicle",
+		text_id = "menu_button_turn_right",
 		type = "movement",
-		text_id = "menu_button_turn_right"
+		category = "vehicle"
 	},
 	hand_brake = {
-		category = "vehicle",
+		text_id = "menu_button_handbrake",
 		type = "movement",
-		text_id = "menu_button_handbrake"
+		category = "vehicle"
 	},
 	vehicle_rear_camera = {
-		category = "vehicle",
+		text_id = "menu_button_vehicle_rear_camera",
 		type = "usage",
-		text_id = "menu_button_vehicle_rear_camera"
+		category = "vehicle"
 	},
 	vehicle_shooting_stance = {
-		category = "vehicle",
 		text_id = "menu_button_vehicle_shooting_stance",
 		type = "usage",
+		category = "vehicle",
 		block = {
 			"normal"
 		}
 	},
 	vehicle_exit = {
-		category = "vehicle",
+		text_id = "menu_button_vehicle_exit",
 		type = "usage",
-		text_id = "menu_button_vehicle_exit"
+		category = "vehicle"
 	},
 	vehicle_change_seat = {
-		category = "vehicle",
+		text_id = "menu_button_vehicle_change_seat",
 		type = "usage",
-		text_id = "menu_button_vehicle_change_seat"
+		category = "vehicle"
 	}
 }
 
@@ -3304,23 +3304,23 @@ function MenuCustomizeControllerCreator:setup_node(node)
 	node:clean_items()
 
 	local params = {
-		callback = "choice_controller_type",
 		text_id = "menu_controller_type",
-		name = "controller_type"
+		name = "controller_type",
+		callback = "choice_controller_type"
 	}
 	local data_node = {
 		type = "MenuItemMultiChoice"
 	}
 
 	table.insert(data_node, {
+		text_id = "menu_controller_normal",
 		value = "normal",
-		_meta = "option",
-		text_id = "menu_controller_normal"
+		_meta = "option"
 	})
 	table.insert(data_node, {
+		text_id = "menu_controller_vehicle",
 		value = "vehicle",
-		_meta = "option",
-		text_id = "menu_controller_vehicle"
+		_meta = "option"
 	})
 
 	local new_item = node:create_item(data_node, params)
@@ -3375,9 +3375,9 @@ function MenuCustomizeControllerCreator:setup_node(node)
 	end
 
 	local params = {
-		callback = "set_default_controller",
 		text_id = "menu_set_default_controller",
 		name = "set_default_controller",
+		callback = "set_default_controller",
 		category = controller_category
 	}
 	local new_item = new_node:create_item(nil, params)
@@ -3984,32 +3984,32 @@ end
 function ModMenuCreator:create_toggle(node, params)
 	local data_node = {
 		{
+			y = 0,
 			x = 24,
-			_meta = "option",
-			s_y = 24,
 			s_h = 24,
 			s_w = 24,
-			y = 0,
+			s_y = 24,
 			s_x = 24,
 			s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 			h = 24,
 			w = 24,
 			value = "on",
-			icon = "ui/main_menu/textures/debug_menu_tickbox"
+			icon = "ui/main_menu/textures/debug_menu_tickbox",
+			_meta = "option"
 		},
 		{
+			y = 0,
 			x = 0,
-			_meta = "option",
-			s_y = 24,
 			s_h = 24,
 			s_w = 24,
-			y = 0,
+			s_y = 24,
 			s_x = 0,
 			s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 			h = 24,
 			w = 24,
 			value = "off",
-			icon = "ui/main_menu/textures/debug_menu_tickbox"
+			icon = "ui/main_menu/textures/debug_menu_tickbox",
+			_meta = "option"
 		},
 		type = "MenuItemToggleWithIcon"
 	}
@@ -4025,11 +4025,11 @@ function ModMenuCreator:add_back_button(node)
 	node:delete_item("back")
 
 	local params = {
-		visible_callback = "is_pc_controller",
 		previous_node = true,
-		back = true,
+		name = "back",
+		visible_callback = "is_pc_controller",
 		text_id = "menu_back",
-		name = "back"
+		back = true
 	}
 	local new_item = node:create_item(nil, params)
 
@@ -4038,9 +4038,9 @@ end
 
 function MenuManager:create_menu_item_background(panel, coord_x, coord_y, width, layer)
 	local menu_item_background = panel:bitmap({
-		visible = true,
-		texture = "ui/main_menu/textures/debug_menu_buttons",
 		name = "background_image",
+		texture = "ui/main_menu/textures/debug_menu_buttons",
+		visible = true,
 		texture_rect = {
 			0,
 			14,

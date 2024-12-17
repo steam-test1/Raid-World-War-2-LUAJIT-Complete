@@ -5,12 +5,12 @@ HUDSpecialInteractionRewiring.PADDING_Y = 64
 HUDSpecialInteractionRewiring.PADDING_X = 64
 HUDSpecialInteractionRewiring._DEFAULT_NODE_COUNT = 3
 HUDSpecialInteractionRewiring._GUI_REFS = {
-	b_u_l = "interact_rewire_node_bend_up_left",
 	trap = "interact_rewire_node_trap",
-	b_d_r = "interact_rewire_node_bend_down_right",
+	b_u_l = "interact_rewire_node_bend_up_left",
 	dead = "interact_rewire_node_dead",
-	b_d_l = "interact_rewire_node_bend_down_left",
+	b_d_r = "interact_rewire_node_bend_down_right",
 	line = "interact_rewire_node_line",
+	b_d_l = "interact_rewire_node_bend_down_left",
 	b_u_r = "interact_rewire_node_bend_up_right"
 }
 HUDSpecialInteractionRewiring._DEBUGGERY = false
@@ -27,8 +27,8 @@ function HUDSpecialInteractionRewiring:init(hud, params)
 	local size_inside_x = HUDSpecialInteractionRewiring.GAME_WIDTH - HUDSpecialInteractionRewiring.PADDING_X * 2
 	local size_inside_y = HUDSpecialInteractionRewiring.GAME_HEIGHT - HUDSpecialInteractionRewiring.PADDING_Y * 2
 	self._interact_rewire_inside_panel = self._object:panel({
-		layer = 5,
 		name = "_interact_rewire_inside_panel",
+		layer = 5,
 		w = size_inside_x,
 		h = size_inside_y
 	})
@@ -43,8 +43,8 @@ end
 
 function HUDSpecialInteractionRewiring:_create_interact_rewire_bg()
 	self._interact_rewire_bg = self._object:bitmap({
-		layer = 1,
 		name = "_interact_rewire_bg",
+		layer = 1,
 		texture = tweak_data.gui.icons.interact_rewire_bg.texture,
 		texture_rect = tweak_data.gui.icons.interact_rewire_bg.texture_rect
 	})
@@ -54,8 +54,8 @@ end
 
 function HUDSpecialInteractionRewiring:_create_interact_rewire_fg()
 	self._interact_rewire_fg = self._object:bitmap({
-		layer = 10,
 		name = "_interact_rewire_fg",
+		layer = 10,
 		texture = tweak_data.gui.icons.interact_rewire_fg.texture,
 		texture_rect = tweak_data.gui.icons.interact_rewire_fg.texture_rect
 	})
@@ -81,9 +81,9 @@ function HUDSpecialInteractionRewiring:_setup_slot_queue()
 
 	if HUDSpecialInteractionRewiring._DEBUGGERY then
 		self._debuggery_queue = self._object:text({
-			w = 2000,
 			y = 100,
 			x = 160,
+			w = 2000,
 			layer = 99,
 			h = 75,
 			text = "WABBUBUBU 1",
@@ -147,8 +147,8 @@ function HUDSpecialInteractionRewiring:_layout_nodes()
 
 		if HUDSpecialInteractionRewiring._DEBUGGERY then
 			local node_panel_debuggery = self._object:text({
-				w = 600,
 				x = 100,
+				w = 600,
 				layer = 99,
 				h = 80,
 				text = "WABBUBUBU",
@@ -202,8 +202,8 @@ function HUDSpecialInteractionRewiring:_layout_nodes()
 			table.insert(self._interact_node_row_data[y].row_nodes, next_slot_queue)
 
 			local txt = HUDSpecialInteractionRewiring._DEBUGGERY and node_panel:text({
-				w = 80,
 				y = 4,
+				w = 80,
 				layer = 99,
 				h = 80,
 				name = "_debuggery_txtid_" .. tostring(y),

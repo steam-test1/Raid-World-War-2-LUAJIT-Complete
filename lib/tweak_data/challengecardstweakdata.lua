@@ -19,8 +19,8 @@ ChallengeCardsTweakData.CARD_SELECTION_TIMER = 60
 ChallengeCardsTweakData.PACK_TYPE_REGULAR = 1
 ChallengeCardsTweakData.PACK_TYPE_HALLOWEEN = 2
 ChallengeCardsTweakData.STACKABLE_AREA = {
-	width = 500,
-	height = 680
+	height = 680,
+	width = 500
 }
 
 function ChallengeCardsTweakData:init(tweak_data)
@@ -1639,8 +1639,8 @@ function ChallengeCardsTweakData:init(tweak_data)
 	self.cards.ra_trick_or_treat.event = true
 	self.cards.ra_trick_or_treat.effects = {
 		{
-			effect_class = "BuffEffectCandy",
 			value = true,
+			effect_class = "BuffEffectCandy",
 			type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
 			name = BuffEffectManager.EFFECT_TRICK_OR_TREAT
 		},

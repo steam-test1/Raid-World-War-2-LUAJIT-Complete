@@ -1022,8 +1022,8 @@ function VehicleDrivingExt:place_player_on_seat(player, seat_name, move, previou
 		self._interaction_enter_vehicle = false
 
 		managers.dialog:queue_dialog("gen_vehicle_good_to_go", {
-			skip_idle_check = true,
-			[""] = nil
+			position = nil,
+			skip_idle_check = true
 		})
 	end
 
@@ -1175,9 +1175,9 @@ function VehicleDrivingExt:evacuate_seat(seat)
 		-- Nothing
 	elseif Network:is_server() then
 		seat.occupant:movement():action_request({
-			type = "idle",
 			sync = true,
-			body_part = 1
+			body_part = 1,
+			type = "idle"
 		})
 	end
 
@@ -1400,9 +1400,9 @@ function VehicleDrivingExt:on_team_ai_enter(ai_unit)
 
 			if Network:is_server() then
 				ai_unit:movement():action_request({
-					type = "idle",
 					sync = true,
-					body_part = 1
+					body_part = 1,
+					type = "idle"
 				})
 			end
 
@@ -2140,8 +2140,8 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 
 	local ride_objective = {
 		destroy_clbk_key = false,
-		type = "act",
 		pose = "stand",
+		type = "act",
 		haste = haste,
 		nav_seg = align_nav_seg,
 		area = align_area,
@@ -2149,17 +2149,17 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 		rot = align_rot,
 		fail_clbk = callback(self, self, "on_drive_SO_failed", seat),
 		action = {
+			align_sync = false,
 			needs_full_blend = true,
 			body_part = 1,
 			type = "act",
-			align_sync = false,
 			variant = team_ai_animation,
 			blocks = {
-				act = 1,
-				heavy_hurt = -1,
 				walk = -1,
-				hurt = -1,
-				action = -1
+				act = 1,
+				action = -1,
+				heavy_hurt = -1,
+				hurt = -1
 			}
 		},
 		objective_type = VehicleDrivingExt.SPECIAL_OBJECTIVE_TYPE_DRIVING
@@ -2167,8 +2167,8 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 	local SO_descriptor = {
 		AI_group = "friendlies",
 		usage_amount = 1,
-		chance_inc = 0,
 		interval = 0,
+		chance_inc = 0,
 		base_chance = 1,
 		objective = ride_objective,
 		search_pos = ride_objective.pos,

@@ -152,8 +152,8 @@ end
 
 function RaidMenuCreditsGui:_show_intro_video()
 	local video_panel_params = {
-		is_root_panel = true,
-		layer = 100
+		layer = 100,
+		is_root_panel = true
 	}
 	self._video_panel = RaidGUIPanel:new(self._full_panel, video_panel_params)
 	local video_panel_background_params = {

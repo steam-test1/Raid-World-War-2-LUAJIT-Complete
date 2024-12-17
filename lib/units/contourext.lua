@@ -27,55 +27,55 @@ ContourExt._types = {
 		color = tweak_data.contour.character.friendly_color
 	},
 	mark_unit = {
-		fadeout = 4.5,
 		priority = 4,
+		fadeout = 4.5,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_unit_dangerous = {
-		fadeout = 9,
 		priority = 4,
+		fadeout = 9,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_unit_friendly = {
-		fadeout = 9,
 		priority = 3,
+		fadeout = 9,
 		color = tweak_data.contour.character.friendly_color
 	},
 	mark_enemy = {
-		fadeout = 4.5,
-		fadeout_silent = 13.5,
 		priority = 5,
+		fadeout_silent = 13.5,
+		fadeout = 4.5,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_enemy_damage_bonus = {
-		fadeout = 16,
 		priority = 4,
+		fadeout = 16,
 		color = tweak_data.contour.character.more_dangerous_color
 	},
 	mark_enemy_turret = {
-		fadeout = 4.5,
-		fadeout_silent = 13.5,
 		priority = 5,
+		fadeout_silent = 13.5,
+		fadeout = 4.5,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_enemy_ghost = {
-		distance = 3200,
-		fadeout = 0,
-		persistence = 0.1,
 		priority = 6,
+		persistence = 0.1,
+		fadeout = 0,
+		distance = 3200,
 		color = tweak_data.contour.character.ghost_warcry
 	},
 	mark_enemy_sharpshooter = {
-		fadeout = 0,
-		persistence = 0.1,
 		priority = 3,
+		persistence = 0.1,
+		fadeout = 0,
 		color = tweak_data.contour.character.sharpshooter_warcry
 	},
 	mark_enemy_silver_bullet = {
-		distance = 3000,
-		fadeout = 0,
-		persistence = 0.1,
 		priority = 6,
+		persistence = 0.1,
+		fadeout = 0,
+		distance = 3000,
 		color = tweak_data.contour.character.silver_bullet_warcry
 	},
 	highlight = {
@@ -99,23 +99,23 @@ ContourExt._types = {
 		color = tweak_data.contour.character_interactable.standard_color
 	},
 	deployable_selected = {
-		unique = true,
 		priority = 1,
+		unique = true,
 		color = tweak_data.contour.deployable.selected_color
 	},
 	deployable_disabled = {
-		unique = true,
 		priority = 2,
+		unique = true,
 		color = tweak_data.contour.deployable.disabled_color
 	},
 	deployable_active = {
-		unique = true,
 		priority = 3,
+		unique = true,
 		color = tweak_data.contour.deployable.active_color
 	},
 	deployable_interactable = {
-		unique = true,
 		priority = 4,
+		unique = true,
 		color = tweak_data.contour.deployable.interact_color
 	}
 }

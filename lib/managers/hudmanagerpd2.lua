@@ -618,7 +618,9 @@ function HUDManager:start_player_timer(time)
 end
 
 function HUDManager:start_teammate_timer(i, name_label_id, time, current)
-	self._teammate_panels[i]:start_timer(time, current)
+	if self._teammate_panels[i] then
+		self._teammate_panels[i]:start_timer(time, current)
+	end
 
 	local name_label = self:_get_name_label(name_label_id)
 
@@ -628,7 +630,11 @@ function HUDManager:start_teammate_timer(i, name_label_id, time, current)
 end
 
 function HUDManager:is_teammate_timer_running(i)
-	return self._teammate_panels[i]:is_timer_running()
+	if self._teammate_panels[i] then
+		return self._teammate_panels[i]:is_timer_running()
+	end
+
+	return false
 end
 
 function HUDManager:pause_player_timer(pause)
@@ -636,7 +642,9 @@ function HUDManager:pause_player_timer(pause)
 end
 
 function HUDManager:pause_teammate_timer(i, name_label_id, pause)
-	self._teammate_panels[i]:set_pause_timer(pause)
+	if self._teammate_panels[i] then
+		self._teammate_panels[i]:set_pause_timer(pause)
+	end
 
 	local name_label = self:_get_name_label(name_label_id)
 
@@ -705,11 +713,11 @@ function HUDManager:_create_ammo_test()
 	end
 
 	local panel = hud.panel:panel({
-		h = 4,
+		name = "ammo_test",
 		w = 100,
+		h = 4,
 		y = 200,
-		x = 550,
-		name = "ammo_test"
+		x = 550
 	})
 
 	panel:set_center_y(hud.panel:h() / 2 - 40)
@@ -719,8 +727,8 @@ function HUDManager:_create_ammo_test()
 		color = Color.black:with_alpha(0.5)
 	})
 	panel:rect({
-		layer = 1,
 		name = "ammo_test_rect",
+		layer = 1,
 		color = Color.white
 	})
 end
@@ -954,11 +962,11 @@ function HUDManager:_create_teammates_panel(hud)
 	end
 
 	local teammates_panel_params = {
-		valign = "grow",
+		name = "teammates_panel",
 		halign = "left",
+		valign = "grow",
 		y = 0,
 		x = 0,
-		name = "teammates_panel",
 		w = HUDManager.TEAMMATE_PANEL_W,
 		h = hud.panel:h()
 	}
@@ -1016,9 +1024,9 @@ end
 function HUDManager:_create_weapons_panel(hud)
 	hud = hud or managers.hud:script(PlayerBase.INGAME_HUD_SAFERECT)
 	local weapons_panel_params = {
+		name = "weapons_panel",
 		valign = "bottom",
 		halign = "right",
-		name = "weapons_panel",
 		w = HUDManager.WEAPONS_PANEL_W,
 		h = HUDManager.WEAPONS_PANEL_H
 	}
@@ -1290,9 +1298,9 @@ end
 function HUDManager:show_progress_timer_bar(current, total, description)
 	local hud = managers.hud:script(PlayerBase.INGAME_HUD_SAFERECT)
 	local progress_bar_params = {
-		height = 8,
-		width = 256,
 		name = "progress_timer_progress_bar",
+		width = 256,
+		height = 8,
 		x = hud.panel:w() / 2,
 		y = hud.panel:h() / 2,
 		color = Color(1, 0.6666666666666666, 0):with_alpha(0.8),
@@ -1370,9 +1378,9 @@ function HUDManager:on_progression_cycle_completed()
 	end
 
 	local notification_params = {
-		id = "progression_cycle_completed",
 		duration = 6,
 		priority = 4,
+		id = "progression_cycle_completed",
 		notification_type = HUDNotification.RAID_UNLOCKED
 	}
 
@@ -1385,8 +1393,8 @@ function HUDManager:on_greed_loot_picked_up(old_progress, new_progress, notifica
 	end
 
 	managers.notification:add_notification({
-		id = "greed_item_picked_up",
 		shelf_life = 8,
+		id = "greed_item_picked_up",
 		notification_type = HUDNotification.GREED_ITEM,
 		initial_progress = old_progress,
 		new_progress = new_progress,

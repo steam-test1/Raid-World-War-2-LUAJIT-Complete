@@ -103,24 +103,24 @@ function HUDPlayerCustody:_create_spectator_info(parent)
 		texture_rect = tweak_data.gui.icons[HUDPlayerCustody.SPECTATOR_BACKGROUND].texture_rect
 	})
 	self._spectator_text = self._spectator_panel:text({
+		name = "spectator_text",
+		vertical = "center",
 		align = "center",
 		text = "SPECTATING",
 		valign = "center",
 		halign = "center",
-		name = "spectator_text",
-		vertical = "center",
 		font = HUDPlayerCustody.SPECTATOR_TEXT_FONT,
 		font_size = HUDPlayerCustody.SPECTATOR_TEXT_FONT_SIZE,
 		h = HUDPlayerCustody.SPECTATOR_BACKGROUND_H,
 		layer = spectator_background:layer() + 1
 	})
 	self._button_prompt = self._spectator_panel:text({
-		align = "center",
 		name = "prompt_previous",
 		text = "",
+		vertical = "bottom",
+		align = "center",
 		valign = "center",
 		halign = "center",
-		vertical = "bottom",
 		font = HUDPlayerCustody.BUTTON_PROMPT_TEXT_FONT,
 		font_size = HUDPlayerCustody.BUTTON_PROMPT_TEXT_FONT_SIZE,
 		color = HUDPlayerCustody.BUTTON_PROMPT_TEXT_COLOR

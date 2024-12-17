@@ -76,9 +76,9 @@ end
 function RaidGUIControlGoldBarRewardDetails:_create_gold_bar_value()
 	local title_description_params = {
 		align = "left",
-		alpha = 0,
 		vertical = "center",
 		name = "title_description",
+		alpha = 0,
 		y = RaidGUIControlGoldBarRewardDetails.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlGoldBarRewardDetails.TITLE_DESCRIPTION_H,
 		font = RaidGUIControlGoldBarRewardDetails.FONT,
@@ -93,10 +93,10 @@ function RaidGUIControlGoldBarRewardDetails:_create_gold_bar_value()
 
 	local title_params = {
 		align = "center",
-		alpha = 0,
 		text = "",
 		vertical = "top",
 		name = "gold_bars_name",
+		alpha = 0,
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlGoldBarRewardDetails.TITLE_PADDING_TOP,
 		font = RaidGUIControlGoldBarRewardDetails.FONT,
 		font_size = RaidGUIControlGoldBarRewardDetails.TITLE_FONT_SIZE,
@@ -125,8 +125,8 @@ function RaidGUIControlGoldBarRewardDetails:_create_reward_image()
 	}
 	self._reward_image_panel = self._left_panel:panel(reward_image_panel_params)
 	local reward_image_params = {
-		name = "reward_image",
 		alpha = 0,
+		name = "reward_image",
 		texture = tweak_data.gui.icons[RaidGUIControlGoldBarRewardDetails.REWARD_ICON_SINGLE].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlGoldBarRewardDetails.REWARD_ICON_SINGLE].texture_rect
 	}
@@ -149,11 +149,11 @@ end
 
 function RaidGUIControlGoldBarRewardDetails:_create_description()
 	local description_params = {
-		align = "left",
-		alpha = 0,
 		wrap = true,
+		align = "left",
 		vertical = "top",
 		name = "description",
+		alpha = 0,
 		y = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_Y,
 		w = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_W,
 		font = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_FONT,
@@ -169,9 +169,9 @@ end
 function RaidGUIControlGoldBarRewardDetails:_create_item_type()
 	local item_type_params = {
 		align = "left",
-		alpha = 0,
 		vertical = "center",
 		name = "item_type",
+		alpha = 0,
 		x = self._description:x(),
 		y = RaidGUIControlGoldBarRewardDetails.ITEM_TYPE_Y,
 		w = self._right_panel:w(),

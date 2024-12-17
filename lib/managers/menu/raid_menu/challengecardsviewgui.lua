@@ -42,26 +42,26 @@ function ChallengeCardsViewGui:_layout()
 		}
 	}
 	self._rarity_filters_tabs = self._root_panel:tabs({
-		tab_height = 64,
 		x = 0,
-		y = 96,
-		tab_align = "center",
 		name = "rarity_filters_tabs",
 		dont_trigger_special_buttons = true,
+		tab_align = "center",
+		tab_height = 64,
+		y = 96,
 		tab_width = 640 / #tabs_params,
 		initial_tab_idx = #tabs_params,
 		on_click_callback = callback(self, self, "on_click_filter_rarity"),
 		tabs_params = tabs_params
 	})
 	self._type_filters_tabs = self._root_panel:tabs({
-		initial_tab_idx = 3,
-		tab_width = 140,
-		y = 176,
 		x = 0,
-		tab_align = "center",
-		tab_height = 32,
+		tab_width = 140,
 		name = "type_filters_tabs",
 		dont_trigger_special_buttons = true,
+		initial_tab_idx = 3,
+		tab_align = "center",
+		tab_height = 32,
+		y = 176,
 		icon = tweak_data.gui.icons.ico_filter,
 		item_class = RaidGUIControlTabFilter,
 		on_click_callback = callback(self, self, "on_click_filter_type"),
@@ -84,19 +84,19 @@ function ChallengeCardsViewGui:_layout()
 		}
 	})
 	local challenge_cards_grid_scrollable_area_params = {
-		w = 640,
-		scroll_step = 30,
-		y = 224,
 		x = 0,
+		y = 224,
 		name = "challenge_cards_grid_scrollable_area",
-		h = 580
+		scroll_step = 30,
+		h = 580,
+		w = 640
 	}
 	self._challenge_cards_grid_scrollable_area = self._root_panel:scrollable_area(challenge_cards_grid_scrollable_area_params)
 	local challenge_cards_grid_params = {
-		w = 636,
-		y = 0,
 		x = 0,
+		y = 0,
 		name = "challenge_cards_grid",
+		w = 636,
 		scrollable_area_ref = self._challenge_cards_grid_scrollable_area,
 		grid_params = {
 			scroll_marker_w = 32,
@@ -106,8 +106,8 @@ function ChallengeCardsViewGui:_layout()
 			on_select_callback = callback(self, self, "_on_select_inventory_cards")
 		},
 		item_params = {
-			hover_selects = true,
 			key_value_field = "key_name",
+			hover_selects = true,
 			selected_marker_h = 250,
 			selected_marker_w = 192,
 			item_h = 216,
@@ -117,12 +117,12 @@ function ChallengeCardsViewGui:_layout()
 	}
 	self._card_grid = self._challenge_cards_grid_scrollable_area:get_panel():grid(challenge_cards_grid_params)
 	local card_details_params = {
-		w = 992,
-		visible = true,
-		y = 96,
 		x = 736,
+		visible = true,
+		w = 992,
 		name = "card_deatils",
-		h = 736
+		h = 736,
+		y = 96
 	}
 	self._card_details = self._root_panel:create_custom_control(RaidGUIControlCardDetails, card_details_params)
 

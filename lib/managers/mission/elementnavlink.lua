@@ -55,12 +55,12 @@ ElementNavLink._HASTES = {
 	"run"
 }
 ElementNavLink._DEFAULT_VALUES = {
+	interval = 3,
 	path_style = 1,
 	ai_group = 1,
 	interaction_voice = 1,
 	chance_inc = 0,
-	base_chance = 1,
-	interval = 3
+	base_chance = 1
 }
 
 function ElementNavLink:init(...)
@@ -336,8 +336,8 @@ function ElementNavLink:get_objective(instigator)
 			needs_full_blend = true,
 			variant = self._values.so_action,
 			blocks = {
-				action = -1,
 				walk = -1,
+				action = -1,
 				heavy_hurt = -1,
 				hurt = -1,
 				light_hurt = -1

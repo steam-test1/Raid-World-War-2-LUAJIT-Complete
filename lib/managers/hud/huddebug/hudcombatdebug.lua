@@ -9,13 +9,13 @@ function HUDCombatDebug:init(hud)
 	end
 
 	self._combat_debug_panel = self._hud_panel:panel({
-		valign = "center",
-		h = 265,
 		w = 300,
 		name = "combat_debug_panel",
 		visible = false,
 		layer = 99,
-		halign = "center"
+		halign = "center",
+		valign = "center",
+		h = 265
 	})
 
 	self._combat_debug_panel:set_center(0.8888888888888888 * self._combat_debug_panel:parent():w() / 2, self._combat_debug_panel:parent():h() / 2)
@@ -32,13 +32,13 @@ function HUDCombatDebug:init(hud)
 	self._default_font_size = tweak_data.gui.font_sizes.size_16
 	self._default_font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.lato, self._default_font_size)
 	self._game_intensity = self._combat_debug_panel:text({
-		name = "combat_debug_intensity",
 		visible = true,
+		name = "combat_debug_intensity",
+		y = 20,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 20,
 		text = "Game intensity:",
 		color = Color(0.937, 0.6, 0.2),
 		font = self._default_font,
@@ -46,13 +46,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._current_phase = self._combat_debug_panel:text({
-		name = "combat_debug_phase",
 		visible = true,
+		name = "combat_debug_phase",
+		y = 40,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 40,
 		text = "Current phase:",
 		color = Color(0.937, 0.6, 0.2),
 		font = self._default_font,
@@ -60,13 +60,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._current_phase_duration = self._combat_debug_panel:text({
-		name = "combat_debug_phase_duration",
 		visible = true,
+		name = "combat_debug_phase_duration",
+		y = 60,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 60,
 		text = "Current phase - time elapsed:",
 		color = Color(0.937, 0.6, 0.2),
 		font = self._default_font,
@@ -74,13 +74,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._phase_number = self._combat_debug_panel:text({
-		name = "combat_debug_phase_number",
 		visible = true,
+		name = "combat_debug_phase_number",
+		y = 80,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 80,
 		text = "Phase number:",
 		color = Color(0.2, 0.7529411764705882, 0.9372549019607843),
 		font = self._default_font,
@@ -88,13 +88,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._spawned_phase = self._combat_debug_panel:text({
-		name = "combat_debug_phase_enemies_spawned",
 		visible = true,
+		name = "combat_debug_phase_enemies_spawned",
+		y = 100,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 100,
 		text = "Enemies spawned (phase):",
 		color = Color(0.3058823529411765, 0.6745098039215687, 0.23137254901960785),
 		font = self._default_font,
@@ -102,13 +102,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._killed_phase = self._combat_debug_panel:text({
-		name = "combat_debug_phase_enemies_killed",
 		visible = true,
+		name = "combat_debug_phase_enemies_killed",
+		y = 120,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 120,
 		text = "Enemies killed (phase):",
 		color = Color(0.2980392156862745, 0.796078431372549, 0.2823529411764706),
 		font = self._default_font,
@@ -116,13 +116,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._spawned_lifetime = self._combat_debug_panel:text({
-		name = "combat_debug_lifetime_enemies_spawned",
 		visible = true,
+		name = "combat_debug_lifetime_enemies_spawned",
+		y = 140,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 140,
 		text = "Enemies spawned (lifetime):",
 		color = Color(0.7137254901960784, 0.2627450980392157, 0.7411764705882353),
 		font = self._default_font,
@@ -130,13 +130,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._killed_lifetime = self._combat_debug_panel:text({
-		name = "combat_debug_lifetime_enemies_killed",
 		visible = true,
+		name = "combat_debug_lifetime_enemies_killed",
+		y = 160,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 160,
 		text = "Enemies killed (lifetime):",
 		color = Color(0.8509803921568627, 0.3568627450980392, 0.8823529411764706),
 		font = self._default_font,
@@ -144,13 +144,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._enemies_alive = self._combat_debug_panel:text({
-		name = "combat_debug_enemies_alive",
 		visible = true,
+		name = "combat_debug_enemies_alive",
+		y = 180,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 180,
 		text = "Enemies alive:",
 		color = Color(0.8823529411764706, 0.3568627450980392, 0.3568627450980392),
 		font = self._default_font,
@@ -158,13 +158,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._music_state = self._combat_debug_panel:text({
-		name = "combat_debug_music_state",
 		visible = true,
+		name = "combat_debug_music_state",
+		y = 200,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 200,
 		text = "Music state:",
 		color = Color(0.8823529411764706, 0.3568627450980392, 0.3568627450980392),
 		font = self._default_font,
@@ -172,13 +172,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._player_world = self._combat_debug_panel:text({
-		name = "combat_debug_wrld_players",
 		visible = true,
+		name = "combat_debug_wrld_players",
+		y = 220,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 220,
 		text = "Player in world:",
 		color = Color(0.8823529411764706, 0.3568627450980392, 0.3568627450980392),
 		font = self._default_font,
@@ -186,13 +186,13 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._wrld_alarm_state = self._combat_debug_panel:text({
-		name = "combat_debug_wrld_alarm_state",
 		visible = true,
+		name = "combat_debug_wrld_alarm_state",
+		y = 240,
 		x = 10,
 		blend_mode = "normal",
 		vertical = "top",
 		align = "left",
-		y = 240,
 		text = "Alarm state:",
 		color = Color(0.8823529411764706, 0.3568627450980392, 0.3568627450980392),
 		font = self._default_font,
@@ -200,8 +200,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._game_intensity_val = self._combat_debug_panel:text({
-		name = "combat_debug_intensity_val",
 		visible = true,
+		name = "combat_debug_intensity_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -214,8 +214,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._current_phase_val = self._combat_debug_panel:text({
-		name = "combat_debug_phase_val",
 		visible = true,
+		name = "combat_debug_phase_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -228,8 +228,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._current_phase_duration_val = self._combat_debug_panel:text({
-		name = "combat_debug_phase_duration_val",
 		visible = true,
+		name = "combat_debug_phase_duration_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -243,8 +243,8 @@ function HUDCombatDebug:init(hud)
 	})
 	self._current_phase_timer = 0
 	self._phase_number_val = self._combat_debug_panel:text({
-		name = "combat_debug_phase_number_val",
 		visible = true,
+		name = "combat_debug_phase_number_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -257,8 +257,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._spawned_phase_val = self._combat_debug_panel:text({
-		name = "combat_debug_phase_enemies_spawned_val",
 		visible = true,
+		name = "combat_debug_phase_enemies_spawned_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -271,8 +271,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._killed_phase_val = self._combat_debug_panel:text({
-		name = "combat_debug_phase_enemies_killed_val",
 		visible = true,
+		name = "combat_debug_phase_enemies_killed_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -285,8 +285,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._spawned_lifetime_val = self._combat_debug_panel:text({
-		name = "combat_debug_lifetime_enemies_spawned_val",
 		visible = true,
+		name = "combat_debug_lifetime_enemies_spawned_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -299,8 +299,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._killed_lifetime_val = self._combat_debug_panel:text({
-		name = "combat_debug_lifetime_enemies_killed_val",
 		visible = true,
+		name = "combat_debug_lifetime_enemies_killed_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -313,8 +313,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._enemies_alive_val = self._combat_debug_panel:text({
-		name = "combat_debug_enemies_alive_val",
 		visible = true,
+		name = "combat_debug_enemies_alive_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -327,8 +327,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._music_state_val = self._combat_debug_panel:text({
-		name = "combat_debug_music_state_val",
 		visible = true,
+		name = "combat_debug_music_state_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -341,8 +341,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._player_world_val = self._combat_debug_panel:text({
-		name = "combat_debug_player_world_val",
 		visible = true,
+		name = "combat_debug_player_world_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",
@@ -355,8 +355,8 @@ function HUDCombatDebug:init(hud)
 		layer = background:layer() + 1
 	})
 	self._wrld_alarm_state_val = self._combat_debug_panel:text({
-		name = "combat_debug_wrld_alarm_state_val",
 		visible = true,
+		name = "combat_debug_wrld_alarm_state_val",
 		x = -10,
 		blend_mode = "normal",
 		vertical = "top",

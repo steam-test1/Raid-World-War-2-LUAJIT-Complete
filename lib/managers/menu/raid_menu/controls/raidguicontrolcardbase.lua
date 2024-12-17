@@ -70,11 +70,11 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	local title_h = self._card_image:h() * RaidGUIControlCardBase.TITLE_H
 	local title_font_size = math.ceil(RaidGUIControlCardBase.TITLE_TEXT_SIZE * self._card_image:h() / 255)
 	self._card_title = self._card_panel:label({
-		wrap = true,
 		name = "card_title",
 		align = "center",
 		blend_mode = "normal",
 		vertical = "center",
+		wrap = true,
 		w = self._card_image:w() * (1 - 2 * RaidGUIControlCardBase.TITLE_PADDING),
 		h = title_h,
 		x = self._card_image:x() + self._card_image:w() * RaidGUIControlCardBase.TITLE_PADDING,
@@ -94,14 +94,14 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	end
 
 	local params_card_description = {
-		wrap = true,
 		name = "card_description",
+		wrap = true,
 		x = 0,
-		y = 0,
 		align = "left",
 		visible = false,
 		w = 0,
 		h = 0,
+		y = 0,
 		font = RaidGUIControlCardBase.TITLE_FONT,
 		font_size = math.ceil(RaidGUIControlCardBase.DESCRIPTION_TEXT_SIZE * self._card_image:h() / 255),
 		layer = self._card_image:layer() + 1,
@@ -186,8 +186,8 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	})
 	self._card_amount_label = self._card_panel:label({
 		name = "card_amount_label",
-		visible = false,
 		text = "99x",
+		visible = false,
 		vertical = "center",
 		align = "center",
 		layer = self._card_amount_background:layer() + 1,

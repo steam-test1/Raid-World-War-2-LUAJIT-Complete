@@ -166,10 +166,10 @@ function GreedTweakData:_init_cache_items()
 		},
 		sounds = {
 			dialog_enter = "player_gen_picking_lock",
-			dialog_fail = "player_gen_lockpick_fail",
 			failed = "lock_fail",
-			dialog_success = "player_gen_lock_picked",
 			success = "success",
+			dialog_fail = "player_gen_lockpick_fail",
+			dialog_success = "player_gen_lock_picked",
 			circles = {
 				{
 					lock = "lock_a",
@@ -207,8 +207,8 @@ function GreedTweakData:_init_value_weights()
 		pickpocket = {
 			{
 				{
-					chance = 55,
-					value = 0
+					value = 0,
+					chance = 55
 				},
 				{
 					chance = 45,
@@ -217,8 +217,8 @@ function GreedTweakData:_init_value_weights()
 			},
 			{
 				{
-					chance = 60,
-					value = 0
+					value = 0,
+					chance = 60
 				},
 				{
 					chance = 43,
@@ -227,8 +227,8 @@ function GreedTweakData:_init_value_weights()
 			},
 			{
 				{
-					chance = 55,
-					value = 0
+					value = 0,
+					chance = 55
 				},
 				{
 					chance = 35,
@@ -241,8 +241,8 @@ function GreedTweakData:_init_value_weights()
 			},
 			{
 				{
-					chance = 50,
-					value = 0
+					value = 0,
+					chance = 50
 				},
 				{
 					chance = 32,

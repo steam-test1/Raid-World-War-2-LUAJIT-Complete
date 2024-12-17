@@ -24,16 +24,16 @@ local bezier_curve = {
 CopActionShoot = CopActionShoot or class()
 CopActionShoot._ik_presets = {
 	spine = {
+		start = "_begin_ik_spine",
 		update = "_update_ik_spine",
 		stop = "_stop_ik_spine",
-		get_blend = "_get_blend_ik_spine",
-		start = "_begin_ik_spine"
+		get_blend = "_get_blend_ik_spine"
 	},
 	r_arm = {
+		start = "_begin_ik_r_arm",
 		update = "_update_ik_r_arm",
 		stop = "_stop_ik_r_arm",
-		get_blend = "_get_blend_ik_r_arm",
-		start = "_begin_ik_r_arm"
+		get_blend = "_get_blend_ik_r_arm"
 	}
 }
 
@@ -302,8 +302,8 @@ function CopActionShoot:update(t)
 				if fwd_dot_flat < 0.87 then
 					local spin = tar_vec_flat:to_polar_with_reference(fwd, math.UP).spin
 					local new_action_data = {
-						type = "turn",
 						body_part = 2,
+						type = "turn",
 						angle = spin
 					}
 
@@ -647,9 +647,9 @@ end
 
 function CopActionShoot:get_husk_interrupt_desc()
 	local old_action_desc = {
-		type = "shoot",
+		body_part = 3,
 		block_type = "action",
-		body_part = 3
+		type = "shoot"
 	}
 
 	return old_action_desc
@@ -958,9 +958,9 @@ function CopActionShoot:anim_clbk_melee_strike()
 	if defense_data == "countered" then
 		self._common_data.melee_countered_t = TimerManager:game():time()
 		local action_data = {
-			variant = "counter_spooc",
 			damage_effect = 1,
 			damage = 0,
+			variant = "counter_spooc",
 			attacker_unit = self._strike_unit,
 			col_ray = {
 				body = self._unit:body("body"),

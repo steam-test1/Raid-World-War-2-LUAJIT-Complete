@@ -151,10 +151,10 @@ function UnitNetworkHandler:action_walk_start(unit, first_nav_point, nav_link_ya
 	end
 
 	local action_desc = {
-		type = "walk",
 		persistent = true,
 		path_simplified = true,
 		body_part = 2,
+		type = "walk",
 		variant = haste_code == 1 and "walk" or "run",
 		end_rot = end_rot,
 		nav_path = nav_path,
@@ -162,10 +162,10 @@ function UnitNetworkHandler:action_walk_start(unit, first_nav_point, nav_link_ya
 		no_strafe = no_strafe,
 		end_pose = end_pose,
 		blocks = {
-			walk = -1,
 			idle = -1,
 			turn = -1,
-			act = -1
+			act = -1,
+			walk = -1
 		}
 	}
 
@@ -834,8 +834,8 @@ function UnitNetworkHandler:action_aim_state(cop, state)
 
 	if state then
 		local shoot_action = {
-			type = "shoot",
 			block_type = "action",
+			type = "shoot",
 			body_part = 3
 		}
 
@@ -1101,8 +1101,8 @@ function UnitNetworkHandler:action_tase_event(taser_unit, event_id, sender)
 		end
 
 		local tase_action = {
-			type = "tase",
-			body_part = 3
+			body_part = 3,
+			type = "tase"
 		}
 
 		taser_unit:movement():action_request(tase_action)
@@ -1901,44 +1901,44 @@ function UnitNetworkHandler:sync_player_movement_state(unit, state, down_time, u
 	if local_peer:unit() and unit:key() == local_peer:unit():key() then
 		local valid_transitions = {
 			standard = {
+				bleed_out = true,
 				carry = true,
 				incapacitated = true,
-				tased = true,
-				bleed_out = true
+				tased = true
 			},
 			carry = {
+				bleed_out = true,
 				standard = true,
 				incapacitated = true,
-				tased = true,
-				bleed_out = true
+				tased = true
 			},
 			mask_off = {
-				standard = true,
-				carry = true
+				carry = true,
+				standard = true
 			},
 			bleed_out = {
-				standard = true,
 				carry = true,
+				standard = true,
 				fatal = true
 			},
 			fatal = {
-				standard = true,
-				carry = true
+				carry = true,
+				standard = true
 			},
 			tased = {
 				carry = true,
-				incapacitated = true,
-				standard = true
+				standard = true,
+				incapacitated = true
 			},
 			incapacitated = {
-				standard = true,
-				carry = true
+				carry = true,
+				standard = true
 			},
 			clean = {
+				mask_off = true,
 				civilian = true,
 				standard = true,
-				carry = true,
-				mask_off = true
+				carry = true
 			}
 		}
 
@@ -2126,7 +2126,7 @@ function UnitNetworkHandler:sync_carry_data(unit, carry_id, carry_multiplier, po
 	managers.player:sync_carry_data(unit, carry_id, carry_multiplier, position, dir, throw_distance_multiplier_upgrade_level, zipline_unit, peer_id)
 end
 
-function UnitNetworkHandler:request_throw_projectile(projectile_type, position, dir, cooking_t, sender)
+function UnitNetworkHandler:request_throw_projectile(projectile_type, position, dir, cooking_t, cosmetic_id, sender)
 	local peer = self._verify_sender(sender)
 
 	if not self._verify_gamestate(self._gamestate_filter.any_ingame) or not peer then
@@ -2146,10 +2146,10 @@ function UnitNetworkHandler:request_throw_projectile(projectile_type, position, 
 		return
 	end
 
-	ProjectileBase.throw_projectile(projectile_type, position, dir, peer_id, cooking_t)
+	ProjectileBase.throw_projectile(projectile_type, position, dir, peer_id, cooking_t, nil, cosmetic_id)
 end
 
-function UnitNetworkHandler:sync_throw_projectile(unit, pos, dir, projectile_type, peer_id, parent_projectile_id, sender)
+function UnitNetworkHandler:sync_throw_projectile(unit, pos, dir, projectile_type, peer_id, parent_projectile_id, cosmetic_id, sender)
 	local peer = self._verify_sender(sender)
 
 	if not self._verify_gamestate(self._gamestate_filter.any_ingame) or not peer then
@@ -2163,7 +2163,15 @@ function UnitNetworkHandler:sync_throw_projectile(unit, pos, dir, projectile_typ
 
 	if tweak_entry.client_authoritative then
 		if not unit then
-			local unit_name = Idstring(tweak_entry.local_unit)
+			local unit_name = nil
+			local cosmetics_data = tweak_data.weapon.weapon_skins[cosmetic_id]
+
+			if cosmetics_data and cosmetics_data.replaces_units then
+				unit_name = Idstring(cosmetics_data.replaces_units.unit_local)
+			else
+				unit_name = Idstring(tweak_entry.unit_local)
+			end
+
 			unit = World:spawn_unit(unit_name, pos, Rotation(dir, math.UP))
 		end
 
@@ -2289,8 +2297,8 @@ function UnitNetworkHandler:set_teammate_hud(unit, percent, id, sender)
 	if id == PlayerDamage.HUD_NET_EVENTS.health then
 		if character_data and character_data.panel_id then
 			managers.hud:set_teammate_health(character_data.panel_id, {
-				total = 1,
 				max = 1,
+				total = 1,
 				current = percent / 100
 			})
 			character_data.unit:character_damage():set_health_ratio(percent / 100)
@@ -2304,8 +2312,8 @@ function UnitNetworkHandler:set_teammate_hud(unit, percent, id, sender)
 	elseif id == PlayerDamage.HUD_NET_EVENTS.armor then
 		if character_data and character_data.panel_id then
 			managers.hud:set_teammate_armor(character_data.panel_id, {
-				total = 1,
 				max = 1,
+				total = 1,
 				current = percent / 100
 			})
 		else
@@ -2337,8 +2345,8 @@ function UnitNetworkHandler:set_armor(unit, percent, sender)
 
 	if character_data and character_data.panel_id then
 		managers.hud:set_teammate_armor(character_data.panel_id, {
-			total = 1,
 			max = 1,
+			total = 1,
 			current = percent / 100
 		})
 	else
@@ -2358,8 +2366,8 @@ function UnitNetworkHandler:set_health(unit, percent, sender)
 
 	if character_data and character_data.panel_id then
 		managers.hud:set_teammate_health(character_data.panel_id, {
-			total = 1,
 			max = 1,
+			total = 1,
 			current = health_ratio
 		})
 	else
@@ -3599,9 +3607,9 @@ local function warcry_dmg_func(peer_name, data)
 	local percent = Utl.mul_to_string_percent(data)
 	local notification_data = {
 		icon = "test_icon",
-		priority = 1,
 		force = true,
 		id = "skill_ammo_warcry_from",
+		priority = 1,
 		duration = 5,
 		notification_type = HUDNotification.ICON,
 		text = managers.localization:text("skill_ammo_warcry_from", {
@@ -3845,24 +3853,24 @@ function UnitNetworkHandler:sync_martyrdom(unit, projectile_type, sender)
 	unit:character_damage():sync_martyrdom(projectile_entry)
 end
 
-function UnitNetworkHandler:sync_attach_projectile(unit, instant_dynamic_pickup, parent_unit, parent_body, parent_object, local_pos, dir, projectile_type_index, peer_id, sender)
-	if not alive(unit) or not self._verify_sender(sender) then
+function UnitNetworkHandler:sync_attach_projectile(unit, instant_dynamic_pickup, parent_unit, parent_body, parent_object, local_pos, dir, projectile_type_index, peer_id, cosmetic_id, sender)
+	local peer = self._verify_sender(sender)
+
+	if not self._verify_gamestate(self._gamestate_filter.any_ingame) or not peer then
 		return
 	end
 
 	local world_position = parent_object and local_pos:rotate_with(parent_object:rotation()) + parent_object:position() or local_pos
 
 	if Network:is_server() then
-		local projectile_type = tweak_data.blackmarket:get_projectile_name_from_index(projectile_type_index)
-		local tweak_entry = tweak_data.blackmarket.projectiles[projectile_type]
-		local unit_name = Idstring(tweak_entry.unit)
-		local synced_unit = World:spawn_unit(unit_name, world_position, Rotation(dir, math.UP))
+		local parent_alive = alive(parent_unit) and parent_unit:id() ~= -1
+		unit = ProjectileBase.spawn(projectile_type_index, world_position, dir, peer_id, cosmetic_id)
 
-		managers.network:session():send_to_peers_synched("sync_attach_projectile", synced_unit, instant_dynamic_pickup, alive(parent_unit) and parent_unit:id() ~= -1 and parent_unit or nil, alive(parent_unit) and parent_unit:id() ~= -1 and parent_body or nil, alive(parent_unit) and parent_unit:id() ~= -1 and parent_object or nil, local_pos, dir, projectile_type_index, peer_id)
-		synced_unit:base():set_thrower_unit_by_peer_id(peer_id)
-		synced_unit:base():set_projectile_entry(projectile_type)
-		synced_unit:base():sync_attach_to_unit(instant_dynamic_pickup, parent_unit, parent_body, parent_object, local_pos, dir)
-	elseif unit then
+		unit:base():set_thrower_unit_by_peer_id(peer_id)
+		managers.network:session():send_to_peers_synched("sync_attach_projectile", unit, instant_dynamic_pickup, parent_alive and parent_unit or nil, parent_alive and parent_body or nil, parent_alive and parent_object or nil, local_pos, dir, projectile_type_index, peer_id, cosmetic_id)
+	end
+
+	if unit then
 		local projectile_type = tweak_data.blackmarket:get_projectile_name_from_index(projectile_type_index)
 
 		unit:set_position(world_position)
@@ -3873,7 +3881,19 @@ function UnitNetworkHandler:sync_attach_projectile(unit, instant_dynamic_pickup,
 	if peer_id ~= 1 then
 		local dummy_unit = ImpactHurt.find_nearest_impact_projectile(peer_id, world_position)
 
-		if dummy_unit then
+		if alive(dummy_unit) then
+			if alive(unit) then
+				local dummy_position = dummy_unit:position()
+				local dummy_rotation = dummy_unit:rotation()
+				local dynamic_body = dummy_unit:body("dynamic_body")
+				local dummy_velocity = dynamic_body and dynamic_body:velocity()
+
+				unit:base():_set_body_enabled(false)
+				unit:set_position(dummy_position)
+				unit:set_rotation(dummy_rotation)
+				unit:base():switch_to_pickup_delayed(instant_dynamic_pickup, 0.01, dummy_velocity)
+			end
+
 			dummy_unit:set_slot(0)
 		end
 	end

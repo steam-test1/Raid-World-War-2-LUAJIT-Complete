@@ -713,8 +713,8 @@ function ConnectionNetworkHandler:sync_explosion_results(count_cops, count_gangs
 
 		if enemies_hit > 0 then
 			managers.statistics:shot_fired({
-				skip_bullet_count = true,
 				hit = true,
+				skip_bullet_count = true,
 				weapon_unit = weapon_unit
 			})
 		end
@@ -742,8 +742,8 @@ function ConnectionNetworkHandler:sync_fire_results(count_cops, count_gangsters,
 
 		if enemies_hit > 0 then
 			managers.statistics:shot_fired({
-				skip_bullet_count = true,
 				hit = true,
+				skip_bullet_count = true,
 				weapon_unit = weapon_unit
 			})
 		end
@@ -763,10 +763,10 @@ function ConnectionNetworkHandler:voting_data(type, value, result, sender)
 end
 
 ConnectionNetworkHandler._SYNC_AWARD_ACHIEVEMENT_ALLOWED = {
-	ach_grenade_kill_spotter = true,
 	ach_kill_enemies_with_single_grenade_5 = true,
 	landmines_kill_some = true,
-	ach_decoy_kill_anyone = true
+	ach_decoy_kill_anyone = true,
+	ach_grenade_kill_spotter = true
 }
 
 function ConnectionNetworkHandler:sync_award_achievement(achievement_id, sender)
@@ -957,9 +957,9 @@ function ConnectionNetworkHandler:sync_picked_up_loot_values(picked_up_current_l
 	managers.lootdrop:set_picked_up_current_leg(picked_up_current_leg)
 	managers.lootdrop:set_picked_up_total(picked_up_total)
 	managers.notification:add_notification({
-		shelf_life = 5,
 		duration = 2,
 		id = "hud_hint_grabbed_nazi_gold",
+		shelf_life = 5,
 		notification_type = HUDNotification.DOG_TAG,
 		acquired = picked_up_current_leg,
 		total = picked_up_total

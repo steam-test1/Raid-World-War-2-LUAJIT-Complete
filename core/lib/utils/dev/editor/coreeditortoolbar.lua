@@ -255,9 +255,9 @@ function CoreEditor:build_grid_sizes(icons_path)
 	})
 
 	self._ews_triggers.change_grid_size = callback(self, self, "change_combo_box_trg", {
+		prefix = "TB_GRIDSIZE",
 		value = "_grid_size",
 		t = "_grid_sizes",
-		prefix = "TB_GRIDSIZE",
 		combobox = sizes,
 		menu = self._grid_sizes_menu
 	})
@@ -294,9 +294,9 @@ function CoreEditor:build_snap_rotations()
 	})
 
 	self._ews_triggers.change_snaprot = callback(self, self, "change_combo_box_trg", {
+		prefix = "TB_SNAPROTATION",
 		value = "_snap_rotation",
 		t = "_snap_rotations",
-		prefix = "TB_SNAPROTATION",
 		combobox = rotations,
 		menu = self._snap_rotations_menu
 	})

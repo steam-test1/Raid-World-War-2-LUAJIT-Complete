@@ -58,8 +58,8 @@ end
 
 function SpecialHonorsGui:_layout_first_screen()
 	local top_stats_big_panel_params = {
-		valign = "scale",
 		halign = "scale",
+		valign = "scale",
 		name = "top_stats_big_panel"
 	}
 	self._top_stats_big_panel = self._root_panel:panel(top_stats_big_panel_params)

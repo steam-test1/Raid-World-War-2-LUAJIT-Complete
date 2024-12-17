@@ -1072,9 +1072,9 @@ function PlayerDamage:_check_bleed_out(ignore_upgrades, ignore_movement_state)
 
 				managers.hud:set_big_prompt({
 					id = "hint_downed",
-					duration = 4,
-					priority = true,
 					background = "backgrounds_detected_msg",
+					priority = true,
+					duration = 4,
 					title = managers.localization:to_upper_text("hud_hint_downs_title"),
 					description = managers.localization:to_upper_text("hud_hint_downs_desc", {
 						DOWNS = self._revives - 1,
@@ -1117,6 +1117,10 @@ function PlayerDamage:_check_activate_perseverance(params)
 	end
 
 	if params.bleed_out_blocked then
+		return
+	end
+
+	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_WARCRIES_DISABLED) then
 		return
 	end
 

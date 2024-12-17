@@ -25,12 +25,12 @@ end
 
 function IntelGui:_layout_tab_categories()
 	local category_tabs_params = {
-		name = "category_tabs",
-		initial_tab_idx = 1,
 		tab_align = "center",
 		tab_height = 64,
 		tab_width = 220,
 		y = 80,
+		name = "category_tabs",
+		initial_tab_idx = 1,
 		tab_font_size = tweak_data.gui.font_sizes.small,
 		on_click_callback = callback(self, self, "on_intel_category_selected"),
 		parent_control_ref = self,
@@ -51,20 +51,20 @@ end
 
 function IntelGui:_layout_list()
 	local category_items_list_scrollable_area_params = {
-		w = 460,
+		y = 192,
 		name = "category_items_list_scrollable_area",
 		scrollbar_width = 10,
 		scroll_step = 19,
 		h = 700,
-		y = 192
+		w = 460
 	}
 	self._category_items_list_scrollable_area = self._root_panel:scrollable_area(category_items_list_scrollable_area_params)
 	local category_items_list_params = {
-		name = "category_items_list",
-		on_mouse_over_sound_event = "highlight",
-		item_h = 62,
 		use_unlocked = false,
 		selection_enabled = true,
+		on_mouse_over_sound_event = "highlight",
+		name = "category_items_list",
+		item_h = 62,
 		w = category_items_list_scrollable_area_params.w,
 		item_font = tweak_data.gui.fonts.lato,
 		item_font_size = tweak_data.gui.font_sizes.size_24,

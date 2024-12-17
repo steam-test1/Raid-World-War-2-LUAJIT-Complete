@@ -280,9 +280,9 @@ end
 function FlamerLogicAttack._chk_request_action_walk_to_chase_pos(data, my_data, speed, end_rot)
 	if not data.unit:movement():chk_action_forbidden("walk") then
 		local new_action_data = {
-			body_part = 2,
-			no_strafe = false,
 			type = "walk",
+			no_strafe = false,
+			body_part = 2,
 			nav_path = my_data.chase_path,
 			variant = speed or "run",
 			end_rot = end_rot

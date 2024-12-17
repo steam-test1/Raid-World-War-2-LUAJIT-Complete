@@ -84,8 +84,8 @@ end
 
 function CoreLogicChanceOperatorUnitElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		mask = 10,
-		ray_type = "editor"
+		ray_type = "editor",
+		mask = 10
 	})
 
 	if ray and ray.unit and ray.unit:name() == Idstring("core/units/mission_elements/logic_chance/logic_chance") then
@@ -182,8 +182,8 @@ end
 
 function CoreLogicChanceTriggerUnitElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		mask = 10,
-		ray_type = "editor"
+		ray_type = "editor",
+		mask = 10
 	})
 
 	if ray and ray.unit and ray.unit:name() == Idstring("core/units/mission_elements/logic_chance/logic_chance") then

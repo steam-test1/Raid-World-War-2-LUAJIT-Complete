@@ -324,6 +324,7 @@ end
 
 function Setup:init_managers(managers)
 	Global.game_settings = Global.game_settings or {
+		is_playing = false,
 		search_appropriate_jobs = true,
 		job_plan = -1,
 		kick_option = 1,
@@ -332,7 +333,6 @@ function Setup:init_managers(managers)
 		team_ai = true,
 		selected_team_ai = true,
 		permission = "public",
-		is_playing = false,
 		level_id = OperationsTweakData.ENTRY_POINT_LEVEL,
 		difficulty = Global.DEFAULT_DIFFICULTY
 	}
@@ -472,8 +472,8 @@ function Setup:_start_loading_screen()
 		load_level_data.controller_shapes = {
 			{
 				position = {
-					cy = 0.5,
-					cx = 0.5
+					cx = 0.5,
+					cy = 0.5
 				},
 				texture_rect = {
 					0,
@@ -502,8 +502,8 @@ function Setup:_start_loading_screen()
 			aspect_ratio = aspect_ratio,
 			res = res,
 			workspace_size = {
-				x = 0,
 				y = 0,
+				x = 0,
 				w = res.x,
 				h = res.y
 			},

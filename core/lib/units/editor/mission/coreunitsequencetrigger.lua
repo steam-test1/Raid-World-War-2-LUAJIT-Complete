@@ -112,8 +112,8 @@ end
 
 function CoreUnitSequenceTriggerUnitElement:update_editing()
 	local ray = managers.editor:unit_by_raycast({
-		sample = true,
 		ray_type = "body editor",
+		sample = true,
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -128,8 +128,8 @@ end
 
 function CoreUnitSequenceTriggerUnitElement:select_unit()
 	local ray = managers.editor:unit_by_raycast({
-		sample = true,
 		ray_type = "body editor",
+		sample = true,
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -270,13 +270,13 @@ function CoreUnitSequenceTriggerUnitElement:_add_unit(unit, sequences, sequence_
 	panel_sizer:add(h_sizer, 0, 1, "EXPAND,LEFT")
 
 	local sequence_params = {
-		sorted = true,
 		sizer_proportions = 1,
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		name = "Sequence:",
 		tooltip = "Select a sequence from the combobox",
 		default = "none",
+		name = "Sequence:",
+		sorted = true,
 		panel = panel,
 		sizer = h_sizer,
 		options = sequences,

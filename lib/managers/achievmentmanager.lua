@@ -4,10 +4,10 @@ AchievmentManager.FILE_EXTENSION = "achievment"
 
 function AchievmentManager:init()
 	self.exp_awards = {
-		none = 0,
 		c = 5000,
 		b = 1500,
-		a = 500
+		a = 500,
+		none = 0
 	}
 	self.script_data = {}
 
@@ -395,18 +395,14 @@ function AchievmentManager:check_achievement_complete_raid_with_4_different_clas
 	if peers and #peers == 4 then
 		local classes = {}
 
-		for peer_id, peer in ipairs(peers) do
-			local peer_outfit = peer:blackmarket_outfit()
+		for _, peer in ipairs(peers) do
+			local class = peer:class()
 
-			if peer_outfit and peer_outfit.skills then
-				if classes[peer_outfit.skills] then
-					return false
-				end
-
-				classes[peer_outfit.skills] = true
-			else
-				return false
+			if not class or classes[class] then
+				return
 			end
+
+			classes[class] = true
 		end
 
 		managers.achievment:award("ach_every_player_different_class")

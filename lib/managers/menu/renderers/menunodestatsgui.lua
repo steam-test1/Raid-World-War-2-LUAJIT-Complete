@@ -110,11 +110,11 @@ function MenuNodeStatsGui:_add_stats(params)
 		y = y
 	})
 	local topic = panel:text({
-		x = 0,
 		vertical = "center",
 		halign = "right",
 		align = "right",
 		y = 0,
+		x = 0,
 		font_size = tweak_data.menu.stats_font_size,
 		w = self:_left_align(),
 		font = self.font,
@@ -158,10 +158,10 @@ function MenuNodeStatsGui:_add_stats(params)
 			layer = self.layers.items - 1
 		})
 		local bar = panel:gradient({
-			orientation = "vertical",
 			vertical = "center",
 			halign = "center",
 			align = "center",
+			orientation = "vertical",
 			gradient_points = {
 				0,
 				Color(1, 1, 0.6588235294117647, 0),
@@ -175,9 +175,9 @@ function MenuNodeStatsGui:_add_stats(params)
 			layer = self.layers.items
 		})
 		local text = panel:text({
-			valign = "center",
 			vertical = "center",
 			halign = "center",
+			valign = "center",
 			align = "center",
 			y = 0,
 			font_size = tweak_data.menu.stats_font_size,

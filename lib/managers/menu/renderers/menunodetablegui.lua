@@ -9,15 +9,15 @@ function MenuNodeTableGui:_setup_panels(node)
 
 	local safe_rect_pixels = self:_scaled_size()
 	local mini_info = self.safe_rect_panel:panel({
+		w = 0,
 		y = 0,
 		x = 0,
-		h = 0,
-		w = 0
+		h = 0
 	})
 	local mini_text = mini_info:text({
 		wrap = true,
-		vertical = "top",
 		word_wrap = true,
+		vertical = "top",
 		halign = "top",
 		align = "left",
 		text = "",
@@ -129,17 +129,17 @@ function MenuNodeTableGui:_create_menu_item(row_item)
 
 		local level_id = row_item.item:parameters().level_id
 		row_item.gui_info_panel = self.safe_rect_panel:panel({
-			visible = false,
 			y = 0,
+			visible = false,
 			x = 0,
 			layer = self.layers.items,
 			w = self:_left_align(),
 			h = self._item_panel_parent:h()
 		})
 		row_item.heist_name = row_item.gui_info_panel:text({
+			align = "left",
 			vertical = "left",
 			visible = false,
-			align = "left",
 			text = utf8.to_upper(row_item.item:parameters().level_name),
 			layer = self.layers.items,
 			font = self.font,
@@ -149,11 +149,11 @@ function MenuNodeTableGui:_create_menu_item(row_item)
 		local briefing_text = level_id and managers.localization:text(tweak_data.levels[level_id].briefing_id) or ""
 		row_item.heist_briefing = row_item.gui_info_panel:text({
 			visible = true,
-			vertical = "top",
 			wrap = true,
+			vertical = "top",
+			word_wrap = true,
 			halign = "top",
 			align = "left",
-			word_wrap = true,
 			y = 0,
 			x = 0,
 			font = tweak_data.menu.pd2_small_font,

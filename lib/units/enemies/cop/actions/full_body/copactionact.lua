@@ -1495,8 +1495,8 @@ function CopActionAct:save(save_data)
 	end
 
 	save_data.blocks = save_data.blocks or {
-		action = -1,
 		walk = -1,
+		action = -1,
 		act = -1
 	}
 	save_data.start_anim_time = self._machine:segment_real_time(Idstring("base"))

@@ -1,8 +1,8 @@
 NavLinkUnitElement = NavLinkUnitElement or class(MissionElement)
 NavLinkUnitElement.INSTANCE_VAR_NAMES = {
 	{
-		value = "so_action",
-		type = "special_objective_action"
+		type = "special_objective_action",
+		value = "so_action"
 	}
 }
 NavLinkUnitElement._AI_SO_types = {
@@ -247,9 +247,9 @@ function NavLinkUnitElement:_draw_follow_up(selected_unit, all_units)
 
 			if draw then
 				self:_draw_link({
+					g = 0.75,
 					r = 0,
 					b = 0,
-					g = 0.75,
 					from_unit = self._unit,
 					to_unit = unit
 				})
@@ -266,8 +266,8 @@ end
 
 function NavLinkUnitElement:_so_raycast()
 	local ray = managers.editor:unit_by_raycast({
-		mask = 10,
-		ray_type = "editor"
+		ray_type = "editor",
+		mask = 10
 	})
 
 	if ray and ray.unit and (string.find(ray.unit:name():s(), "point_special_objective", 1, true) or string.find(ray.unit:name():s(), "ai_so_group", 1, true)) then
@@ -283,8 +283,8 @@ end
 
 function NavLinkUnitElement:_spawn_raycast()
 	local ray = managers.editor:unit_by_raycast({
-		mask = 10,
-		ray_type = "editor"
+		ray_type = "editor",
+		mask = 10
 	})
 
 	if not ray or not ray.unit then

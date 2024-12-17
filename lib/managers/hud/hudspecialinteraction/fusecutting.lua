@@ -30,10 +30,10 @@ end
 function HUDSpecialInteractionFuseCutting:_create_bg_plate()
 	local gui_data = tweak_data.gui:get_full_gui_data(HUDSpecialInteractionFuseCutting.BACKGROUND_PLATE_IMAGE)
 	self._bg_plate = self._object:bitmap({
-		layer = 1,
-		name = "special_interaction_bg_plate",
 		halign = "center",
 		valign = "center",
+		layer = 1,
+		name = "special_interaction_bg_plate",
 		texture = gui_data.texture,
 		texture_rect = gui_data.texture_rect,
 		w = HUDSpecialInteractionFuseCutting.SIZE + 118,

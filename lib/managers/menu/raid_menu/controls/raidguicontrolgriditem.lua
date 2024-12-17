@@ -43,17 +43,17 @@ function RaidGUIControlGridItem:init(parent, params, item_data, grid_params)
 	self._params.item_h = params.item_h or self._panel:h()
 	self._name = "grid_item"
 	local background_panel_params = {
-		visible = false,
-		layer = 1,
 		y = 0,
 		x = 0,
+		visible = false,
+		layer = 1,
 		w = self._params.selected_marker_w,
 		h = self._params.selected_marker_h
 	}
 	local background_rect_params = {
-		layer = 2,
 		y = 0,
 		x = 0,
+		layer = 2,
 		w = self._params.selected_marker_w,
 		h = self._params.selected_marker_h,
 		color = tweak_data.gui.colors.raid_grey:with_alpha(0.3)

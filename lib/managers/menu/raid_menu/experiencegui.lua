@@ -134,8 +134,8 @@ function ExperienceGui:_layout_equipped_upgrades()
 			end
 
 			local grid_item = self._menu_left_side:create_custom_control(RaidGUIControlButtonSkillTiny, {
-				y = 4,
 				layer = 1,
+				y = 4,
 				name = "equippped_slot_" .. slot_type_str .. i,
 				x = x,
 				w = block_size,
@@ -243,8 +243,8 @@ function ExperienceGui:_layout_equipable_upgrades()
 	local h = self._menu_left_side:h() - y
 	local backgrounds_chat_bg = tweak_data.gui.icons.backgrounds_chat_bg
 	self._equipable_upgrades_background = self._menu_left_side:bitmap({
-		alpha = 0.5,
 		name = "grid_item_icon_sprite",
+		alpha = 0.5,
 		layer = -1,
 		y = y,
 		w = self._menu_left_side:w(),
@@ -254,8 +254,8 @@ function ExperienceGui:_layout_equipable_upgrades()
 	})
 	local item_size = 90
 	local equippable_upgrades_scrollable_area_params = {
-		name = "equippable_upgrades_scrollable_area_params",
 		scrollbar_offset = 8,
+		name = "equippable_upgrades_scrollable_area_params",
 		y = y,
 		w = self._menu_left_side:w(),
 		h = h,
@@ -298,10 +298,10 @@ function ExperienceGui:_layout_skill_profile()
 	local y_padding = 8
 	local x, y, w, h = self._equipable_upgrades_background:shape()
 	self._skill_profiles_list = self._menu_left_side:create_custom_control(RaidGUIControlListSeparated, {
-		name = "skill_profiles_list",
-		loop_items = true,
-		visible = false,
 		selection_enabled = false,
+		visible = false,
+		loop_items = true,
+		name = "skill_profiles_list",
 		x = x + x_padding,
 		y = y + y_padding,
 		w = w - x_padding * 2,
@@ -571,34 +571,34 @@ function ExperienceGui:data_source_stats()
 	local t = {}
 
 	table.insert(t, {
-		text_id = "character_stats_health_label",
-		name = "health"
+		name = "health",
+		text_id = "character_stats_health_label"
 	})
 	table.insert(t, {
-		text_id = "character_stats_stamina_label",
-		name = "stamina"
+		name = "stamina",
+		text_id = "character_stats_stamina_label"
 	})
 	table.insert(t, {
 		text_id = "character_stats_stamina_regen_label",
-		format_value = "%.2g/s",
-		name = "stamina_regen"
+		name = "stamina_regen",
+		format_value = "%.2g/s"
 	})
 	table.insert(t, {
 		text_id = "character_stats_stamina_delay_label",
-		format_value = "%.2gs",
-		name = "stamina_delay"
+		name = "stamina_delay",
+		format_value = "%.2gs"
 	})
 	table.insert(t, {
-		text_id = "character_stats_speed_walk_label",
-		name = "speed_walk"
+		name = "speed_walk",
+		text_id = "character_stats_speed_walk_label"
 	})
 	table.insert(t, {
-		text_id = "character_stats_speed_run_label",
-		name = "speed_run"
+		name = "speed_run",
+		text_id = "character_stats_speed_run_label"
 	})
 	table.insert(t, {
-		text_id = "character_stats_carry_limit_label",
-		name = "carry_limit"
+		name = "carry_limit",
+		text_id = "character_stats_carry_limit_label"
 	})
 
 	return t

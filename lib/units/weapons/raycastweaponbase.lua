@@ -28,7 +28,6 @@ function RaycastWeaponBase:init(unit)
 	self:_create_use_setups()
 
 	self._setup = {}
-	self._digest_values = IS_PC
 	self._ammo_data = false
 	local replenish_wpn = false
 
@@ -41,8 +40,8 @@ function RaycastWeaponBase:init(unit)
 	self._autohit_data = tweak_data.weapon[self._name_id].autohit
 	self._autohit_current = self._autohit_data.INIT_RATIO
 	self._shoot_through_data = {
+		EFFECT_PLAYER_CAN_ONLY_USE_WEAPON_CATEGORY = nil,
 		kills = 0,
-		trigger_held = nil,
 		from = Vector3()
 	}
 	self._can_shoot_through_shield = tweak_data.weapon[self._name_id].can_shoot_through_shield
@@ -1198,48 +1197,20 @@ function RaycastWeaponBase:anim_stop(anim)
 	self._unit:anim_stop(Idstring(anim))
 end
 
-function RaycastWeaponBase:digest_value(value, digest)
-	if self._digest_values then
-		return Application:digest_value(value, digest)
-	else
-		return value
-	end
-end
-
 function RaycastWeaponBase:set_ammo_max_per_clip(ammo_max_per_clip)
-	if self._ammo_max_per_clip then
-		if self._ammo_max_per_clip2 then
-			print("haxor")
-		end
-
-		self._ammo_max_per_clip2 = self:digest_value(ammo_max_per_clip, true)
-		self._ammo_max_per_clip = nil
-	else
-		self._ammo_max_per_clip = self:digest_value(ammo_max_per_clip, true)
-		self._ammo_max_per_clip2 = nil
-	end
+	self._ammo_max_per_clip = ammo_max_per_clip
 end
 
 function RaycastWeaponBase:get_ammo_max_per_clip()
-	return self._ammo_max_per_clip and self:digest_value(self._ammo_max_per_clip, false) or self:digest_value(self._ammo_max_per_clip2, false)
+	return self._ammo_max_per_clip
 end
 
 function RaycastWeaponBase:set_ammo_max(ammo_max)
-	if self._ammo_max then
-		if self._ammo_max2 then
-			print("haxor")
-		end
-
-		self._ammo_max2 = self:digest_value(ammo_max, true)
-		self._ammo_max = nil
-	else
-		self._ammo_max = self:digest_value(ammo_max, true)
-		self._ammo_max2 = nil
-	end
+	self._ammo_max = ammo_max
 end
 
 function RaycastWeaponBase:get_ammo_max()
-	return self._ammo_max and self:digest_value(self._ammo_max, false) or self:digest_value(self._ammo_max2, false)
+	return self._ammo_max
 end
 
 function RaycastWeaponBase:get_ammo_ratio_excluding_clip()
@@ -1266,13 +1237,11 @@ function RaycastWeaponBase:set_ammo_total(ammo_total)
 		ammo_total = 0
 	end
 
-	self._ammo_total = self:digest_value(ammo_total, true)
+	self._ammo_total = ammo_total
 end
 
 function RaycastWeaponBase:get_ammo_total()
-	local ammo_total = self._ammo_total and self:digest_value(self._ammo_total, false) or self:digest_value(self._ammo_total2, false)
-
-	return ammo_total
+	return self._ammo_total
 end
 
 function RaycastWeaponBase:get_ammo_ratio()
@@ -1291,24 +1260,11 @@ end
 
 function RaycastWeaponBase:set_ammo_remaining_in_clip(ammo_remaining_in_clip)
 	ammo_remaining_in_clip = math.clamp(ammo_remaining_in_clip, 0, self:get_ammo_max_per_clip())
-
-	if self._ammo_remaining_in_clip then
-		if self._ammo_remaining_in_clip2 then
-			print("haxor")
-		end
-
-		self._ammo_remaining_in_clip2 = self:digest_value(ammo_remaining_in_clip, true)
-		self._ammo_remaining_in_clip = nil
-	else
-		self._ammo_remaining_in_clip = self:digest_value(ammo_remaining_in_clip, true)
-		self._ammo_remaining_in_clip2 = nil
-	end
+	self._ammo_remaining_in_clip = ammo_remaining_in_clip
 end
 
 function RaycastWeaponBase:get_ammo_remaining_in_clip()
-	local ammo_remaining_in_clip = self._ammo_remaining_in_clip and self:digest_value(self._ammo_remaining_in_clip, false) or self:digest_value(self._ammo_remaining_in_clip2, false)
-
-	return ammo_remaining_in_clip
+	return self._ammo_remaining_in_clip
 end
 
 function RaycastWeaponBase:get_ammo_reload_clip_single()
@@ -1960,10 +1916,10 @@ InstantExplosiveBulletBase.CURVE_POW = tweak_data.upgrades.explosive_bullet.curv
 InstantExplosiveBulletBase.PLAYER_DMG_MUL = tweak_data.upgrades.explosive_bullet.player_dmg_mul
 InstantExplosiveBulletBase.RANGE = tweak_data.upgrades.explosive_bullet.range
 InstantExplosiveBulletBase.EFFECT_PARAMS = {
+	sound_event = "round_explode",
 	effect = "effects/vanilla/weapons/shotgun/sho_explosive_round",
 	on_unit = true,
 	sound_muffle_effect = true,
-	sound_event = "round_explode",
 	feedback_range = tweak_data.upgrades.explosive_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.explosive_bullet.camera_shake_max_mul,
 	idstr_decal = Idstring("explosion_round"),
@@ -2093,9 +2049,9 @@ end
 
 FlameBulletBase = FlameBulletBase or class(InstantExplosiveBulletBase)
 FlameBulletBase.EFFECT_PARAMS = {
+	sound_event = "round_explode",
 	on_unit = true,
 	sound_muffle_effect = true,
-	sound_event = "round_explode",
 	feedback_range = tweak_data.upgrades.flame_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.flame_bullet.camera_shake_max_mul,
 	idstr_decal = Idstring("explosion_round"),
@@ -2283,10 +2239,10 @@ end
 
 DOTBulletBase = DOTBulletBase or class(InstantBulletBase)
 DOTBulletBase.DOT_DATA = {
-	dot_damage = 0.5,
 	dot_tick_period = 0.5,
 	dot_length = 6,
-	hurt_animation_chance = 1
+	hurt_animation_chance = 1,
+	dot_damage = 0.5
 }
 
 function DOTBulletBase:on_collision(col_ray, weapon_unit, user_unit, damage, blank)

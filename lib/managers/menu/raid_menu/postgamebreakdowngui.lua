@@ -76,8 +76,8 @@ function PostGameBreakdownGui:_layout()
 	managers.raid_menu:show_background_video()
 
 	local params_xp_breakdown = {
-		name = "xp_breakdown",
 		visible = true,
+		name = "xp_breakdown",
 		x = PostGameBreakdownGui.XP_BREAKDOWN_X,
 		y = PostGameBreakdownGui.XP_BREAKDOWN_Y,
 		data_source_callback = callback(self, self, "data_source_xp_breakdown")
@@ -87,8 +87,8 @@ function PostGameBreakdownGui:_layout()
 	self._xp_breakdown:hide()
 
 	self._skills_breakdown = self._root_panel:create_custom_control(RaidGUIControlSkillsBreakdown, {
-		name = "skills_breakdown",
 		visible = true,
+		name = "skills_breakdown",
 		x = PostGameBreakdownGui.SKILLS_BREAKDOWN_X,
 		y = self._xp_breakdown:bottom() + PostGameBreakdownGui.SKILLS_BREAKDOWN_Y_PADDING,
 		data_source_callback = callback(self, self, "data_source_skills_breakdown")
@@ -97,8 +97,8 @@ function PostGameBreakdownGui:_layout()
 	self._skills_breakdown:hide()
 
 	local params_stats_breakdown = {
-		name = "stats_breakdown",
 		visible = true,
+		name = "stats_breakdown",
 		x = self._root_panel:get_engine_panel():w() - RaidGuiBase.PADDING - PostGameBreakdownGui.STATS_BREAKDOWN_WIDTH,
 		y = PostGameBreakdownGui.STATS_BREAKDOWN_Y,
 		data_source_callback = callback(self, self, "data_source_stats_breakdown")
@@ -109,10 +109,10 @@ function PostGameBreakdownGui:_layout()
 	self._stats_breakdown:hide()
 
 	local top_stats_small_panel_params = {
+		alpha = 0,
 		halign = "right",
 		valign = "top",
 		name = "top_stats_small_panel",
-		alpha = 0,
 		y = PostGameBreakdownGui.TOP_STATS_SMALL_Y,
 		w = PostGameBreakdownGui.TOP_STATS_SMALL_W,
 		h = PostGameBreakdownGui.TOP_STATS_SMALL_H
@@ -136,9 +136,9 @@ function PostGameBreakdownGui:_layout()
 	self._top_stats_small[3]:set_bottom(self._top_stats_small_panel:h())
 
 	local progress_bar_params = {
+		bar_w = 62450,
 		horizontal_padding = 64,
 		name = "progress_bar",
-		bar_w = 62450,
 		y = PostGameBreakdownGui.PROGRESS_BAR_Y,
 		w = self._root_panel:w(),
 		initial_progress = self:_get_progress(self.initial_xp),
@@ -156,10 +156,10 @@ function PostGameBreakdownGui:_layout()
 
 	local total_xp_params = {
 		value_align = "center",
-		value = "0",
-		name = "total_xp",
 		align = "center",
+		value = "0",
 		x = 0,
+		name = "total_xp",
 		layer = 1,
 		y = PostGameBreakdownGui.TOTAL_XP_Y,
 		w = self._root_panel:w(),
@@ -202,10 +202,10 @@ end
 
 function PostGameBreakdownGui:_layout_central_display()
 	local central_display_panel_params = {
+		alpha = 0,
 		halign = "center",
 		valign = "top",
 		name = "central_display_params",
-		alpha = 0,
 		w = PostGameBreakdownGui.CENTRAL_DISPLAY_W,
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_H
 	}
@@ -234,9 +234,9 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 
 	local is_player_max_level = managers.experience:reached_level_cap()
 	local title = self._generic_win_panel:text({
-		vertical = "center",
 		align = "center",
 		name = "generic_win_title_text",
+		vertical = "center",
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_TITLE_FONT_SIZE,
@@ -252,9 +252,9 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 	title:set_center_x(self._generic_win_panel:w() / 2)
 
 	local flavor_text = self._generic_win_panel:text({
-		vertical = "center",
 		align = "center",
 		name = "generic_win_flavor_text",
+		vertical = "center",
 		text = self:translate("menu_keep_it_up", true),
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
@@ -288,8 +288,8 @@ function PostGameBreakdownGui:_layout_fail_display()
 	icon:set_center_y(PostGameBreakdownGui.CENTRAL_DISPLAY_SINGLE_ICON_CENTER_Y)
 
 	local title = self._fail_panel:text({
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "fail_title_text",
 		text = self:translate("menu_better_luck_next_time", true),
 		font = PostGameBreakdownGui.FONT,
@@ -305,8 +305,8 @@ function PostGameBreakdownGui:_layout_fail_display()
 	title:set_center_x(self._fail_panel:w() / 2)
 
 	local flavor_text = self._fail_panel:text({
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "fail_flavor_text",
 		text = self:translate("menu_fail", true),
 		font = PostGameBreakdownGui.FONT,
@@ -378,14 +378,14 @@ function PostGameBreakdownGui:data_source_xp_breakdown()
 	local entries = #self.xp_breakdown.additive + #self.xp_breakdown.multiplicative
 	local dummy_entry = {
 		{
+			value = 1,
 			info = "empty",
-			text = "",
-			value = 1
+			text = ""
 		},
 		{
+			value = 0,
 			info = "empty",
-			text = "",
-			value = 0
+			text = ""
 		}
 	}
 
@@ -407,73 +407,73 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 	local stats_breakdown = {
 		{
 			{
-				info = "lvl diff",
 				value = 1,
+				info = "lvl diff",
 				text = self:translate("menu_stat_total_kills_title", true)
 			},
 			{
-				info = "lvl diff",
 				value = 200,
+				info = "lvl diff",
 				text = tostring(personal_stats.session_killed)
 			}
 		},
 		{
 			{
-				info = "surviving players",
 				value = 1,
+				info = "surviving players",
 				text = self:translate("menu_stat_accuracy_title", true)
 			},
 			{
-				info = "surviving players",
 				value = 500,
+				info = "surviving players",
 				text = string.format("%.0f", personal_stats.session_accuracy) .. "%"
 			}
 		},
 		{
 			{
-				info = "human players",
 				value = 1,
+				info = "human players",
 				text = self:translate("menu_stat_headshots_title", true)
 			},
 			{
-				info = "human players",
 				value = 450,
+				info = "human players",
 				text = tostring(personal_stats.session_headshots) .. " (" .. string.format("%.0f", personal_stats.session_headshot_percentage) .. "%)"
 			}
 		},
 		{
 			{
-				info = "most kills",
 				value = 1,
+				info = "most kills",
 				text = self:translate("menu_stat_special_kills_title", true)
 			},
 			{
-				info = "most kills",
 				value = 0,
+				info = "most kills",
 				text = tostring(personal_stats.session_special_kills)
 			}
 		},
 		{
 			{
-				info = "best acc",
 				value = 1,
+				info = "best acc",
 				text = self:translate("menu_stat_teammates_revived_title", true)
 			},
 			{
-				info = "best acc",
 				value = 0,
+				info = "best acc",
 				text = tostring(personal_stats.session_teammates_revived)
 			}
 		},
 		{
 			{
-				info = "most specials",
 				value = 1,
+				info = "most specials",
 				text = self:translate("menu_stat_bleedouts_title", true)
 			},
 			{
-				info = "most specials",
 				value = 500,
+				info = "most specials",
 				text = tostring(personal_stats.session_bleedouts)
 			}
 		}

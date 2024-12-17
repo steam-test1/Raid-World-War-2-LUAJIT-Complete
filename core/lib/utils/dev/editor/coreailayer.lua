@@ -210,11 +210,11 @@ function AiLayer:_draw_patrol_path(name, path, t, dt)
 
 			self._patrol_path_brush:set_color(Color.white:with_alpha(selected_path and 1 or 0.25))
 			Application:draw_link({
+				height_offset = 0,
 				thick = true,
 				b = 1,
 				g = 1,
 				r = 1,
-				height_offset = 0,
 				from_unit = point.unit,
 				to_unit = to_unit,
 				circle_multiplier = selected_path and 0.5 or 0.25
@@ -323,12 +323,12 @@ function AiLayer:build_panel(notebook)
 	build_settings:add(self._all_visible, 0, 0, "EXPAND")
 
 	self._ray_length_params = {
-		ctrlr_proportions = 3,
 		value = 150,
-		name = "Ray length [cm]:",
+		ctrlr_proportions = 3,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 1,
+		name = "Ray length [cm]:",
 		tooltip = "Specifies the visible graph ray lenght in centimeter",
 		floats = 0,
 		panel = self._ews_panel,
@@ -376,11 +376,11 @@ function AiLayer:_build_ai_settings()
 	local graphs_sizer = EWS:StaticBoxSizer(self._ews_panel, "VERTICAL", "Settings")
 	local group_state = {
 		ctrlr_proportions = 3,
-		sorted = true,
-		name = "Group state:",
 		name_proportions = 1,
 		sizer_proportions = 1,
+		name = "Group state:",
 		tooltip = "Select a group state from the combo box",
+		sorted = true,
 		panel = self._ews_panel,
 		sizer = graphs_sizer,
 		options = managers.groupai:state_names(),
@@ -400,12 +400,12 @@ end
 function AiLayer:_build_ai_unit_settings()
 	local sizer = EWS:StaticBoxSizer(self._ews_panel, "VERTICAL", "Unit settings")
 	local suspicion_multiplier = {
-		ctrlr_proportions = 4,
 		value = 1,
-		name = "Suspicion Multiplier:",
+		ctrlr_proportions = 4,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 1,
+		name = "Suspicion Multiplier:",
 		tooltip = "multiplier applied to suspicion buildup rate",
 		floats = 1,
 		panel = self._ews_panel,
@@ -417,12 +417,12 @@ function AiLayer:_build_ai_unit_settings()
 	suspicion_multiplier_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "_set_suspicion_mul"), nil)
 
 	local detection_multiplier = {
-		ctrlr_proportions = 4,
 		value = 1,
-		name = "Detection Multiplier:",
+		ctrlr_proportions = 4,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 0.01,
+		name = "Detection Multiplier:",
 		tooltip = "multiplier applied to AI detection speed. min is 0.01",
 		floats = 2,
 		panel = self._ews_panel,
@@ -509,11 +509,11 @@ function AiLayer:_build_motion_path_section()
 	end
 
 	local mop_type = {
-		name = "Selected path type:",
-		sorted = false,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
+		name = "Selected path type:",
 		tooltip = "Path is used for either ground or airborne units.",
+		sorted = false,
 		panel = self._ews_panel,
 		sizer = motion_paths_sizer,
 		options = mop_path_types,
@@ -524,11 +524,11 @@ function AiLayer:_build_motion_path_section()
 	path_type_ctrlr:connect("EVT_COMMAND_COMBOBOX_SELECTED", callback(self, self, "_set_mop_type"), nil)
 
 	local speed_limit = {
-		ctrlr_proportions = 3,
 		value = 50,
-		name = "Default Speed Limit [km/h]:",
+		ctrlr_proportions = 3,
 		name_proportions = 1,
 		min = -1,
+		name = "Default Speed Limit [km/h]:",
 		tooltip = "Default speed limit for units moved along this path. -1 for no limit.",
 		floats = 1,
 		panel = self._ews_panel,

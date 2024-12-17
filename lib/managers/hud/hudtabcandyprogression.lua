@@ -104,11 +104,11 @@ function HUDTabCandyProgression:_create_progress_bar()
 	})
 
 	self._progress_bar_foreground_panel = self._progress_bar_panel:panel({
-		w = 0,
 		layer = 2,
 		name = "candy_progress_bar_foreground_panel",
 		halign = "scale",
 		valign = "scale",
+		w = 0,
 		h = self._progress_bar_panel:h()
 	})
 	local progress_bar = self._progress_bar_foreground_panel:three_cut_bitmap({
@@ -140,9 +140,9 @@ function HUDTabCandyProgression:_create_tier_info()
 	local font = tweak_data.gui:get_font_path(self.TIER_TITLE_FONT, self.TIER_TITLE_FONT_SIZE)
 	local tier = 1
 	self._tier_title = self._object:text({
+		name = "tier_title",
 		text = "TIER",
 		align = "center",
-		name = "tier_title",
 		y = self.TIER_TITLE_Y,
 		w = self.PROGRESS_BAR_W,
 		font = font,
@@ -188,16 +188,16 @@ function HUDTabCandyProgression:set_data(data)
 		local y = self._malus_effects_panel:h()
 		local icon_data = tweak_data.gui:get_full_gui_data(data.malus_effect.icon)
 		local malus_icon = self._malus_effects_panel:bitmap({
-			w = 28,
 			h = 28,
+			w = 28,
 			name = "malus_icon_" .. data.malus_effect.name,
 			y = y + 2,
 			texture = icon_data.texture,
 			texture_rect = icon_data.texture_rect
 		})
 		local malus_text = self._malus_effects_panel:text({
-			word_wrap = true,
 			wrap = true,
+			word_wrap = true,
 			name = "malus_text_" .. data.malus_effect.name,
 			x = malus_icon:right() + 4,
 			y = y,

@@ -40,8 +40,8 @@ end
 
 function RaidGUIControlGreedBarSmall:_create_loot_icon()
 	local loot_icon_params = {
-		name = "loot_icon",
 		valign = "center",
+		name = "loot_icon",
 		halign = "left",
 		texture = tweak_data.gui.icons[RaidGUIControlGreedBarSmall.LOOT_ICON].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlGreedBarSmall.LOOT_ICON].texture_rect
@@ -54,9 +54,9 @@ end
 
 function RaidGUIControlGreedBarSmall:_create_loot_title()
 	local loot_title_params = {
-		name = "loot_title",
-		valign = "center",
 		halign = "left",
+		valign = "center",
+		name = "loot_title",
 		vertical = "center",
 		align = "center",
 		h = RaidGUIControlGreedBarSmall.LOOT_TITLE_H,
@@ -73,8 +73,8 @@ end
 
 function RaidGUIControlGreedBarSmall:_create_loot_bar()
 	local loot_bar_panel_params = {
-		name = "loot_bar_panel",
 		valign = "center",
+		name = "loot_bar_panel",
 		halign = "left",
 		w = RaidGUIControlGreedBarSmall.LOOT_BAR_PANEL_W,
 		h = RaidGUIControlGreedBarSmall.LOOT_BAR_PANEL_H
@@ -84,8 +84,8 @@ function RaidGUIControlGreedBarSmall:_create_loot_bar()
 	self._loot_bar_panel:set_center_y(RaidGUIControlGreedBarSmall.LOOT_BAR_PANEL_CENTER_Y)
 
 	local loot_bar_background_params = {
-		layer = 1,
 		name = "loot_bar_background",
+		layer = 1,
 		w = RaidGUIControlGreedBarSmall.LOOT_BAR_W,
 		left = RaidGUIControlGreedBarSmall.LOOT_BAR_ICON_L,
 		center = RaidGUIControlGreedBarSmall.LOOT_BAR_ICON_M,

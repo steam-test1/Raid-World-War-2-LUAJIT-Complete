@@ -70,9 +70,9 @@ function HUDTabGreedBar:_create_icons()
 	self._icons_panel = self._object:panel(icons_panel_params)
 	local frame_icon_params = {
 		halign = "center",
-		layer = 10,
 		name = "frame_icon",
 		valign = "center",
+		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.FRAME_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.FRAME_ICON].texture_rect
 	}
@@ -83,9 +83,9 @@ function HUDTabGreedBar:_create_icons()
 
 	local loot_icon_params = {
 		halign = "center",
-		layer = 10,
 		name = "loot_icon",
 		valign = "center",
+		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.LOOT_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.LOOT_ICON].texture_rect
 	}
@@ -95,11 +95,11 @@ function HUDTabGreedBar:_create_icons()
 	self._loot_icon:set_center_y(self._icons_panel:h() / 2)
 
 	local gold_icon_params = {
-		halign = "center",
-		layer = 10,
 		name = "gold_icon",
 		alpha = 0,
 		valign = "center",
+		halign = "center",
+		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.GOLD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.GOLD_ICON].texture_rect,
 		color = tweak_data.gui.colors.raid_gold
@@ -143,8 +143,8 @@ end
 
 function HUDTabGreedBar:_create_bar()
 	local progress_bar_background_params = {
-		layer = 1,
 		name = "tab_greed_progress_bar_background",
+		layer = 1,
 		w = HUDTabGreedBar.LOOT_BAR_W,
 		left = HUDTabGreedBar.LOOT_BAR_ICON_L,
 		center = HUDTabGreedBar.LOOT_BAR_ICON_M,
@@ -167,8 +167,8 @@ function HUDTabGreedBar:_create_bar()
 	self._progress_bar_progress_panel:set_center_y(self._progress_bar_background:center_y())
 
 	local progress_bar_foreground_params = {
-		alpha = 0,
 		name = "tab_loot_bar_foreground",
+		alpha = 0,
 		w = self._progress_bar_background:w(),
 		left = HUDTabGreedBar.LOOT_BAR_ICON_L,
 		center = HUDTabGreedBar.LOOT_BAR_ICON_M,

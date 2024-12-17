@@ -20,24 +20,24 @@ function RaidGUIControlIntelOppositeForces:_layout()
 		texture_rect = tweak_data.gui.icons.intel_table_opposition_card.texture_rect
 	})
 	self._title = self._object:text({
+		h = 64,
 		x = 96,
 		w = 384,
 		y = 96,
 		text = "",
-		h = 64,
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_32,
 		color = tweak_data.gui.colors.chat_border
 	})
 	local scrollable_area_description_params = {
-		h = 448,
-		scroll_step = 19,
-		w = 416,
 		y = 160,
 		x = 96,
 		name = "scrollable_area_description",
+		h = 448,
+		scroll_step = 19,
 		scrollbar_width = 10,
+		w = 416,
 		layer = self._object:layer() + 2
 	}
 	self._scrollable_area_description = self._object:scrollable_area(scrollable_area_description_params)
@@ -53,8 +53,8 @@ function RaidGUIControlIntelOppositeForces:_layout()
 
 	self._description = self._content_panel:text({
 		x = 0,
-		wrap = true,
 		w = 380,
+		wrap = true,
 		y = 0,
 		text = "",
 		layer = self._object:layer() + 2,
@@ -63,11 +63,11 @@ function RaidGUIControlIntelOppositeForces:_layout()
 		color = tweak_data.gui.colors.chat_border
 	})
 	local image_viewer_params = {
-		visible = true,
-		y = 128,
-		w = 320,
 		h = 480,
-		x = 576
+		x = 576,
+		y = 128,
+		visible = true,
+		w = 320
 	}
 	self._image_viewer = self._object:create_custom_control(RaidGUIControlImageViewer, image_viewer_params)
 end

@@ -50,19 +50,19 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 
 	local content_panel_scrollable_area_params = {
 		h = 512,
+		scroll_step = 19,
 		w = 576,
 		y = 208,
 		x = 256,
-		scroll_step = 19,
-		name = "content_panel_scrollable_area",
 		scrollbar_width = 10,
+		name = "content_panel_scrollable_area",
 		layer = self._object:layer() + 2
 	}
 	self.content_panel_scrollable_area = self._object:scrollable_area(content_panel_scrollable_area_params)
 	local content_panel_params = {
-		h = 512,
-		w = 572,
 		y = 0,
+		w = 572,
+		h = 512,
 		x = 0,
 		layer = self._object:layer() + 2
 	}
@@ -97,9 +97,9 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 		color = tweak_data.gui.colors.chat_border
 	})
 	self._title_image = self._content_panel:bitmap({
-		h = 288,
-		w = 512,
 		y = 0,
+		w = 512,
+		h = 288,
 		x = 32,
 		layer = self._object:layer() + 2,
 		texture = tweak_data.gui.icons.intel_table_newspapers.texture,

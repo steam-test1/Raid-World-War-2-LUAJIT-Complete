@@ -193,8 +193,8 @@ function CoreEditor:_init_listener()
 
 	self._listener_always_enabled = false
 	self._sound_check_object = managers.sound_environment:add_check_object({
-		active = true,
 		primary = true,
+		active = true,
 		object = self:camera()
 	})
 end
@@ -202,8 +202,8 @@ end
 function CoreEditor:_init_mute()
 	self._mute_source = SoundDevice:create_source("editor_mute")
 	self._mute_states = {
-		current = false,
-		wanted = true
+		wanted = true,
+		current = false
 	}
 end
 
@@ -215,10 +215,10 @@ function CoreEditor:_init_gui()
 	self._gui = self._workspace:panel():gui(Idstring("core/guis/core_editor"))
 
 	self._gui:child("camera"):text({
-		font = "core/fonts/nice_editor_font",
 		font_size = 20,
 		name = "select_units_amount",
-		text = ""
+		text = "",
+		font = "core/fonts/nice_editor_font"
 	})
 	self:_align_gui()
 end
@@ -2685,8 +2685,8 @@ function CoreEditor:update_ruler(t, dt)
 	Application:draw_sphere(pos, 10, 1, 1, 1)
 
 	local ray = self:unit_by_raycast({
-		sample = true,
 		ray_type = "body editor",
+		sample = true,
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -3154,8 +3154,8 @@ function CoreEditor:do_save(path, dir, save_continents)
 
 	for continent, values in pairs(self._values) do
 		local t = {
-			entry = "values",
 			single_data_block = true,
+			entry = "values",
 			continent = continent,
 			data = values
 		}
@@ -4341,8 +4341,8 @@ end
 
 function CoreEditor:change_continent_by_unit()
 	local ray = self:unit_by_raycast({
-		sample = true,
 		ray_type = "body editor",
+		sample = true,
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -4418,8 +4418,8 @@ function CoreEditor:set_ruler_points()
 	end
 
 	local ray = self:unit_by_raycast({
-		sample = true,
 		ray_type = "body editor",
+		sample = true,
 		mask = managers.slot:get_mask("all")
 	})
 

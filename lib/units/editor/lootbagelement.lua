@@ -126,9 +126,9 @@ function LootBagTriggerUnitElement:draw_links(t, dt, selected_unit, all_units)
 
 		if draw then
 			self:_draw_link({
+				r = 0.85,
 				b = 0.25,
 				g = 0.85,
-				r = 0.85,
 				from_unit = unit,
 				to_unit = self._unit
 			})
