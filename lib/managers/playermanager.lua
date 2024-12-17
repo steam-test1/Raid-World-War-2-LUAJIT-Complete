@@ -27,27 +27,27 @@ function PlayerManager:init()
 	}
 	self._viewport_configs[1][1] = {
 		dimensions = {
+			w = 1,
 			y = 0,
 			x = 0,
-			h = 1,
-			w = 1
+			h = 1
 		}
 	}
 	self._viewport_configs[2] = {
 		{
 			dimensions = {
+				w = 1,
 				y = 0,
 				x = 0,
-				h = 0.5,
-				w = 1
+				h = 0.5
 			}
 		},
 		{
 			dimensions = {
+				w = 1,
 				y = 0.5,
 				x = 0,
-				h = 0.5,
-				w = 1
+				h = 0.5
 			}
 		}
 	}
@@ -57,9 +57,6 @@ function PlayerManager:init()
 
 	self._local_player_minions = 0
 	self._player_states = {
-		parachuting = "ingame_parachuting",
-		standard = "ingame_standard",
-		freefall = "ingame_freefall",
 		foxhole = "ingame_standard",
 		driving = "ingame_driving",
 		bipod = "ingame_standard",
@@ -70,7 +67,10 @@ function PlayerManager:init()
 		charging = "ingame_standard",
 		fatal = "ingame_fatal",
 		turret = "ingame_standard",
-		bleed_out = "ingame_bleed_out"
+		bleed_out = "ingame_bleed_out",
+		parachuting = "ingame_parachuting",
+		standard = "ingame_standard",
+		freefall = "ingame_freefall"
 	}
 	self._DEFAULT_STATE = "standard"
 	self._current_state = self._DEFAULT_STATE
@@ -1198,7 +1198,7 @@ function PlayerManager:activate_temporary_upgrade(category, upgrade)
 				id = upgrade,
 				tier = upgrade_level,
 				icon = icon_id,
-				color = tweak_data.gui.colors.progress_green,
+				color = tweak_data.gui.colors.raid_skill_boost,
 				lifetime = lifetime
 			})
 		end
@@ -1233,7 +1233,7 @@ function PlayerManager:activate_temporary_upgrade_by_level(category, upgrade, le
 				id = upgrade,
 				tier = upgrade_value[1],
 				icon = icon_id,
-				color = tweak_data.gui.colors.progress_green,
+				color = tweak_data.gui.colors.raid_skill_boost,
 				lifetime = lifetime
 			})
 		end
@@ -3603,8 +3603,8 @@ function PlayerManager:drop_carry(carry_id, zipline_unit, skip_cooldown)
 
 	if carry_needs_headroom and not player:movement():current_state():_can_stand() then
 		managers.notification:add_notification({
-			id = "cant_throw_body",
 			duration = 2,
+			id = "cant_throw_body",
 			shelf_life = 5,
 			text = managers.localization:text("cant_throw_body")
 		})
@@ -4264,6 +4264,12 @@ function PlayerManager:sync_move_to_next_seat(vehicle, peer_id, player, seat_nam
 end
 
 function PlayerManager:_move_to_next_seat(vehicle, peer_id, player, seat, previous_seat, previous_occupant)
+	if player:movement():current_state_name() ~= "driving" then
+		Application:error("[PlayerManager:_move_to_next_seat] Tried to swap seat for character not in a vehicle!")
+
+		return
+	end
+
 	self._global.synced_vehicle_data[peer_id] = {
 		vehicle_unit = vehicle,
 		seat = seat.name
@@ -4683,8 +4689,8 @@ function PlayerManager:tutorial_prompt_jump()
 	}))
 
 	managers.hud:set_big_prompt({
-		id = "prompt_hint_tutorial_jump",
 		duration = 3,
+		id = "prompt_hint_tutorial_jump",
 		text = text
 	})
 end
@@ -4695,8 +4701,8 @@ function PlayerManager:tutorial_prompt_duck()
 	}))
 
 	managers.hud:set_big_prompt({
-		id = "prompt_hint_tutorial_crouch",
 		duration = 3,
+		id = "prompt_hint_tutorial_crouch",
 		text = text
 	})
 end
@@ -4707,8 +4713,8 @@ function PlayerManager:tutorial_prompt_detection()
 	}))
 
 	managers.hud:set_big_prompt({
-		id = "prompt_hint_tutorial_detection",
 		duration = 3,
+		id = "prompt_hint_tutorial_detection",
 		text = text
 	})
 end
@@ -4717,8 +4723,8 @@ function PlayerManager:tutorial_prompt_ammo()
 	local text = utf8.to_upper(managers.localization:text("hud_hint_tutorial_ammo"))
 
 	managers.hud:set_big_prompt({
-		id = "prompt_hint_tutorial_ammo",
 		duration = 3,
+		id = "prompt_hint_tutorial_ammo",
 		text = text
 	})
 end
@@ -4729,8 +4735,8 @@ function PlayerManager:tutorial_prompt_weapons()
 	}))
 
 	managers.hud:set_big_prompt({
-		id = "prompt_hint_tutorial_switch_weapon",
 		duration = 3,
+		id = "prompt_hint_tutorial_switch_weapon",
 		text = text
 	})
 end

@@ -42,7 +42,7 @@ function RaycastWeaponBase:init(unit)
 	self._autohit_current = self._autohit_data.INIT_RATIO
 	self._shoot_through_data = {
 		kills = 0,
-		stop_shooting = nil,
+		trigger_held = nil,
 		from = Vector3()
 	}
 	self._can_shoot_through_shield = tweak_data.weapon[self._name_id].can_shoot_through_shield
@@ -1597,7 +1597,7 @@ function RaycastWeaponBase:on_reload()
 		local reload_full_magazine = managers.player:has_category_upgrade("weapon", "clipazines_reload_full_magazine")
 
 		if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_PLAYER_RANDOM_RELOAD) then
-			ammo_max_per_clip = math.random(0, ammo_max_per_clip)
+			ammo_max_per_clip = math.random(1, ammo_max_per_clip)
 		end
 
 		if reload_full_magazine then
@@ -1961,8 +1961,8 @@ InstantExplosiveBulletBase.PLAYER_DMG_MUL = tweak_data.upgrades.explosive_bullet
 InstantExplosiveBulletBase.RANGE = tweak_data.upgrades.explosive_bullet.range
 InstantExplosiveBulletBase.EFFECT_PARAMS = {
 	effect = "effects/vanilla/weapons/shotgun/sho_explosive_round",
-	sound_muffle_effect = true,
 	on_unit = true,
+	sound_muffle_effect = true,
 	sound_event = "round_explode",
 	feedback_range = tweak_data.upgrades.explosive_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.explosive_bullet.camera_shake_max_mul,
@@ -2066,8 +2066,8 @@ function InstantExplosiveBulletBase:on_collision_server(position, normal, damage
 
 		if enemies_hit > 0 then
 			managers.statistics:shot_fired({
-				skip_bullet_count = true,
 				hit = true,
+				skip_bullet_count = true,
 				weapon_unit = weapon_unit
 			})
 		end
@@ -2283,10 +2283,10 @@ end
 
 DOTBulletBase = DOTBulletBase or class(InstantBulletBase)
 DOTBulletBase.DOT_DATA = {
-	hurt_animation_chance = 1,
 	dot_damage = 0.5,
 	dot_tick_period = 0.5,
-	dot_length = 6
+	dot_length = 6,
+	hurt_animation_chance = 1
 }
 
 function DOTBulletBase:on_collision(col_ray, weapon_unit, user_unit, damage, blank)

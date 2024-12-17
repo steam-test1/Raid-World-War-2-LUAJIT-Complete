@@ -6,7 +6,7 @@ HUDStatusEffects.HEIGHT = 48
 HUDStatusEffects.BACKGROUND_IMAGE = "candy_buff_background"
 HUDStatusEffects.PANEL_W = 48
 HUDStatusEffects.PANEL_H = 48
-HUDStatusEffects.ICON_SIZE = 32
+HUDStatusEffects.ICON_SIZE = 28
 HUDStatusEffects.ICON_PADDING = 4
 
 function HUDStatusEffects:init(hud)
@@ -70,7 +70,7 @@ function HUDStatusEffects:add_status(status_data)
 	end
 
 	status_data.tier = status_data.tier or 0
-	status_data.color = status_data.color or tweak_data.gui.colors.light_grey
+	status_data.color = status_data.color
 	status_data.icon = status_data.icon or "status_effect_health_regen"
 	local status = self:get_status(status_data.id)
 
@@ -119,7 +119,7 @@ end
 
 function HUDStatusEffects:_make_status_box(status_data)
 	local status_key = status_data.id
-	local status_color = status_data.color
+	local status_color = status_data.color or Color.White
 	local status_icon = tweak_data.gui:get_full_gui_data(status_data.icon)
 	local background_icon = tweak_data.gui:get_full_gui_data(self.BACKGROUND_IMAGE)
 	local index = #self._icons
@@ -139,19 +139,31 @@ function HUDStatusEffects:_make_status_box(status_data)
 		texture_rect = background_icon.texture_rect,
 		color = status_color
 	})
+	local background_fill = status_effect_panel:bitmap({
+		alpha = 0.8,
+		name = "status_background_fill",
+		render_template = "VertexColorTexturedRadial",
+		layer = 2,
+		texture = tweak_data.gui.icons.warcry_bar_fill.texture,
+		texture_rect = tweak_data.gui.icons.warcry_bar_fill.texture_rect,
+		w = status_effect_panel:w() * 1.65,
+		h = status_effect_panel:h() * 1.65,
+		color = tweak_data.gui.colors.raid_black
+	})
 	local icon = status_effect_panel:bitmap({
 		halign = "center",
 		valign = "center",
-		layer = 3,
 		name = "icon",
+		layer = 3,
 		w = self.ICON_SIZE,
 		h = self.ICON_SIZE,
 		texture = status_icon.texture,
 		texture_rect = status_icon.texture_rect,
-		color = Color.black
+		color = tweak_data.gui.colors.raid_black
 	})
 
 	icon:set_center(status_effect_panel:w() / 2, status_effect_panel:h() / 2)
+	background_fill:set_center(status_effect_panel:w() / 2, status_effect_panel:h() / 2)
 
 	return status_effect_panel
 end
@@ -180,23 +192,30 @@ function HUDStatusEffects:_realign_status()
 end
 
 function HUDStatusEffects:_animate_timer(object, duration)
-	wait(duration - 1)
-
 	local t = 0
-	local blink_duration = 0.7
+	local blink_duration = 2.5
+	local fade_duration = 0.5
+	duration = duration - fade_duration
 
-	while t < blink_duration do
+	object:set_alpha(1)
+	object:child("status_background_fill"):set_position_z(1)
+
+	while t < duration do
 		local dt = coroutine.yield()
 		t = t + dt
-		local alpha = math.abs(math.sin(4 * t * 120)) / 2
 
-		object:set_alpha(alpha + 0.2)
+		object:child("status_background_fill"):set_position_z(1 - t / duration)
+
+		if blink_duration > duration - t then
+			local alpha = math.abs(math.sin(4 * t * 120))
+
+			object:set_alpha(alpha + 0.2)
+		end
 	end
 
 	t = 0
-	local fade_duration = 0.3
 
-	while t < fade_duration do
+	while fade_duration > t do
 		local dt = coroutine.yield()
 		t = t + dt
 		local current_alpha = Easing.quadratic_out(t, 1, -1, fade_duration)

@@ -145,8 +145,8 @@ function PlayerTurret:exit(state_data, new_state_name)
 	end
 
 	local exit_data = {
-		skip_equip = true,
 		ducking = false,
+		skip_equip = true,
 		equip_weapon_expire_t = self._equip_weapon_expire_t
 	}
 
@@ -461,6 +461,9 @@ function PlayerTurret:get_zoom_fov(stance_data)
 end
 
 function PlayerTurret:_update_movement(t, dt)
+end
+
+function PlayerTurret:force_change_weapon_slot(slot, instant)
 end
 
 function PlayerTurret:_update_fwd_ray()
