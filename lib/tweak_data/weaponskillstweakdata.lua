@@ -870,11 +870,11 @@ function WeaponSkillsTweakData:_init_geco_skill_tree()
 				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
 				challenge_tasks = {
 					{
-						target = 1000,
+						target = 30,
 						type = ChallengeTweakData.TASK_KILL_ENEMIES,
 						reminders = {
-							500,
-							800
+							10,
+							20
 						},
 						modifiers = {
 							enemy_type = {
@@ -4523,9 +4523,6 @@ function WeaponSkillsTweakData:_init_mp44_skill_tree()
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
-				},
-				weapon_parts = {
-					"wpn_fps_ass_mp44_o_scope"
 				}
 			}
 		}
