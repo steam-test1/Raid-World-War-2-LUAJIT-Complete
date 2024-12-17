@@ -2,11 +2,12 @@ local tmp_vec1 = Vector3()
 CivilianLogicIdle = class(CivilianLogicBase)
 
 function CivilianLogicIdle.enter(data, new_logic_name, enter_params)
-	CopLogicBase.enter(data, new_logic_name, enter_params)
-
 	local my_data = {
 		unit = data.unit
 	}
+
+	CopLogicBase.enter(data, new_logic_name, enter_params, my_data)
+
 	data.internal_data = my_data
 
 	if not data.char_tweak.detection then

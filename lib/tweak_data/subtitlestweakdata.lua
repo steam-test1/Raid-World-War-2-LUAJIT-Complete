@@ -2,6 +2,16 @@ SubtitlesTweakData = SubtitlesTweakData or class()
 
 function SubtitlesTweakData:init()
 	self:_init_intro_video()
+	self:_init_mission_brief_b2()
+	self:_init_mission_brief_b4()
+	self:_init_mission_brief_a1()
+	self:_init_mission_brief_a2()
+	self:_init_mission_brief_a3()
+	self:_init_mission_brief_a4()
+	self:_init_mission_brief_a5()
+	self:_init_mission_brief_b1()
+	self:_init_mission_brief_b3()
+	self:_init_mission_brief_b5()
 	self:_init_debrief_success_1()
 	self:_init_debrief_success_2()
 	self:_init_debrief_success_3()
@@ -64,7 +74,7 @@ function SubtitlesTweakData:_init_intro_video()
 		{
 			id = "01_intro_003",
 			time = 13,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_004",
@@ -74,12 +84,12 @@ function SubtitlesTweakData:_init_intro_video()
 		{
 			id = "01_intro_005",
 			time = 24,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_006",
 			time = 30,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_007",
@@ -89,7 +99,7 @@ function SubtitlesTweakData:_init_intro_video()
 		{
 			id = "01_intro_008",
 			time = 38,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_009",
@@ -104,32 +114,132 @@ function SubtitlesTweakData:_init_intro_video()
 		{
 			id = "01_intro_0011",
 			time = 51,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_0012",
 			time = 57,
-			length = 4
+			length = 5
 		},
 		{
 			id = "01_intro_0013",
 			time = 63,
-			length = 4
+			length = 7
 		},
 		{
 			id = "01_intro_0014",
 			time = 70,
-			length = 4
+			length = 6
 		},
 		{
 			id = "01_intro_0015",
 			time = 77,
-			length = 4
+			length = 6
 		},
 		{
 			id = "01_intro_0016",
 			time = 83,
-			length = 4
+			length = 5
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_b2()
+	self["02_mission_brief_b2_assassination_v004"] = {
+		{
+			id = "b2_assassination_001",
+			time = 1,
+			length = 8
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_b4()
+	self["02_mission_brief_b4_steal-valuables_cause-carnage_v004"] = {
+		{
+			id = "b4_steal-valuables_cause-carnage_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_a1()
+	self["02_mission_brief_a1_demolition_v005"] = {
+		{
+			id = "a1_demolition_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_a2()
+	self["02_mission_brief_a2_cause-carnage_v005"] = {
+		{
+			id = "a2_cause-carnage_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_a3()
+	self["02_mission_brief_a3_ambush_v005"] = {
+		{
+			id = "a3_ambush_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_a4()
+	self["02_mission_brief_a4_infiltration_v004"] = {
+		{
+			id = "a4_infiltration_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_a5()
+	self["02_mission_brief_a5_rescue_v005"] = {
+		{
+			id = "a5_rescue_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_b1()
+	self["02_mission_brief_b1_cause-carnage_v004"] = {
+		{
+			id = "b1_cause-carnage_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_b3()
+	self["02_mission_brief_b3_steal-intel_v004"] = {
+		{
+			id = "b3_steal-intel_001",
+			time = 1,
+			length = 10
+		}
+	}
+end
+
+function SubtitlesTweakData:_init_mission_brief_b5()
+	self["02_mission_brief_b5_steal-valuables_cause-carnage_v004"] = {
+		{
+			id = "b5_steal-valuables_cause-carnage_001",
+			time = 1,
+			length = 10
 		}
 	}
 end

@@ -238,7 +238,7 @@ function HUDDriving:refresh_button_prompts(force)
 end
 
 function HUDDriving:_create_button_prompt(prompt_name, prompt, buttons)
-	if managers.controller:is_xbox_controller_present() or not managers.menu:is_pc_controller() then
+	if managers.controller:is_xbox_controller_present() and not managers.menu:is_pc_controller() then
 		buttons = managers.localization:get_default_macros()
 	end
 
@@ -307,7 +307,7 @@ function HUDDriving:_get_prompts_needed_for_current_seat()
 			name = "switch_pose",
 			prompt = HUDDriving.BUTTON_PROMPT_SWITCH_POSE,
 			buttons = {
-				BTN_B = managers.localization:btn_macro("duck")
+				BTN_B = managers.localization:btn_macro("vehicle_shooting_stance")
 			}
 		})
 	end
@@ -316,7 +316,7 @@ function HUDDriving:_get_prompts_needed_for_current_seat()
 		name = "exit_vehicle",
 		prompt = HUDDriving.BUTTON_PROMPT_EXIT_VEHICLE,
 		buttons = {
-			BTN_TOP_R = managers.localization:btn_macro("interact")
+			BTN_TOP_R = managers.localization:btn_macro("vehicle_exit")
 		}
 	})
 	table.insert(seat_prompts, {

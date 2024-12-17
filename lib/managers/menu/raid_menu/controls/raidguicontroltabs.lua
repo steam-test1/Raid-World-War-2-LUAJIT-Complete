@@ -62,6 +62,7 @@ function RaidGUIControlTabs:_create_items()
 			tab_params.tab_idx = index
 			tab_params.callback_param = tab_params.callback_param
 			tab_params.parent_control_ref = self
+			tab_params.tab_font_size = self._params.tab_font_size
 			local item = self._object:create_custom_control(self._params.item_class or RaidGUIControlTab, tab_params, self._params)
 
 			if index ~= #self._params.tabs_params and self._item_class.needs_divider() then
@@ -162,6 +163,10 @@ function RaidGUIControlTabs:move_down()
 end
 
 function RaidGUIControlTabs:_move_left()
+	if not self._enabled then
+		return
+	end
+
 	if self._selected_item_idx <= 1 then
 		self._selected_item_idx = 1
 
@@ -178,6 +183,10 @@ function RaidGUIControlTabs:_move_left()
 end
 
 function RaidGUIControlTabs:_move_right()
+	if not self._enabled then
+		return
+	end
+
 	if self._selected_item_idx == #self._items then
 		return true
 	else

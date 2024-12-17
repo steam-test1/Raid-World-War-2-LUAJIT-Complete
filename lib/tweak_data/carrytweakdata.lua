@@ -289,6 +289,30 @@ function CarryTweakData:init(tweak_data)
 		is_corpse = true,
 		hud_icon = "carry_corpse"
 	}
+	self.german_grunt_light_body = {
+		type = "heavy",
+		name_id = "hud_carry_body",
+		skip_exit_secure = true,
+		visual_unit_name = "units/vanilla/characters/enemies/models/german_grunt_heavy/body_bag/german_grunt_heavy_body_bag",
+		visual_unit_root_joint = "body_bag_spawn",
+		unit = "units/vanilla/characters/enemies/models/german_grunt_light/german_grunt_light_corpse",
+		throw_power = CarryTweakData.corpse_throw_power,
+		needs_headroom_to_drop = true,
+		is_corpse = true,
+		hud_icon = "carry_corpse"
+	}
+	self.german_grunt_mid_body = {
+		type = "heavy",
+		name_id = "hud_carry_body",
+		skip_exit_secure = true,
+		visual_unit_name = "units/vanilla/characters/enemies/models/german_grunt_mid/body_bag/german_grunt_mid_body_bag",
+		visual_unit_root_joint = "body_bag_spawn",
+		unit = "units/vanilla/characters/enemies/models/german_grunt_mid/german_grunt_mid_corpse",
+		throw_power = CarryTweakData.corpse_throw_power,
+		needs_headroom_to_drop = true,
+		is_corpse = true,
+		hud_icon = "carry_corpse"
+	}
 	self.gebirgsjager_light_body = {
 		type = "heavy",
 		name_id = "hud_carry_body",
@@ -296,6 +320,18 @@ function CarryTweakData:init(tweak_data)
 		visual_unit_name = "units/vanilla/characters/enemies/models/german_gebirgsjager_light/body_bag/german_gebirgsjager_light_body_bag",
 		visual_unit_root_joint = "body_bag_spawn",
 		unit = "units/vanilla/characters/enemies/models/german_gebirgsjager_light/german_gebirgsjager_light_corpse",
+		throw_power = CarryTweakData.corpse_throw_power,
+		needs_headroom_to_drop = true,
+		is_corpse = true,
+		hud_icon = "carry_corpse"
+	}
+	self.gebirgsjager_heavy_body = {
+		type = "heavy",
+		name_id = "hud_carry_body",
+		skip_exit_secure = true,
+		visual_unit_name = "units/vanilla/characters/enemies/models/german_gebirgsjager_heavy/body_bag/german_gebirgsjager_heavy_body_bag",
+		visual_unit_root_joint = "body_bag_spawn",
+		unit = "units/vanilla/characters/enemies/models/german_gebirgsjager_heavy/german_gebirgsjager_heavy_corpse",
 		throw_power = CarryTweakData.corpse_throw_power,
 		needs_headroom_to_drop = true,
 		is_corpse = true,
@@ -375,6 +411,34 @@ function CarryTweakData:init(tweak_data)
 		carry_item_id = "carry_item_corpse",
 		hud_icon = "carry_corpse"
 	}
+	self.german_black_waffen_sentry_gasmask_body = {
+		type = "heavy",
+		name_id = "hud_carry_body",
+		skip_exit_secure = true,
+		visual_unit_name = "units/vanilla/characters/enemies/models/german_black_waffen_sentry_gasmask/body_bag/german_black_waffen_sentry_gasmask_body_bag",
+		visual_unit_root_joint = "body_bag_spawn",
+		unit = "units/vanilla/characters/enemies/models/german_black_waffen_sentry_gasmask/german_black_waffen_sentry_gasmask_corpse",
+		throw_power = CarryTweakData.corpse_throw_power,
+		needs_headroom_to_drop = true,
+		is_corpse = true,
+		hud_icon = "carry_corpse",
+		carry_item_id = "carry_item_corpse",
+		hud_icon = "carry_corpse"
+	}
+	self.german_black_waffen_sentry_heavy_body = {
+		type = "heavy",
+		name_id = "hud_carry_body",
+		skip_exit_secure = true,
+		visual_unit_name = "units/vanilla/characters/enemies/models/german_black_waffen_sentry_heavy/body_bag/german_black_waffen_sentry_heavy_bag",
+		visual_unit_root_joint = "body_bag_spawn",
+		unit = "units/vanilla/characters/enemies/models/german_black_waffen_sentry_heavy/german_black_waffen_sentry_heavy_corpse",
+		throw_power = CarryTweakData.corpse_throw_power,
+		needs_headroom_to_drop = true,
+		is_corpse = true,
+		hud_icon = "carry_corpse",
+		carry_item_id = "carry_item_corpse",
+		hud_icon = "carry_corpse"
+	}
 	self.german_black_waffen_sentry_heavy_commander_body = {
 		type = "heavy",
 		name_id = "hud_carry_body",
@@ -422,7 +486,7 @@ function CarryTweakData:init(tweak_data)
 	}
 	self.german_spy = {
 		type = "heavy",
-		name_id = "hud_carry_body",
+		name_id = "hud_carry_spy",
 		skip_exit_secure = true,
 		visual_unit_name = "units/vanilla/characters/npc/models/raid_npc_spy/body_bag/raid_npc_spy_body_bag",
 		visual_unit_root_joint = "body_bag_spawn",

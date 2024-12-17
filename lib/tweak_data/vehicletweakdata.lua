@@ -2,9 +2,93 @@ VehicleTweakData = VehicleTweakData or class()
 VehicleTweakData.AI_TELEPORT_DISTANCE = 20
 
 function VehicleTweakData:init(tweak_data)
+	self:_init_data_jeep_willy()
 	self:_init_data_kubelwagen()
 	self:_init_data_truck()
 	self:_init_data_foxhole()
+end
+
+function VehicleTweakData:_init_data_jeep_willy()
+	self.jeep_willy = {
+		unit = "units/vehicles/willy_jeep/fps_vehicle_jeep_willy",
+		name = "hud_vehicle_jeep",
+		hud_label_offset = 150,
+		animations = {
+			passenger_back_right = "drive_kubelwagen_back_right",
+			vehicle_id = "kubelwagen",
+			passenger_back_left = "drive_kubelwagen_back_left",
+			passenger_front = "drive_kubelwagen_passanger",
+			driver = "drive_kubelwagen_driver"
+		},
+		sound = {
+			horn_start = "kubel_horn_start",
+			slip = "car_skid_01",
+			gear_shift = "gear_shift",
+			bump_rtpc = "car_bump_vel",
+			slip_locator = "anim_tire_front_left",
+			slip_stop = "car_skid_stop_01",
+			broken_engine = "falcogini_engine_broken_loop",
+			hit_enemy = "car_hit_body_01",
+			engine_rpm_rtpc = "car_falcogini_rpm",
+			bump = "car_bumper_01",
+			horn_stop = "kubel_horn_stop",
+			door_close = "car_door_open",
+			engine_sound_event = "muscle",
+			hit = "car_hit_gen_01",
+			lateral_slip_treshold = 0.35,
+			bump_treshold = 8,
+			hit_rtpc = "car_hit_vel",
+			engine_start = "muscle_engine_start",
+			longitudal_slip_treshold = 0.8,
+			engine_speed_rtpc = "car_falcogini_speed",
+			bump_locator = "anim_tire_front_left"
+		},
+		seats = {
+			driver = {
+				next_seat = "passenger_front",
+				name = "driver",
+				fov = 75,
+				driving = true
+			},
+			passenger_front = {
+				name = "passenger_front",
+				has_shooting_mode = false,
+				allow_shooting = true,
+				next_seat = "passenger_back_right",
+				driving = false
+			},
+			passenger_back_right = {
+				name = "passenger_back_right",
+				has_shooting_mode = false,
+				allow_shooting = true,
+				next_seat = "passenger_back_left",
+				driving = false
+			},
+			passenger_back_left = {
+				name = "passenger_back_left",
+				has_shooting_mode = false,
+				allow_shooting = true,
+				next_seat = "driver",
+				driving = false
+			}
+		},
+		loot_points = {
+			loot = {
+				name = "loot"
+			}
+		},
+		repair_point = "v_repair_engine",
+		trunk_point = "interact_trunk",
+		damage = {
+			max_health = 10
+		},
+		max_speed = 160,
+		max_rpm = 8000,
+		loot_drop_point = "v_repair_engine",
+		max_loot_bags = 4,
+		interact_distance = 350,
+		driver_camera_offset = Vector3(0, 0.2, 2.5)
+	}
 end
 
 function VehicleTweakData:_init_data_kubelwagen()
@@ -45,10 +129,11 @@ function VehicleTweakData:_init_data_kubelwagen()
 		},
 		seats = {
 			driver = {
-				name = "driver",
 				has_shooting_mode = false,
+				name = "driver",
 				next_seat = "passenger_front",
 				allow_shooting = false,
+				fov = 75,
 				driving = true,
 				camera_limits = {
 					90,
@@ -108,7 +193,11 @@ function VehicleTweakData:_init_data_kubelwagen()
 		max_loot_bags = 8,
 		interact_distance = 350,
 		driver_camera_offset = Vector3(0, 0.2, 15.5),
-		fov = 55
+		skins = {}
+	}
+	self.kubelwagen.skins.special_edition = {
+		sequence = "state_collector_edition_skin",
+		dlc = DLCTweakData.DLC_NAME_SPECIAL_EDITION
 	}
 end
 
@@ -150,10 +239,11 @@ function VehicleTweakData:_init_data_truck()
 		},
 		seats = {
 			driver = {
-				next_seat = "passenger_front",
+				sound_environment_start = "enter_truck",
 				name = "driver",
 				sound_environment_end = "leave_truck",
-				sound_environment_start = "enter_truck",
+				next_seat = "passenger_front",
+				fov = 75,
 				driving = true
 			},
 			passenger_front = {
@@ -213,8 +303,7 @@ function VehicleTweakData:_init_data_truck()
 		loot_drop_point = "v_loot_drop",
 		max_loot_bags = 200,
 		interact_distance = 475,
-		driver_camera_offset = Vector3(0, 2, 20),
-		fov = 75
+		driver_camera_offset = Vector3(0, 2, 20)
 	}
 end
 
@@ -251,9 +340,10 @@ function VehicleTweakData:_init_data_foxhole()
 		},
 		seats = {
 			driver = {
-				name = "driver",
 				has_shooting_mode = false,
+				name = "driver",
 				next_seat = "driver",
+				fov = 75,
 				driving = false,
 				camera_limits = {
 					90,
@@ -276,7 +366,6 @@ function VehicleTweakData:_init_data_foxhole()
 		loot_drop_point = "v_repair_engine",
 		max_loot_bags = 0,
 		interact_distance = 350,
-		driver_camera_offset = Vector3(0, 0.2, 15.5),
-		fov = 75
+		driver_camera_offset = Vector3(0, 0.2, 15.5)
 	}
 end

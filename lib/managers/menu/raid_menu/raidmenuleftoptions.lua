@@ -26,8 +26,8 @@ function RaidMenuLeftOptions:_layout_list_menu()
 		h = 640,
 		w = 480,
 		loop_items = true,
-		y = 320,
-		x = 64,
+		y = 144,
+		x = 0,
 		on_item_clicked_callback = callback(self, self, "_on_list_menu_options_item_selected"),
 		data_source_callback = callback(self, self, "_list_menu_options_data_source")
 	}
@@ -57,6 +57,8 @@ function RaidMenuLeftOptions:_layout_list_menu()
 		layer = RaidGuiBase.FOREGROUND_LAYER
 	}
 	self._reset_progress_button = self._root_panel:long_secondary_button(reset_progress_params)
+
+	self._reset_progress_button:set_visible(RaidMenuCallbackHandler:is_in_main_menu())
 end
 
 function RaidMenuLeftOptions:_list_menu_options_data_source()

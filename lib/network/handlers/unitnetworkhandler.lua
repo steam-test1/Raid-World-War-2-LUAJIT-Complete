@@ -321,6 +321,14 @@ function UnitNetworkHandler:damage_melee(subject_unit, attacker_unit, damage, da
 	subject_unit:character_damage():sync_damage_melee(attacker_unit, damage, damage_effect, i_body, height_offset, variant, death)
 end
 
+function UnitNetworkHandler:sync_part_dismemberment(subject_unit, part_name, variant, sender)
+	if not self._verify_character_and_sender(subject_unit, sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame) then
+		return
+	end
+
+	subject_unit:character_damage():dismember(part_name, variant, false)
+end
+
 function UnitNetworkHandler:from_server_damage_bullet(subject_unit, attacker_unit, hit_offset_height, result_index, sender)
 	if not self._verify_character_and_sender(subject_unit, sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame) then
 		return
@@ -1459,6 +1467,26 @@ function UnitNetworkHandler:special_interaction_done(unit)
 
 	if unit then
 		unit:interaction():set_special_interaction_done()
+	end
+end
+
+function UnitNetworkHandler:greed_cache_item_interacted_with(unit, amount)
+	if not self._verify_gamestate(self._gamestate_filter.any_ingame) then
+		return
+	end
+
+	if unit then
+		unit:interaction():on_peer_interacted(amount)
+	end
+end
+
+function UnitNetworkHandler:greed_item_picked_up(unit, amount)
+	if not self._verify_gamestate(self._gamestate_filter.any_ingame) then
+		return
+	end
+
+	if unit then
+		unit:interaction():on_peer_interacted(amount)
 	end
 end
 
@@ -2930,8 +2958,6 @@ function UnitNetworkHandler:sync_vehicle_state(unit, position, rotation, velocit
 end
 
 function UnitNetworkHandler:sync_enter_vehicle_host(vehicle, seat_name, peer_id, player)
-	Application:debug("[DRIVING_NET] sync_enter_vehicle_host", seat_name)
-
 	if not alive(vehicle) then
 		return
 	end
@@ -2940,8 +2966,6 @@ function UnitNetworkHandler:sync_enter_vehicle_host(vehicle, seat_name, peer_id,
 end
 
 function UnitNetworkHandler:sync_vehicle_player(action, vehicle, peer_id, player, seat_name, prev_seat_name)
-	Application:debug("[DRIVING_NET] sync_vehicle_player " .. action)
-
 	if action == "enter" then
 		managers.player:sync_enter_vehicle(vehicle, peer_id, player, seat_name)
 	elseif action == "exit" then
@@ -2956,13 +2980,18 @@ function UnitNetworkHandler:sync_vehicle_player_swithc_seat(action, vehicle, pee
 end
 
 function UnitNetworkHandler:sync_move_to_next_seat(vehicle, peer_id, player, seat_name)
-	Application:debug("[DRIVING_NET] sync_move_to_next_seat " .. seat_name)
 	managers.player:server_move_to_next_seat(vehicle, peer_id, player, seat_name)
 end
 
-function UnitNetworkHandler:sync_vehicle_data(vehicle, state_name, occupant_driver, occupant_left, occupant_back_left, occupant_back_right, is_trunk_open, vehicle_health)
-	Application:debug("[DRIVING_NET] sync_vehicles_data", vehicle, state_name)
+function UnitNetworkHandler:sync_vehicle_skin(vehicle, skin_name)
+	if not alive(vehicle) then
+		return
+	end
 
+	vehicle:vehicle_driving():set_skin(skin_name)
+end
+
+function UnitNetworkHandler:sync_vehicle_data(vehicle, state_name, occupant_driver, occupant_left, occupant_back_left, occupant_back_right, is_trunk_open, vehicle_health)
 	if not alive(vehicle) then
 		return
 	end
@@ -2971,8 +3000,6 @@ function UnitNetworkHandler:sync_vehicle_data(vehicle, state_name, occupant_driv
 end
 
 function UnitNetworkHandler:sync_npc_vehicle_data(vehicle, state_name, target_unit)
-	Application:debug("[DRIVING_NET] sync_npc_vehicle_data", vehicle, state_name)
-
 	if not alive(vehicle) then
 		return
 	end
@@ -2981,8 +3008,6 @@ function UnitNetworkHandler:sync_npc_vehicle_data(vehicle, state_name, target_un
 end
 
 function UnitNetworkHandler:sync_vehicle_loot(vehicle, carry_id1, multiplier1, carry_id2, multiplier2, carry_id3, multiplier3)
-	Application:debug("[DRIVING_NET] sync_vehicle_loot")
-
 	if not alive(vehicle) then
 		return
 	end
@@ -2991,8 +3016,6 @@ function UnitNetworkHandler:sync_vehicle_loot(vehicle, carry_id1, multiplier1, c
 end
 
 function UnitNetworkHandler:sync_ai_vehicle_action(action, vehicle, data, unit)
-	Application:debug("[DRIVING_NET] sync_ai_vehicle_action: ", action, data)
-
 	if not alive(vehicle) then
 		return
 	end
@@ -3013,8 +3036,6 @@ function UnitNetworkHandler:sync_ai_vehicle_action(action, vehicle, data, unit)
 end
 
 function UnitNetworkHandler:server_store_loot_in_vehicle(vehicle, loot_bag)
-	Application:debug("[DRIVING_NET] server_store_loot_in_vehicle")
-
 	if not alive(vehicle) or not alive(loot_bag) then
 		return
 	end
@@ -3023,8 +3044,6 @@ function UnitNetworkHandler:server_store_loot_in_vehicle(vehicle, loot_bag)
 end
 
 function UnitNetworkHandler:sync_vehicle_change_stance(shooting_unit, stance)
-	Application:debug("[DRIVING_NET] sync_vehicle_change_stance")
-
 	if not alive(shooting_unit) then
 		return
 	end
@@ -3033,8 +3052,6 @@ function UnitNetworkHandler:sync_vehicle_change_stance(shooting_unit, stance)
 end
 
 function UnitNetworkHandler:sync_store_loot_in_vehicle(vehicle, loot_bag, carry_id, multiplier)
-	Application:debug("[DRIVING_NET] sync_store_loot_in_vehicle")
-
 	if not alive(vehicle) or not alive(loot_bag) then
 		return
 	end
@@ -3043,17 +3060,14 @@ function UnitNetworkHandler:sync_store_loot_in_vehicle(vehicle, loot_bag, carry_
 end
 
 function UnitNetworkHandler:server_give_vehicle_loot_to_player(vehicle, peer_id)
-	Application:debug("[DRIVING_NET] server_give_vehicle_loot_to_player")
 	vehicle:vehicle_driving():server_give_vehicle_loot_to_player(peer_id)
 end
 
 function UnitNetworkHandler:sync_give_vehicle_loot_to_player(vehicle, carry_id, multiplier, peer_id)
-	Application:debug("[DRIVING_NET] sync_give_vehicle_loot_to_player")
 	vehicle:vehicle_driving():sync_give_vehicle_loot_to_player(carry_id, multiplier, peer_id)
 end
 
 function UnitNetworkHandler:sync_vehicle_interact_trunk(vehicle, peer_id)
-	Application:debug("[DRIVING_NET] sync_vehicle_interact_trunk")
 	vehicle:vehicle_driving():_interact_trunk(vehicle)
 end
 
@@ -3295,6 +3309,16 @@ function UnitNetworkHandler:sync_ground_turret_activate_triggers(turret_unit, se
 	end
 end
 
+function UnitNetworkHandler:sync_player_on(turret_unit, player_on, sender)
+	if not self._verify_sender(sender) then
+		return
+	end
+
+	if alive(turret_unit) then
+		turret_unit:weapon():set_player_on(player_on)
+	end
+end
+
 function UnitNetworkHandler:sync_ground_turret_exit_triggers(turret_unit, sender)
 	if not self._verify_sender(sender) then
 		return
@@ -3343,14 +3367,6 @@ function UnitNetworkHandler:sync_ground_turret_shell_explosion(unit, position, r
 	end
 
 	unit:weapon():_shell_explosion_on_client(position, range, damage, player_damage, curve_pow)
-end
-
-function UnitNetworkHandler:airdrop_trigger_drop_sequence(plane_unit, sequence_name, sender)
-	if not self._verify_sender(sender) then
-		return
-	end
-
-	managers.airdrop:set_plane_sequence(plane_unit, sequence_name)
 end
 
 function UnitNetworkHandler:register_grenades_pickup(pickup_unit, number_of_grenades, sender)
@@ -3543,6 +3559,16 @@ function UnitNetworkHandler:sync_camp_asset(unit, level, sender)
 	end
 end
 
+function UnitNetworkHandler:sync_automatic_camp_asset(unit, level, sender)
+	if not self._verify_gamestate(self._gamestate_filter.any_ingame) then
+		return
+	end
+
+	if alive(unit) then
+		unit:gold_asset():_apply_upgrade_level(level)
+	end
+end
+
 function UnitNetworkHandler:sync_foxhole_state(unit, foxhole, state)
 	if not self._verify_gamestate(self._gamestate_filter.any_ingame) then
 		return
@@ -3599,5 +3625,15 @@ function UnitNetworkHandler:sync_ai_interaction_complete(unit, sender)
 		local name_label_id = unit:unit_data().name_label_id
 
 		managers.hud:teammate_complete_progress(teammate_panel_id, name_label_id)
+	end
+end
+
+function UnitNetworkHandler:sync_camp_trophy(unit, level, sender)
+	if not self._verify_gamestate(self._gamestate_filter.any_ingame) then
+		return
+	end
+
+	if alive(unit) then
+		managers.progression:sync_trophy_level(unit, level)
 	end
 end

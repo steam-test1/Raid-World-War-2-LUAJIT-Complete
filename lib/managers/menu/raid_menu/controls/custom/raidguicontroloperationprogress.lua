@@ -86,12 +86,13 @@ function RaidGUIControlOperationProgress:_create_part(i, y, header_id, paragraph
 
 	part_header:set_w(w)
 	part_header:set_h(h)
+	part_header:set_center_y(16)
 
 	local paragraph_params = {
 		name = "paragraph",
 		wrap = true,
+		y = 32,
 		x = 0,
-		y = part_header:h() + RaidGUIControlOperationProgress.HEADING_PADDING_DOWN,
 		w = part_panel:w(),
 		font = RaidGUIControlOperationProgress.PARAGRAPH_FONT,
 		font_size = RaidGUIControlOperationProgress.PARAGRAPH_FONT_SIZE,

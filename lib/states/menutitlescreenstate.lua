@@ -3,7 +3,7 @@ require("lib/states/GameState")
 MenuTitlescreenState = MenuTitlescreenState or class(GameState)
 MenuTitlescreenState.BACKGROUND_IMAGE = "ui/backgrounds/raid_main_bg_hud"
 MenuTitlescreenState.FONT = tweak_data.gui.fonts.din_compressed
-MenuTitlescreenState.TEXT_COLOR = Color("878787")
+MenuTitlescreenState.TEXT_COLOR = Color.white
 MenuTitlescreenState.LEGAL_TEXT_FONT = tweak_data.gui.fonts.lato
 MenuTitlescreenState.LEGAL_TEXT_CENTER_Y = 0.9
 MenuTitlescreenState.LEGAL_TEXT_FONT_SIZE = tweak_data.gui.font_sizes.size_18
@@ -57,14 +57,36 @@ function MenuTitlescreenState:setup()
 
 	if screen_ratio < image_ratio then
 		self._background:set_h(panel:h())
-		self._background:set_w(self._background:h() * image_ratio)
+		self._background:set_w(panel:w())
 	else
 		self._background:set_w(panel:w())
-		self._background:set_h(self._background:w() / image_ratio)
+		self._background:set_h(panel:h())
 	end
 
 	self._background:set_center_x(self._full_workspace:panel():w() / 2)
 	self._background:set_center_y(self._full_workspace:panel():h() / 2)
+
+	local gradient_params = {
+		valign = "grow",
+		name = "text_background_gradient",
+		h = 270,
+		y = 0,
+		orientation = "vertical",
+		x = 0,
+		w = self._full_workspace:panel():w(),
+		gradient_points = {
+			0,
+			Color.black:with_alpha(0),
+			0.2,
+			Color.black:with_alpha(0.2),
+			1,
+			Color.black:with_alpha(1)
+		},
+		layer = self._background:layer() + 10
+	}
+	self._text_gradient = self._full_workspace:panel():gradient(gradient_params)
+
+	self._text_gradient:set_bottom(self._full_workspace:panel():h())
 
 	local logo_params = {
 		name = "title_screen_game_logo",
@@ -73,7 +95,7 @@ function MenuTitlescreenState:setup()
 		texture_rect = tweak_data.gui.icons[MenuTitlescreenState.GAME_LOGO_IMAGE].texture_rect,
 		w = tweak_data.gui:icon_w(MenuTitlescreenState.GAME_LOGO_IMAGE) * y_scale,
 		h = tweak_data.gui:icon_h(MenuTitlescreenState.GAME_LOGO_IMAGE) * y_scale,
-		layer = self._background:layer() + 1
+		layer = self._text_gradient:layer() + 1
 	}
 	self._game_logo = self._full_workspace:panel():bitmap(logo_params)
 
@@ -87,7 +109,7 @@ function MenuTitlescreenState:setup()
 		align = "center",
 		name = "legal_text",
 		alpha = 0,
-		layer = 2,
+		layer = 50,
 		w = self._workspace:panel():w(),
 		h = self._workspace:panel():h(),
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.LEGAL_TEXT_FONT, legal_text_font_size),
@@ -108,13 +130,13 @@ function MenuTitlescreenState:setup()
 		align = "center",
 		name = "press_any_key_text",
 		alpha = 0,
-		layer = 3,
 		w = self._workspace:panel():w(),
 		h = self._workspace:panel():h(),
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.FONT, press_any_key_font_size),
 		font_size = press_any_key_font_size,
 		color = MenuTitlescreenState.TEXT_COLOR,
-		text = utf8.to_upper(managers.localization:text("press_any_key"))
+		text = utf8.to_upper(managers.localization:text("press_any_key")),
+		layer = self._legal_text:layer()
 	}
 	self._press_any_key_text = self._workspace:panel():text(press_any_key_prompt_params)
 	local _, _, _, h = self._press_any_key_text:text_rect()

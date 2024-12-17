@@ -537,10 +537,14 @@ function VoteManager:update(t, dt)
 
 			if self._restart_t <= Application:time() then
 				if Network:is_server() and self._callback_type == "restart" then
+					self._callback_type = nil
+
 					managers.game_play_central:restart_the_game()
 				end
 
 				if Network:is_server() and self._callback_type == "restart_mission" then
+					self._callback_type = nil
+
 					managers.game_play_central:restart_the_mission()
 				end
 

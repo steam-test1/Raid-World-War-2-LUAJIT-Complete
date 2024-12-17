@@ -119,7 +119,7 @@ function PostGameBreakdownGui:_layout()
 
 	local progress_bar_params = {
 		name = "progress_bar",
-		bar_w = 22000,
+		bar_w = 62450,
 		horizontal_padding = 64,
 		y = PostGameBreakdownGui.PROGRESS_BAR_Y,
 		w = self._root_panel:w(),
@@ -217,15 +217,17 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 	icon:set_center_x(self._generic_win_panel:w() / 2)
 	icon:set_center_y(PostGameBreakdownGui.CENTRAL_DISPLAY_SINGLE_ICON_CENTER_Y)
 
+	local is_player_max_level = managers.experience:reached_level_cap()
 	local title_text_params = {
-		align = "center",
 		vertical = "center",
 		name = "generic_win_title_text",
+		align = "center",
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_TITLE_FONT_SIZE,
 		color = PostGameBreakdownGui.CENTRAL_DISPLAY_TITLE_COLOR,
-		text = self:translate("menu_almost_there", true)
+		text = self:translate("menu_almost_there", true),
+		visible = not is_player_max_level
 	}
 	local title = self._generic_win_panel:text(title_text_params)
 	local _, _, w, h = title:text_rect()
@@ -236,14 +238,15 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 	title:set_center_x(self._generic_win_panel:w() / 2)
 
 	local flavor_text_params = {
-		align = "center",
 		vertical = "center",
 		name = "generic_win_flavor_text",
+		align = "center",
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_FLAVOR_TEXT_FONT_SIZE,
 		color = PostGameBreakdownGui.CENTRAL_DISPLAY_FLAVOR_TEXT_COLOR,
-		text = self:translate("menu_keep_it_up", true)
+		text = self:translate("menu_keep_it_up", true),
+		visible = not is_player_max_level
 	}
 	local flavor_text = self._generic_win_panel:text(flavor_text_params)
 	local _, _, w, _ = flavor_text:text_rect()
@@ -510,24 +513,7 @@ function PostGameBreakdownGui:data_source_xp_breakdown()
 end
 
 function PostGameBreakdownGui:_get_stats_breakdown()
-	local session_killed = managers.statistics:session_killed().total.count or 0
-	local session_accuracy = managers.statistics:session_hit_accuracy() or 0
-	local session_headshots = managers.statistics:session_total_head_shots() or 0
-	local session_headshot_percentage = 0
-
-	if session_killed > 0 then
-		session_headshot_percentage = session_headshots / session_killed * 100
-	end
-
-	local session_special_kills = managers.statistics:session_total_specials_kills() or 0
-	local session_revives_data = managers.statistics:session_teammates_revived() or 0
-	local session_teammates_revived = 0
-
-	for i, count in pairs(session_revives_data) do
-		session_teammates_revived = session_teammates_revived + count
-	end
-
-	local session_bleedouts = managers.statistics:session_downed()
+	local personal_stats = game_state_machine:current_state().personal_stats
 	local stats_breakdown = {
 		{
 			{
@@ -538,7 +524,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 200,
 				info = "lvl diff",
-				text = tostring(session_killed)
+				text = tostring(personal_stats.session_killed)
 			}
 		},
 		{
@@ -550,7 +536,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 500,
 				info = "surviving players",
-				text = string.format("%.0f", session_accuracy) .. "%"
+				text = string.format("%.0f", personal_stats.session_accuracy) .. "%"
 			}
 		},
 		{
@@ -562,7 +548,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 450,
 				info = "human players",
-				text = tostring(session_headshots) .. " (" .. string.format("%.0f", session_headshot_percentage) .. "%)"
+				text = tostring(personal_stats.session_headshots) .. " (" .. string.format("%.0f", personal_stats.session_headshot_percentage) .. "%)"
 			}
 		},
 		{
@@ -574,7 +560,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 0,
 				info = "most kills",
-				text = tostring(session_special_kills)
+				text = tostring(personal_stats.session_special_kills)
 			}
 		},
 		{
@@ -586,7 +572,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 0,
 				info = "best acc",
-				text = tostring(session_teammates_revived)
+				text = tostring(personal_stats.session_teammates_revived)
 			}
 		},
 		{
@@ -598,55 +584,7 @@ function PostGameBreakdownGui:_get_stats_breakdown()
 			{
 				value = 500,
 				info = "most specials",
-				text = tostring(session_bleedouts)
-			}
-		},
-		{
-			{
-				value = 1,
-				info = "most hs",
-				text = ""
-			},
-			{
-				value = 0,
-				info = "most hs",
-				text = ""
-			}
-		},
-		{
-			{
-				value = 1,
-				info = "empty",
-				text = ""
-			},
-			{
-				value = 0,
-				info = "empty",
-				text = ""
-			}
-		},
-		{
-			{
-				value = 1,
-				info = "empty",
-				text = ""
-			},
-			{
-				value = 0,
-				info = "empty",
-				text = ""
-			}
-		},
-		{
-			{
-				value = 1,
-				info = "empty",
-				text = ""
-			},
-			{
-				value = 0,
-				info = "empty",
-				text = ""
+				text = tostring(personal_stats.session_bleedouts)
 			}
 		}
 	}
@@ -904,7 +842,7 @@ function PostGameBreakdownGui:_animate_xp_breakdown()
 
 	self._stats_breakdown:fade_in()
 
-	if managers.network:session():amount_of_players() > 1 and SystemInfo:platform() ~= Idstring("XB1") and SystemInfo:platform() ~= Idstring("X360") then
+	if managers.network:session():amount_of_players() > 1 and game_state_machine:current_state():is_success() and SystemInfo:platform() ~= Idstring("XB1") and SystemInfo:platform() ~= Idstring("X360") then
 		wait(1.5)
 		self._top_stats_small_panel:get_engine_panel():animate(callback(self, self, "_fade_in_label"), 0.2)
 	end

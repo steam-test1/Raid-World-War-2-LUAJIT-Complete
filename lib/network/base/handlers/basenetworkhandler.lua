@@ -37,6 +37,19 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_bleed_out = true,
 		gameoverscreen = true
 	},
+	any_ingame_mission = {
+		ingame_access_camera = true,
+		ingame_electrified = true,
+		ingame_driving = true,
+		ingame_standard = true,
+		ingame_incapacitated = true,
+		ingame_parachuting = true,
+		ingame_waiting_for_respawn = true,
+		ingame_fatal = true,
+		ingame_freefall = true,
+		ingame_special_interaction = true,
+		ingame_bleed_out = true
+	},
 	downed = {
 		ingame_incapacitated = true,
 		ingame_bleed_out = true,

@@ -10,8 +10,12 @@ end
 
 function RaidMenuOptionsVideo:_layout()
 	RaidMenuOptionsVideo.super._layout(self)
+
+	self._fullscreen_only_controls = {}
+
 	self:_layout_video()
 	self:_load_video_values()
+	self:_setup_control_visibility()
 	self._stepper_menu_resolution:set_selected(true)
 	self:bind_controller_inputs()
 end
@@ -66,7 +70,7 @@ function RaidMenuOptionsVideo:_layout_video()
 				return false
 			end
 		end
-	}, false)
+	}, true)
 
 	local apply_resolution = {
 		name = "apply_resolution",
@@ -76,9 +80,7 @@ function RaidMenuOptionsVideo:_layout_video()
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		on_click_callback = callback(self, self, "on_click_apply_resolution_refresh_rate")
 	}
-
-	self._root_panel:small_button(apply_resolution)
-
+	self._button_apply_video_resolution = self._root_panel:small_button(apply_resolution)
 	local stepper_menu_refresh_rate = {
 		name = "stepper_menu_refresh_rate",
 		x = start_x,
@@ -88,34 +90,39 @@ function RaidMenuOptionsVideo:_layout_video()
 		data_source_callback = callback(self, self, "data_source_stepper_menu_refresh_rate"),
 		on_item_selected_callback = callback(self, self, "on_item_selected_refresh_rate"),
 		on_menu_move = {
-			down = "fullscreen",
+			down = "window_mode",
 			up = "stepper_menu_resolution"
 		}
 	}
 	self._stepper_menu_refresh_rate = self._root_panel:stepper(stepper_menu_refresh_rate)
-	local fullscreen = {
-		name = "fullscreen",
-		description = utf8.to_upper(managers.localization:text("menu_options_video_fullscreen")),
+
+	table.insert(self._fullscreen_only_controls, self._stepper_menu_refresh_rate)
+
+	local stepper_menu_window_mode = {
+		name = "window_mode",
+		stepper_w = 280,
+		description = utf8.to_upper(managers.localization:text("menu_window_mode")),
 		x = start_x,
 		y = stepper_menu_refresh_rate.y + RaidGuiBase.PADDING,
 		w = default_width,
-		on_click_callback = callback(self, self, "on_click_fullscreen"),
+		data_source_callback = callback(self, self, "data_source_stepper_menu_window_mode"),
+		on_item_selected_callback = callback(self, self, "on_item_selected_window_mode"),
 		on_menu_move = {
 			down = "subtitle",
 			up = "stepper_menu_refresh_rate"
 		}
 	}
-	self._toggle_menu_fullscreen = self._root_panel:toggle_button(fullscreen)
+	self._stepper_menu_window_mode = self._root_panel:stepper(stepper_menu_window_mode)
 	local subtitle = {
 		name = "subtitle",
 		description = utf8.to_upper(managers.localization:text("menu_options_video_subtitle")),
 		x = start_x,
-		y = fullscreen.y + RaidGuiBase.PADDING,
+		y = stepper_menu_window_mode.y + RaidGuiBase.PADDING,
 		w = default_width,
 		on_click_callback = callback(self, self, "on_click_subtitle"),
 		on_menu_move = {
 			down = "hit_confirm_indicator",
-			up = "fullscreen"
+			up = "window_mode"
 		}
 	}
 	self._toggle_menu_subtitle = self._root_panel:toggle_button(subtitle)
@@ -127,24 +134,37 @@ function RaidMenuOptionsVideo:_layout_video()
 		w = default_width,
 		on_click_callback = callback(self, self, "on_click_hit_indicator"),
 		on_menu_move = {
-			down = "use_camera_accel",
+			down = "use_headbob",
 			up = "subtitle"
 		}
 	}
 	self._toggle_menu_hit_indicator = self._root_panel:toggle_button(hit_confirm_indicator)
-	local use_camera_accel = {
-		name = "use_camera_accel",
-		description = utf8.to_upper(managers.localization:text("menu_options_video_use_camera_accel")),
+	local use_headbob = {
+		name = "use_headbob",
+		description = utf8.to_upper(managers.localization:text("menu_options_video_use_headbob")),
 		x = start_x,
 		y = hit_confirm_indicator.y + RaidGuiBase.PADDING,
 		w = default_width,
 		on_click_callback = callback(self, self, "on_click_headbob"),
 		on_menu_move = {
-			down = "effect_quality",
+			down = "use_camera_accel",
 			up = "hit_confirm_indicator"
 		}
 	}
-	self._toggle_menu_headbob = self._root_panel:toggle_button(use_camera_accel)
+	self._toggle_menu_headbob = self._root_panel:toggle_button(use_headbob)
+	local use_camera_accel = {
+		name = "use_camera_accel",
+		description = utf8.to_upper(managers.localization:text("menu_options_video_use_camera_accel")),
+		x = start_x,
+		y = use_headbob.y + RaidGuiBase.PADDING,
+		w = default_width,
+		on_click_callback = callback(self, self, "on_click_camera_accel"),
+		on_menu_move = {
+			down = "effect_quality",
+			up = "use_headbob"
+		}
+	}
+	self._toggle_menu_camera_accel = self._root_panel:toggle_button(use_camera_accel)
 	local effect_quality = {
 		name = "effect_quality",
 		value_format = "%02d%%",
@@ -172,11 +192,7 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._progress_bar_menu_brightness = self._root_panel:slider(progress_bar_menu_brightness_params)
 
-	if managers.viewport:is_fullscreen() then
-		self._progress_bar_menu_brightness:show()
-	else
-		self._progress_bar_menu_brightness:hide()
-	end
+	table.insert(self._fullscreen_only_controls, self._progress_bar_menu_brightness)
 
 	local default_video_params = {
 		name = "default_video",
@@ -231,11 +247,35 @@ function RaidMenuOptionsVideo:data_source_stepper_menu_resolution()
 	return result
 end
 
+function RaidMenuOptionsVideo:data_source_stepper_menu_window_mode()
+	local result = {}
+
+	table.insert(result, {
+		value = "WINDOWED",
+		text = utf8.to_upper(managers.localization:text("menu_windowed")),
+		info = utf8.to_upper(managers.localization:text("menu_windowed"))
+	})
+	table.insert(result, {
+		value = "WINDOWED_FULLSCREEN",
+		selected = true,
+		text = utf8.to_upper(managers.localization:text("menu_windowed_fullscreen")),
+		info = utf8.to_upper(managers.localization:text("menu_windowed_fullscreen"))
+	})
+	table.insert(result, {
+		value = "FULLSCREEN",
+		text = utf8.to_upper(managers.localization:text("menu_fullscreen")),
+		info = utf8.to_upper(managers.localization:text("menu_fullscreen"))
+	})
+
+	return result
+end
+
 function RaidMenuOptionsVideo:on_item_selected_options_video_advanced_button()
 end
 
 function RaidMenuOptionsVideo:on_item_selected_stepper_menu_resolution()
 	self._stepper_menu_refresh_rate:refresh_data(true)
+	self:_setup_control_visibility()
 end
 
 function RaidMenuOptionsVideo:_add_distinct_resolution(res, resolutions)
@@ -309,16 +349,38 @@ function RaidMenuOptionsVideo:on_value_change_brightness()
 	managers.menu:active_menu().callback_handler:set_brightness_raid(brightness)
 end
 
-function RaidMenuOptionsVideo:on_click_fullscreen()
-	local is_fullscreen = self._toggle_menu_fullscreen:get_value()
+function RaidMenuOptionsVideo:on_item_selected_window_mode()
+	local mode = self._stepper_menu_window_mode:get_value()
 
-	managers.menu:active_menu().callback_handler:toggle_fullscreen_raid(is_fullscreen, callback(self, self, "fullscreen_toggled_callback"))
+	if mode == "WINDOWED" then
+		self:set_fullscreen(false, managers.viewport:is_fullscreen(), false, managers.viewport:is_borderless())
+	elseif mode == "WINDOWED_FULLSCREEN" then
+		self:set_fullscreen(false, managers.viewport:is_fullscreen(), true, managers.viewport:is_borderless())
+	else
+		self:set_fullscreen(true, managers.viewport:is_fullscreen(), false, managers.viewport:is_borderless())
+	end
+
+	self:_setup_control_visibility()
+end
+
+function RaidMenuOptionsVideo:set_fullscreen(fullscreen, is_fullscreen, borderless, is_borderless)
+	managers.menu:active_menu().callback_handler:toggle_fullscreen_raid(fullscreen, is_fullscreen, borderless, is_borderless, callback(self, self, "fullscreen_toggled_callback"))
 	self:on_value_change_brightness()
 
-	if managers.viewport:is_fullscreen() then
-		self._progress_bar_menu_brightness:show()
-	else
-		self._progress_bar_menu_brightness:hide()
+	if borderless then
+		local res = Application:monitor_resolution()
+
+		self._stepper_menu_resolution:set_value_and_render({
+			x = res.x,
+			y = res.y,
+			is_equal = function (self, check_x_y)
+				if check_x_y.x == self.x and check_x_y.y == self.y then
+					return true
+				else
+					return false
+				end
+			end
+		}, true)
 	end
 end
 
@@ -343,7 +405,7 @@ function RaidMenuOptionsVideo:_get_default_resolution()
 	local resolution = supported_resolutions[1]
 
 	for _, res in ipairs(supported_resolutions) do
-		if res.value.x <= default_resolution.x then
+		if res.value.x < default_resolution.x or res.value.x == default_resolution.x and res.value.y == default_resolution.y then
 			local refresh_rates = self:_get_refresh_rates_for_resolution({
 				x = res.value.x,
 				y = res.value.y
@@ -374,12 +436,41 @@ function RaidMenuOptionsVideo:callback_default_video()
 		end
 	})
 	self._stepper_menu_refresh_rate:set_value_and_render(resolution.z)
-	self._toggle_menu_fullscreen:set_value_and_render(true)
-	self._progress_bar_menu_brightness:show()
+	self._stepper_menu_window_mode:set_value_and_render("FULLSCREEN")
+	self:_setup_control_visibility()
 end
 
 function RaidMenuOptionsVideo:fullscreen_toggled_callback()
 	self:_reload_video_and_adv_video_options()
+	self:_setup_control_visibility()
+end
+
+function RaidMenuOptionsVideo:_setup_control_visibility()
+	local is_fullscreen = self._stepper_menu_window_mode:get_value() == "FULLSCREEN"
+	local is_borderless = self._stepper_menu_window_mode:get_value() == "WINDOWED_FULLSCREEN"
+
+	for _, control in ipairs(self._fullscreen_only_controls) do
+		control:set_enabled(is_fullscreen)
+	end
+
+	self._stepper_menu_resolution:set_enabled(not is_borderless)
+	self._button_apply_video_resolution:set_enabled(not is_borderless)
+
+	if not is_fullscreen and not is_borderless then
+		self._btn_advanced_options._on_menu_move.down = "stepper_menu_resolution"
+		self._stepper_menu_resolution._on_menu_move.down = "window_mode"
+		self._stepper_menu_window_mode._on_menu_move.up = "stepper_menu_resolution"
+		self._progress_bar_menu_effect_quality._on_menu_move.down = nil
+	elseif is_borderless then
+		self._btn_advanced_options._on_menu_move.down = "window_mode"
+		self._stepper_menu_window_mode._on_menu_move.up = "btn_advanced_options"
+		self._progress_bar_menu_effect_quality._on_menu_move.down = nil
+	else
+		self._btn_advanced_options._on_menu_move.down = "stepper_menu_resolution"
+		self._stepper_menu_resolution._on_menu_move.down = "stepper_menu_refresh_rate"
+		self._stepper_menu_window_mode._on_menu_move.up = "stepper_menu_refresh_rate"
+		self._progress_bar_menu_effect_quality._on_menu_move.down = "progress_bar_menu_brightness"
+	end
 end
 
 function RaidMenuOptionsVideo:_reload_video_and_adv_video_options()
@@ -389,12 +480,21 @@ end
 function RaidMenuOptionsVideo:_load_video_values()
 	local resolution = RenderSettings.resolution
 	local is_fullscreen = managers.viewport:is_fullscreen()
+	local is_borderless = managers.viewport:is_borderless()
 	local subtitle = managers.user:get_setting("subtitle")
 	local hit_indicator = managers.user:get_setting("hit_indicator")
 	local objective_reminder = managers.user:get_setting("objective_reminder")
 	local use_headbob = managers.user:get_setting("use_headbob")
+	local use_camera_accel = managers.user:get_setting("use_camera_accel")
 	local effect_quality = managers.user:get_setting("effect_quality")
 	local brightness = managers.user:get_setting("brightness")
+
+	self._stepper_menu_refresh_rate:set_value_and_render(resolution.z, true)
+
+	if is_borderless then
+		local monitor_res = Application:monitor_resolution()
+		resolution = Vector3(monitor_res.x, monitor_res.y, self._stepper_menu_refresh_rate:get_value())
+	end
 
 	self._stepper_menu_resolution:set_value_and_render({
 		x = resolution.x,
@@ -407,11 +507,19 @@ function RaidMenuOptionsVideo:_load_video_values()
 			end
 		end
 	}, true)
-	self._stepper_menu_refresh_rate:set_value_and_render(resolution.z, true)
-	self._toggle_menu_fullscreen:set_value_and_render(is_fullscreen)
+
+	if is_fullscreen then
+		self._stepper_menu_window_mode:set_value_and_render("FULLSCREEN", true)
+	elseif is_borderless then
+		self._stepper_menu_window_mode:set_value_and_render("WINDOWED_FULLSCREEN", true)
+	else
+		self._stepper_menu_window_mode:set_value_and_render("WINDOWED", true)
+	end
+
 	self._toggle_menu_subtitle:set_value_and_render(subtitle)
 	self._toggle_menu_hit_indicator:set_value_and_render(hit_indicator)
 	self._toggle_menu_headbob:set_value_and_render(use_headbob)
+	self._toggle_menu_camera_accel:set_value_and_render(use_camera_accel)
 	self._progress_bar_menu_effect_quality:set_value(effect_quality * 100)
 	self._progress_bar_menu_brightness:set_value((brightness - 0.5) * 100)
 end
@@ -420,6 +528,7 @@ function RaidMenuOptionsVideo:_save_video_values()
 	self:on_click_subtitle()
 	self:on_click_hit_indicator()
 	self:on_click_headbob()
+	self:on_click_camera_accel()
 	self:on_value_change_brightness()
 end
 
@@ -439,6 +548,12 @@ function RaidMenuOptionsVideo:on_click_headbob()
 	local use_headbob = self._toggle_menu_headbob:get_value()
 
 	managers.menu:active_menu().callback_handler:toggle_headbob_raid(use_headbob)
+end
+
+function RaidMenuOptionsVideo:on_click_camera_accel()
+	local use_camera_accel = self._toggle_menu_camera_accel:get_value()
+
+	managers.user:set_setting("use_camera_accel", use_camera_accel)
 end
 
 function RaidMenuOptionsVideo:on_click_options_video_advanced_button()

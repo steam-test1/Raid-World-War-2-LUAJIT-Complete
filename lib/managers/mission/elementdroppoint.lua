@@ -21,6 +21,8 @@ function ElementDropPoint:client_on_executed(...)
 end
 
 function ElementDropPoint:on_executed(instigator)
+	return
+
 	if not self._values.enabled then
 		return
 	end

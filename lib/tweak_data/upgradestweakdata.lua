@@ -187,6 +187,15 @@ function UpgradesTweakData:_create_raid_team_definitions()
 	}
 
 	self:_create_definition_levels("warcry_team_damage_reduction_bonus", "team", "warcry_team_damage_reduction_bonus", "player", true, self.values.team.player.warcry_team_damage_reduction_bonus)
+
+	self.values.team.player.warcry_team_damage_reduction_bonus_on_activate = {
+		1,
+		2,
+		3,
+		4
+	}
+
+	self:_create_definition_levels("warcry_team_damage_reduction_bonus_on_activate", "team", "warcry_team_damage_reduction_bonus_on_activate", "player", true, self.values.team.player.warcry_team_damage_reduction_bonus_on_activate)
 end
 
 function UpgradesTweakData:_create_raid_warcry_definitions()
@@ -204,6 +213,12 @@ function UpgradesTweakData:_create_raid_warcry_definitions()
 	}
 
 	self:_create_definition("warcry_player_aim_assist", "feature", "warcry_aim_assist", "player", false, 1)
+
+	self.values.player.warcry_nullify_spread = {
+		true
+	}
+
+	self:_create_definition("warcry_player_nullify_spread", "feature", "warcry_nullify_spread", "player", false, 1)
 
 	self.values.player.warcry_sniper_shoot_through_enemies = {
 		true
@@ -868,6 +883,11 @@ function UpgradesTweakData:_create_weapon_definitions()
 		weapon_id = "garand",
 		category = "weapon"
 	}
+	self.definitions.garand_golden = {
+		factory_id = "wpn_fps_ass_garand_golden",
+		weapon_id = "garand_golden",
+		category = "weapon"
+	}
 	self.definitions.m1918 = {
 		factory_id = "wpn_fps_lmg_m1918",
 		weapon_id = "m1918",
@@ -959,22 +979,13 @@ function UpgradesTweakData:_create_melee_weapon_definitions()
 	self.definitions.km_dagger = {
 		category = "melee_weapon"
 	}
+	self.definitions.marching_mace = {
+		category = "melee_weapon"
+	}
 end
 
 function UpgradesTweakData:_create_grenades_definitions()
 	self.definitions.m24 = {
-		category = "grenade"
-	}
-	self.definitions.mills = {
-		category = "grenade"
-	}
-	self.definitions.d343 = {
-		category = "grenade"
-	}
-	self.definitions.concrete = {
-		category = "grenade"
-	}
-	self.definitions.coin_peace = {
 		category = "grenade"
 	}
 end
@@ -1023,8 +1034,12 @@ function UpgradesTweakData:_primary_weapon_definitions()
 	self.values.primary_weapon.spread_multiplier = {
 		0.85,
 		0.7,
-		0.55,
-		0.4
+		0.6,
+		0.5,
+		1.15,
+		1.3,
+		1.4,
+		1.5
 	}
 
 	self:_create_definition_levels("primary_weapon_spread_multiplier", "feature", "spread_multiplier", "primary_weapon", false, self.values.primary_weapon.spread_multiplier)
@@ -1059,7 +1074,7 @@ function UpgradesTweakData:_secondary_weapon_definitions()
 		0.9,
 		0.85,
 		0.8,
-		0.75
+		0.7
 	}
 
 	self:_create_definition_levels("secondary_weapon_recoil_reduction", "feature", "recoil_reduction", "secondary_weapon", false, self.values.secondary_weapon.recoil_reduction)
@@ -1086,8 +1101,8 @@ function UpgradesTweakData:_secondary_weapon_definitions()
 	self.values.secondary_weapon.spread_multiplier = {
 		0.85,
 		0.7,
-		0.55,
-		0.4
+		0.6,
+		0.5
 	}
 
 	self:_create_definition_levels("secondary_weapon_spread_multiplier", "feature", "spread_multiplier", "secondary_weapon", false, self.values.secondary_weapon.spread_multiplier)
@@ -3806,6 +3821,7 @@ function UpgradesTweakData:_old_init()
 				"thompson",
 				"sten",
 				"garand",
+				"garand_gold",
 				"m1918",
 				"m1903",
 				"m1912",

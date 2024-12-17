@@ -184,7 +184,8 @@ function PlayerManager:get_customization_equiped_head_name()
 end
 
 function PlayerManager:set_customization_equiped_head_name(head_name)
-	Global.player_manager.customization_equiped_head_name = head_name
+	local owned_head_name = managers.character_customization:verify_customization_ownership(self:get_character_profile_nation(), CharacterCustomizationTweakData.PART_TYPE_UPPER, head_name)
+	Global.player_manager.customization_equiped_head_name = owned_head_name
 end
 
 function PlayerManager:get_customization_equiped_upper_name()
@@ -200,7 +201,8 @@ function PlayerManager:get_customization_equiped_upper_name()
 end
 
 function PlayerManager:set_customization_equiped_upper_name(upper_name)
-	Global.player_manager.customization_equiped_upper_name = upper_name
+	local owned_upper_name = managers.character_customization:verify_customization_ownership(self:get_character_profile_nation(), CharacterCustomizationTweakData.PART_TYPE_UPPER, upper_name)
+	Global.player_manager.customization_equiped_upper_name = owned_upper_name
 end
 
 function PlayerManager:get_customization_equiped_lower_name()
@@ -216,7 +218,8 @@ function PlayerManager:get_customization_equiped_lower_name()
 end
 
 function PlayerManager:set_customization_equiped_lower_name(lower_name)
-	Global.player_manager.customization_equiped_lower_name = lower_name
+	local owned_lower_name = managers.character_customization:verify_customization_ownership(self:get_character_profile_nation(), CharacterCustomizationTweakData.PART_TYPE_LOWER, lower_name)
+	Global.player_manager.customization_equiped_lower_name = owned_lower_name
 end
 
 function PlayerManager:set_character_class(class)
@@ -356,14 +359,17 @@ function PlayerManager:_internal_load()
 	end
 
 	managers.weapon_skills:recreate_all_weapons_blueprints(WeaponInventoryManager.BM_CATEGORY_SECONDARY_ID)
-	managers.weapon_skills:recreate_all_weapons_blueprints(WeaponInventoryManager.BM_CATEGORY_PRIMARY_ID)
 
 	local secondary = managers.blackmarket:equipped_secondary()
-	local secondary_slot = managers.blackmarket:equipped_weapon_slot("secondaries")
-	local texture_switches = managers.blackmarket:get_weapon_texture_switches("secondaries", secondary_slot, secondary)
-	local inventory = player:inventory()
 
-	inventory:add_unit_by_factory_name(secondary.factory_id, true, false, secondary.blueprint, secondary.cosmetics, texture_switches)
+	if secondary then
+		local secondary_slot = managers.blackmarket:equipped_weapon_slot("secondaries")
+		local texture_switches = managers.blackmarket:get_weapon_texture_switches("secondaries", secondary_slot, secondary)
+
+		player:inventory():add_unit_by_factory_name(secondary.factory_id, true, false, secondary.blueprint, secondary.cosmetics, texture_switches)
+	end
+
+	managers.weapon_skills:recreate_all_weapons_blueprints(WeaponInventoryManager.BM_CATEGORY_PRIMARY_ID)
 
 	local primary = managers.blackmarket:equipped_primary()
 
@@ -2279,8 +2285,7 @@ function PlayerManager:_turret_drop_out(peer)
 	if husk_data and alive(husk_data.turret_unit) then
 		local weapon = husk_data.turret_unit:weapon()
 
-		weapon:deactivate()
-		managers.network:session():send_to_peers_synched("sync_ground_turret_deactivate", husk_data.turret_unit)
+		weapon:on_player_exit()
 		weapon:set_weapon_user(nil)
 		husk_data.turret_unit:interaction():set_active(true, true)
 		weapon:enable_automatic_SO(true)
@@ -3183,6 +3188,7 @@ function PlayerManager:sync_carry_data(unit, carry_id, carry_multiplier, dye_ini
 		unit:push(100, dir * throw_power * throw_distance_multiplier)
 	end
 
+	unit:carry_data():on_thrown()
 	unit:interaction():register_collision_callbacks()
 end
 
@@ -3217,6 +3223,25 @@ function PlayerManager:force_drop_carry()
 	self:update_removed_synced_carry_to_peers()
 end
 
+function PlayerManager:set_carry_temporary_data(carry_id, data)
+	self._temporary_carry_data = self._temporary_carry_data or {}
+	self._temporary_carry_data[carry_id] = data
+end
+
+function PlayerManager:carry_temporary_data(carry_id)
+	if self._temporary_carry_data then
+		return self._temporary_carry_data[carry_id]
+	end
+
+	return nil
+end
+
+function PlayerManager:clear_carry_temporary_data(carry_id)
+	if self._temporary_carry_data then
+		self._temporary_carry_data[carry_id] = nil
+	end
+end
+
 function PlayerManager:clear_carry(soft_reset)
 	local carry_data = self:get_my_carry_data()
 
@@ -3238,6 +3263,7 @@ function PlayerManager:clear_carry(soft_reset)
 	managers.hud:hide_carry_item()
 
 	self._total_bags = nil
+	self._temporary_carry_data = {}
 
 	self:update_removed_synced_carry_to_peers()
 

@@ -708,6 +708,12 @@ function CarryData:_on_load_attach_to_zipline(zipline_unit)
 	end
 end
 
+function CarryData:on_thrown()
+end
+
+function CarryData:on_pickup()
+end
+
 function CarryData:save(data)
 	local state = {
 		carry_id = self._carry_id,

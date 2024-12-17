@@ -502,12 +502,6 @@ function HuskPlayerMovement:update(unit, t, dt)
 	end
 
 	if self._auto_firing >= 2 then
-		local equipped_weapon = self._unit:inventory():equipped_unit()
-
-		if equipped_weapon:base().auto_trigger_held then
-			equipped_weapon:base():auto_trigger_held(self._look_dir, true)
-		end
-
 		self._aim_up_expire_t = TimerManager:game():time() + 2
 	end
 end
@@ -2495,9 +2489,6 @@ function HuskPlayerMovement:sync_start_auto_fire_sound()
 			self._auto_firing = 1
 
 			local function f(t)
-				local equipped_weapon = self._unit:inventory():equipped_unit()
-
-				equipped_weapon:base():start_autofire()
 				self:play_redirect("recoil_auto")
 
 				self._auto_firing = 2
@@ -2505,9 +2496,6 @@ function HuskPlayerMovement:sync_start_auto_fire_sound()
 
 			self:_change_stance(3, f)
 		else
-			local equipped_weapon = self._unit:inventory():equipped_unit()
-
-			equipped_weapon:base():start_autofire()
 			self:play_redirect("recoil_auto")
 			self:_change_stance(3, false)
 
@@ -2519,11 +2507,7 @@ function HuskPlayerMovement:sync_start_auto_fire_sound()
 end
 
 function HuskPlayerMovement:sync_stop_auto_fire_sound()
-	local equipped_weapon = self._unit:inventory():equipped_unit()
-
-	if self._auto_firing > 0 and equipped_weapon then
-		equipped_weapon:base():stop_autofire()
-
+	if self._auto_firing > 0 then
 		self._auto_firing = 0
 
 		self:play_redirect("recoil_single")
@@ -2979,7 +2963,7 @@ function HuskPlayerMovement:pre_destroy(unit)
 
 	if Network:is_server() and self._foxhole_state and alive(self._foxhole_unit) then
 		self._foxhole_unit:foxhole():set_locked(false)
-		self._foxhole_unit:interaction():set_active(true, true)
+		self._foxhole_unit:damage():run_sequence_simple("enable_interaction")
 		self._foxhole_unit:foxhole():unregister_player()
 	end
 end

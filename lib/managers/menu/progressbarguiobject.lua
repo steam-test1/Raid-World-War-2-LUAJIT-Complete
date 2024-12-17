@@ -24,6 +24,7 @@ function ProgressBarGuiObject:init(panel, config)
 	})
 	self._progress_bar = self._panel:rect({
 		blend_mode = "normal",
+		name = "progress_bar",
 		h = 0,
 		w = 0,
 		layer = 3,
@@ -39,9 +40,10 @@ end
 
 function ProgressBarGuiObject:_create_description(description)
 	local description_params = {
+		name = "progress_bar_description",
 		h = 32,
-		align = "center",
 		w = 256,
+		align = "center",
 		valign = "bottom",
 		font = tweak_data.gui.fonts.din_compressed_outlined_24,
 		font_size = tweak_data.gui.font_sizes.size_24,

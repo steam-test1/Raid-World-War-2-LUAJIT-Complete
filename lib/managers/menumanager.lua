@@ -171,6 +171,17 @@ function MenuManager:init(is_start_menu)
 
 		self:register_menu(mission_selection_menu)
 
+		local mission_unlock_menu = {
+			input = "MenuInput",
+			name = "mission_unlock_menu",
+			renderer = "MenuRenderer",
+			id = "mission_unlock_menu",
+			content_file = "gamedata/raid/menus/mission_unlock_menu",
+			callback_handler = MenuCallbackHandler:new()
+		}
+
+		self:register_menu(mission_unlock_menu)
+
 		local profile_selection_menu = {
 			input = "MenuInput",
 			name = "profile_selection_menu",
@@ -303,6 +314,17 @@ function MenuManager:init(is_start_menu)
 
 		self:register_menu(raid_loot_screen_menu)
 
+		local raid_greed_loot_screen_menu = {
+			input = "MenuInput",
+			name = "raid_menu_greed_loot_screen",
+			renderer = "MenuRenderer",
+			id = "raid_menu_greed_loot_screen",
+			content_file = "gamedata/raid/menus/greed_loot_screen_menu",
+			callback_handler = MenuCallbackHandler:new()
+		}
+
+		self:register_menu(raid_greed_loot_screen_menu)
+
 		local raid_menu_weapon_select = {
 			input = "MenuInput",
 			name = "raid_menu_weapon_select",
@@ -412,6 +434,28 @@ function MenuManager:init(is_start_menu)
 		}
 
 		self:register_menu(gold_asset_store_menu)
+
+		local intel_menu = {
+			input = "MenuInput",
+			name = "intel_menu",
+			renderer = "MenuRenderer",
+			id = "intel_menu",
+			content_file = "gamedata/raid/menus/intel_menu",
+			callback_handler = MenuCallbackHandler:new()
+		}
+
+		self:register_menu(intel_menu)
+
+		local comic_book_menu = {
+			input = "MenuInput",
+			name = "comic_book_menu",
+			renderer = "MenuRenderer",
+			id = "comic_book_menu",
+			content_file = "gamedata/raid/menus/comic_book_menu",
+			callback_handler = MenuCallbackHandler:new()
+		}
+
+		self:register_menu(comic_book_menu)
 	end
 
 	self._controller:add_trigger("toggle_menu", callback(self, self, "toggle_menu_state"))
@@ -3785,6 +3829,22 @@ function MenuOptionInitiator:modify_debug_options(node)
 		local show_dog_tags_value = Global.debug_show_dog_tags and "on" or "off"
 
 		show_dog_tags_item:set_value(show_dog_tags_value)
+	end
+
+	local spawn_all_greed_items_item = node:item("toggle_spawn_all_greed_items")
+
+	if spawn_all_greed_items_item then
+		local spawn_all_greed_items_value = Global.spawn_all_greed_items and "on" or "off"
+
+		spawn_all_greed_items_item:set_value(spawn_all_greed_items_value)
+	end
+
+	local show_greed_items_item = node:item("toggle_debug_show_greed_items")
+
+	if show_greed_items_item then
+		local show_greed_items_value = Global.show_greed_item_positions and "on" or "off"
+
+		show_greed_items_item:set_value(show_greed_items_value)
 	end
 
 	local god_mode_item = node:item("toggle_god_mode")

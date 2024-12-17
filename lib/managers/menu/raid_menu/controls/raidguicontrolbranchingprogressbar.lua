@@ -502,6 +502,7 @@ function RaidGUIControlBranchingProgressBar:on_mouse_moved(o, x, y)
 
 	self._mouse_travel = (x - self._mouse_last_x) * self._move_damping
 	local scrollable_panel_new_x = self._scrollable_panel:x() + (x - self._mouse_last_x) * self._move_damping
+	scrollable_panel_new_x = math.round(scrollable_panel_new_x)
 
 	self._scrollable_panel:set_x(scrollable_panel_new_x)
 

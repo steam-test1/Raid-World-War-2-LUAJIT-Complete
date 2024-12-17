@@ -142,7 +142,7 @@ function DropLootTweakData:_init_elite_enemy()
 		unit = "grenade_small_beam"
 	}
 	self.elite_enemy.units.ammo = {
-		drop_rate = 50,
+		drop_rate = 40,
 		subtypes = {}
 	}
 	self.elite_enemy.units.ammo.subtypes.large = {
@@ -198,7 +198,7 @@ function DropLootTweakData:_init_easy_enemy()
 		unit = "grenade_small_beam"
 	}
 	self.easy_enemy.units.ammo = {
-		drop_rate = 20,
+		drop_rate = 30,
 		subtypes = {}
 	}
 	self.easy_enemy.units.ammo.subtypes.large = {
@@ -254,7 +254,7 @@ function DropLootTweakData:_init_normal_enemy()
 		unit = "grenade_small_beam"
 	}
 	self.normal_enemy.units.ammo = {
-		drop_rate = 30,
+		drop_rate = 40,
 		subtypes = {}
 	}
 	self.normal_enemy.units.ammo.subtypes.large = {
@@ -310,7 +310,7 @@ function DropLootTweakData:_init_hard_enemy()
 		unit = "grenade_small_beam"
 	}
 	self.hard_enemy.units.ammo = {
-		drop_rate = 40,
+		drop_rate = 30,
 		subtypes = {}
 	}
 	self.hard_enemy.units.ammo.subtypes.large = {

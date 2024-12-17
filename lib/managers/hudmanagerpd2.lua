@@ -13,6 +13,7 @@ require("lib/managers/hud/HUDMapWaypoint")
 require("lib/managers/hud/HUDMapPlayerPin")
 require("lib/managers/hud/HUDMapBase")
 require("lib/managers/hud/HUDMapTab")
+require("lib/managers/hud/HUDTabGreedBar")
 require("lib/managers/hud/HUDTabWeaponChallenge")
 require("lib/managers/hud/HUDTabScreen")
 require("lib/managers/hud/HUDNameLabel")
@@ -1086,6 +1087,7 @@ end
 function HUDManager:show_progress_timer_bar(current, total, description)
 	local hud = managers.hud:script(PlayerBase.INGAME_HUD_SAFERECT)
 	local progress_bar_params = {
+		name = "progress_timer_progress_bar",
 		height = 8,
 		width = 256,
 		x = hud.panel:w() / 2,
@@ -1168,6 +1170,47 @@ function HUDManager:sync_end_assault(result)
 
 	if result then
 		-- Nothing
+	end
+end
+
+function HUDManager:on_progression_cycle_completed()
+	if self._tab_screen then
+		self._tab_screen:on_progression_cycle_completed()
+	end
+
+	local notification_params = {
+		id = "progression_cycle_completed",
+		duration = 6,
+		priority = 4,
+		notification_type = HUDNotification.RAID_UNLOCKED
+	}
+
+	managers.notification:add_notification(notification_params)
+end
+
+function HUDManager:on_greed_loot_picked_up(old_progress, new_progress)
+	if self._tab_screen then
+		self._tab_screen:on_greed_loot_picked_up(old_progress, new_progress)
+	end
+
+	managers.notification:add_notification({
+		id = "greed_item_picked_up",
+		shelf_life = 5,
+		notification_type = HUDNotification.GREED_ITEM,
+		initial_progress = old_progress,
+		new_progress = new_progress
+	})
+end
+
+function HUDManager:set_current_greed_amount(amount)
+	if self._tab_screen then
+		self._tab_screen:set_current_greed_amount(amount)
+	end
+end
+
+function HUDManager:reset_greed_indicators()
+	if self._tab_screen then
+		self._tab_screen:reset_greed_indicator()
 	end
 end
 
@@ -1529,8 +1572,8 @@ function HUDManager:_create_suspicion_direction(hud)
 	self._hud_suspicion_direction = HUDSuspicionDirection:new(hud)
 end
 
-function HUDManager:create_suspicion_indicator(observer_key, observer_position, initial_state)
-	self._hud_suspicion_direction:create_suspicion_indicator(observer_key, observer_position, initial_state)
+function HUDManager:create_suspicion_indicator(observer_key, observer_position, initial_state, suspect)
+	self._hud_suspicion_direction:create_suspicion_indicator(observer_key, observer_position, initial_state, suspect)
 end
 
 function HUDManager:need_to_init_suspicion_indicator(observer_key)

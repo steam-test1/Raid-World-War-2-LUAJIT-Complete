@@ -1702,7 +1702,7 @@ function GroupAIStateBase:_gameover_clbk_func()
 end
 
 function GroupAIStateBase:begin_gameover_fadeout()
-	if Network:is_server() then
+	if Network:is_server() and not managers.vote:is_restarting() then
 		managers.raid_job:external_end_mission(false, true)
 	end
 end
@@ -3254,15 +3254,6 @@ function GroupAIStateBase:set_dropin_hostages_killed(criminal_unit, hostages_kil
 end
 
 function GroupAIStateBase:on_AI_criminal_death(criminal_name, unit)
-	managers.notification:add_notification({
-		duration = 3,
-		shelf_life = 5,
-		id = "hint_teammate_dead",
-		text = managers.localization:text("hint_teammate_dead", {
-			TEAMMATE = unit:base():nick_name()
-		})
-	})
-
 	if not Network:is_server() then
 		return
 	end
@@ -4278,7 +4269,7 @@ function GroupAIStateBase:get_area_from_nav_seg_id(nav_seg_id)
 	if self._nav_seg_to_area_map[nav_seg_id] then
 		return self._nav_seg_to_area_map[nav_seg_id]
 	else
-		Application:error("[GroupAIStateBase:get_area_from_nav_seg_id] area not found: ", nav_seg_id, inspect(self._nav_seg_to_area_map))
+		Application:error("[GroupAIStateBase:get_area_from_nav_seg_id] area not found: ", nav_seg_id, debug.traceback())
 	end
 end
 
@@ -5296,10 +5287,10 @@ function GroupAIStateBase._create_hud_suspicion_icon(obs_key, u_observer, u_susp
 
 	local suspect, timer = nil
 
-	if u_suspect == managers.player:player_unit() or u_suspect == nil then
+	if u_suspect == managers.player:player_unit() then
 		suspect = "player"
 		timer = 2
-	else
+	elseif u_suspect == nil then
 		suspect = "teammate"
 		timer = 0
 	end

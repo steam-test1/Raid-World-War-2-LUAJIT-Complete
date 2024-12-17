@@ -14,12 +14,16 @@ HUDSuspicionIndicator.EYE_FILL_ICON = "stealth_eye_fill"
 HUDSuspicionIndicator.CALLING_INDICATOR_CENTER_ICON = "stealth_alarm_icon"
 HUDSuspicionIndicator.CALLING_INDICATOR_ICON_IN = "stealth_alarm_in"
 HUDSuspicionIndicator.CALLING_INDICATOR_ICON_OUT = "stealth_alarm_out"
+HUDSuspicionIndicator.PLAYER_ACTIVE_ALPHA = 1
+HUDSuspicionIndicator.TEAMMATE_ACTIVE_ALPHA = 0.6
 
 function HUDSuspicionIndicator:init(hud, data)
 	self._observer = data.unit
+	self._suspect = data.suspect
 	self._observer_position = data.position
 	self._progress = 0
 	self._onscreen = true
+	self._active_alpha = HUDManager.DIFFERENT_SUSPICION_INDICATORS_FOR_TEAMMATES == true and (data.suspect == "teammate" or data.suspect == nil) and HUDSuspicionIndicator.TEAMMATE_ACTIVE_ALPHA or HUDSuspicionIndicator.PLAYER_ACTIVE_ALPHA
 
 	self:_create_panel(hud)
 	self:_create_eye_background()
@@ -149,10 +153,18 @@ function HUDSuspicionIndicator:observer_position()
 	return self._observer_position
 end
 
+function HUDSuspicionIndicator:suspect()
+	return self._suspect
+end
+
 function HUDSuspicionIndicator:set_progress(progress)
 	self._progress = progress
 
 	self._eye_fill:set_position_z(progress)
+end
+
+function HUDSuspicionIndicator:active_alpha()
+	return self._active_alpha
 end
 
 function HUDSuspicionIndicator:set_state(state, dont_animate)
@@ -213,7 +225,7 @@ end
 function HUDSuspicionIndicator:set_state_calling()
 	self._eye_panel:animate(callback(self, self, "_animate_hide_suspicion"))
 	self._calling_indicators[1]:stop()
-	self._calling_indicators[1]:animate(callback(self, self, "_animate_create"), 0.5, 0.2)
+	self._calling_indicators[1]:animate(callback(self, self, "_animate_create"), 0.5, 0.2, 1)
 	self._calling_indicators[2]:stop()
 	self._calling_indicators[2]:animate(callback(self, self, "_animate_indicator_calling"), 0.4)
 	self._calling_indicators[3]:stop()
@@ -328,7 +340,7 @@ function HUDSuspicionIndicator:_animate_hide_suspicion()
 	while duration > t do
 		local dt = coroutine.yield()
 		t = t + dt
-		local current_alpha = Easing.quartic_in_out(t, 1, -1, duration)
+		local current_alpha = Easing.quartic_in_out(t, self._active_alpha, -self._active_alpha, duration)
 
 		self._eye_panel:set_alpha(current_alpha)
 	end
@@ -416,12 +428,12 @@ end
 
 function HUDSuspicionIndicator:_animate_destroy()
 	local duration = 0.3
-	local t = (1 - self._object:alpha()) * duration
+	local t = (1 - self._object:alpha() / self._active_alpha) * duration
 
 	while duration > t do
 		local dt = coroutine.yield()
 		t = t + dt
-		local current_alpha = Easing.quartic_in_out(t, 1, -1, duration)
+		local current_alpha = Easing.quartic_in_out(t, self._active_alpha, -self._active_alpha, duration)
 
 		self._object:set_alpha(current_alpha)
 	end
@@ -430,7 +442,7 @@ function HUDSuspicionIndicator:_animate_destroy()
 	self:_destroy()
 end
 
-function HUDSuspicionIndicator:_animate_create(object, fade_in_duration, delay)
+function HUDSuspicionIndicator:_animate_create(object, fade_in_duration, delay, new_alpha)
 	local duration = fade_in_duration or 0.15
 	local t = 0
 
@@ -441,10 +453,10 @@ function HUDSuspicionIndicator:_animate_create(object, fade_in_duration, delay)
 	while t < duration do
 		local dt = coroutine.yield()
 		t = t + dt
-		local current_alpha = Easing.quartic_in_out(t, 0, 1, duration)
+		local current_alpha = Easing.quartic_in_out(t, 0, new_alpha or self._active_alpha, duration)
 
 		object:set_alpha(current_alpha)
 	end
 
-	object:set_alpha(1)
+	object:set_alpha(new_alpha or self._active_alpha)
 end
