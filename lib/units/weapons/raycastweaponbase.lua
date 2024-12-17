@@ -1521,6 +1521,8 @@ function RaycastWeaponBase:enabled()
 end
 
 function RaycastWeaponBase:play_tweak_data_sound(event, alternative_event)
+	Application:trace("RaycastWeaponBase:play_tweak_data_sound: ", inspect(event), inspect(alternative_event), self._name_id, inspect(tweak_data.weapon[self._name_id].sounds))
+
 	local sounds = tweak_data.weapon[self._name_id].sounds
 	local event = sounds and (sounds[event] or sounds[alternative_event])
 
@@ -1531,6 +1533,8 @@ end
 
 function RaycastWeaponBase:play_sound(event)
 	local result = self._sound_fire:post_event(event)
+
+	Application:trace("RaycastWeaponBase:play_sound( event ): ", inspect(event), result)
 end
 
 function RaycastWeaponBase:destroy(unit)

@@ -65,6 +65,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "kar_98k",
 			slot = 16
+		},
+		{
+			weapon_id = "bren",
+			slot = 17
 		}
 	}
 	self.weapon_secondaries_index = {

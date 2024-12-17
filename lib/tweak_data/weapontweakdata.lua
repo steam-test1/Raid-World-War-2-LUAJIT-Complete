@@ -39,6 +39,7 @@ function WeaponTweakData:init(tweak_data)
 	self:_init_data_dp28_npc()
 	self:_init_data_tt33_npc()
 	self:_init_data_kar_98k_npc()
+	self:_init_data_bren_npc()
 	self:_init_data_tiger_main_gun_module_npc(difficulty_index)
 	self:_init_data_tiger_machinegun_module_npc(difficulty_index)
 	self:_init_data_junker_machinegun_module_npc(difficulty_index)
@@ -192,6 +193,32 @@ function WeaponTweakData:_init_data_dp28_npc()
 	self.dp28_npc.hold = "dp28"
 	self.dp28_npc.alert_size = 5000
 	self.dp28_npc.suppression = 1
+end
+
+function WeaponTweakData:_init_data_bren_npc()
+	self.bren_npc = {
+		sounds = {},
+		use_data = {},
+		usage = "bren",
+		usage_anim = "bren"
+	}
+	self.bren_npc.sounds.prefix = ""
+	self.bren_npc.sounds.single = "bren_fire_single_npc"
+	self.bren_npc.sounds.autofire_start = "bren_fire_npc"
+	self.bren_npc.sounds.autofire_stop = "bren_fire_stop_npc"
+	self.bren_npc.use_data.selection_index = 2
+	self.bren_npc.DAMAGE = 2
+	self.bren_npc.muzzleflash = "effects/vanilla/weapons/556_auto"
+	self.bren_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_556"
+	self.bren_npc.CLIP_AMMO_MAX = 20
+	self.bren_npc.NR_CLIPS_MAX = 6
+	self.bren_npc.AMMO_MAX = self.bren_npc.CLIP_AMMO_MAX * self.bren_npc.NR_CLIPS_MAX
+	self.bren_npc.auto = {
+		fire_rate = 0.12
+	}
+	self.bren_npc.hold = "bren"
+	self.bren_npc.alert_size = 5000
+	self.bren_npc.suppression = 1
 end
 
 function WeaponTweakData:_init_data_tt33_npc()
@@ -2486,6 +2513,7 @@ function WeaponTweakData:_init_new_weapons(weapon_data)
 	self:_init_dp28(weapon_data)
 	self:_init_tt33(weapon_data)
 	self:_init_kar_98k(weapon_data)
+	self:_init_bren(weapon_data)
 end
 
 function WeaponTweakData:_init_flamethrower_mk2(weapon_data)
@@ -5118,6 +5146,178 @@ function WeaponTweakData:_init_dp28(weapon_data)
 		alert_size = 8,
 		spread = 6,
 		recoil = 4,
+		value = 9,
+		extra_ammo = 6,
+		suppression = 6,
+		concealment = 2
+	}
+end
+
+function WeaponTweakData:_init_bren(weapon_data)
+	self.bren = {
+		inventory_texture = "ui/temp/customization_temp_df",
+		category = WeaponTweakData.WEAPON_CATEGORY_LMG,
+		dismember_chance = 0.4,
+		damage_melee = 100,
+		damage_melee_effect_mul = weapon_data.damage_melee_effect_multiplier_default,
+		sounds = {}
+	}
+	self.bren.sounds.fire_single = "bren_fire_1p_single"
+	self.bren.sounds.fire_auto = "bren_fire_1p"
+	self.bren.sounds.stop_fire = "bren_fire_1p_stop"
+	self.bren.sounds.dryfire = "primary_dryfire"
+	self.bren.timers = {
+		reload_not_empty = 1.8,
+		reload_empty = 2.4,
+		unequip = 0.9,
+		equip = 0.9
+	}
+	self.bren.name_id = "bm_w_bren"
+	self.bren.desc_id = "bm_w_bren_desc"
+	self.bren.description_id = "des_bren"
+	self.bren.muzzleflash = "effects/vanilla/weapons/762_auto_fps"
+	self.bren.shell_ejection = "effects/vanilla/weapons/shells/shell_556"
+	self.bren.use_data = {
+		selection_index = 2
+	}
+	self.bren.damage_profile = {
+		{
+			damage = 160,
+			range = 3500
+		},
+		{
+			damage = 100,
+			range = 5500
+		}
+	}
+	self.bren.headshot_multiplier = 2
+	self.bren.CLIP_AMMO_MAX = 20
+	self.bren.NR_CLIPS_MAX = 6
+	self.bren.AMMO_MAX = self.bren.CLIP_AMMO_MAX * self.bren.NR_CLIPS_MAX
+	self.bren.AMMO_PICKUP = {
+		10,
+		1
+	}
+	self.bren.ammo_pickup_base = 20
+	self.bren.FIRE_MODE = "auto"
+	self.bren.fire_mode_data = {
+		fire_rate = 0.12
+	}
+	self.bren.CAN_TOGGLE_FIREMODE = true
+	self.bren.auto = {
+		fire_rate = 0.1
+	}
+	self.bren.spread = {
+		standing = 6,
+		crouching = 3.5,
+		steelsight = 2.3,
+		moving_standing = 12,
+		moving_crouching = 6,
+		moving_steelsight = 3.1,
+		per_shot = 0.33,
+		per_shot_steelsight = 0.085,
+		recovery = 9,
+		recovery_wait_multiplier = 1
+	}
+	self.bren.kick = {
+		standing = {
+			1.4,
+			1.3,
+			0.9,
+			1
+		},
+		crouching = {
+			1.25,
+			1.1,
+			0.8,
+			0.8
+		},
+		steelsight = {
+			1.05,
+			0.9,
+			0.65,
+			0.7
+		},
+		crouching_steelsight = {
+			1,
+			0.86,
+			0.55,
+			0.65
+		},
+		formula = function (x)
+			if x == 0 then
+				return 1.01
+			else
+				return math.min(math.pow(x, 2.2), 2)
+			end
+		end,
+		recovery = 9,
+		recovery_wait_multiplier = 2,
+		recenter_speed = 800,
+		recenter_speed_steelsight = 800
+	}
+	self.bren.gun_kick = {
+		hip_fire = {
+			-46,
+			40,
+			-43,
+			42
+		},
+		steelsight = {
+			4,
+			11,
+			3,
+			11
+		},
+		position_ratio = -0.025
+	}
+	self.bren.crosshair = {
+		standing = {},
+		crouching = {},
+		steelsight = {}
+	}
+	self.bren.crosshair.standing.offset = 0.16
+	self.bren.crosshair.standing.moving_offset = 1
+	self.bren.crosshair.standing.kick_offset = 0.8
+	self.bren.crosshair.crouching.offset = 0.1
+	self.bren.crosshair.crouching.moving_offset = 0.6
+	self.bren.crosshair.crouching.kick_offset = 0.4
+	self.bren.crosshair.steelsight.hidden = true
+	self.bren.crosshair.steelsight.offset = 0
+	self.bren.crosshair.steelsight.moving_offset = 0
+	self.bren.crosshair.steelsight.kick_offset = 0.14
+	self.bren.shake = {
+		fire_multiplier = 1,
+		fire_steelsight_multiplier = -1
+	}
+	self.bren.autohit = weapon_data.autohit_lmg_default
+	self.bren.aim_assist = weapon_data.aim_assist_lmg_default
+	self.bren.weapon_hold = "bren"
+	self.bren.animations = {
+		equip_id = "equip_bren",
+		recoil_steelsight = true
+	}
+	self.bren.gui = {
+		rotation_offset = -32,
+		distance_offset = 80,
+		height_offset = -6,
+		display_offset = -10,
+		initial_rotation = {}
+	}
+	self.bren.gui.initial_rotation.yaw = -90
+	self.bren.gui.initial_rotation.pitch = 0
+	self.bren.gui.initial_rotation.roll = 0
+	self.bren.gui.icon_large = "weapon_bren_large"
+	self.bren.hud = {
+		icon = "weapons_panel_bren"
+	}
+	self.bren.stats = {
+		zoom = 2,
+		total_ammo_mod = 21,
+		spread_moving = 9,
+		alert_size = 8,
+		spread = 6,
+		recoil = 5,
 		value = 9,
 		extra_ammo = 6,
 		suppression = 6,
