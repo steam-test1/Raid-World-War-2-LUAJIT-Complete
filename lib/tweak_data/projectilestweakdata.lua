@@ -15,9 +15,10 @@ function ProjectilesTweakData:init(tweak_data)
 		expire_t = 1.1,
 		repeat_expire_t = 1.5,
 		is_a_grenade = true,
-		damage = 500,
-		player_damage = 10,
+		damage = 750,
+		player_damage = 20,
 		range = 1000,
+		killzone_range = 0.75,
 		init_timer = 4.5,
 		animations = {}
 	}
@@ -46,13 +47,15 @@ function ProjectilesTweakData:init(tweak_data)
 		expire_t = 1.1,
 		repeat_expire_t = 1.5,
 		is_a_grenade = true,
-		damage = 600,
-		player_damage = 10,
-		range = 750,
-		init_timer = 4.5,
-		animations = {}
+		damage = 850,
+		player_damage = 20,
+		range = 750
 	}
-	self.concrete.animations.equip_id = "equip_welrod"
+	self.m24.killzone_range = 0.75
+	self.concrete.init_timer = 4.5
+	self.concrete.animations = {
+		equip_id = "equip_welrod"
+	}
 	self.concrete.sound_event = "new_grenade_explode"
 	self.concrete.gui = {
 		rotation_offset = 3,
@@ -72,6 +75,7 @@ function ProjectilesTweakData:init(tweak_data)
 		impact_detonation = true,
 		max_amount = 3,
 		anim_global_param = "projectile_frag",
+		killzone_range = 0.15,
 		is_a_grenade = true,
 		damage = 250,
 		launch_speed = 20,
@@ -128,6 +132,7 @@ function ProjectilesTweakData:init(tweak_data)
 			dot_tick_period = 0.5
 		},
 		range = 75,
+		killzone_range = 0,
 		burn_duration = 20,
 		burn_tick_period = 0.5,
 		sound_event_impact_duration = 4,
@@ -150,6 +155,7 @@ function ProjectilesTweakData:init(tweak_data)
 		damage = 150,
 		player_damage = 10,
 		range = 1000,
+		killzone_range = 0,
 		init_timer = 15,
 		effect_name = "effects/vanilla/explosions/exp_artillery_explosion_001",
 		sound_event = "grenade_launcher_explosion",

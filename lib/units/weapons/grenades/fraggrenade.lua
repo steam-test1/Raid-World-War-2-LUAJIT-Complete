@@ -14,6 +14,7 @@ function FragGrenade:_setup_from_tweak_data()
 
 	self._effect_name = self._tweak_data.effect_name or "effects/vanilla/explosions/exp_hand_grenade_001"
 	self._curve_pow = self._tweak_data.curve_pow or 3
+	self._killzone_range = self._tweak_data.killzone_range or 0.5
 	self._damage = self._tweak_data.damage
 
 	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_GRENADE_DAMAGE) then
@@ -82,7 +83,8 @@ function FragGrenade:_detonate(tag, unit, body, other_unit, other_body, position
 		ignore_unit = self._unit,
 		alert_radius = self._alert_radius,
 		user = self._unit,
-		owner = self._unit
+		owner = self._unit,
+		killzone_range = self._killzone_range
 	})
 	local thrower_peer_id = self:get_thrower_peer_id()
 	local thrower_peer = managers.network:session():peer(thrower_peer_id)
@@ -109,6 +111,7 @@ function FragGrenade:_detonate(tag, unit, body, other_unit, other_body, position
 	if self._clusters_to_spawn > 0 then
 		local index = tweak_data.blackmarket:get_index_from_projectile_id("cluster")
 		local unit_position = self._unit:position()
+		unit_position = Vector3(unit_position.x, unit_position.y, unit_position.z + 2)
 		local clusters_spawned = 0
 
 		while clusters_spawned < self._clusters_to_spawn do
@@ -130,6 +133,7 @@ function FragGrenade:_detonate(tag, unit, body, other_unit, other_body, position
 				Application:debug("[FragGrenade:_detonate] Trying to spawn a cluser, but there is a collision!")
 				Application:debug("[FragGrenade:_detonate] Spawn position: \t" .. inspect(spawn_position))
 				Application:debug("[FragGrenade:_detonate] Hit position: \t" .. inspect(collision.position))
+				Application:debug("[FragGrenade:_detonate] unit position: \t" .. inspect(unit_position))
 				Application:debug("[FragGrenade:_detonate] Unit hit: \t\t" .. inspect(collision.unit))
 
 				if FragGrenade.MAX_CLUSTER_ATTEMPTS < spawn_attempts then
