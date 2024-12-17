@@ -48,7 +48,7 @@ function ProjectilesTweakData:init(tweak_data)
 		is_a_grenade = true,
 		damage = 600,
 		player_damage = 10,
-		range = 7500,
+		range = 750,
 		init_timer = 4.5,
 		animations = {}
 	}
