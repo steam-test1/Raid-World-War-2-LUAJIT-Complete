@@ -3069,7 +3069,7 @@ end
 
 function GuiTweakData:_setup_hud_icons()
 	self.icons.aa_gun_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1355,
@@ -3078,7 +3078,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.aa_gun_flak = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			731,
 			1281,
@@ -3087,7 +3087,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_chat_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1165,
@@ -3096,7 +3096,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_detected_msg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1411,
@@ -3105,7 +3105,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_equipment_panel_msg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1481,
@@ -3114,7 +3114,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_health_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1255,
@@ -3123,7 +3123,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_machine_gun_empty = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1599,
@@ -3132,7 +3132,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_toast_mission_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1069,
@@ -3141,7 +3141,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_toast_mission_bg_002 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			963,
@@ -3150,7 +3150,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_vehicle_bags_weight = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			863,
 			1419,
@@ -3159,7 +3159,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_vehicle_damage_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			663,
 			1135,
@@ -3168,7 +3168,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_warcry_msg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1551,
@@ -3177,7 +3177,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.backgrounds_weapon_counter_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1045,
@@ -3186,7 +3186,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.bullet_active = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			713,
 			1227,
@@ -3195,7 +3195,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.bullet_empty = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			713,
 			1245,
@@ -3204,7 +3204,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.car_slot_empty = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1165,
@@ -3213,7 +3213,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_alive = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			887,
 			1281,
@@ -3222,7 +3222,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_bag = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1279,
@@ -3231,7 +3231,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_corpse = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			461,
 			1279,
@@ -3240,7 +3240,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_flak_shell = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			535,
 			1279,
@@ -3249,7 +3249,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_gold = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			877,
 			1399,
@@ -3258,7 +3258,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_painting = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			951,
 			1405,
@@ -3267,7 +3267,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.carry_planks = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			875,
 			1473,
@@ -3276,7 +3276,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.chat_input_rounded_rect = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1201,
@@ -3285,7 +3285,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_assistance = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1081,
@@ -3294,7 +3294,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1,
@@ -3303,7 +3303,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_enemy = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1135,
@@ -3312,7 +3312,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_follow_me = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1189,
@@ -3321,7 +3321,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_found_it = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1243,
@@ -3330,7 +3330,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_no = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			663,
 			1147,
@@ -3339,7 +3339,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_not_here = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			677,
 			1263,
@@ -3348,7 +3348,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_triangle = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1297,
@@ -3357,7 +3357,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_wait = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			1351,
@@ -3366,7 +3366,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.comm_wheel_yes = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			949,
 			1479,
@@ -3375,7 +3375,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.coom_wheel_line = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1017,
 			1045,
@@ -3384,7 +3384,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_code_book = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			421,
 			1165,
@@ -3393,7 +3393,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_code_device = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			455,
 			1165,
@@ -3402,7 +3402,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_crowbar = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			489,
 			1165,
@@ -3411,7 +3411,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_cvy_landimine = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			523,
 			1165,
@@ -3420,7 +3420,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_cvy_thermite = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			557,
 			1165,
@@ -3429,7 +3429,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_dynamite = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			609,
 			1317,
@@ -3438,7 +3438,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_dynamite_stick = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			643,
 			1279,
@@ -3447,7 +3447,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_fuel_empty = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			609,
 			1279,
@@ -3456,7 +3456,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_fuel_full = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			643,
 			1313,
@@ -3465,7 +3465,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_gold = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			677,
 			1317,
@@ -3474,7 +3474,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_parachute = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			327,
 			1705,
@@ -3483,7 +3483,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_portable_radio = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			361,
 			1705,
@@ -3492,7 +3492,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_recording_device = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			977,
 			1723,
@@ -3501,7 +3501,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_sps_briefcase = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			977,
 			1757,
@@ -3510,7 +3510,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_sps_interaction_key = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			649,
 			1717,
@@ -3519,7 +3519,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_sto_safe_key = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			683,
 			1717,
@@ -3528,7 +3528,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.equipment_panel_tools = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			717,
 			1717,
@@ -3537,7 +3537,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.hud_notification_tier_t1 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1813,
@@ -3546,7 +3546,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.hud_notification_tier_t2 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1869,
@@ -3555,7 +3555,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.hud_notification_tier_t3 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1925,
@@ -3564,7 +3564,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.hud_notification_tier_t4 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1981,
@@ -3573,7 +3573,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.interaction_hold_meter_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			387,
 			1267,
@@ -3582,7 +3582,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.interaction_key_left = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			717,
 			1147,
@@ -3591,7 +3591,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.interaction_key_middle = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			717,
 			1187,
@@ -3600,7 +3600,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.interaction_key_right = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			869,
 			1311,
@@ -3609,7 +3609,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.machine_gun_full = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			383,
 			1621,
@@ -3618,7 +3618,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.machine_gun_solo = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1011,
 			1479,
@@ -3627,7 +3627,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.miissions_raid_flaktower = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			1,
@@ -3636,7 +3636,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.mission_camp = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			59,
@@ -3645,7 +3645,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_consumable_forest = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			117,
@@ -3654,7 +3654,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_consumable_mission = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			175,
@@ -3663,7 +3663,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_mini_raid_1 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			233,
@@ -3672,7 +3672,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_mini_raid_2 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			291,
@@ -3681,7 +3681,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_mini_raid_3 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			349,
@@ -3690,7 +3690,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_mini_raids = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			407,
@@ -3699,7 +3699,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_operation_clear_skies = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			465,
@@ -3708,7 +3708,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_operation_rhinegold = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			523,
@@ -3717,7 +3717,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_operations_category = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			581,
@@ -3726,7 +3726,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raid_bank = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			639,
@@ -3735,7 +3735,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raid_bridge = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			697,
@@ -3744,7 +3744,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raid_castle = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			755,
@@ -3753,7 +3753,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raid_radio = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			813,
@@ -3762,7 +3762,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raid_railyard = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			871,
@@ -3771,7 +3771,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.missions_raids_category = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			963,
 			929,
@@ -3780,7 +3780,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.nationality_small_american = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			787,
 			1751,
@@ -3789,7 +3789,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.nationality_small_british = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			787,
 			1785,
@@ -3798,7 +3798,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.nationality_small_german = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			959,
 			1791,
@@ -3807,7 +3807,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.nationality_small_russian = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			787,
 			1819,
@@ -3816,7 +3816,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.notification_consumable = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			731,
 			963,
@@ -3825,7 +3825,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objecives_new_empty_frame = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			671,
 			1673,
@@ -3834,7 +3834,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objective_checked = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			759,
 			1711,
@@ -3843,7 +3843,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objective_progress_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			663,
 			1069,
@@ -3852,7 +3852,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objective_unchecked = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			799,
 			1711,
@@ -3861,7 +3861,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objectives_new_checked_red_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			715,
 			1673,
@@ -3870,7 +3870,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.objectives_new_progress_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			883,
 			1355,
@@ -3879,7 +3879,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_ai_downed_and_objective_countdown_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1673,
@@ -3888,7 +3888,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_class_assault = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			327,
 			1651,
@@ -3897,7 +3897,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_class_demolitions = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			43,
 			1813,
@@ -3906,7 +3906,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_class_infiltrator = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			43,
 			1867,
@@ -3915,7 +3915,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_class_recon = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			43,
 			1921,
@@ -3924,7 +3924,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_downed_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			773,
 			1355,
@@ -3933,7 +3933,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_host_indicator = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			959,
 			1825,
@@ -3942,7 +3942,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_interaction_teammate_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			961,
 			987,
@@ -3951,7 +3951,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_nationality_american = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			43,
 			1975,
@@ -3960,7 +3960,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_nationality_british = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			97,
 			1807,
@@ -3969,7 +3969,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_nationality_german = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			97,
 			1861,
@@ -3978,7 +3978,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_nationality_russian = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			97,
 			1915,
@@ -3987,7 +3987,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_stamina_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			769,
 			1445,
@@ -3996,7 +3996,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_status_dead_ai = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			97,
 			1969,
@@ -4005,7 +4005,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_status_lockpick = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			151,
 			1807,
@@ -4014,7 +4014,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_status_mounted_weapon = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			181,
 			1739,
@@ -4023,7 +4023,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_teammate_downed_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			1,
 			1723,
@@ -4032,7 +4032,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_warcry_berserk = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			151,
 			1861,
@@ -4041,7 +4041,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_warcry_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			91,
 			1717,
@@ -4050,7 +4050,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_warcry_cluster_truck = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			151,
 			1915,
@@ -4059,7 +4059,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_warcry_invisibility = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			151,
 			1969,
@@ -4068,7 +4068,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.player_panel_warcry_sharpshooter = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			205,
 			1793,
@@ -4077,7 +4077,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.vehicle_bags_weight_indicator = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			631,
 			1179,
@@ -4086,7 +4086,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.view_more_key_left = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			869,
 			1351,
@@ -4095,7 +4095,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.view_more_key_middle = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			711,
 			1317,
@@ -4104,7 +4104,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.view_more_key_right = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			863,
 			1385,
@@ -4113,7 +4113,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.vip_health_bg = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			591,
 			1165,
@@ -4122,7 +4122,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_ass_carbine = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			731,
 			1311,
@@ -4131,7 +4131,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_ass_garand = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			873,
 			1547,
@@ -4140,7 +4140,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_ass_mp44 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			873,
 			1591,
@@ -4149,7 +4149,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_gre_m24 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			769,
 			1535,
@@ -4158,7 +4158,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_indicator_rapid_fire = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			591,
 			1179,
@@ -4167,7 +4167,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_indicator_single_fire = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			611,
 			1179,
@@ -4176,7 +4176,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_lmg_dp28 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			869,
 			1635,
@@ -4185,7 +4185,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_lmg_m1918 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			869,
 			1679,
@@ -4194,7 +4194,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_lmg_mg42 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			51,
 			1673,
@@ -4203,7 +4203,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_pis_c96 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			189,
 			1651,
@@ -4212,7 +4212,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_pis_m1911 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			189,
 			1695,
@@ -4221,7 +4221,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_pis_tt33 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			235,
 			1739,
@@ -4230,7 +4230,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_sho_1912 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			205,
 			1847,
@@ -4239,7 +4239,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_sho_geco = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			259,
 			1783,
@@ -4248,7 +4248,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_smg_mp38 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			373,
 			1739,
@@ -4257,7 +4257,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_smg_sten = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			395,
 			1673,
@@ -4266,7 +4266,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_smg_sterling = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			533,
 			1673,
@@ -4275,7 +4275,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_smg_thompson = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			839,
 			1723,
@@ -4284,7 +4284,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_snp_m1903 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			511,
 			1717,
@@ -4293,7 +4293,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapon_panel_snp_mosin = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			649,
 			1751,
@@ -4302,7 +4302,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_bren = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			511,
 			1761,
@@ -4311,7 +4311,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_browning = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			821,
 			1767,
@@ -4320,7 +4320,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_enfield = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			649,
 			1795,
@@ -4329,7 +4329,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_gre_concrete = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			769,
 			1579,
@@ -4338,7 +4338,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_gre_d343 = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			765,
 			1623,
@@ -4347,7 +4347,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_gre_mills = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			765,
 			1667,
@@ -4356,7 +4356,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_itchaca = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			821,
 			1811,
@@ -4365,7 +4365,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_kar_98k = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			397,
 			1805,
@@ -4374,7 +4374,7 @@ function GuiTweakData:_setup_hud_icons()
 		}
 	}
 	self.icons.weapons_panel_pis_webley = {
-		texture = "ui/hud/atlas/raid_atlas",
+		texture = "ui/atlas/raid_atlas_hud",
 		texture_rect = {
 			535,
 			1839,

@@ -2886,6 +2886,18 @@ function SkillTreeTweakData:_init_skill_list()
 				"concrete"
 			}
 		},
+		weapon_unlock_grenade_d343 = {
+			name_id = "skill_weapon_unlock_grenade_d343_name",
+			desc_id = "skill_weapon_unlock_grenade_d343_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"d343"
+			}
+		},
 		weapon_unlock_dp28 = {
 			name_id = "skill_weapon_unlock_dp28_name",
 			desc_id = "skill_weapon_unlock_dp28_desc",
@@ -2908,6 +2920,18 @@ function SkillTreeTweakData:_init_skill_list()
 			acquires = {},
 			upgrades = {
 				"tt33"
+			}
+		},
+		weapon_unlock_kar_98k = {
+			name_id = "skill_weapon_unlock_kar_98k_name",
+			desc_id = "skill_weapon_unlock_kar_98k_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"kar_98k"
 			}
 		},
 		pistol_damage_multiplier_1 = {
@@ -5238,6 +5262,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 				"weapon_unlock_grenade_concrete"
 			}
 		},
+		[10] = {
+			weapons = {
+				"weapon_unlock_kar_98k"
+			}
+		},
 		[13] = {
 			weapons = {
 				"weapon_unlock_garand",
@@ -5255,6 +5284,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 		[18] = {
 			weapons = {
 				"weapon_unlock_webley"
+			}
+		},
+		[21] = {
+			weapons = {
+				"weapon_unlock_grenade_d343"
 			}
 		},
 		[23] = {
@@ -5343,6 +5377,11 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 		[18] = {
 			weapons = {
 				"weapon_unlock_webley"
+			}
+		},
+		[21] = {
+			weapons = {
+				"weapon_unlock_grenade_d343"
 			}
 		},
 		[25] = {
@@ -5435,6 +5474,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 				"weapon_unlock_webley"
 			}
 		},
+		[20] = {
+			weapons = {
+				"weapon_unlock_grenade_d343"
+			}
+		},
 		[23] = {
 			weapons = {
 				"weapon_unlock_mp38"
@@ -5518,6 +5562,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[18] = {
 			weapons = {
 				"weapon_unlock_webley"
+			}
+		},
+		[19] = {
+			weapons = {
+				"weapon_unlock_grenade_d343"
 			}
 		},
 		[25] = {

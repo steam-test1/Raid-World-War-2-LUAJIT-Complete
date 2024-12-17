@@ -48,14 +48,13 @@ function ProjectilesTweakData:init(tweak_data)
 		repeat_expire_t = 1.5,
 		is_a_grenade = true,
 		damage = 850,
-		player_damage = 20,
-		range = 750
+		player_damage = 24,
+		range = 750,
+		killzone_range = 0.75,
+		init_timer = 4.5,
+		animations = {}
 	}
-	self.m24.killzone_range = 0.75
-	self.concrete.init_timer = 4.5
-	self.concrete.animations = {
-		equip_id = "equip_welrod"
-	}
+	self.concrete.animations.equip_id = "equip_welrod"
 	self.concrete.sound_event = "new_grenade_explode"
 	self.concrete.gui = {
 		rotation_offset = 3,
@@ -67,6 +66,38 @@ function ProjectilesTweakData:init(tweak_data)
 	self.concrete.gui.initial_rotation.yaw = -90
 	self.concrete.gui.initial_rotation.pitch = 60
 	self.concrete.gui.initial_rotation.roll = 0
+	self.d343 = {
+		name_id = "bm_grenade_d343",
+		unit = "units/upd_003/weapons/wpn_fps_gre_d343/wpn_fps_gre_d343",
+		unit_hand = "units/upd_003/weapons/wpn_fps_gre_d343/wpn_fps_gre_d343_hand",
+		unit_dummy = "units/upd_003/weapons/wpn_fps_gre_d343/wpn_fps_gre_d343_husk",
+		icon = "frag_grenade",
+		throwable = true,
+		max_amount = 3,
+		anim_global_param = "projectile_frag",
+		throw_allowed_expire_t = 0.1,
+		expire_t = 1.1,
+		repeat_expire_t = 1.5,
+		is_a_grenade = true,
+		damage = 950,
+		player_damage = 28,
+		range = 600,
+		killzone_range = 0.75,
+		init_timer = 4.5,
+		animations = {}
+	}
+	self.d343.animations.equip_id = "equip_welrod"
+	self.d343.sound_event = "d43d_grenade_explode"
+	self.d343.gui = {
+		rotation_offset = 0,
+		distance_offset = -120,
+		height_offset = -8,
+		display_offset = 16,
+		initial_rotation = {}
+	}
+	self.d343.gui.initial_rotation.yaw = 0
+	self.d343.gui.initial_rotation.pitch = 90
+	self.d343.gui.initial_rotation.roll = 30
 	self.cluster = {
 		name_id = "bm_grenade_frag",
 		unit = "units/vanilla/dev/dev_shrapnel/dev_shrapnel",
@@ -173,7 +204,8 @@ function ProjectilesTweakData:init(tweak_data)
 		"molotov",
 		"mortar_shell",
 		"flamer_death_fake",
-		"concrete"
+		"concrete",
+		"d343"
 	}
 
 	self:_add_desc_from_name_macro(self)

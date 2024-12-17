@@ -61,6 +61,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "dp28",
 			slot = 15
+		},
+		{
+			weapon_id = "kar_98k",
+			slot = 16
 		}
 	}
 	self.weapon_secondaries_index = {
@@ -90,6 +94,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "concrete",
 			slot = 2
+		},
+		{
+			weapon_id = "d343",
+			slot = 3
 		}
 	}
 	self.weapon_melee_index = {

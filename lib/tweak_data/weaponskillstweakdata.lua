@@ -32,6 +32,7 @@ function WeaponSkillsTweakData:init()
 	self:_init_geco_skill_tree()
 	self:_init_dp28_skill_tree()
 	self:_init_tt33_skill_tree()
+	self:_init_kar_98k_skill_tree()
 	self:_init_reedem_xp_values()
 end
 
@@ -2601,6 +2602,166 @@ function WeaponSkillsTweakData:_init_m1903_skill_tree()
 		}
 	}
 	self.skill_trees.m1903.tier_unlock = {
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked"
+	}
+end
+
+function WeaponSkillsTweakData:_init_kar_98k_skill_tree()
+	self.skill_trees.kar_98k = {
+		{}
+	}
+	self.skill_trees.kar_98k[1][1] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_kill_beyond_range_completed",
+			challenge_briefing_id = "weapon_skill_kill_beyond_range_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+			challenge_tasks = {
+				{
+					target = 250,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						80,
+						160,
+						220
+					},
+					modifiers = {
+						min_range = 2000,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			},
+			weapon_parts = {
+				"wpn_fps_snp_kar_98k_body_grip"
+			}
+		}
+	}
+	self.skill_trees.kar_98k[1][2] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+			challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+			challenge_tasks = {
+				{
+					target = 50,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						25,
+						40
+					},
+					modifiers = {
+						headshot = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.kar_98k[2] = {
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_kill_beyond_range_briefing",
+				challenge_briefing_id = "weapon_skill_kill_beyond_range_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 500,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							250,
+							400,
+							450
+						},
+						modifiers = {
+							min_range = 3000,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_snp_kar_98k_pad_big"
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 100,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							40,
+							70,
+							90
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_snp_kar_98k_b_long"
+				}
+			}
+		},
+		{
+			{
+				cost = 3,
+				value = 1,
+				challenge_done_text_id = "weapon_skill_collect_ammo_completed",
+				challenge_briefing_id = "weapon_skill_collect_ammo_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
+				challenge_tasks = {
+					{
+						target = 750,
+						type = ChallengeTweakData.TASK_COLLECT_AMMO,
+						reminders = {
+							250,
+							500
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_snp_kar_98k_m_extended"
+				}
+			}
+		},
+		{
+			{
+				cost = 3,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 1000,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							250,
+							500,
+							750,
+							900
+						}
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.kar_98k.tier_unlock = {
 		"weapon_tier_unlocked",
 		"weapon_tier_unlocked"
 	}
