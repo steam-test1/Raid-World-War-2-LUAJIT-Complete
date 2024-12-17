@@ -442,7 +442,7 @@ function WeaponTweakData:_init_data_concrete()
 		}
 	}
 	self.concrete.sound_event = "new_grenade_explode"
-	self.concrete.damage_melee = 1
+	self.concrete.damage_melee = 66
 	self.concrete.damage_melee_effect_mul = 1
 	self.concrete.hud = {
 		icon = "weapons_panel_gre_concrete",
@@ -493,7 +493,7 @@ function WeaponTweakData:_init_data_d343()
 		}
 	}
 	self.d343.sound_event = "new_grenade_explode"
-	self.d343.damage_melee = 1
+	self.d343.damage_melee = 66
 	self.d343.damage_melee_effect_mul = 1
 	self.d343.hud = {
 		icon = "weapons_panel_gre_d343",
