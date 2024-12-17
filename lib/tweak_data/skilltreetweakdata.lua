@@ -2874,6 +2874,18 @@ function SkillTreeTweakData:_init_skill_list()
 				"geco"
 			}
 		},
+		weapon_unlock_grenade_concrete = {
+			name_id = "skill_weapon_unlock_grenade_concrete_name",
+			desc_id = "skill_weapon_unlock_grenade_concrete_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"concrete"
+			}
+		},
 		pistol_damage_multiplier_1 = {
 			stat_desc_id = "skill_pistol_damage_multiplier_stat_line",
 			icon_large = "skills_dealing_damage_pistol_multiplier_large",
@@ -3141,7 +3153,7 @@ function SkillTreeTweakData:_init_skill_list()
 			},
 			acquires = {},
 			upgrades = {
-				"player_m24_quantity_1"
+				"player_grenade_quantity_1"
 			}
 		},
 		grenade_quantity_2 = {
@@ -3156,7 +3168,7 @@ function SkillTreeTweakData:_init_skill_list()
 			},
 			acquires = {},
 			upgrades = {
-				"player_m24_quantity_2"
+				"player_grenade_quantity_2"
 			}
 		},
 		turret_reduced_overheat_1 = {
@@ -5192,6 +5204,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 				"weapon_unlock_sten"
 			}
 		},
+		[8] = {
+			weapons = {
+				"weapon_unlock_grenade_concrete"
+			}
+		},
 		[13] = {
 			weapons = {
 				"weapon_unlock_garand",
@@ -5263,6 +5280,11 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 		[3] = {
 			weapons = {
 				"weapon_unlock_bar"
+			}
+		},
+		[8] = {
+			weapons = {
+				"weapon_unlock_grenade_concrete"
 			}
 		},
 		[10] = {
@@ -5342,6 +5364,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 				"weapon_unlock_carbine"
 			}
 		},
+		[7] = {
+			weapons = {
+				"weapon_unlock_grenade_concrete"
+			}
+		},
 		[10] = {
 			weapons = {
 				"weapon_unlock_thompson"
@@ -5415,6 +5442,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[3] = {
 			weapons = {
 				"weapon_unlock_carbine"
+			}
+		},
+		[6] = {
+			weapons = {
+				"weapon_unlock_grenade_concrete"
 			}
 		},
 		[10] = {

@@ -304,7 +304,7 @@ function OperationsTweakData:_init_raids()
 		short_audio_briefing_id = "flakturm_brief_short",
 		music_id = "flakturm",
 		region = "germany",
-		xp = 1500,
+		xp = 2000,
 		stealth_bonus = 1.5,
 		start_in_stealth = true,
 		dogtags_min = 32,
@@ -379,7 +379,7 @@ function OperationsTweakData:_init_raids()
 		short_audio_briefing_id = "bank_brief_short",
 		region = "germany",
 		music_id = "reichsbank",
-		xp = 1500,
+		xp = 2000,
 		trophy = {
 			position = "snap_02",
 			unit = "units/vanilla/props/props_camp_upgrades/props_camp_trophy_case/props_trophy_bank"
@@ -442,7 +442,7 @@ function OperationsTweakData:_init_raids()
 		region = "germany",
 		music_id = "train_yard",
 		start_in_stealth = true,
-		xp = 1500,
+		xp = 2000,
 		trophy = {
 			position = "snap_03",
 			unit = "units/vanilla/props/props_camp_upgrades/props_camp_trophy_case/props_trophy_railyard"
@@ -502,7 +502,7 @@ function OperationsTweakData:_init_raids()
 		short_audio_briefing_id = "radio_brief_short",
 		region = "germany",
 		music_id = "radio_defense",
-		xp = 1500,
+		xp = 2000,
 		stealth_bonus = 1.5,
 		start_in_stealth = true,
 		dogtags_min = 27,
@@ -575,7 +575,7 @@ function OperationsTweakData:_init_raids()
 			OperationsTweakData.PROGRESSION_GROUP_INITIAL,
 			OperationsTweakData.PROGRESSION_GROUP_STANDARD
 		},
-		xp = 1500,
+		xp = 2000,
 		dogtags_min = 28,
 		dogtags_max = 34,
 		trophy = {
@@ -636,7 +636,7 @@ function OperationsTweakData:_init_raids()
 		short_audio_briefing_id = "castle_brief_short",
 		region = "germany",
 		music_id = "castle",
-		xp = 1500,
+		xp = 2000,
 		trophy = {
 			position = "snap_22",
 			unit = "units/vanilla/props/props_camp_upgrades/props_camp_trophy_case/props_trophy_castle"

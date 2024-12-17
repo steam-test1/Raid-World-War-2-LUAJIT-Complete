@@ -22,6 +22,7 @@ function ProjectilesTweakData:init(tweak_data)
 		animations = {}
 	}
 	self.m24.animations.equip_id = "equip_welrod"
+	self.m24.sound_event = "grenade_explode"
 	self.m24.gui = {
 		rotation_offset = 3,
 		distance_offset = -80,
@@ -30,8 +31,39 @@ function ProjectilesTweakData:init(tweak_data)
 		initial_rotation = {}
 	}
 	self.m24.gui.initial_rotation.yaw = -90
-	self.m24.gui.initial_rotation.pitch = -30
+	self.m24.gui.initial_rotation.pitch = 60
 	self.m24.gui.initial_rotation.roll = 0
+	self.concrete = {
+		name_id = "bm_grenade_concrete",
+		unit = "units/upd_001/weapons/wpn_fps_gre_concrete/wpn_fps_gre_concrete",
+		unit_hand = "units/upd_001/weapons/wpn_fps_gre_concrete/wpn_fps_gre_concrete_hand",
+		unit_dummy = "units/upd_001/weapons/wpn_fps_gre_concrete/wpn_fps_gre_concrete_husk",
+		icon = "frag_grenade",
+		throwable = true,
+		max_amount = 3,
+		anim_global_param = "projectile_frag",
+		throw_allowed_expire_t = 0.1,
+		expire_t = 1.1,
+		repeat_expire_t = 1.5,
+		is_a_grenade = true,
+		damage = 600,
+		player_damage = 10,
+		range = 7500,
+		init_timer = 4.5,
+		animations = {}
+	}
+	self.concrete.animations.equip_id = "equip_welrod"
+	self.concrete.sound_event = "new_grenade_explode"
+	self.concrete.gui = {
+		rotation_offset = 3,
+		distance_offset = -80,
+		height_offset = -14,
+		display_offset = 10,
+		initial_rotation = {}
+	}
+	self.concrete.gui.initial_rotation.yaw = -90
+	self.concrete.gui.initial_rotation.pitch = 60
+	self.concrete.gui.initial_rotation.roll = 0
 	self.cluster = {
 		name_id = "bm_grenade_frag",
 		unit = "units/vanilla/dev/dev_shrapnel/dev_shrapnel",
@@ -134,7 +166,8 @@ function ProjectilesTweakData:init(tweak_data)
 		"cluster",
 		"molotov",
 		"mortar_shell",
-		"flamer_death_fake"
+		"flamer_death_fake",
+		"concrete"
 	}
 
 	self:_add_desc_from_name_macro(self)

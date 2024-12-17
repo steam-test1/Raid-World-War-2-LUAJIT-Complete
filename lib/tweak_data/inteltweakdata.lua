@@ -15,8 +15,6 @@ function IntelTweakData:init(tweak_data)
 		name_id = "category_opposition_forces_name_id"
 	}
 	self.category_index = {
-		"bulletins",
-		"operational_status",
 		"raid_personnel",
 		"opposition_forces"
 	}

@@ -78,6 +78,10 @@ function WeaponInventoryTweakData:init()
 			default = true,
 			slot = 1,
 			weapon_id = "m24"
+		},
+		{
+			weapon_id = "concrete",
+			slot = 2
 		}
 	}
 	self.weapon_melee_index = {

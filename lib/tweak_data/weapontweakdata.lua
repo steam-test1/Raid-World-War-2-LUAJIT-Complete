@@ -40,6 +40,7 @@ function WeaponTweakData:init(tweak_data)
 	self:_init_data_tiger_machinegun_module_npc(difficulty_index)
 	self:_init_data_junker_machinegun_module_npc(difficulty_index)
 	self:_init_data_m24()
+	self:_init_data_concrete()
 	self:_init_data_molotov()
 	self:_init_data_kar98_npc()
 	self:_init_data_sniper_kar98_npc()
@@ -313,6 +314,60 @@ function WeaponTweakData:_init_data_m24()
 	self.m24.hud = {
 		icon = "weapon_panel_gre_m24",
 		panel_class = "grenade"
+	}
+	self.m24.gui = {
+		icon_large = "weapon_ass_garand_large"
+	}
+end
+
+function WeaponTweakData:_init_data_concrete()
+	self.concrete = {
+		sounds = {},
+		use_data = {},
+		usage = "c45",
+		usage_anim = "c45",
+		name_id = "bm_grenade_concrete"
+	}
+	self.concrete.sounds.prefix = ""
+	self.concrete.sounds.single = "grenade_explode"
+	self.concrete.sounds.autofire_start = nil
+	self.concrete.sounds.autofire_stop = nil
+	self.concrete.use_data.selection_index = 3
+	self.concrete.auto = {
+		fire_rate = 0.4
+	}
+	self.concrete.hold = "grenade"
+	self.concrete.alert_size = 5000
+	self.concrete.suppression = 1
+	self.concrete.timers = {
+		reload_not_empty = 1.25,
+		reload_empty = 1.65,
+		unequip = 0.25,
+		equip = 0.3
+	}
+	self.concrete.weapon_movement_penalty = 1
+	self.concrete.exit_run_speed_multiplier = 1
+	self.concrete.transition_duration = 0
+	self.concrete.stance = "concrete"
+	self.concrete.weapon_hold = "concrete"
+	self.concrete.use_data = {
+		equip = {
+			align_place = "right_hand"
+		},
+		selection_index = 3,
+		unequip = {
+			align_place = "back"
+		}
+	}
+	self.concrete.sound_event = "grenade_near"
+	self.concrete.damage_melee = 1
+	self.concrete.damage_melee_effect_mul = 1
+	self.concrete.hud = {
+		icon = "weapons_panel_gre_concrete",
+		panel_class = "grenade"
+	}
+	self.concrete.gui = {
+		icon_large = "weapon_gre_concrete_large"
 	}
 end
 
