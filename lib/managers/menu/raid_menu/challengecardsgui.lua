@@ -116,7 +116,7 @@ function ChallengeCardsGui:_layout()
 	local card_details_params = {
 		y = 96,
 		name = "card_deatils",
-		h = 480,
+		h = 544,
 		card_y = 0,
 		w = 892,
 		card_h = 384,

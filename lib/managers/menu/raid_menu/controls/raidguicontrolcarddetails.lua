@@ -194,7 +194,7 @@ function RaidGUIControlCardDetails:_create_card_details()
 	self._malus_effect_label = self._object:label({
 		w = 288,
 		name = "malus_effect_label",
-		h = 64,
+		h = 150,
 		wrap = true,
 		align = "left",
 		vertical = "center",

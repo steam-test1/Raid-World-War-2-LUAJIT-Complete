@@ -1797,6 +1797,8 @@ function NetworkPeer:_spawn_unit_on_dropin()
 		self:_set_class_to_unit()
 	end
 
+	managers.hud:_fix_peer_warcry_icons()
+
 	return unit
 end
 

@@ -356,6 +356,10 @@ function MissionUnlockGui:on_mission_double_click(mission)
 end
 
 function MissionUnlockGui:show_unlock_confirmation_prompt()
+	if not self._selected_mission then
+		return
+	end
+
 	local confirmation_dialog_params = {
 		yes_func = callback(self, self, "on_unlock_confirmed"),
 		mission_title = self:translate(tweak_data.operations.missions[self._selected_mission].name_id)
