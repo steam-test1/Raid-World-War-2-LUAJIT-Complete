@@ -53,6 +53,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "garand_golden",
 			slot = 13
+		},
+		{
+			weapon_id = "geco",
+			slot = 14
 		}
 	}
 	self.weapon_secondaries_index = {

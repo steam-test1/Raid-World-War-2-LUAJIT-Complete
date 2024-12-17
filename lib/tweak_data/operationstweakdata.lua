@@ -196,6 +196,10 @@ function OperationsTweakData:_init_loading_screens()
 		image = "loading_screens_07",
 		text = "loading_bridge"
 	}
+	self._loading_screens.spies_crash_test = {
+		image = "loading_screens_07",
+		text = "loading_bridge"
+	}
 	self._loading_screens.sto = {
 		image = "loading_screens_07",
 		text = "loading_bridge"

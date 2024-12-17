@@ -31,11 +31,10 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_freefall = true,
 		ingame_special_interaction = true,
 		world_camera = true,
-		ingame_loading = true,
 		ingame_parachuting = true,
+		gameoverscreen = true,
 		ingame_menu = true,
-		ingame_bleed_out = true,
-		gameoverscreen = true
+		ingame_bleed_out = true
 	},
 	any_ingame_mission = {
 		ingame_access_camera = true,

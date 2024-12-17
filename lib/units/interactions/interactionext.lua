@@ -2774,8 +2774,6 @@ GreedCacheItemInteractionExt = GreedCacheItemInteractionExt or class(BaseInterac
 
 function GreedCacheItemInteractionExt:init(unit)
 	GreedCacheItemInteractionExt.super.init(self, unit)
-
-	self._locked = true
 end
 
 function GreedCacheItemInteractionExt:interact(player)
@@ -2783,7 +2781,7 @@ function GreedCacheItemInteractionExt:interact(player)
 		return
 	end
 
-	if self._locked then
+	if self._unit:greed():locked() then
 		local params = self._unit:greed():get_lockpick_parameters()
 		params.target_unit = self._unit
 		params.number_of_circles = math.max(params.number_of_circles - managers.player:upgrade_value("interaction", "wheel_amount_decrease", 0), 1)
@@ -2814,16 +2812,12 @@ function GreedCacheItemInteractionExt:on_peer_interacted(amount)
 end
 
 function GreedCacheItemInteractionExt:special_interaction_done()
-	self._locked = false
-
 	self._unit:greed():unlock()
 	self:set_dirty(true)
 	managers.network:session():send_to_peers("special_interaction_done", self._unit)
 end
 
 function GreedCacheItemInteractionExt:set_special_interaction_done()
-	self._locked = false
-
 	self._unit:greed():unlock()
 	self:set_dirty(true)
 end
@@ -2837,7 +2831,7 @@ function GreedCacheItemInteractionExt:unselect()
 end
 
 function GreedCacheItemInteractionExt:_show_interaction_text()
-	if self._locked then
+	if self._unit:greed():locked() then
 		GreedCacheItemInteractionExt.super._show_interaction_text(self, "hud_greed_cache_locked_prompt")
 	else
 		GreedCacheItemInteractionExt.super._show_interaction_text(self, "hud_greed_cache_unlocked_prompt")
@@ -2845,7 +2839,7 @@ function GreedCacheItemInteractionExt:_show_interaction_text()
 end
 
 function GreedCacheItemInteractionExt:_timer_value()
-	if self._locked then
+	if self._unit:greed():locked() then
 		return 0
 	else
 		return self._unit:greed():interaction_timer_value()

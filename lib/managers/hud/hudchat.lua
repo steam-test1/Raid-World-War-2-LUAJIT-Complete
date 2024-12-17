@@ -25,6 +25,7 @@ HUDChat.line_height = 21
 
 function HUDChat:init(ws, panel, background)
 	self._messages = {}
+	self._recieved_messages = {}
 	self._skip_first = false
 
 	self:_setup_callbacks()
@@ -672,6 +673,12 @@ function HUDChat:receive_message(name, peer_id, message, color, icon, system_mes
 		end
 	end
 
+	table.insert(self._recieved_messages, message)
+
+	if ChatManager.MESSAGE_BUFFER_SIZE < #self._recieved_messages then
+		table.remove(self._recieved_messages, 1)
+	end
+
 	local message_type = HUDChatMessagePeer
 
 	if name == managers.network.account:username() then
@@ -704,6 +711,10 @@ function HUDChat:receive_message(name, peer_id, message, color, icon, system_mes
 	if not self._focus then
 		managers.queued_tasks:queue("hide_chat", self.hide, self, nil, 4, nil)
 	end
+end
+
+function HUDChat:ct_cached_messages()
+	return #self._recieved_messages
 end
 
 function HUDChat:_layout_message_panel()

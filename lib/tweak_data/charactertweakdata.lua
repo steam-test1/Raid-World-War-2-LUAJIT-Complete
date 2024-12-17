@@ -3287,7 +3287,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.expert.usa_garand_npc.autofire_rounds = presets.weapon.normal.usa_garand_npc.autofire_rounds
 	presets.weapon.expert.usa_garand_npc.FALLOFF = {
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 100,
 			acc = {
 				0.6,
@@ -3305,7 +3305,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 500,
 			acc = {
 				0.55,
@@ -3323,7 +3323,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 1000,
 			acc = {
 				0.525,
@@ -3341,7 +3341,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 2000,
 			acc = {
 				0.5,
@@ -3359,7 +3359,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 3000,
 			acc = {
 				0.2,
@@ -3392,7 +3392,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.expert.usa_m1911_npc.range = presets.weapon.normal.usa_m1911_npc.range
 	presets.weapon.expert.usa_m1911_npc.FALLOFF = {
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 100,
 			acc = {
 				0.6,
@@ -3410,7 +3410,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 500,
 			acc = {
 				0.5,
@@ -3428,7 +3428,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 1000,
 			acc = {
 				0.4,
@@ -3446,7 +3446,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 2000,
 			acc = {
 				0.3,
@@ -3464,7 +3464,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 3000,
 			acc = {
 				0.1,
@@ -3498,7 +3498,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.expert.usa_thomspon_npc.autofire_rounds = presets.weapon.normal.usa_thomspon_npc.autofire_rounds
 	presets.weapon.expert.usa_thomspon_npc.FALLOFF = {
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 100,
 			acc = {
 				0.6,
@@ -3516,7 +3516,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 500,
 			acc = {
 				0.6,
@@ -3534,7 +3534,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 1000,
 			acc = {
 				0.4,
@@ -3552,7 +3552,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 2000,
 			acc = {
 				0.4,
@@ -3570,7 +3570,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3,
+			dmg_mul = 4.5,
 			r = 3000,
 			acc = {
 				0.2,
@@ -3607,7 +3607,7 @@ function CharacterTweakData:_presets(tweak_data)
 	}
 	presets.weapon.expert.ger_kar98_npc.FALLOFF = {
 		{
-			dmg_mul = 5,
+			dmg_mul = 4.5,
 			r = 1600,
 			acc = {
 				0.6,
@@ -3790,7 +3790,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.expert.ger_mp38_npc.autofire_rounds = presets.weapon.normal.ger_mp38_npc.autofire_rounds
 	presets.weapon.expert.ger_mp38_npc.FALLOFF = {
 		{
-			dmg_mul = 5,
+			dmg_mul = 4.5,
 			r = 1400,
 			acc = {
 				0.6,
@@ -4600,7 +4600,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.insane.usa_garand_npc.autofire_rounds = presets.weapon.normal.usa_garand_npc.autofire_rounds
 	presets.weapon.insane.usa_garand_npc.FALLOFF = {
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 100,
 			acc = {
 				0.7,
@@ -4618,7 +4618,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 500,
 			acc = {
 				0.7,
@@ -4636,7 +4636,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 1000,
 			acc = {
 				0.5,
@@ -4654,7 +4654,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 2000,
 			acc = {
 				0.5,
@@ -4672,7 +4672,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 3000,
 			acc = {
 				0.3,
@@ -4705,7 +4705,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.insane.usa_m1911_npc.range = presets.weapon.normal.usa_m1911_npc.range
 	presets.weapon.insane.usa_m1911_npc.FALLOFF = {
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 100,
 			acc = {
 				0.7,
@@ -4723,7 +4723,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 500,
 			acc = {
 				0.7,
@@ -4741,7 +4741,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 1000,
 			acc = {
 				0.5,
@@ -4759,7 +4759,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 2000,
 			acc = {
 				0.5,
@@ -4777,7 +4777,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 3000,
 			acc = {
 				0.3,
@@ -4811,7 +4811,7 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.insane.usa_thomspon_npc.autofire_rounds = presets.weapon.normal.usa_thomspon_npc.autofire_rounds
 	presets.weapon.insane.usa_thomspon_npc.FALLOFF = {
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 100,
 			acc = {
 				0.7,
@@ -4829,7 +4829,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 500,
 			acc = {
 				0.7,
@@ -4847,7 +4847,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 1000,
 			acc = {
 				0.5,
@@ -4865,7 +4865,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 2000,
 			acc = {
 				0.5,
@@ -4883,7 +4883,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 3.5,
+			dmg_mul = 5.5,
 			r = 3000,
 			acc = {
 				0.3,
@@ -5897,10 +5897,10 @@ function CharacterTweakData:_presets(tweak_data)
 	}
 	presets.vision.easy.idle.cone_1.angle = 160
 	presets.vision.easy.idle.cone_1.distance = 500
-	presets.vision.easy.idle.cone_1.speed_mul = 1.25
+	presets.vision.easy.idle.cone_1.speed_mul = 1.75
 	presets.vision.easy.idle.cone_2.angle = 50
 	presets.vision.easy.idle.cone_2.distance = 1550
-	presets.vision.easy.idle.cone_2.speed_mul = 2
+	presets.vision.easy.idle.cone_2.speed_mul = 2.5
 	presets.vision.easy.idle.cone_3.angle = 110
 	presets.vision.easy.idle.cone_3.distance = 3000
 	presets.vision.easy.idle.cone_3.speed_mul = 7
@@ -5932,10 +5932,10 @@ function CharacterTweakData:_presets(tweak_data)
 	}
 	presets.vision.normal.idle.cone_1.angle = 160
 	presets.vision.normal.idle.cone_1.distance = 500
-	presets.vision.normal.idle.cone_1.speed_mul = 1.25
+	presets.vision.normal.idle.cone_1.speed_mul = 1.75
 	presets.vision.normal.idle.cone_2.angle = 50
 	presets.vision.normal.idle.cone_2.distance = 1550
-	presets.vision.normal.idle.cone_2.speed_mul = 2
+	presets.vision.normal.idle.cone_2.speed_mul = 2.5
 	presets.vision.normal.idle.cone_3.angle = 110
 	presets.vision.normal.idle.cone_3.distance = 3000
 	presets.vision.normal.idle.cone_3.speed_mul = 7
@@ -5967,10 +5967,10 @@ function CharacterTweakData:_presets(tweak_data)
 	}
 	presets.vision.hard.idle.cone_1.angle = 160
 	presets.vision.hard.idle.cone_1.distance = 500
-	presets.vision.hard.idle.cone_1.speed_mul = 1.25
+	presets.vision.hard.idle.cone_1.speed_mul = 1.75
 	presets.vision.hard.idle.cone_2.angle = 50
 	presets.vision.hard.idle.cone_2.distance = 1550
-	presets.vision.hard.idle.cone_2.speed_mul = 2
+	presets.vision.hard.idle.cone_2.speed_mul = 2.5
 	presets.vision.hard.idle.cone_3.angle = 110
 	presets.vision.hard.idle.cone_3.distance = 3000
 	presets.vision.hard.idle.cone_3.speed_mul = 7

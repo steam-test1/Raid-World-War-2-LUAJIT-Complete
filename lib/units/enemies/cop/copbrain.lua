@@ -1355,6 +1355,8 @@ function CopBrain:stealth_action_allowed()
 end
 
 function CopBrain:_switch_to_cbt()
+	self._switch_to_cbt_called = false
+
 	if alive(self._unit) then
 		self._unit:movement():set_stance("cbt", false, false)
 	end
