@@ -12,6 +12,13 @@ WeaponSelectionGui.TOGGLE_SWITCH_BINDING = {
 		"menu_controller_face_left"
 	}
 }
+WeaponSelectionGui.TOGGLE_COSMETICS_BINDING = {
+	{
+		"menu_enable_disable_weapon_cosmetics",
+		"BTN_DPAD_RIGHT",
+		"menu_controller_dpad_right"
+	}
+}
 
 local function f2s(value)
 	local value = math.floor(value * 10) / 10
@@ -443,6 +450,10 @@ end
 
 function WeaponSelectionGui:toggle_scope_switch()
 	self._scope_switch:confirm_pressed()
+end
+
+function WeaponSelectionGui:toggle_weapon_parts()
+	self._weapon_parts_toggle:confirm_pressed()
 end
 
 function WeaponSelectionGui:_layout_available_points()
@@ -1413,6 +1424,19 @@ function WeaponSelectionGui:bind_controller_inputs_choose_weapon()
 		})
 	end
 
+	if self._weapon_parts_toggle:visible() then
+		local translated_text = managers.localization:get_default_macros()[WeaponSelectionGui.TOGGLE_COSMETICS_BINDING[1][2]] .. " "
+		translated_text = translated_text .. self:translate(WeaponSelectionGui.TOGGLE_COSMETICS_BINDING[1][1], true)
+
+		table.insert(bindings, {
+			key = Idstring(WeaponSelectionGui.TOGGLE_COSMETICS_BINDING[1][3]),
+			callback = callback(self, self, "toggle_weapon_parts")
+		})
+		table.insert(legend.controller, {
+			translated_text = translated_text
+		})
+	end
+
 	self:set_controller_bindings(bindings, true)
 	self:set_legend(legend)
 end
@@ -1473,6 +1497,10 @@ function WeaponSelectionGui:bind_controller_inputs_upgrade_weapon()
 		{
 			key = Idstring("menu_controller_face_top"),
 			callback = callback(self, self, "_on_apply_weapon_skills_click")
+		},
+		{
+			key = Idstring("menu_controller_face_bottom"),
+			callback = callback(self, self, "_on_select_weapon_skills_click")
 		}
 	}
 
@@ -1548,6 +1576,12 @@ end
 
 function WeaponSelectionGui:_on_apply_weapon_skills_click()
 	self:on_apply_button_click()
+
+	return true, nil
+end
+
+function WeaponSelectionGui:_on_select_weapon_skills_click()
+	self._weapon_skills:confirm_pressed()
 
 	return true, nil
 end

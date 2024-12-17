@@ -77,6 +77,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "ithaca",
 			slot = 19
+		},
+		{
+			weapon_id = "browning",
+			slot = 20
 		}
 	}
 	self.weapon_secondaries_index = {

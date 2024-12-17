@@ -216,7 +216,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_officer_001_lower = {
 		name = "character_customization_british_officer_001_lower_name",
@@ -231,7 +232,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/officer_001/player_uk_officer_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_officer_002_upper = {
 		name = "character_customization_british_officer_002_upper_name",
@@ -247,7 +249,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_officer_002_lower = {
 		name = "character_customization_british_officer_002_lower_name",
@@ -262,7 +265,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/officer_002/player_british_officer_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_001_upper = {
 		name = "character_customization_british_casual_001_upper_name",
@@ -278,7 +282,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_001_lower = {
 		name = "character_customization_british_casual_001_lower_name",
@@ -293,7 +298,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/casual_001/player_uk_casual_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_002_upper = {
 		name = "character_customization_british_casual_002_upper_name",
@@ -309,7 +315,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_002_lower = {
 		name = "character_customization_british_casual_002_lower_name",
@@ -324,7 +331,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/casual_002/player_british_casual_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_003_upper = {
 		name = "character_customization_british_casual_003_upper_name",
@@ -340,7 +348,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_003_lower = {
 		name = "character_customization_british_casual_003_lower_name",
@@ -355,7 +364,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/casual_003/player_british_casual_003_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_004_upper = {
 		name = "character_customization_british_casual_004_upper_name",
@@ -371,7 +381,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_casual_004_lower = {
 		name = "character_customization_british_casual_004_lower_name",
@@ -386,7 +397,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/british/lower/casual_004/player_british_casual_004_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_gangbanger_001_upper = {
 		name = "character_customization_british_gangbanger_001_upper_name",
@@ -402,7 +414,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.british_gangbanger_001_lower = {
 		name = "character_customization_british_gangbanger_001_lower_name",
@@ -450,7 +463,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_officer_001_lower = {
 		name = "character_customization_german_officer_001_lower_name",
@@ -465,7 +479,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/officer_001/player_german_officer_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_gangbanger_001_upper = {
 		name = "character_customization_german_gangbanger_001_upper_name",
@@ -481,7 +496,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_gangbanger_001_lower = {
 		name = "character_customization_german_gangbanger_001_lower_name",
@@ -496,7 +512,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/gangbanger_001/player_german_gangbanger_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_officer_002_upper = {
 		name = "character_customization_german_officer_002_upper_name",
@@ -512,7 +529,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_officer_002_lower = {
 		name = "character_customization_german_officer_002_lower_name",
@@ -527,7 +545,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/officer_002/player_german_officer_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_001_upper = {
 		name = "character_customization_german_grunt_001_upper_name",
@@ -543,7 +562,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_001_lower = {
 		name = "character_customization_german_grunt_001_lower_name",
@@ -558,7 +578,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/grunt_002/player_german_grunt_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_002_upper = {
 		name = "character_customization_german_grunt_002_upper_name",
@@ -574,7 +595,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_002_lower = {
 		name = "character_customization_german_grunt_002_lower_name",
@@ -589,7 +611,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/grunt_001/player_german_grunt_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_003_upper = {
 		name = "character_customization_german_grunt_003_upper_name",
@@ -605,7 +628,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_grunt_003_lower = {
 		name = "character_customization_german_grunt_003_lower_name",
@@ -620,7 +644,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/grunt_003/player_german_grunt_003_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_gold_jacket_002_upper = {
 		name = "character_customization_german_gold_jacket_002_upper_name",
@@ -652,7 +677,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.german_gangbanger_002_lower = {
 		name = "character_customization_german_gangbanger_002_lower_name",
@@ -667,7 +693,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/german/lower/gangbanger_002/player_german_gangbanger_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_001_upper = {
 		name = "character_customization_russian_commisar_001_upper_name",
@@ -683,7 +710,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_001_lower = {
 		name = "character_customization_russian_commisar_001_lower_name",
@@ -698,7 +726,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/commisar_001/player_soviet_commisar_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_002_upper = {
 		name = "character_customization_russian_commisar_002_upper_name",
@@ -714,7 +743,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_002_lower = {
 		name = "character_customization_russian_commisar_002_lower_name",
@@ -729,7 +759,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/commisar_002/player_soviet_commisar_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_casual_001_upper = {
 		name = "character_customization_russian_casual_001_upper_name",
@@ -745,7 +776,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_casual_001_lower = {
 		name = "character_customization_russian_casual_001_lower_name",
@@ -760,7 +792,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/casual_001/player_soviet_casual_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_003_upper = {
 		name = "character_customization_russian_commisar_003_upper_name",
@@ -776,7 +809,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_commisar_003_lower = {
 		name = "character_customization_russian_commisar_003_lower_name",
@@ -791,7 +825,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/commisar_003/player_soviet_commisar_003_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_grunt_001_upper = {
 		name = "character_customization_russian_grunt_001_upper_name",
@@ -807,7 +842,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_grunt_001_lower = {
 		name = "character_customization_russian_grunt_001_lower_name",
@@ -822,7 +858,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/grunt_001/player_soviet_grunt_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_grunt_002_upper = {
 		name = "character_customization_russian_grunt_002_upper_name",
@@ -838,7 +875,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_grunt_002_lower = {
 		name = "character_customization_russian_grunt_002_lower_name",
@@ -853,7 +891,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/grunt_002/player_soviet_grunt_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_mech_001_upper = {
 		name = "character_customization_russian_mech_001_upper_name",
@@ -869,7 +908,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_mech_001_lower = {
 		name = "character_customization_russian_mech_001_lower_name",
@@ -884,7 +924,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/soviet/lower/mech_001/player_soviet_mech_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.russian_gold_jacket_001_upper = {
 		name = "character_customization_russian_gold_jacket_001_upper_name",
@@ -916,7 +957,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_LONG,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gangbanger_001_lower = {
 		name = "character_customization_american_gangbanger_001_lower_name",
@@ -931,7 +973,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/gangbanger_001/player_usa_gangbanger_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gangbanger_002_upper = {
 		name = "character_customization_american_gangbanger_002_upper_name",
@@ -947,7 +990,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gangbanger_002_lower = {
 		name = "character_customization_american_gangbanger_002_lower_name",
@@ -962,7 +1006,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/gangbanger_002/player_usa_gangbanger_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gangbanger_003_upper = {
 		name = "character_customization_american_gangbanger_003_upper_name",
@@ -978,7 +1023,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gangbanger_003_lower = {
 		name = "character_customization_american_gangbanger_003_lower_name",
@@ -993,7 +1039,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/gangbanger_003/player_usa_gangbanger_003_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_casual_001_upper = {
 		name = "character_customization_american_casual_001_upper_name",
@@ -1009,7 +1056,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_casual_001_lower = {
 		name = "character_customization_american_casual_001_lower_name",
@@ -1024,7 +1072,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/casual_001/player_usa_casual_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_officer_001_upper = {
 		name = "character_customization_american_officer_001_upper_name",
@@ -1040,7 +1089,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_officer_001_lower = {
 		name = "character_customization_american_officer_001_lower_name",
@@ -1055,7 +1105,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/officer_001/player_usa_officer_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_officer_002_upper = {
 		name = "character_customization_american_officer_002_upper_name",
@@ -1071,7 +1122,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_officer_002_lower = {
 		name = "character_customization_american_officer_002_lower_name",
@@ -1086,7 +1138,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/officer_002/player_usa_officer_002_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_COMMON,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_grunt_001_upper = {
 		name = "character_customization_american_grunt_001_upper_name",
@@ -1102,7 +1155,8 @@ function CharacterCustomizationTweakData:initialization()
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_UNCOMMON,
 		length = CharacterCustomizationTweakData.PART_LENGTH_SHORT,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_grunt_001_lower = {
 		name = "character_customization_american_grunt_001_lower_name",
@@ -1117,7 +1171,8 @@ function CharacterCustomizationTweakData:initialization()
 		path_icon_large = "units/vanilla/characters/players/usa/lower/grunt_001/player_usa_grunt_001_lower_large_hud",
 		redeem_xp = 0,
 		rarity = LootDropTweakData.RARITY_RARE,
-		droppable = true
+		droppable = true,
+		gold_price = 150
 	}
 	self.customizations.american_gold_jacket_001_upper = {
 		name = "character_customization_american_gold_jacket_001_upper_name",
