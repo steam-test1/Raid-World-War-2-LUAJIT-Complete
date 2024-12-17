@@ -708,12 +708,7 @@ function MissionJoinGui:data_source_distance_filter_stepper()
 	local result = {}
 
 	table.insert(result, {
-		value = -1,
-		info = "Any",
-		text = utf8.to_upper(managers.localization:text("menu_any"))
-	})
-	table.insert(result, {
-		value = 1,
+		value = 0,
 		info = "Close",
 		text = utf8.to_upper(managers.localization:text("menu_dist_filter_close"))
 	})

@@ -68,6 +68,14 @@ function IntelTweakData:init(tweak_data)
 		title = "operational_status_3_title_id",
 		text = "operational_status_3_text_id"
 	}
+	self.categories.operational_status.items[4] = {
+		id = "operational_status_4",
+		list_item_name_id = "operational_status_4_list_item_name_id",
+		update_date = "OCT 5 2017",
+		update_person = "CONTROL",
+		title = "operational_status_4_title_id",
+		text = "operational_status_4_text_id"
+	}
 	self.categories.raid_personnel.items = {
 		{}
 	}
