@@ -34,7 +34,7 @@ function RaidGUIControlListItemCharacterSelectButton:init(parent, params)
 	})
 	self._label = self._object:label({
 		vertical = "center",
-		h = 20,
+		h = 25,
 		w = 116,
 		align = "center",
 		text = "",

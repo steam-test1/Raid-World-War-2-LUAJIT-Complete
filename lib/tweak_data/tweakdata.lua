@@ -819,8 +819,8 @@ You've reached the end of our PAX EAST demo.
 	}
 	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_1] = 1
 	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_2] = 2
-	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_3] = 4
-	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_4] = 9
+	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_3] = 5
+	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_4] = 10
 	local multiplier = 1
 	self.experience_manager.levels = {
 		{

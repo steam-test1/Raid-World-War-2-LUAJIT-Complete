@@ -99,7 +99,7 @@ function CharacterSelectionGui:_layout()
 
 	self._profile_name_label = self._root_panel:label({
 		name = "profile_name_label",
-		h = 34,
+		h = 41,
 		w = 356,
 		align = "right",
 		text = "PROFILE NAME 01",
@@ -118,7 +118,7 @@ function CharacterSelectionGui:_layout()
 		w = 356,
 		align = "right",
 		text = "KURGAN",
-		y = 128,
+		y = 136,
 		x = 1376,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_24,
@@ -395,7 +395,7 @@ function CharacterSelectionGui:show_selected_character_details(slot_index)
 		self._profile_name_label:set_visible(true)
 		self._profile_name_label:set_text(profile_name)
 		self._character_name_label:set_visible(true)
-		self._character_name_label:set_text(utf8.to_upper(tweak_data.criminals.character_nation_name[nationality].char_name))
+		self._character_name_label:set_text(self:translate("menu_" .. nationality, true))
 	end
 end
 
@@ -520,6 +520,8 @@ function CharacterSelectionGui:_extra_character_setup()
 	elseif self._open_creation_screen_flag then
 		managers.raid_menu:open_menu("profile_creation_menu")
 	end
+
+	managers.weapon_skills:update_weapon_part_animation_weights()
 end
 
 function CharacterSelectionGui:_pre_close_screen_loading_done()

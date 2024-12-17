@@ -46,12 +46,12 @@ function RaidGUIControlIntelRaidPersonel:_layout()
 		color = tweak_data.gui.colors.chat_border
 	})
 	self._former_rank = self._object:text({
-		vertical = "center",
-		h = 32,
+		vertical = "top",
+		h = 40,
 		w = 384,
 		align = "left",
 		text = "",
-		y = 192,
+		y = 196,
 		x = 608,
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,

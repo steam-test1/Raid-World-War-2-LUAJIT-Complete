@@ -692,7 +692,6 @@ function GamePlayCentralManager:sync_heist_time(heist_time)
 end
 
 function GamePlayCentralManager:restart_the_game()
-	Application:debug("[GamePlayCentralManager:restart_the_game()]")
 	managers.challenge_cards:on_restart_to_camp()
 	managers.raid_job:stop_sounds()
 	managers.raid_job:on_restart_to_camp()
@@ -700,6 +699,7 @@ function GamePlayCentralManager:restart_the_game()
 	managers.mission:on_restart_to_camp()
 	managers.criminals:on_mission_end_callback()
 	managers.vehicle:on_restart_to_camp()
+	managers.enemy:remove_delayed_clbk("_gameover_clbk")
 
 	local restart_camp = managers.raid_job:is_camp_loaded()
 
@@ -715,6 +715,7 @@ function GamePlayCentralManager:restart_the_mission()
 
 	managers.raid_job:on_mission_restart()
 	managers.raid_job:stop_sounds()
+	managers.enemy:remove_delayed_clbk("_gameover_clbk")
 	managers.global_state:fire_event("system_start_raid")
 end
 

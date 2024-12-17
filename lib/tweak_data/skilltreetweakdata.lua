@@ -2886,6 +2886,30 @@ function SkillTreeTweakData:_init_skill_list()
 				"concrete"
 			}
 		},
+		weapon_unlock_dp28 = {
+			name_id = "skill_weapon_unlock_dp28_name",
+			desc_id = "skill_weapon_unlock_dp28_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"dp28"
+			}
+		},
+		weapon_unlock_tt33 = {
+			name_id = "skill_weapon_unlock_tt33_name",
+			desc_id = "skill_weapon_unlock_tt33_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"tt33"
+			}
+		},
 		pistol_damage_multiplier_1 = {
 			stat_desc_id = "skill_pistol_damage_multiplier_stat_line",
 			icon_large = "skills_dealing_damage_pistol_multiplier_large",
@@ -5204,6 +5228,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 				"weapon_unlock_sten"
 			}
 		},
+		[5] = {
+			weapons = {
+				"weapon_unlock_tt33"
+			}
+		},
 		[8] = {
 			weapons = {
 				"weapon_unlock_grenade_concrete"
@@ -5282,6 +5311,11 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 				"weapon_unlock_bar"
 			}
 		},
+		[5] = {
+			weapons = {
+				"weapon_unlock_tt33"
+			}
+		},
 		[8] = {
 			weapons = {
 				"weapon_unlock_grenade_concrete"
@@ -5301,6 +5335,9 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 		[15] = {
 			unlocks = {
 				"weapon_tier_unlocked_2"
+			},
+			weapons = {
+				"weapon_unlock_dp28"
 			}
 		},
 		[18] = {
@@ -5362,6 +5399,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 		[3] = {
 			weapons = {
 				"weapon_unlock_carbine"
+			}
+		},
+		[5] = {
+			weapons = {
+				"weapon_unlock_tt33"
 			}
 		},
 		[7] = {
@@ -5444,6 +5486,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 				"weapon_unlock_carbine"
 			}
 		},
+		[5] = {
+			weapons = {
+				"weapon_unlock_tt33"
+			}
+		},
 		[6] = {
 			weapons = {
 				"weapon_unlock_grenade_concrete"
@@ -5452,6 +5499,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[10] = {
 			weapons = {
 				"weapon_unlock_geco"
+			}
+		},
+		[13] = {
+			weapons = {
+				"weapon_unlock_dp28"
 			}
 		},
 		[15] = {

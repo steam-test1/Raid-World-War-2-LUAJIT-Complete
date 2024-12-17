@@ -463,10 +463,10 @@ function UpgradesTweakData:_create_raid_definitions_modifiers()
 	self:_create_definition_levels("player_crouch_speed_increase", "feature", "crouch_speed_increase", "player", true, self.values.player.crouch_speed_increase, self.description_data_types.generic_multiplier)
 
 	self.values.player.carry_penalty_decrease = {
-		1.2,
-		1.4,
-		1.65,
-		2
+		1.17,
+		1.29,
+		1.39,
+		1.5
 	}
 
 	self:_create_definition_levels("player_carry_penalty_decrease", "feature", "carry_penalty_decrease", "player", true, self.values.player.carry_penalty_decrease, self.description_data_types.generic_multiplier_reductive_string)
@@ -869,6 +869,16 @@ function UpgradesTweakData:_create_weapon_definitions()
 	self.definitions.geco = {
 		factory_id = "wpn_fps_sho_geco",
 		weapon_id = "geco",
+		category = "weapon"
+	}
+	self.definitions.dp28 = {
+		factory_id = "wpn_fps_lmg_dp28",
+		weapon_id = "dp28",
+		category = "weapon"
+	}
+	self.definitions.tt33 = {
+		factory_id = "wpn_fps_pis_tt33",
+		weapon_id = "tt33",
 		category = "weapon"
 	}
 	self.definitions.thompson = {
@@ -3851,7 +3861,9 @@ function UpgradesTweakData:_old_init()
 				"mosin",
 				"sterling",
 				"welrod",
-				"geco"
+				"geco",
+				"dp28",
+				"tt33"
 			}
 		}
 	}

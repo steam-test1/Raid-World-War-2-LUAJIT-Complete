@@ -57,6 +57,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "geco",
 			slot = 14
+		},
+		{
+			weapon_id = "dp28",
+			slot = 15
 		}
 	}
 	self.weapon_secondaries_index = {
@@ -71,6 +75,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "webley",
 			slot = 3
+		},
+		{
+			weapon_id = "tt33",
+			slot = 4
 		}
 	}
 	self.weapon_grenades_index = {

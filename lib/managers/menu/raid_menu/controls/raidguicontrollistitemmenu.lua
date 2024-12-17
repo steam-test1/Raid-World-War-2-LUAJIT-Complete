@@ -57,7 +57,7 @@ function RaidGUIControlListItemMenu:init(parent, params, data)
 
 		self._object:image({
 			name = "locker_icon",
-			x = self._object:right() - 64,
+			x = self._object:right() - 74,
 			y = self._object:h() / 2 - text_rect[4] / 2,
 			w = text_rect[3],
 			h = text_rect[4],

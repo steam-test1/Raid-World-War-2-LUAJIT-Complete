@@ -30,6 +30,8 @@ function WeaponSkillsTweakData:init()
 	self:_init_carbine_skill_tree()
 	self:_init_webley_skill_tree()
 	self:_init_geco_skill_tree()
+	self:_init_dp28_skill_tree()
+	self:_init_tt33_skill_tree()
 	self:_init_reedem_xp_values()
 end
 
@@ -910,6 +912,369 @@ function WeaponSkillsTweakData:_init_geco_skill_tree()
 		"weapon_tier_unlocked",
 		"weapon_tier_unlocked",
 		"demolitions_tier_4_unlocked"
+	}
+end
+
+function WeaponSkillsTweakData:_init_dp28_skill_tree()
+	self.skill_trees.dp28 = {
+		{}
+	}
+	self.skill_trees.dp28[1][1] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+			challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+			challenge_tasks = {
+				{
+					target = 250,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						80,
+						160,
+						220
+					},
+					modifiers = {
+						hip_fire = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			},
+			weapon_parts = {
+				"wpn_fps_lmg_dp28_s_light"
+			}
+		}
+	}
+	self.skill_trees.dp28[1][2] = {
+		{
+			cost = 2,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_generic_kill_completed",
+			challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+			challenge_tasks = {
+				{
+					target = 500,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						125,
+						250,
+						375,
+						450
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.dp28[1][3] = {
+		{
+			cost = 2,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+			challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+			challenge_tasks = {
+				{
+					target = 50,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						25,
+						40
+					},
+					modifiers = {
+						headshot = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			},
+			weapon_parts = {
+				"wpn_fps_lmg_dp28_b_coned"
+			}
+		}
+	}
+	self.skill_trees.dp28[2] = {
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 500,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							250,
+							400,
+							450
+						},
+						modifiers = {
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_lmg_dp28_g_standard"
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 1000,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							250,
+							500,
+							750,
+							900
+						}
+					}
+				}
+			}
+		},
+		{
+			{
+				cost = 3,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 100,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							40,
+							70,
+							90
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_lmg_dp28_bipod"
+				}
+			}
+		},
+		{
+			{
+				cost = 6,
+				value = 4,
+				challenge_done_text_id = "weapon_skill_collect_ammo_completed",
+				challenge_briefing_id = "weapon_skill_collect_ammo_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
+				challenge_tasks = {
+					{
+						target = 3000,
+						type = ChallengeTweakData.TASK_COLLECT_AMMO,
+						reminders = {
+							750,
+							1500,
+							2750
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_lmg_dp28_m_extended",
+					"wpn_fps_lmg_dp28_m_casing_ext",
+					"wpn_fps_lmg_dp28_o_extended"
+				}
+			}
+		}
+	}
+	self.skill_trees.dp28.tier_unlock = {
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked"
+	}
+end
+
+function WeaponSkillsTweakData:_init_tt33_skill_tree()
+	self.skill_trees.tt33 = {
+		{}
+	}
+	self.skill_trees.tt33[1][1] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_generic_kill_completed",
+			challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+			challenge_tasks = {
+				{
+					target = 250,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						60,
+						125,
+						185,
+						225
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.tt33[1][2] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+			challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+			challenge_tasks = {
+				{
+					target = 25,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						10,
+						20
+					},
+					modifiers = {
+						headshot = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.tt33[1][3] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_collect_ammo_completed",
+			challenge_briefing_id = "weapon_skill_collect_ammo_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
+			challenge_tasks = {
+				{
+					target = 250,
+					type = ChallengeTweakData.TASK_COLLECT_AMMO,
+					reminders = {
+						100,
+						200
+					}
+				}
+			},
+			weapon_parts = {
+				"wpn_fps_pis_tt33_m_extended"
+			}
+		}
+	}
+	self.skill_trees.tt33[2] = {
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 500,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							125,
+							250,
+							375,
+							450
+						}
+					}
+				}
+			}
+		},
+		{
+			{
+				cost = 3,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 50,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							20,
+							35,
+							45
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_pis_tt33_g_wooden"
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_collect_ammo_completed",
+				challenge_briefing_id = "weapon_skill_collect_ammo_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
+				challenge_tasks = {
+					{
+						target = 750,
+						type = ChallengeTweakData.TASK_COLLECT_AMMO,
+						reminders = {
+							300,
+							600
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_pis_tt33_m_long"
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 250,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							50,
+							125,
+							200,
+							225
+						},
+						modifiers = {
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_pis_tt33_ns_brake"
+				}
+			}
+		}
+	}
+	self.skill_trees.tt33.tier_unlock = {
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked"
 	}
 end
 
