@@ -208,6 +208,34 @@ function ProjectilesTweakData:init(tweak_data)
 		animations = {}
 	}
 	self.molotov.animations.equip_id = "equip_welrod"
+	self.decoy_coin = {
+		name_id = "bm_coin",
+		unit = "units/vanilla/weapons/wpn_fps_decoy_coin_peace/wpn_decoy_coin_peace",
+		unit_hand = "units/vanilla/weapons/wpn_fps_decoy_coin_peace/wpn_decoy_coin_peace_husk",
+		unit_dummy = "units/vanilla/weapons/wpn_fps_decoy_coin_peace/wpn_decoy_coin_peace_husk",
+		icon = "frag_grenade",
+		max_amount = 15,
+		throwable = true,
+		anim_global_param = "projectile_molotov",
+		throw_allowed_expire_t = 0.1,
+		expire_t = 1.1,
+		repeat_expire_t = 1.5,
+		is_a_grenade = true,
+		range = 3000,
+		animations = {}
+	}
+	self.decoy_coin.animations.equip_id = "equip_welrod"
+	self.decoy_coin.launch_speed = 200
+	self.decoy_coin.gui = {
+		rotation_offset = 0,
+		distance_offset = -160,
+		height_offset = -12,
+		display_offset = 16,
+		initial_rotation = {}
+	}
+	self.decoy_coin.gui.initial_rotation.yaw = 180
+	self.decoy_coin.gui.initial_rotation.pitch = 10
+	self.decoy_coin.gui.initial_rotation.roll = 0
 	self.mortar_shell = {
 		name_id = "bm_mortar_shell",
 		unit = "units/vanilla/weapons/wpn_npc_proj_mortar_shell/wpn_npc_proj_mortar_shell",
@@ -242,7 +270,8 @@ function ProjectilesTweakData:init(tweak_data)
 		"flamer_death_fake",
 		"concrete",
 		"d343",
-		"mills"
+		"mills",
+		"decoy_coin"
 	}
 
 	self:_add_desc_from_name_macro(self)

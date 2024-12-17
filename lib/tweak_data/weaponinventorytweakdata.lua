@@ -103,6 +103,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "shotty",
 			slot = 5
+		},
+		{
+			weapon_id = "welrod",
+			slot = 6
 		}
 	}
 	self.weapon_grenades_index = {
@@ -122,6 +126,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "mills",
 			slot = 4
+		},
+		{
+			weapon_id = "decoy_coin",
+			slot = 5
 		}
 	}
 	self.weapon_melee_index = {

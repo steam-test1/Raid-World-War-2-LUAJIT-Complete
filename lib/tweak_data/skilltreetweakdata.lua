@@ -2913,6 +2913,18 @@ function SkillTreeTweakData:_init_skill_list()
 				"mills"
 			}
 		},
+		weapon_unlock_decoy_coin = {
+			name_id = "skill_weapon_unlock_decoy_coin_name",
+			desc_id = "skill_weapon_unlock_decoy_coin_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"decoy_coin"
+			}
+		},
 		weapon_unlock_dp28 = {
 			name_id = "skill_weapon_unlock_dp28_name",
 			desc_id = "skill_weapon_unlock_dp28_desc",
@@ -2995,6 +3007,18 @@ function SkillTreeTweakData:_init_skill_list()
 			acquires = {},
 			upgrades = {
 				"browning"
+			}
+		},
+		weapon_unlock_welrod = {
+			name_id = "skill_weapon_unlock_welrod_name",
+			desc_id = "skill_weapon_unlock_welrod_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"welrod"
 			}
 		},
 		weapon_unlock_shotty = {
@@ -5332,6 +5356,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 				"weapon_unlock_tt33"
 			}
 		},
+		[7] = {
+			weapons = {
+				"weapon_unlock_decoy_coin"
+			}
+		},
 		[8] = {
 			weapons = {
 				"weapon_unlock_grenade_concrete"
@@ -5364,6 +5393,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 		[18] = {
 			weapons = {
 				"weapon_unlock_webley"
+			}
+		},
+		[19] = {
+			weapons = {
+				"weapon_unlock_welrod"
 			}
 		},
 		[21] = {
@@ -5401,7 +5435,10 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 		},
 		[35] = {
 			unlocks = {
-				"recon_tier_4_unlocked"
+				"recon_tier_4_unlocked",
+				"assault_tier_4_unlocked",
+				"infiltrator_tier_4_unlocked",
+				"demolitions_tier_4_unlocked"
 			}
 		},
 		[38] = {
@@ -5466,7 +5503,8 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 				"weapon_tier_unlocked_2"
 			},
 			weapons = {
-				"weapon_unlock_dp28"
+				"weapon_unlock_dp28",
+				"weapon_unlock_decoy_coin"
 			}
 		},
 		[18] = {
@@ -5474,9 +5512,19 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 				"weapon_unlock_webley"
 			}
 		},
+		[19] = {
+			weapons = {
+				"weapon_unlock_shotty"
+			}
+		},
 		[21] = {
 			weapons = {
 				"weapon_unlock_grenade_d343"
+			}
+		},
+		[22] = {
+			weapons = {
+				"weapon_unlock_welrod"
 			}
 		},
 		[25] = {
@@ -5509,7 +5557,10 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 		},
 		[35] = {
 			unlocks = {
-				"assault_tier_4_unlocked"
+				"recon_tier_4_unlocked",
+				"assault_tier_4_unlocked",
+				"infiltrator_tier_4_unlocked",
+				"demolitions_tier_4_unlocked"
 			}
 		},
 		[38] = {
@@ -5560,7 +5611,8 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 		},
 		[11] = {
 			weapons = {
-				"weapon_unlock_shotty"
+				"weapon_unlock_shotty",
+				"weapon_unlock_decoy_coin"
 			}
 		},
 		[13] = {
@@ -5584,7 +5636,8 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 		},
 		[20] = {
 			weapons = {
-				"weapon_unlock_grenade_d343"
+				"weapon_unlock_grenade_d343",
+				"weapon_unlock_welrod"
 			}
 		},
 		[23] = {
@@ -5619,7 +5672,10 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 		},
 		[35] = {
 			unlocks = {
-				"infiltrator_tier_4_unlocked"
+				"recon_tier_4_unlocked",
+				"assault_tier_4_unlocked",
+				"infiltrator_tier_4_unlocked",
+				"demolitions_tier_4_unlocked"
 			}
 		},
 		[38] = {
@@ -5686,7 +5742,8 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[15] = {
 			weapons = {
 				"weapon_unlock_garand",
-				"weapon_unlock_garand_golden"
+				"weapon_unlock_garand_golden",
+				"weapon_unlock_decoy_coin"
 			},
 			unlocks = {
 				"weapon_tier_unlocked_2"
@@ -5704,7 +5761,8 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		},
 		[23] = {
 			weapons = {
-				"weapon_unlock_ithaca"
+				"weapon_unlock_ithaca",
+				"weapon_unlock_welrod"
 			}
 		},
 		[25] = {
@@ -5734,6 +5792,9 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		},
 		[35] = {
 			unlocks = {
+				"recon_tier_4_unlocked",
+				"assault_tier_4_unlocked",
+				"infiltrator_tier_4_unlocked",
 				"demolitions_tier_4_unlocked"
 			}
 		},

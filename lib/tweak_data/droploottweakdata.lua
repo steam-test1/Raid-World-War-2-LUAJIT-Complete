@@ -278,7 +278,7 @@ function DropLootTweakData:_init_hard_enemy()
 	}
 	self.hard_enemy.buff_effects_applied[BuffEffectManager.EFFECT_ENEMY_LOOT_DROP_CHANCE] = true
 	self.hard_enemy.units.health = {
-		drop_rate = 10,
+		drop_rate = 20,
 		subtypes = {}
 	}
 	self.hard_enemy.units.health.subtypes.large = {

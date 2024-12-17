@@ -5371,6 +5371,132 @@ function InteractionTweakData:init()
 			}
 		}
 	}
+	self.call_mrs_white = {
+		icon = "develop",
+		text_id = "hud_call_mrs_white",
+		action_text_id = "hud_action_call_mrs_white",
+		axis = "z",
+		interact_distance = 200,
+		number_of_circles = 3,
+		circle_radius = {
+			self.MINIGAME_CIRCLE_RADIUS_SMALL,
+			self.MINIGAME_CIRCLE_RADIUS_MEDIUM,
+			self.MINIGAME_CIRCLE_RADIUS_BIG
+		},
+		circle_rotation_speed = {
+			160,
+			180,
+			190
+		},
+		circle_rotation_direction = {
+			1,
+			-1,
+			1
+		},
+		circle_difficulty = {
+			0.9,
+			0.93,
+			0.96
+		},
+		sounds = {
+			success = "success",
+			failed = "lock_fail",
+			circles = {
+				{
+					mechanics = "lock_mechanics_a",
+					lock = "lock_a"
+				},
+				{
+					mechanics = "lock_mechanics_b",
+					lock = "lock_b"
+				},
+				{
+					mechanics = "lock_mechanics_c",
+					lock = "lock_c"
+				}
+			}
+		}
+	}
+	self.call_mrs_white_easy = {
+		icon = "develop",
+		text_id = "hud_call_mrs_white",
+		action_text_id = "hud_action_call_mrs_white",
+		axis = "z",
+		interact_distance = 200,
+		number_of_circles = 1,
+		circle_radius = {
+			self.MINIGAME_CIRCLE_RADIUS_SMALL
+		},
+		circle_rotation_speed = {
+			160
+		},
+		circle_rotation_direction = {
+			1
+		},
+		circle_difficulty = {
+			0.9
+		},
+		sounds = {
+			success = "success",
+			failed = "lock_fail",
+			circles = {
+				{
+					mechanics = "lock_mechanics_a",
+					lock = "lock_a"
+				},
+				{
+					mechanics = "lock_mechanics_b",
+					lock = "lock_b"
+				},
+				{
+					mechanics = "lock_mechanics_c",
+					lock = "lock_c"
+				}
+			}
+		}
+	}
+	self.call_mrs_white_medium = {
+		icon = "develop",
+		text_id = "hud_call_mrs_white",
+		action_text_id = "hud_action_call_mrs_white",
+		axis = "z",
+		interact_distance = 200,
+		number_of_circles = 2,
+		circle_radius = {
+			self.MINIGAME_CIRCLE_RADIUS_SMALL,
+			self.MINIGAME_CIRCLE_RADIUS_MEDIUM
+		},
+		circle_rotation_speed = {
+			160,
+			180
+		},
+		circle_rotation_direction = {
+			1,
+			-1
+		},
+		circle_difficulty = {
+			0.9,
+			0.93
+		},
+		sounds = {
+			success = "success",
+			failed = "lock_fail",
+			circles = {
+				{
+					mechanics = "lock_mechanics_a",
+					lock = "lock_a"
+				},
+				{
+					mechanics = "lock_mechanics_b",
+					lock = "lock_b"
+				},
+				{
+					mechanics = "lock_mechanics_c",
+					lock = "lock_c"
+				}
+			}
+		}
+	}
 	self.activate_burners = {
 		icon = "develop",
 		text_id = "hud_activate_burners",

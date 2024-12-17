@@ -218,6 +218,7 @@ function StatisticsTweakData:statistics_table()
 		"bren",
 		"lee_enfield",
 		"browning",
+		"welrod",
 		"shotty"
 	}
 	local melee_list = {

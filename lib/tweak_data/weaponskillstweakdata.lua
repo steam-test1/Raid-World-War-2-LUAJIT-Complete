@@ -37,6 +37,7 @@ function WeaponSkillsTweakData:init()
 	self:_init_bren_skill_tree()
 	self:_init_lee_enfield_skill_tree()
 	self:_init_browning_skill_tree()
+	self:_init_welrod_skill_tree()
 	self:_init_shotty_skill_tree()
 	self:_init_reedem_xp_values()
 end
@@ -5386,6 +5387,132 @@ function WeaponSkillsTweakData:_init_browning_skill_tree()
 	}
 	self.skill_trees.browning.tier_unlock = {
 		"weapon_tier_unlocked",
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked"
+	}
+end
+
+function WeaponSkillsTweakData:_init_welrod_skill_tree()
+	self.skill_trees.welrod = {
+		{}
+	}
+	self.skill_trees.welrod[1][1] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_generic_kill_completed",
+			challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+			challenge_tasks = {
+				{
+					target = 250,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						60,
+						125,
+						185,
+						225
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.welrod[1][2] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+			challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+			challenge_tasks = {
+				{
+					target = 25,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						10,
+						20
+					},
+					modifiers = {
+						headshot = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.welrod[2] = {
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 325,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							125,
+							250,
+							375,
+							450
+						}
+					}
+				}
+			}
+		},
+		{
+			{
+				cost = 3,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 33,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							10,
+							20,
+							30
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 230,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							50,
+							125,
+							175,
+							200
+						},
+						modifiers = {
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.welrod.tier_unlock = {
 		"weapon_tier_unlocked",
 		"weapon_tier_unlocked"
 	}

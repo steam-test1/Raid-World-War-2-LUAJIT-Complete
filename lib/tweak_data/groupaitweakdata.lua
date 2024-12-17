@@ -2190,8 +2190,8 @@ function GroupAITweakData:_init_enemy_spawn_groups_german(difficulty_index)
 	elseif difficulty_index == TweakData.DIFFICULTY_3 then
 		self.enemy_spawn_groups.german.commander_squad = {
 			amount = {
-				3,
-				3
+				2,
+				2
 			},
 			spawn = {
 				{
@@ -2213,8 +2213,8 @@ function GroupAITweakData:_init_enemy_spawn_groups_german(difficulty_index)
 	elseif difficulty_index == TweakData.DIFFICULTY_4 then
 		self.enemy_spawn_groups.german.commander_squad = {
 			amount = {
-				4,
-				4
+				3,
+				3
 			},
 			spawn = {
 				{

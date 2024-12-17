@@ -225,7 +225,8 @@ function OperationsTweakData:_init_raids()
 		"convoy",
 		"spies_test",
 		"sto",
-		"silo"
+		"silo",
+		"kelly"
 	}
 	self.missions.streaming_level = {
 		name_id = "menu_stream",
@@ -1106,8 +1107,8 @@ function OperationsTweakData:_init_raids()
 		level_id = "silo",
 		briefing_id = "menu_silo_desc",
 		sub_worlds_spawned = 2,
-		audio_briefing_id = "mrs_white_silo_brief",
-		short_audio_briefing_id = "mrs_white_silo_brief",
+		audio_briefing_id = "mrs_white_silo_brief_long",
+		short_audio_briefing_id = "mrs_white_silo_brief_short",
 		music_id = "random",
 		region = "germany",
 		dogtags_min = 30,
@@ -1161,6 +1162,63 @@ function OperationsTweakData:_init_raids()
 				title_id = "silo_mission_photo_5_title",
 				description_id = "silo_mission_photo_5_description",
 				photo = "intel_silo_05"
+			}
+		}
+	}
+	self.missions.kelly = {
+		name_id = "menu_kelly_hl",
+		level_id = "kelly",
+		briefing_id = "menu_kelly_desc",
+		audio_briefing_id = "mrs_white_kelly_brief_long",
+		short_audio_briefing_id = "mrs_white_kelly_brief_short",
+		music_id = "random",
+		region = "germany",
+		dogtags_min = 30,
+		dogtags_max = 37,
+		xp = 1000,
+		stealth_bonus = 1.5,
+		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
+		mission_flag = "level_raid_kelly",
+		job_type = OperationsTweakData.JOB_TYPE_RAID,
+		progression_groups = {
+			OperationsTweakData.PROGRESSION_GROUP_INITIAL,
+			OperationsTweakData.PROGRESSION_GROUP_STANDARD
+		},
+		icon_menu_big = "xp_events_missions_kelly",
+		icon_menu = "missions_kelly",
+		icon_menu_big = "xp_events_missions_kelly",
+		icon_menu = "missions_kelly",
+		icon_hud = "missions_raid_flaktower",
+		control_brief_video = {
+			"movies/vanilla/mission_briefings/02_mission_brief_a2_cause-carnage_v005",
+			"movies/vanilla/mission_briefings/02_mission_brief_b1_cause-carnage_v004"
+		},
+		start_in_stealth = true,
+		tab_background_image = "ui/hud/backgrounds/tab_screen_bg_raid_flak_hud",
+		loading = {
+			text = "menu_kelly_loading_desc",
+			image = "loading_kelly"
+		},
+		photos = {
+			{
+				title_id = "kelly_mission_photo_1_title",
+				description_id = "kelly_mission_photo_1_description",
+				photo = "intel_kelly_01"
+			},
+			{
+				title_id = "kelly_mission_photo_2_title",
+				description_id = "kelly_mission_photo_2_description",
+				photo = "intel_kelly_02"
+			},
+			{
+				title_id = "kelly_mission_photo_3_title",
+				description_id = "kelly_mission_photo_3_description",
+				photo = "intel_kelly_03"
+			},
+			{
+				title_id = "kelly_mission_photo_4_title",
+				description_id = "kelly_mission_photo_4_description",
+				photo = "intel_kelly_04"
 			}
 		}
 	}

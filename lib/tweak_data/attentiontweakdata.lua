@@ -340,10 +340,10 @@ function AttentionTweakData:_init_civilian()
 		weight_mul = 0.75
 	}
 	self.settings.civ_enemy_corpse_sneak = {
-		uncover_range = 300,
+		uncover_range = 1000,
 		reaction = "REACT_SCARED",
 		notice_delay_mul = 0.05,
-		max_range = 2500,
+		max_range = 3000,
 		notice_requires_FOV = true,
 		verification_interval = 0.1,
 		release_delay = 6,
@@ -797,7 +797,7 @@ function AttentionTweakData:_init_prop()
 		max_range = 3000,
 		reaction = "REACT_AIM",
 		notice_requires_FOV = true,
-		uncover_range = 300,
+		uncover_range = 1000,
 		verification_interval = 0.1,
 		release_delay = 1,
 		filter = "civilians_enemies"

@@ -2365,6 +2365,15 @@ function GuiTweakData:_setup_icons()
 			56
 		}
 	}
+	self.icons.missions_kelly = {
+		texture = "ui/atlas/raid_atlas_missions",
+		texture_rect = {
+			312,
+			126,
+			56,
+			56
+		}
+	}
 	self.icons.missions_tutorial = {
 		texture = "ui/atlas/raid_atlas_missions",
 		texture_rect = {
@@ -4415,6 +4424,15 @@ function GuiTweakData:_setup_hud_icons()
 			205,
 			1891,
 			136,
+			42
+		}
+	}
+	self.icons.weapons_panel_gre_decoy_coin = {
+		texture = "ui/atlas/raid_atlas_hud",
+		texture_rect = {
+			238,
+			1940,
+			42,
 			42
 		}
 	}
@@ -6566,6 +6584,15 @@ function GuiTweakData:_setup_skill_big_icons()
 			126
 		}
 	}
+	self.icons.weapon_gre_decoy_coin_large = {
+		texture = "ui/atlas/raid_atlas_experience_3",
+		texture_rect = {
+			1024,
+			772,
+			128,
+			128
+		}
+	}
 	self.icons.weapon_gre_d343_large = {
 		texture = "ui/atlas/raid_atlas_experience_3",
 		texture_rect = {
@@ -6764,7 +6791,7 @@ function GuiTweakData:_setup_skill_big_icons()
 			126
 		}
 	}
-	self.icons.weapon_welrod = {
+	self.icons.weapon_welrod_large = {
 		texture = "ui/atlas/raid_atlas_experience_3",
 		texture_rect = {
 			1232,
@@ -7523,6 +7550,42 @@ function GuiTweakData:_setup_mission_photos()
 			288
 		}
 	}
+	self.mission_photos.intel_kelly_01 = {
+		texture = "ui/missions/kelly/raid_atlas_photos_kelly",
+		texture_rect = {
+			2,
+			2,
+			416,
+			288
+		}
+	}
+	self.mission_photos.intel_kelly_02 = {
+		texture = "ui/missions/kelly/raid_atlas_photos_kelly",
+		texture_rect = {
+			420,
+			2,
+			416,
+			288
+		}
+	}
+	self.mission_photos.intel_kelly_03 = {
+		texture = "ui/missions/kelly/raid_atlas_photos_kelly",
+		texture_rect = {
+			2,
+			292,
+			416,
+			288
+		}
+	}
+	self.mission_photos.intel_kelly_04 = {
+		texture = "ui/missions/kelly/raid_atlas_photos_kelly",
+		texture_rect = {
+			2,
+			582,
+			416,
+			288
+		}
+	}
 	self.mission_photos.intel_spies_01 = {
 		texture = "ui/missions/spies/raid_atlas_photos_spies",
 		texture_rect = {
@@ -8173,6 +8236,15 @@ function GuiTweakData:_setup_xp_icons()
 		texture_rect = {
 			790,
 			1184,
+			392,
+			392
+		}
+	}
+	self.icons.xp_events_missions_kelly = {
+		texture = "ui/atlas/raid_atlas_xp",
+		texture_rect = {
+			790,
+			1576,
 			392,
 			392
 		}

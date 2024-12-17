@@ -282,6 +282,16 @@ function LevelsTweakData:init()
 		cube = "cube_apply_heist_bank",
 		predefined_world = "silo"
 	}
+	self.kelly = {
+		name_id = "kelly",
+		briefing_id = "kelly_briefing",
+		world_name = "upg_003/kelly",
+		packages = {
+			"packages/zone_germany"
+		},
+		cube = "cube_apply_heist_bank",
+		predefined_world = "kelly"
+	}
 	self._level_index = {
 		"streaming_level",
 		"germany_zone",
@@ -301,7 +311,8 @@ function LevelsTweakData:init()
 		"convoy",
 		"spies_test",
 		"sto",
-		"silo"
+		"silo",
+		"kelly"
 	}
 	self.escape_levels = {}
 end
