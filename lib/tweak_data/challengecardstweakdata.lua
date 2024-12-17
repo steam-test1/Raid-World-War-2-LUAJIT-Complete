@@ -38,6 +38,10 @@ function ChallengeCardsTweakData:init(tweak_data)
 		texture = self.challenge_card_texture_path .. "cc_back_booster_hud",
 		texture_rect = self.challenge_card_texture_rect
 	}
+	self.card_back_halloween_2017 = {
+		texture = self.challenge_card_texture_path .. "cc_back_halloween_hud",
+		texture_rect = self.challenge_card_texture_rect
+	}
 	self.challenge_card_stackable_2_texture_path = "ui/challenge_cards/cc_stackable_2_cards_hud"
 	self.challenge_card_stackable_2_texture_rect = {
 		0,
@@ -661,6 +665,119 @@ function ChallengeCardsTweakData:init(tweak_data)
 		bonus_xp_multiplier = 2.3,
 		def_id = 20015,
 		card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD
+	}
+	self.cards.ra_slasher_movie = {
+		name = "card_ra_slasher_movie_name_id",
+		description = "card_ra_slasher_movie_desc_id",
+		effects = {
+			{
+				value = 0.01666,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+				name = BuffEffectManager.EFFECT_PLAYER_HEALTH_REGEN
+			},
+			{
+				value = 20,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+				name = BuffEffectManager.EFFECT_MELEE_DAMAGE_INCREASE
+			},
+			{
+				value = true,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+				name = BuffEffectManager.EFFECT_ONLY_MELEE_AVAILABLE
+			},
+			{
+				value = true,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+				name = BuffEffectManager.EFFECT_WARCRIES_DISABLED
+			}
+		},
+		positive_description = {
+			desc_id = "effect_melee_damage_increased_health_regen",
+			desc_params = {
+				EFFECT_VALUE_1 = "100%"
+			}
+		},
+		negative_description = {
+			desc_id = "effect_melee_avail_warcries_disabled"
+		},
+		rarity = LootDropTweakData.RARITY_RARE,
+		card_type = ChallengeCardsTweakData.CARD_TYPE_RAID,
+		texture = "cc_special_raid_slasher_movie_hud",
+		achievement_id = "",
+		bonus_xp_multiplier = 2.5,
+		def_id = 20016,
+		card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD,
+		card_back = "card_back_halloween_2017",
+		title_in_texture = true,
+		loot_drop_group = "loot_group_halooween_2017",
+		selected_sound = "halloween_challenge_card_chosen"
+	}
+	self.cards.ra_pumpkin_pie = {
+		name = "card_ra_pumpkin_pie_name_id",
+		description = "card_ra_pumpkin_pie_desc_id",
+		effects = {
+			{
+				value = 3,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+				name = BuffEffectManager.EFFECT_PLAYER_HEADSHOT_DAMAGE
+			},
+			{
+				value = true,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+				name = BuffEffectManager.EFFECT_ATTACK_ONLY_IN_AIR
+			}
+		},
+		positive_description = {
+			desc_id = "effect_headshots_damage_increased",
+			desc_params = {
+				EFFECT_VALUE_1 = "100%"
+			}
+		},
+		negative_description = {
+			desc_id = "effect_only_attack_in_air"
+		},
+		rarity = LootDropTweakData.RARITY_RARE,
+		card_type = ChallengeCardsTweakData.CARD_TYPE_RAID,
+		texture = "cc_special_raid_pumpkin_pie_hud",
+		achievement_id = "",
+		bonus_xp_multiplier = 2.3,
+		def_id = 20017,
+		card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD,
+		card_back = "card_back_halloween_2017",
+		title_in_texture = true,
+		selected_sound = "halloween_challenge_card_chosen"
+	}
+	self.cards.ra_season_of_resurrection = {
+		name = "card_ra_season_of_resurrection_name_id",
+		description = "card_ra_season_of_resurrection_desc_id",
+		effects = {
+			{
+				value = 4,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+				name = BuffEffectManager.EFFECT_PLAYER_LOW_HEALTH_DAMAGE
+			},
+			{
+				value = true,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+				name = BuffEffectManager.EFFECT_NO_BLEEDOUT_PUMPIKIN_REVIVE
+			}
+		},
+		positive_description = {
+			desc_id = "effect_player_low_health_damage"
+		},
+		negative_description = {
+			desc_id = "effect_no_bleedout_pumpkin_revive"
+		},
+		rarity = LootDropTweakData.RARITY_RARE,
+		card_type = ChallengeCardsTweakData.CARD_TYPE_RAID,
+		texture = "cc_special_raid_season_of_resurrection_hud",
+		achievement_id = "",
+		bonus_xp_multiplier = 2.5,
+		def_id = 20018,
+		card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD,
+		card_back = "card_back_halloween_2017",
+		title_in_texture = true,
+		selected_sound = "halloween_challenge_card_chosen"
 	}
 	self.cards.op_limited_supplies = {
 		name = "card_op_limited_supplies_name_id",
@@ -1357,7 +1474,10 @@ function ChallengeCardsTweakData:init(tweak_data)
 		"ra_b_precision_fire",
 		"op_b_recycle_for_victory",
 		"op_b_will_not_go_quietly",
-		"op_b_on_top_form"
+		"op_b_on_top_form",
+		"ra_slasher_movie",
+		"ra_pumpkin_pie",
+		"ra_season_of_resurrection"
 	}
 end
 

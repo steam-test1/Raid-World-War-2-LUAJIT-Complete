@@ -123,6 +123,12 @@ function WeaponInventoryTweakData:init()
 			slot = 7,
 			weapon_id = "marching_mace",
 			redeemed_xp = 70
+		},
+		{
+			droppable = true,
+			slot = 8,
+			weapon_id = "lc14b",
+			redeemed_xp = 80
 		}
 	}
 end

@@ -2217,7 +2217,13 @@ function HuskPlayerMovement:_on_exit_turret(peer_id)
 end
 
 function HuskPlayerMovement:_start_bleedout(event_desc)
-	local redir_res = self:play_redirect("bleedout")
+	local redir_res = nil
+
+	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_ONLY_MELEE_AVAILABLE) then
+		redir_res = self:play_redirect("fatal")
+	else
+		redir_res = self:play_redirect("bleedout")
+	end
 
 	if not redir_res then
 		print("[HuskPlayerMovement:_start_bleedout] redirect failed in", self._machine:segment_state(self._ids_base), self._unit)

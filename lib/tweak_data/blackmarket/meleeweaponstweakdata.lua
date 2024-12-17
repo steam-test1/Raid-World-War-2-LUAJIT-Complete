@@ -519,6 +519,72 @@ function BlackMarketTweakData:_init_melee_weapons()
 	self.melee_weapons.marching_mace.gui.initial_rotation.yaw = -90
 	self.melee_weapons.marching_mace.gui.initial_rotation.pitch = 30
 	self.melee_weapons.marching_mace.gui.initial_rotation.roll = 0
+	self.melee_weapons.lc14b = {
+		type = "knife",
+		name_id = "bm_melee_lc14b",
+		desc_id = "bm_melee_lc14b_desc",
+		reward_image = "units/event_001_halloween/weapons/wpn_fps_mel_lc14b/wpn_fps_mel_lc14b_hud",
+		weapon_movement_penalty = 1,
+		exit_run_speed_multiplier = 1,
+		transition_duration = 0,
+		stance = "machete",
+		weapon_hold = "machete",
+		align_objects = {
+			"a_weapon_right"
+		},
+		unit = "units/event_001_halloween/weapons/wpn_fps_mel_lc14b/wpn_fps_mel_lc14b",
+		third_unit = "units/event_001_halloween/weapons/wpn_third_mel_lc14b/wpn_third_mel_lc14b",
+		repeat_expire_t = 0.6,
+		expire_t = 1.1,
+		melee_damage_delay = 0.1,
+		stats = {}
+	}
+	self.melee_weapons.lc14b.stats.min_damage = 133
+	self.melee_weapons.lc14b.stats.max_damage = 200
+	self.melee_weapons.lc14b.stats.min_damage_effect = 1
+	self.melee_weapons.lc14b.stats.max_damage_effect = 1
+	self.melee_weapons.lc14b.stats.charge_time = 2
+	self.melee_weapons.lc14b.stats.range = 185
+	self.melee_weapons.lc14b.stats.remove_weapon_movement_penalty = true
+	self.melee_weapons.lc14b.stats.weapon_type = "sharp"
+	self.melee_weapons.lc14b.stats.concealment = 30
+	self.melee_weapons.lc14b.animations = {
+		equip_id = "equip_welrod"
+	}
+	self.melee_weapons.lc14b.timers = {
+		reload_not_empty = 1.25,
+		reload_empty = 1.65,
+		unequip = 0.5,
+		equip = 0.25
+	}
+	self.melee_weapons.lc14b.use_data = {
+		equip = {
+			align_place = "right_hand"
+		},
+		selection_index = 4,
+		unequip = {
+			align_place = "back"
+		}
+	}
+	self.melee_weapons.lc14b.hold = "machete"
+	self.melee_weapons.lc14b.usage_anim = "c45"
+	self.melee_weapons.lc14b.sounds = {
+		equip = "knife_equip",
+		hit_air = "knife_hit_air",
+		hit_gen = "knife_hit_gen",
+		hit_body = "machete_hit_body",
+		killing_blow = "machete_killing_blow"
+	}
+	self.melee_weapons.lc14b.gui = {
+		rotation_offset = -10,
+		distance_offset = -80,
+		height_offset = -4,
+		display_offset = 8,
+		initial_rotation = {}
+	}
+	self.melee_weapons.lc14b.gui.initial_rotation.yaw = 100
+	self.melee_weapons.lc14b.gui.initial_rotation.pitch = 10
+	self.melee_weapons.lc14b.gui.initial_rotation.roll = 160
 
 	self:_add_desc_from_name_macro(self.melee_weapons)
 end

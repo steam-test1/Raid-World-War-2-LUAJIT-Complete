@@ -1292,7 +1292,7 @@ function WeaponFactoryTweakData:_init_m1903()
 		type = "extra",
 		name_id = "bm_wp_snp_m1903_m_standard",
 		unit = "units/vanilla/weapons/wpn_fps_snp_m1903_pts/wpn_fps_snp_m1903_extra_follower",
-		stats = {
+		st5ats = {
 			value = 1
 		}
 	}

@@ -221,7 +221,8 @@ function StatisticsTweakData:statistics_table()
 		"lockwood_brothers_push_dagger",
 		"bc41_knuckle_knife",
 		"km_dagger",
-		"marching_mace"
+		"marching_mace",
+		"lc14b"
 	}
 	local grenade_list = {
 		"m24"

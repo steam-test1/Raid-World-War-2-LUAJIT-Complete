@@ -36,6 +36,14 @@ function IntelTweakData:init(tweak_data)
 		288
 	}
 	self.categories.bulletins.items[1].text = "bulletin_1_text_id"
+	self.categories.bulletins.items[2] = {
+		id = "bulletin_2",
+		list_item_name_id = "bulletin_2_list_item_name_id",
+		update_date = "OCT 26 2017",
+		update_person = "CONTROL",
+		title = "bulletin_2_title_id",
+		text = "bulletin_2_text_id"
+	}
 	self.categories.operational_status.items = {
 		{}
 	}
@@ -91,6 +99,14 @@ function IntelTweakData:init(tweak_data)
 		update_person = "CONTROL",
 		title = "operational_status_6_title_id",
 		text = "operational_status_6_text_id"
+	}
+	self.categories.operational_status.items[7] = {
+		id = "operational_status_7",
+		list_item_name_id = "operational_status_7_list_item_name_id",
+		update_date = "OCT 26 2017",
+		update_person = "CONTROL",
+		title = "operational_status_7_title_id",
+		text = "operational_status_7_text_id"
 	}
 	self.categories.raid_personnel.items = {
 		{}

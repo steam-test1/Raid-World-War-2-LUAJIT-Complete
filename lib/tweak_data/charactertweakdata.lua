@@ -7355,7 +7355,8 @@ function CharacterTweakData:_create_table_structure()
 		Idstring("units/vanilla/weapons/wpn_third_mel_lockwood_brothers_push_dagger/wpn_third_mel_lockwood_brothers_push_dagger"),
 		Idstring("units/vanilla/weapons/wpn_third_mel_bc41_knuckle_knife/wpn_third_mel_bc41_knuckle_knife"),
 		Idstring("units/vanilla/weapons/wpn_third_mel_km_dagger/wpn_third_mel_km_dagger"),
-		Idstring("units/vanilla/weapons/wpn_third_mel_marching_mace/wpn_third_mel_marching_mace")
+		Idstring("units/vanilla/weapons/wpn_third_mel_marching_mace/wpn_third_mel_marching_mace"),
+		Idstring("units/event_001_halloween/weapons/wpn_third_mel_lc14b/wpn_third_mel_lc14b")
 	}
 	self.hack_weap_unit_names = {
 		[Idstring("units/vanilla/weapons/wpn_gre_m24/wpn_gre_m24_hand"):key()] = Idstring("units/vanilla/weapons/wpn_gre_m24/wpn_gre_m24_husk"),
@@ -7365,7 +7366,8 @@ function CharacterTweakData:_create_table_structure()
 		[Idstring("units/vanilla/weapons/wpn_fps_mel_lockwood_brothers_push_dagger/wpn_fps_mel_lockwood_brothers_push_dagger"):key()] = Idstring("units/vanilla/weapons/wpn_third_mel_lockwood_brothers_push_dagger/wpn_third_mel_lockwood_brothers_push_dagger"),
 		[Idstring("units/vanilla/weapons/wpn_fps_mel_bc41_knuckle_knife/wpn_fps_mel_bc41_knuckle_knife"):key()] = Idstring("units/vanilla/weapons/wpn_third_mel_bc41_knuckle_knife/wpn_third_mel_bc41_knuckle_knife"),
 		[Idstring("units/vanilla/weapons/wpn_fps_km_dagger/wpn_fps_km_dagger"):key()] = Idstring("units/vanilla/weapons/wpn_third_mel_km_dagger/wpn_third_mel_km_dagger"),
-		[Idstring("units/vanilla/weapons/wpn_fps_marching_mace/wpn_fps_marching_mace"):key()] = Idstring("units/vanilla/weapons/wpn_third_mel_marching_mace/wpn_third_mel_marching_mace")
+		[Idstring("units/vanilla/weapons/wpn_fps_marching_mace/wpn_fps_marching_mace"):key()] = Idstring("units/vanilla/weapons/wpn_third_mel_marching_mace/wpn_third_mel_marching_mace"),
+		[Idstring("units/event_001_halloween/weapons/wpn_fps_lc14b/wpn_fps_lc14b"):key()] = Idstring("units/event_001_halloween/weapons/wpn_third_mel_lc14b/wpn_third_mel_lc14b")
 	}
 end
 

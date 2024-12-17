@@ -289,6 +289,15 @@ function GuiTweakData:_setup_icons()
 			448
 		}
 	}
+	self.icons.raid_hw_logo_small = {
+		texture = "ui/atlas/raid_atlas_misc",
+		texture_rect = {
+			2,
+			1316,
+			400,
+			242
+		}
+	}
 	self.icons.raid_logo_big = {
 		texture = "ui/atlas/raid_atlas_misc",
 		texture_rect = {
@@ -301,8 +310,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.raid_logo_small = {
 		texture = "ui/atlas/raid_atlas_misc",
 		texture_rect = {
-			404,
-			1316,
+			2,
+			1560,
 			384,
 			192
 		}
@@ -319,7 +328,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.raid_se_logo_small = {
 		texture = "ui/atlas/raid_atlas_misc",
 		texture_rect = {
-			2,
+			404,
 			1316,
 			400,
 			242
@@ -337,8 +346,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_circ_lock = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			700,
-			544,
+			741,
+			452,
 			48,
 			48
 		}
@@ -346,8 +355,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_circ_lock_hover = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			722,
-			820,
+			610,
+			452,
 			48,
 			48
 		}
@@ -355,8 +364,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_circ_x = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			769,
-			764,
+			664,
+			502,
 			48,
 			48
 		}
@@ -364,8 +373,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_circ_x_hover = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			816,
-			710,
+			714,
+			502,
 			48,
 			48
 		}
@@ -499,7 +508,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_secondary_192 = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			805,
+			830,
 			452,
 			192,
 			48
@@ -508,8 +517,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_secondary_192_hover = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			610,
-			452,
+			830,
+			502,
 			192,
 			48
 		}
@@ -535,8 +544,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_small_128 = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			486,
-			680,
+			534,
+			678,
 			128,
 			40
 		}
@@ -544,8 +553,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_small_128_hover = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			661,
-			502,
+			830,
+			982,
 			128,
 			40
 		}
@@ -553,8 +562,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_tetriary_192 = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			805,
-			502,
+			830,
+			552,
 			192,
 			48
 		}
@@ -562,8 +571,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.btn_tetriary_192_hover = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			805,
-			552,
+			830,
+			602,
 			192,
 			48
 		}
@@ -590,7 +599,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			830,
-			602,
+			652,
 			192,
 			48
 		}
@@ -599,7 +608,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			830,
-			652,
+			702,
 			192,
 			48
 		}
@@ -625,8 +634,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.card_counter_bg = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			556,
-			788,
+			654,
+			786,
 			51,
 			32
 		}
@@ -634,7 +643,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.card_counter_bg_large = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			388,
+			389,
 			822,
 			102,
 			64
@@ -661,8 +670,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.character_creation_1_large = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			772,
-			814,
+			584,
+			502,
 			48,
 			48
 		}
@@ -670,8 +679,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.character_creation_2_large = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			819,
-			760,
+			584,
+			552,
 			48,
 			48
 		}
@@ -679,8 +688,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.character_creation_2_small = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			866,
-			702,
+			584,
+			602,
 			48,
 			48
 		}
@@ -688,8 +697,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.character_creation_checked = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			774,
-			864,
+			634,
+			552,
 			48,
 			48
 		}
@@ -724,8 +733,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.character_creation_nationality_russian = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			654,
-			714,
+			790,
+			820,
 			52,
 			52
 		}
@@ -769,8 +778,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.consumable_purchased_confirmed = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			822,
-			810,
+			634,
+			602,
 			48,
 			48
 		}
@@ -787,8 +796,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.gold_amount_purchase = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			855,
-			984,
+			720,
+			752,
 			32,
 			32
 		}
@@ -796,8 +805,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.hslider_arrow_left_base = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			889,
-			984,
+			754,
+			752,
 			32,
 			32
 		}
@@ -805,8 +814,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.hslider_arrow_right_base = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			923,
-			752,
+			759,
+			786,
 			32,
 			32
 		}
@@ -814,8 +823,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_arrow_large_left = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			661,
-			768,
+			792,
+			874,
 			52,
 			52
 		}
@@ -823,8 +832,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_arrow_large_right = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			658,
-			658,
+			844,
+			820,
 			52,
 			52
 		}
@@ -832,8 +841,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_bonus = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			588,
-			722,
+			576,
+			887,
 			64,
 			64
 		}
@@ -841,8 +850,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_class_assault = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			708,
-			712,
+			826,
+			928,
 			52,
 			52
 		}
@@ -850,8 +859,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_class_demolitions = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			715,
-			766,
+			846,
+			874,
 			52,
 			52
 		}
@@ -859,8 +868,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_class_infiltrator = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			668,
-			602,
+			898,
+			820,
 			52,
 			52
 		}
@@ -868,8 +877,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_class_recon = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			712,
-			656,
+			880,
+			928,
 			52,
 			52
 		}
@@ -877,8 +886,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_difficulty_deathwish = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			492,
-			432,
+			664,
+			452,
 			75,
 			48
 		}
@@ -886,8 +895,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_difficulty_hard = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			869,
-			752,
+			684,
+			552,
 			48,
 			48
 		}
@@ -895,8 +904,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_difficulty_normal = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			916,
-			702,
+			734,
+			552,
 			48,
 			48
 		}
@@ -904,8 +913,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_difficulty_overkill = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			966,
-			702,
+			684,
+			602,
 			48,
 			48
 		}
@@ -913,8 +922,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_difficulty_very_hard = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			805,
-			952,
+			734,
+			602,
 			48,
 			48
 		}
@@ -922,7 +931,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_dlc = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			957,
+			788,
 			752,
 			32,
 			32
@@ -931,7 +940,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_filter = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			923,
+			793,
 			786,
 			32,
 			32
@@ -941,7 +950,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			486,
-			482,
+			480,
 			96,
 			64
 		}
@@ -950,7 +959,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			486,
-			548,
+			546,
 			96,
 			64
 		}
@@ -959,7 +968,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			486,
-			614,
+			612,
 			96,
 			64
 		}
@@ -968,7 +977,7 @@ function GuiTweakData:_setup_icons()
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
 			490,
-			722,
+			726,
 			96,
 			64
 		}
@@ -976,8 +985,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_flag_russian = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			492,
-			822,
+			493,
+			821,
 			96,
 			64
 		}
@@ -1003,8 +1012,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_locker = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			957,
-			786,
+			822,
+			752,
 			32,
 			32
 		}
@@ -1021,8 +1030,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_malus = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			576,
-			888,
+			610,
+			953,
 			64,
 			64
 		}
@@ -1048,8 +1057,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_map_raid = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			610,
-			983,
+			792,
+			452,
 			36,
 			36
 		}
@@ -1057,8 +1066,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_map_starting_point = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			620,
-			558,
+			792,
+			490,
 			36,
 			36
 		}
@@ -1066,8 +1075,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_nav_back_base = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			774,
-			914,
+			792,
+			528,
 			36,
 			36
 		}
@@ -1075,8 +1084,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_nav_right_base = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			812,
-			914,
+			792,
+			566,
 			36,
 			36
 		}
@@ -1084,7 +1093,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_operation = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			98,
+			157,
 			842,
 			56,
 			56
@@ -1093,8 +1102,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_ops_card = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			850,
-			908,
+			792,
+			604,
 			36,
 			36
 		}
@@ -1102,8 +1111,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_page_turn_left = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			888,
-			802,
+			827,
+			786,
 			32,
 			32
 		}
@@ -1111,8 +1120,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_page_turn_right = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			872,
-			848,
+			856,
+			752,
 			32,
 			32
 		}
@@ -1120,8 +1129,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_play_audio = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			855,
-			946,
+			792,
+			642,
 			36,
 			36
 		}
@@ -1129,7 +1138,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_raid = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			156,
+			215,
 			842,
 			56,
 			56
@@ -1192,8 +1201,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_sel_rect_top_left = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			584,
-			502,
+			788,
+			714,
 			30,
 			30
 		}
@@ -1201,8 +1210,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_sel_rect_top_left_white = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			584,
-			534,
+			929,
+			786,
 			30,
 			30
 		}
@@ -1219,8 +1228,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_slider_thumb = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			888,
-			882,
+			861,
+			786,
 			32,
 			32
 		}
@@ -1228,8 +1237,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_slider_thumb_large = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			906,
-			848,
+			890,
+			752,
 			32,
 			32
 		}
@@ -1237,8 +1246,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_time = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			584,
-			566,
+			742,
+			988,
 			34,
 			34
 		}
@@ -1255,8 +1264,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.ico_voice_chat = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			940,
-			820,
+			895,
+			786,
 			32,
 			32
 		}
@@ -1291,8 +1300,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.icon_weapon_unlocked = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			576,
-			954,
+			490,
+			792,
 			40,
 			27
 		}
@@ -1327,8 +1336,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.info_icon = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			974,
-			848,
+			924,
+			752,
 			32,
 			32
 		}
@@ -1363,7 +1372,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.list_btn_ico_customize = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			991,
+			958,
 			752,
 			30,
 			30
@@ -1372,7 +1381,7 @@ function GuiTweakData:_setup_icons()
 	self.icons.list_btn_ico_plus = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			991,
+			961,
 			784,
 			30,
 			30
@@ -1381,8 +1390,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.list_btn_ico_x = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			991,
-			816,
+			990,
+			752,
 			30,
 			30
 		}
@@ -1426,16 +1435,25 @@ function GuiTweakData:_setup_icons()
 	self.icons.loot_rarity_common = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			214,
+			273,
 			842,
 			56,
+			56
+		}
+	}
+	self.icons.loot_rarity_haloween = {
+		texture = "ui/atlas/raid_atlas_menu",
+		texture_rect = {
+			98,
+			842,
+			57,
 			56
 		}
 	}
 	self.icons.loot_rarity_rare = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			272,
+			331,
 			842,
 			56,
 			56
@@ -1444,8 +1462,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.loot_rarity_uncommon = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			330,
-			842,
+			515,
+			422,
 			56,
 			56
 		}
@@ -1453,8 +1471,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_gamecard = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			940,
-			854,
+			664,
+			680,
 			32,
 			32
 		}
@@ -1462,8 +1480,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_kick = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			974,
-			882,
+			698,
+			680,
 			32,
 			32
 		}
@@ -1471,8 +1489,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_mute = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			923,
-			888,
+			720,
+			714,
 			32,
 			32
 		}
@@ -1480,8 +1498,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_outline = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			824,
-			860,
+			486,
+			678,
 			46,
 			46
 		}
@@ -1489,8 +1507,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_unmute = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			893,
-			922,
+			732,
+			680,
 			32,
 			32
 		}
@@ -1498,8 +1516,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.players_icon_xbox_invite = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			957,
-			916,
+			754,
+			714,
 			32,
 			32
 		}
@@ -1543,8 +1561,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.rewards_dog_tags_small = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			590,
-			822,
+			588,
+			720,
 			64,
 			64
 		}
@@ -1588,8 +1606,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.rewards_extra_loot_small = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			642,
-			888,
+			591,
+			820,
 			64,
 			64
 		}
@@ -1597,8 +1615,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.rewards_extra_loot_small_frame = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			656,
-			822,
+			642,
+			886,
 			64,
 			64
 		}
@@ -1606,8 +1624,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.rewards_extra_loot_small_middle_gold = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			648,
-			954,
+			676,
+			952,
 			64,
 			64
 		}
@@ -1615,8 +1633,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.rewards_extra_loot_small_middle_loot = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			708,
-			888,
+			654,
+			720,
 			64,
 			64
 		}
@@ -1642,8 +1660,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.skill_placeholder = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			714,
-			954,
+			657,
+			820,
 			47,
 			64
 		}
@@ -1696,8 +1714,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.slider_end_left = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			609,
-			788,
+			707,
+			786,
 			50,
 			32
 		}
@@ -1705,8 +1723,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.slider_end_right = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			750,
-			544,
+			778,
+			988,
 			50,
 			32
 		}
@@ -1867,8 +1885,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.switch_bg = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			490,
-			788,
+			588,
+			786,
 			64,
 			32
 		}
@@ -1876,8 +1894,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.switch_thumb = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			923,
-			956,
+			766,
+			680,
 			32,
 			32
 		}
@@ -1885,8 +1903,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.warcry_berserk = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			722,
-			602,
+			900,
+			874,
 			52,
 			52
 		}
@@ -1894,8 +1912,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.warcry_cluster_truck = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			762,
-			710,
+			934,
+			928,
 			52,
 			52
 		}
@@ -1903,8 +1921,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.warcry_invisibility = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			766,
-			656,
+			952,
+			818,
 			52,
 			52
 		}
@@ -1912,8 +1930,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.warcry_sharpshooter = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			776,
-			602,
+			954,
+			872,
 			52,
 			52
 		}
@@ -1921,8 +1939,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_accuracy = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			763,
-			954,
+			706,
+			820,
 			40,
 			54
 		}
@@ -1930,8 +1948,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_blank = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			616,
-			502,
+			708,
+			876,
 			40,
 			54
 		}
@@ -1939,8 +1957,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_damage = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			584,
-			602,
+			748,
+			820,
 			40,
 			54
 		}
@@ -1948,8 +1966,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_locked = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			616,
-			658,
+			742,
+			932,
 			40,
 			54
 		}
@@ -1957,8 +1975,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_mag_size = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			626,
-			602,
+			750,
+			876,
 			40,
 			54
 		}
@@ -1966,8 +1984,8 @@ function GuiTweakData:_setup_icons()
 	self.icons.wpn_skill_stability = {
 		texture = "ui/atlas/raid_atlas_menu",
 		texture_rect = {
-			658,
-			544,
+			784,
+			932,
 			40,
 			54
 		}

@@ -259,6 +259,7 @@ function CarryTweakData:init(tweak_data)
 		name_id = "hud_carry_gold",
 		bag_value = "gold",
 		loot_value = 20,
+		value_in_gold = 2,
 		unit = "units/vanilla/pickups/pku_gold_crate_bag/pku_gold_crate_bag",
 		hud_icon = "carry_gold",
 		AI_carry = {
