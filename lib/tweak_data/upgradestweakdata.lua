@@ -901,6 +901,11 @@ function UpgradesTweakData:_create_weapon_definitions()
 		weapon_id = "tt33",
 		category = "weapon"
 	}
+	self.definitions.ithaca = {
+		factory_id = "wpn_fps_sho_ithaca",
+		weapon_id = "ithaca",
+		category = "weapon"
+	}
 	self.definitions.shotty = {
 		factory_id = "wpn_fps_pis_shotty",
 		weapon_id = "shotty",
@@ -3898,6 +3903,7 @@ function UpgradesTweakData:_old_init()
 				"geco",
 				"dp28",
 				"tt33",
+				"ithaca",
 				"kar_98k",
 				"bren",
 				"lee_enfield",

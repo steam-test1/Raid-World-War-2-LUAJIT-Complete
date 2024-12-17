@@ -2973,6 +2973,18 @@ function SkillTreeTweakData:_init_skill_list()
 				"lee_enfield"
 			}
 		},
+		weapon_unlock_ithaca = {
+			name_id = "skill_weapon_unlock_ithaca_name",
+			desc_id = "skill_weapon_unlock_ithaca_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"ithaca"
+			}
+		},
 		weapon_unlock_shotty = {
 			name_id = "skill_weapon_unlock_shotty_name",
 			desc_id = "skill_weapon_unlock_shotty_desc",
@@ -5573,6 +5585,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 				"weapon_tier_unlocked_3"
 			}
 		},
+		[28] = {
+			weapons = {
+				"weapon_unlock_ithaca"
+			}
+		},
 		[30] = {
 			weapons = {
 				"weapon_unlock_m1911"
@@ -5666,6 +5683,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[19] = {
 			weapons = {
 				"weapon_unlock_grenade_d343"
+			}
+		},
+		[23] = {
+			weapons = {
+				"weapon_unlock_ithaca"
 			}
 		},
 		[25] = {

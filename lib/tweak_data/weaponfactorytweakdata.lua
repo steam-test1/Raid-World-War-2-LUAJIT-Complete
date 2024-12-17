@@ -122,6 +122,7 @@ function WeaponFactoryTweakData:init()
 	self:_init_geco()
 	self:_init_dp28()
 	self:_init_tt33()
+	self:_init_ithaca()
 	self:_init_kar_98k()
 	self:_init_bren()
 	self:_init_lee_enfield()
@@ -2918,6 +2919,174 @@ function WeaponFactoryTweakData:_init_m1912()
 	}
 	self.wpn_fps_sho_m1912_npc = deep_clone(self.wpn_fps_sho_m1912)
 	self.wpn_fps_sho_m1912_npc.unit = "units/vanilla/weapons/wpn_fps_sho_m1912/wpn_fps_sho_m1912_npc"
+end
+
+function WeaponFactoryTweakData:_init_ithaca()
+	self.parts.wpn_fps_sho_ithaca_m_standard = {
+		a_obj = "a_m",
+		type = "magazine",
+		name_id = "bm_wp_sho_ithaca_m_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_m_standard",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_b_standard = {
+		a_obj = "a_b",
+		type = "barrel",
+		name_id = "bm_wp_sho_ithaca_b_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_b_standard",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_b_reinforced = {
+		a_obj = "a_b",
+		type = "barrel",
+		name_id = "bm_wp_sho_ithaca_b_reinforced",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_b_reinforced",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_b_heat_shield = {
+		a_obj = "a_b",
+		type = "barrel",
+		name_id = "bm_wp_sho_ithaca_b_heat_shield",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_b_heat_shield",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_ns_brake = {
+		parent = "barrel",
+		a_obj = "a_ns",
+		type = "barrel_ext",
+		name_id = "bm_wp_sho_ithaca_ns_brake",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_ns_brake",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_body_standard = {
+		a_obj = "a_body",
+		type = "lower_receiver",
+		name_id = "bm_wp_sho_ithaca_body_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_body_standard",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_lifter = {
+		a_obj = "a_lifter",
+		type = "custom",
+		name_id = "bm_wp_sho_ithaca_lifter_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_lifter",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_trigger = {
+		a_obj = "a_trigger",
+		type = "trigger",
+		name_id = "bm_wp_sho_ithaca_trigger_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_trigger",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_sl_standard = {
+		a_obj = "a_sl",
+		type = "foregrip",
+		name_id = "bm_wp_sho_ithaca_sl_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_sl_standard",
+		animations = {
+			fire_steelsight = "recoil",
+			fire = "recoil"
+		},
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_s_standard = {
+		a_obj = "a_s",
+		type = "stock",
+		name_id = "bm_wp_sho_ithaca_s_standard",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_s_standard",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_s_cheek_rest = {
+		a_obj = "a_s",
+		type = "stock",
+		name_id = "bm_wp_sho_ithaca_s_cheek_rest",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_s_cheek_rest",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_s_pistol_grip = {
+		fps_animation_weight = "ithaca_t4_recoil",
+		a_obj = "a_s",
+		type = "stock",
+		name_id = "bm_wp_sho_ithaca_s_pistol_grip",
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca_pts/wpn_fps_sho_ithaca_s_pistol_grip",
+		stats = {
+			value = 1
+		}
+	}
+	self.parts.wpn_fps_sho_ithaca_m_standard.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_m_standard"
+	self.parts.wpn_fps_sho_ithaca_b_standard.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_b_standard"
+	self.parts.wpn_fps_sho_ithaca_b_reinforced.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_b_reinforced"
+	self.parts.wpn_fps_sho_ithaca_b_heat_shield.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_b_heat_shield"
+	self.parts.wpn_fps_sho_ithaca_ns_brake.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_ns_brake"
+	self.parts.wpn_fps_sho_ithaca_body_standard.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_body_standard"
+	self.parts.wpn_fps_sho_ithaca_lifter.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_lifter"
+	self.parts.wpn_fps_sho_ithaca_trigger.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_trigger"
+	self.parts.wpn_fps_sho_ithaca_sl_standard.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_sl_standard"
+	self.parts.wpn_fps_sho_ithaca_s_standard.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_s_standard"
+	self.parts.wpn_fps_sho_ithaca_s_cheek_rest.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_s_cheek_rest"
+	self.parts.wpn_fps_sho_ithaca_s_pistol_grip.third_unit = "units/upd_017/weapons/wpn_third_sho_ithaca_pts/wpn_third_sho_ithaca_s_pistol_grip"
+	self.wpn_fps_sho_ithaca = {
+		unit = "units/upd_017/weapons/wpn_fps_sho_ithaca/wpn_fps_sho_ithaca",
+		animations = {
+			reload_exit = "reload_exit",
+			fire = "recoil",
+			fire_steelsight = "recoil"
+		},
+		optional_types = {
+			"barrel_ext",
+			"gadget",
+			"barrel",
+			"lower_receiver"
+		},
+		default_blueprint = {
+			"wpn_fps_sho_ithaca_m_standard",
+			"wpn_fps_sho_ithaca_b_standard",
+			"wpn_fps_sho_ithaca_body_standard",
+			"wpn_fps_sho_ithaca_lifter",
+			"wpn_fps_sho_ithaca_trigger",
+			"wpn_fps_sho_ithaca_sl_standard",
+			"wpn_fps_sho_ithaca_s_standard"
+		},
+		uses_parts = {
+			"wpn_fps_sho_ithaca_m_standard",
+			"wpn_fps_sho_ithaca_b_standard",
+			"wpn_fps_sho_ithaca_body_standard",
+			"wpn_fps_sho_ithaca_lifter",
+			"wpn_fps_sho_ithaca_trigger",
+			"wpn_fps_sho_ithaca_sl_standard",
+			"wpn_fps_sho_ithaca_s_standard",
+			"wpn_fps_sho_ithaca_b_reinforced",
+			"wpn_fps_sho_ithaca_b_heat_shield",
+			"wpn_fps_sho_ithaca_ns_brake",
+			"wpn_fps_sho_ithaca_s_cheek_rest",
+			"wpn_fps_sho_ithaca_s_pistol_grip"
+		}
+	}
+	self.wpn_fps_sho_ithaca_npc = deep_clone(self.wpn_fps_sho_ithaca)
+	self.wpn_fps_sho_ithaca_npc.unit = "units/upd_017/weapons/wpn_fps_sho_ithaca/wpn_fps_sho_ithaca_npc"
 end
 
 function WeaponFactoryTweakData:_init_mp38()

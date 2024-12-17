@@ -15,15 +15,16 @@ function ProjectilesTweakData:init(tweak_data)
 		expire_t = 1.1,
 		repeat_expire_t = 1.5,
 		is_a_grenade = true,
-		damage = 750,
+		damage = 950,
 		player_damage = 20,
-		range = 1000,
+		range = 500,
 		killzone_range = 0.75,
 		init_timer = 4.5,
 		animations = {}
 	}
 	self.m24.animations.equip_id = "equip_welrod"
 	self.m24.sound_event = "grenade_explode"
+	self.m24.launch_speed = 350
 	self.m24.gui = {
 		rotation_offset = 3,
 		distance_offset = -80,
@@ -56,6 +57,7 @@ function ProjectilesTweakData:init(tweak_data)
 	}
 	self.concrete.animations.equip_id = "equip_welrod"
 	self.concrete.sound_event = "new_grenade_explode"
+	self.concrete.launch_speed = 275
 	self.concrete.gui = {
 		rotation_offset = 3,
 		distance_offset = -80,
@@ -81,13 +83,14 @@ function ProjectilesTweakData:init(tweak_data)
 		is_a_grenade = true,
 		damage = 950,
 		player_damage = 28,
-		range = 600,
+		range = 500,
 		killzone_range = 0.75,
 		init_timer = 4.5,
 		animations = {}
 	}
 	self.d343.animations.equip_id = "equip_welrod"
 	self.d343.sound_event = "d43d_grenade_explode"
+	self.d343.launch_speed = 200
 	self.d343.gui = {
 		rotation_offset = 0,
 		distance_offset = -120,
@@ -111,15 +114,16 @@ function ProjectilesTweakData:init(tweak_data)
 		expire_t = 1.1,
 		repeat_expire_t = 1.5,
 		is_a_grenade = true,
-		damage = 750,
+		damage = 850,
 		player_damage = 24,
-		range = 1350,
+		range = 1000,
 		killzone_range = 0.75,
 		init_timer = 4.5,
 		animations = {}
 	}
 	self.mills.animations.equip_id = "equip_welrod"
 	self.mills.sound_event = "mills_grenade_explode"
+	self.mills.launch_speed = 200
 	self.mills.gui = {
 		rotation_offset = 0,
 		distance_offset = -120,

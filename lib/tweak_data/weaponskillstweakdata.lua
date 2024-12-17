@@ -32,6 +32,7 @@ function WeaponSkillsTweakData:init()
 	self:_init_geco_skill_tree()
 	self:_init_dp28_skill_tree()
 	self:_init_tt33_skill_tree()
+	self:_init_ithaca_skill_tree()
 	self:_init_kar_98k_skill_tree()
 	self:_init_bren_skill_tree()
 	self:_init_lee_enfield_skill_tree()
@@ -844,11 +845,11 @@ function WeaponSkillsTweakData:_init_geco_skill_tree()
 				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
 				challenge_tasks = {
 					{
-						target = 165,
+						target = 25,
 						type = ChallengeTweakData.TASK_KILL_ENEMIES,
 						reminders = {
-							50,
-							110
+							8,
+							16
 						},
 						modifiers = {
 							headshot = true,
@@ -894,12 +895,12 @@ function WeaponSkillsTweakData:_init_geco_skill_tree()
 				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
 				challenge_tasks = {
 					{
-						target = 770,
+						target = 400,
 						type = ChallengeTweakData.TASK_KILL_ENEMIES,
 						reminders = {
+							100,
 							200,
-							400,
-							600
+							300
 						},
 						modifiers = {
 							headshot = true,
@@ -4756,12 +4757,12 @@ function WeaponSkillsTweakData:_init_m1912_skill_tree()
 				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
 				challenge_tasks = {
 					{
-						target = 15,
+						target = 400,
 						type = ChallengeTweakData.TASK_KILL_ENEMIES,
 						reminders = {
-							3,
-							7,
-							11
+							100,
+							200,
+							300
 						},
 						modifiers = {
 							headshot = true,
@@ -4830,6 +4831,301 @@ function WeaponSkillsTweakData:_init_m1912_skill_tree()
 		}
 	}
 	self.skill_trees.m1912.tier_unlock = {
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked",
+		"weapon_tier_unlocked",
+		"demolitions_tier_4_unlocked"
+	}
+end
+
+function WeaponSkillsTweakData:_init_ithaca_skill_tree()
+	self.skill_trees.ithaca = {
+		{}
+	}
+	self.skill_trees.ithaca[1][1] = {
+		{
+			cost = 1,
+			value = 1,
+			challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+			challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+			challenge_tasks = {
+				{
+					target = 350,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						80,
+						160,
+						220
+					},
+					modifiers = {
+						hip_fire = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.ithaca[1][2] = {
+		{
+			cost = 2,
+			value = 5,
+			challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+			challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+			skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+			challenge_tasks = {
+				{
+					target = 75,
+					type = ChallengeTweakData.TASK_KILL_ENEMIES,
+					reminders = {
+						25,
+						40
+					},
+					modifiers = {
+						headshot = true,
+						damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.ithaca[2] = {
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 455,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							250,
+							400,
+							450
+						},
+						modifiers = {
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_sho_ithaca_ns_brake"
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 6,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 130,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							40,
+							70,
+							90
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				}
+			}
+		},
+		{
+			{
+				cost = 2,
+				value = 2,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 650,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							250,
+							400,
+							575
+						}
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.ithaca[3] = {
+		{
+			{
+				cost = 3,
+				value = 3,
+				challenge_done_text_id = "weapon_skill_hip_fire_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 595,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							200,
+							300,
+							400
+						},
+						modifiers = {
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_sho_ithaca_s_cheek_rest"
+				}
+			}
+		},
+		{
+			{
+				cost = 4,
+				value = 7,
+				challenge_done_text_id = "weapon_skill_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 150,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							50,
+							100,
+							130
+						},
+						modifiers = {
+							headshot = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_sho_ithaca_b_reinforced"
+				}
+			}
+		},
+		{
+			{
+				cost = 4,
+				value = 3,
+				challenge_done_text_id = "weapon_skill_generic_kill_completed",
+				challenge_briefing_id = "weapon_skill_generic_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 845,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							300,
+							600,
+							800
+						}
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.ithaca[4] = {
+		{
+			{
+				cost = 3,
+				value = 4,
+				challenge_done_text_id = "weapon_skill_hip_fire_headshot_kill_completed",
+				challenge_briefing_id = "weapon_skill_hip_fire_headshot_kill_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_DECREASE_RECOIL,
+				challenge_tasks = {
+					{
+						target = 400,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							100,
+							200,
+							300
+						},
+						modifiers = {
+							headshot = true,
+							hip_fire = true,
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_sho_ithaca_s_pistol_grip"
+				}
+			}
+		},
+		{
+			{
+				cost = 4,
+				value = 8,
+				challenge_done_text_id = "weapon_skill_headshot_ss_completed",
+				challenge_briefing_id = "weapon_skill_headshot_ss_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
+				challenge_tasks = {
+					{
+						target = 10,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							3,
+							7
+						},
+						modifiers = {
+							headshot = true,
+							enemy_type = {
+								CharacterTweakData.SPECIAL_UNIT_TYPE_COMMANDER
+							},
+							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
+						}
+					}
+				},
+				weapon_parts = {
+					"wpn_fps_sho_ithaca_b_heat_shield"
+				}
+			}
+		},
+		{
+			{
+				cost = 4,
+				value = 4,
+				challenge_done_text_id = "weapon_skill_kill_flamers_completed",
+				challenge_briefing_id = "weapon_skill_kill_flamers_briefing",
+				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_DAMAGE,
+				challenge_tasks = {
+					{
+						target = 15,
+						type = ChallengeTweakData.TASK_KILL_ENEMIES,
+						reminders = {
+							5,
+							10
+						},
+						modifiers = {
+							enemy_type = {
+								CharacterTweakData.SPECIAL_UNIT_TYPE_FLAMER
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	self.skill_trees.ithaca.tier_unlock = {
 		"weapon_tier_unlocked",
 		"weapon_tier_unlocked",
 		"weapon_tier_unlocked",

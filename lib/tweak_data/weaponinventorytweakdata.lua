@@ -72,7 +72,11 @@ function WeaponInventoryTweakData:init()
 		},
 		{
 			weapon_id = "lee_enfield",
-			slot = 20
+			slot = 18
+		},
+		{
+			weapon_id = "ithaca",
+			slot = 19
 		}
 	}
 	self.weapon_secondaries_index = {

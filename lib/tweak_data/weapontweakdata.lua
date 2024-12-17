@@ -37,6 +37,7 @@ function WeaponTweakData:init(tweak_data)
 	self:_init_data_geco_npc()
 	self:_init_data_dp28_npc()
 	self:_init_data_tt33_npc()
+	self:_init_data_ithaca_npc()
 	self:_init_data_kar_98k_npc()
 	self:_init_data_bren_npc()
 	self:_init_data_lee_enfield_npc()
@@ -700,6 +701,32 @@ function WeaponTweakData:_init_data_m1912_npc()
 	self.m1912_npc.hold = "m1912"
 	self.m1912_npc.alert_size = 5000
 	self.m1912_npc.suppression = 1
+end
+
+function WeaponTweakData:_init_data_ithaca_npc()
+	self.ithaca_npc = {
+		sounds = {},
+		use_data = {},
+		usage = "m1912",
+		usage_anim = "m1912"
+	}
+	self.ithaca_npc.sounds.prefix = ""
+	self.ithaca_npc.sounds.single = "ithaca_fire_npc_single"
+	self.ithaca_npc.sounds.autofire_start = nil
+	self.ithaca_npc.sounds.autofire_stop = nil
+	self.ithaca_npc.use_data.selection_index = 2
+	self.ithaca_npc.DAMAGE = 6
+	self.ithaca_npc.muzzleflash = "effects/vanilla/weapons/12g_auto_fps"
+	self.ithaca_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_slug_semi"
+	self.ithaca_npc.CLIP_AMMO_MAX = 4
+	self.ithaca_npc.NR_CLIPS_MAX = 64
+	self.ithaca_npc.AMMO_MAX = self.ithaca_npc.CLIP_AMMO_MAX * self.ithaca_npc.NR_CLIPS_MAX
+	self.ithaca_npc.auto = {
+		fire_rate = 0.8
+	}
+	self.ithaca_npc.hold = "m1912"
+	self.ithaca_npc.alert_size = 5000
+	self.ithaca_npc.suppression = 1
 end
 
 function WeaponTweakData:_init_data_mp38_npc()
@@ -2593,6 +2620,7 @@ function WeaponTweakData:_init_new_weapons(weapon_data)
 	self:_init_geco(weapon_data)
 	self:_init_dp28(weapon_data)
 	self:_init_tt33(weapon_data)
+	self:_init_ithaca(weapon_data)
 	self:_init_kar_98k(weapon_data)
 	self:_init_bren(weapon_data)
 	self:_init_lee_enfield(weapon_data)
@@ -3506,6 +3534,169 @@ function WeaponTweakData:_init_m1912_winchester(weapon_data)
 		alert_size = 7,
 		spread = 6,
 		recoil = 4,
+		value = 1,
+		extra_ammo = 6,
+		suppression = 6,
+		concealment = 12
+	}
+end
+
+function WeaponTweakData:_init_ithaca(weapon_data)
+	self.ithaca = {
+		inventory_texture = "ui/temp/customization_temp_df",
+		category = WeaponTweakData.WEAPON_CATEGORY_SHOTGUN,
+		use_shotgun_reload = true,
+		dismember_chance = 0.75,
+		damage_melee = 100,
+		damage_melee_effect_mul = weapon_data.damage_melee_effect_multiplier_default,
+		sounds = {}
+	}
+	self.ithaca.sounds.fire = "ithaca_fire_1p_single"
+	self.ithaca.sounds.dryfire = "primary_dryfire"
+	self.ithaca.timers = {
+		shotgun_reload_enter = 0.5333333333333333,
+		shotgun_reload_exit_empty = 0.4,
+		shotgun_reload_exit_not_empty = 0.4,
+		shotgun_reload_shell = 0.6666666666666666,
+		shotgun_reload_first_shell_offset = 0.13333333333333333,
+		unequip = 0.85,
+		equip = 0.6
+	}
+	self.ithaca.name_id = "bm_w_ithaca"
+	self.ithaca.desc_id = "bm_w_ithaca_desc"
+	self.ithaca.description_id = "des_ithaca"
+	self.ithaca.muzzleflash = "effects/vanilla/weapons/12g_auto_fps"
+	self.ithaca.shell_ejection = "effects/vanilla/weapons/shells/shell_slug_semi"
+	self.ithaca.use_data = {
+		selection_index = 2,
+		align_place = "right_hand"
+	}
+	self.ithaca.damage_profile = {
+		{
+			damage = 240,
+			range = 1000
+		},
+		{
+			damage = 30,
+			range = 2000
+		}
+	}
+	self.ithaca.headshot_multiplier = 3
+	self.ithaca.rays = 12
+	self.ithaca.CLIP_AMMO_MAX = 6
+	self.ithaca.NR_CLIPS_MAX = 6
+	self.ithaca.AMMO_MAX = self.ithaca.CLIP_AMMO_MAX * self.ithaca.NR_CLIPS_MAX
+	self.ithaca.AMMO_PICKUP = self:_pickup_chance(self.ithaca.AMMO_MAX, 1)
+	self.ithaca.ammo_pickup_base = 3
+	self.ithaca.FIRE_MODE = "single"
+	self.ithaca.fire_mode_data = {
+		fire_rate = 1
+	}
+	self.ithaca.CAN_TOGGLE_FIREMODE = false
+	self.ithaca.single = {
+		fire_rate = 1
+	}
+	self.ithaca.spread = {
+		standing = 2,
+		crouching = 2,
+		steelsight = 2,
+		moving_standing = 2,
+		moving_crouching = 2,
+		moving_steelsight = 2,
+		per_shot = 0,
+		per_shot_steelsight = 0,
+		recovery = 12,
+		recovery_wait_multiplier = 0.5
+	}
+	self.ithaca.kick = {
+		standing = {
+			3.6,
+			4.2,
+			-2,
+			2
+		},
+		crouching = {
+			3.2,
+			3.8,
+			-2,
+			2
+		},
+		steelsight = {
+			3.4,
+			3.8,
+			-2,
+			2
+		},
+		crouching_steelsight = {
+			3.2,
+			3.4,
+			-1.8,
+			1.8
+		}
+	}
+	self.ithaca.gun_kick = {
+		hip_fire = {
+			60,
+			80,
+			-55,
+			55
+		},
+		steelsight = {
+			48,
+			58,
+			-45,
+			-45
+		},
+		position_ratio = -0.075
+	}
+	self.ithaca.crosshair = {
+		standing = {},
+		crouching = {},
+		steelsight = {}
+	}
+	self.ithaca.crosshair.standing.offset = 0.7
+	self.ithaca.crosshair.standing.moving_offset = 0.7
+	self.ithaca.crosshair.standing.kick_offset = 0.8
+	self.ithaca.crosshair.crouching.offset = 0.65
+	self.ithaca.crosshair.crouching.moving_offset = 0.65
+	self.ithaca.crosshair.crouching.kick_offset = 0.75
+	self.ithaca.crosshair.steelsight.hidden = true
+	self.ithaca.crosshair.steelsight.offset = 0
+	self.ithaca.crosshair.steelsight.moving_offset = 0
+	self.ithaca.crosshair.steelsight.kick_offset = 0
+	self.ithaca.shake = {
+		fire_multiplier = 2,
+		fire_steelsight_multiplier = -2
+	}
+	self.ithaca.autohit = weapon_data.autohit_shotgun_default
+	self.ithaca.aim_assist = weapon_data.aim_assist_shotgun_default
+	self.ithaca.weapon_hold = "ithaca"
+	self.ithaca.animations = {
+		equip_id = "equip_ithaca",
+		recoil_steelsight = true
+	}
+	self.ithaca.panic_suppression_chance = 0.2
+	self.ithaca.gui = {
+		rotation_offset = -39,
+		distance_offset = 85,
+		height_offset = 0,
+		display_offset = -10,
+		initial_rotation = {}
+	}
+	self.ithaca.gui.initial_rotation.yaw = -90
+	self.ithaca.gui.initial_rotation.pitch = 0
+	self.ithaca.gui.initial_rotation.roll = 0
+	self.ithaca.gui.icon_large = "weapon_itchaca_large"
+	self.ithaca.hud = {
+		icon = "weapons_panel_itchaca"
+	}
+	self.ithaca.stats = {
+		zoom = 3,
+		total_ammo_mod = 21,
+		spread_moving = 9,
+		alert_size = 7,
+		spread = 6,
+		recoil = 5,
 		value = 1,
 		extra_ammo = 6,
 		suppression = 6,
