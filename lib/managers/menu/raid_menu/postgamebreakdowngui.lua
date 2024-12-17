@@ -137,8 +137,8 @@ function PostGameBreakdownGui:_layout()
 
 	local progress_bar_params = {
 		horizontal_padding = 64,
-		bar_w = 62450,
 		name = "progress_bar",
+		bar_w = 62450,
 		y = PostGameBreakdownGui.PROGRESS_BAR_Y,
 		w = self._root_panel:w(),
 		initial_progress = self:_get_progress(self.initial_xp),
@@ -155,12 +155,12 @@ function PostGameBreakdownGui:_layout()
 	end
 
 	local total_xp_params = {
-		layer = 1,
-		x = 0,
-		name = "total_xp",
-		value = "0",
-		align = "center",
 		value_align = "center",
+		value = "0",
+		name = "total_xp",
+		align = "center",
+		x = 0,
+		layer = 1,
 		y = PostGameBreakdownGui.TOTAL_XP_Y,
 		w = self._root_panel:w(),
 		h = PostGameBreakdownGui.TOTAL_XP_H,
@@ -234,9 +234,9 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 
 	local is_player_max_level = managers.experience:reached_level_cap()
 	local title = self._generic_win_panel:text({
-		name = "generic_win_title_text",
-		align = "center",
 		vertical = "center",
+		align = "center",
+		name = "generic_win_title_text",
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_TITLE_FONT_SIZE,
@@ -252,9 +252,9 @@ function PostGameBreakdownGui:_layout_generic_win_display()
 	title:set_center_x(self._generic_win_panel:w() / 2)
 
 	local flavor_text = self._generic_win_panel:text({
-		name = "generic_win_flavor_text",
-		align = "center",
 		vertical = "center",
+		align = "center",
+		name = "generic_win_flavor_text",
 		text = self:translate("menu_keep_it_up", true),
 		h = PostGameBreakdownGui.CENTRAL_DISPLAY_TEXT_H,
 		font = PostGameBreakdownGui.FONT,
@@ -289,8 +289,8 @@ function PostGameBreakdownGui:_layout_fail_display()
 
 	local title = self._fail_panel:text({
 		align = "center",
-		name = "fail_title_text",
 		vertical = "center",
+		name = "fail_title_text",
 		text = self:translate("menu_better_luck_next_time", true),
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_TITLE_FONT_SIZE,
@@ -306,8 +306,8 @@ function PostGameBreakdownGui:_layout_fail_display()
 
 	local flavor_text = self._fail_panel:text({
 		align = "center",
-		name = "fail_flavor_text",
 		vertical = "center",
+		name = "fail_flavor_text",
 		text = self:translate("menu_fail", true),
 		font = PostGameBreakdownGui.FONT,
 		font_size = PostGameBreakdownGui.CENTRAL_DISPLAY_FLAVOR_TEXT_FONT_SIZE,
@@ -589,14 +589,17 @@ function PostGameBreakdownGui:animate_breakdown()
 		local top_stats = managers.statistics:get_top_stats()
 
 		for i = 1, 3 do
+			local stat_data = top_stats[i]
+			local stat_tweak = tweak_data.statistics.top_stats[stat_data.id]
+			local peer_id = stat_data.peer_id
 			local data = {
-				player_nickname = top_stats[i].peer_name,
-				stat = top_stats[i].id,
-				icon = tweak_data.statistics.top_stats[top_stats[i].id].icon,
-				icon_texture = tweak_data.statistics.top_stats[top_stats[i].id].texture,
-				icon_texture_rect = tweak_data.statistics.top_stats[top_stats[i].id].texture_rect,
-				score = top_stats[i].score,
-				score_format = tweak_data.statistics.top_stats[top_stats[i].id].score_format
+				player_nickname = stat_data.peer_name,
+				stat = stat_data.id,
+				score = stat_data.score,
+				icon = stat_tweak.icon,
+				icon_texture = stat_tweak.texture,
+				icon_texture_rect = stat_tweak.texture_rect,
+				score_format = stat_tweak.score_format
 			}
 
 			self._top_stats_small[i]:set_data(data)

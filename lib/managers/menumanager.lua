@@ -1324,11 +1324,11 @@ function MenuManager:add_back_button(new_node)
 	new_node:delete_item("back")
 
 	local params = {
-		name = "back",
+		visible_callback = "is_pc_controller",
 		previous_node = true,
 		back = true,
-		visible_callback = "is_pc_controller",
-		text_id = "menu_back"
+		text_id = "menu_back",
+		name = "back"
 	}
 	local new_item = new_node:create_item(nil, params)
 
@@ -1857,9 +1857,9 @@ function MenuUpgrades:modify_node(node, up, ...)
 			new_node:add_item(new_node:create_item({
 				type = "MenuItemUpgrade"
 			}, {
-				name = "upgrade_lock",
-				upgrade_lock = true,
 				localize = "false",
+				upgrade_lock = true,
+				name = "upgrade_lock",
 				text_id = managers.localization:text("menu_upgrades_locked", {
 					LEVEL = managers.upgrades:get_level_from_step(i)
 				})
@@ -1981,10 +1981,10 @@ function KickPlayer:modify_node(node, up)
 	if managers.network:session() then
 		for _, peer in pairs(managers.network:session():peers()) do
 			local params = {
-				localize_help = false,
 				to_upper = false,
-				callback = "kick_player",
 				localize = false,
+				localize_help = false,
+				callback = "kick_player",
 				name = peer:name(),
 				text_id = peer:name() .. " (" .. (peer:level() or "") .. ")",
 				rpc = peer:rpc(),
@@ -2028,6 +2028,9 @@ function MutePlayer:modify_node(node, up)
 			}
 			local data = {
 				{
+					x = 24,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2035,13 +2038,13 @@ function MutePlayer:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "on",
-					x = 24,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				{
+					x = 0,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2049,11 +2052,8 @@ function MutePlayer:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "off",
-					x = 0,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2088,6 +2088,9 @@ function MutePlayerXB1:modify_node(node, up)
 			}
 			local data = {
 				{
+					x = 24,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2095,13 +2098,13 @@ function MutePlayerXB1:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "on",
-					x = 24,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				{
+					x = 0,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2109,11 +2112,8 @@ function MutePlayerXB1:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "off",
-					x = 0,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2147,6 +2147,9 @@ function MutePlayerPS4:modify_node(node, up)
 			}
 			local data = {
 				{
+					x = 24,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2154,13 +2157,13 @@ function MutePlayerPS4:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "on",
-					x = 24,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				{
+					x = 0,
+					_meta = "option",
+					s_y = 24,
 					s_h = 24,
 					s_w = 24,
 					y = 0,
@@ -2168,11 +2171,8 @@ function MutePlayerPS4:modify_node(node, up)
 					s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 					h = 24,
 					w = 24,
-					s_y = 24,
 					value = "off",
-					x = 0,
-					icon = "ui/main_menu/textures/debug_menu_tickbox",
-					_meta = "option"
+					icon = "ui/main_menu/textures/debug_menu_tickbox"
 				},
 				type = "CoreMenuItemToggle.ItemToggle"
 			}
@@ -2236,37 +2236,37 @@ function MenuPSNHostBrowser:add_filter(node)
 	end
 
 	local params = {
-		help_id = "menu_diff_filter_help",
-		name = "difficulty_filter",
 		callback = "choice_difficulty_filter_ps4",
 		filter = true,
+		help_id = "menu_diff_filter_help",
 		visible_callback = "is_ps4",
-		text_id = "menu_diff_filter"
+		text_id = "menu_diff_filter",
+		name = "difficulty_filter"
 	}
 	local data_node = {
 		{
-			_meta = "option",
 			value = 0,
+			_meta = "option",
 			text_id = "menu_all"
 		},
 		{
-			_meta = "option",
 			value = 1,
+			_meta = "option",
 			text_id = "menu_difficulty_1"
 		},
 		{
-			_meta = "option",
 			value = 2,
+			_meta = "option",
 			text_id = "menu_difficulty_2"
 		},
 		{
-			_meta = "option",
 			value = 3,
+			_meta = "option",
 			text_id = "menu_difficulty_3"
 		},
 		{
-			_meta = "option",
 			value = 4,
+			_meta = "option",
 			text_id = "menu_difficulty_4"
 		},
 		type = "MenuItemMultiChoice"
@@ -2401,32 +2401,32 @@ function MenuSTEAMHostBrowser:add_filter(node)
 	end
 
 	local params = {
-		help_id = "menu_dist_filter_help",
-		name = "server_filter",
 		callback = "choice_distance_filter",
 		filter = true,
+		help_id = "menu_dist_filter_help",
 		visible_callback = "is_pc_controller",
-		text_id = "menu_dist_filter"
+		text_id = "menu_dist_filter",
+		name = "server_filter"
 	}
 	local data_node = {
 		{
-			_meta = "option",
 			value = 0,
+			_meta = "option",
 			text_id = "menu_dist_filter_close"
 		},
 		{
-			_meta = "option",
 			value = 1,
+			_meta = "option",
 			text_id = "menu_dist_filter_default"
 		},
 		{
-			_meta = "option",
 			value = 2,
+			_meta = "option",
 			text_id = "menu_dist_filter_far"
 		},
 		{
-			_meta = "option",
 			value = 3,
+			_meta = "option",
 			text_id = "menu_dist_filter_worldwide"
 		},
 		type = "MenuItemMultiChoice"
@@ -2437,37 +2437,37 @@ function MenuSTEAMHostBrowser:add_filter(node)
 	node:add_item(new_item)
 
 	local params = {
-		help_id = "menu_diff_filter_help",
-		name = "difficulty_filter",
 		callback = "choice_difficulty_filter",
 		filter = true,
+		help_id = "menu_diff_filter_help",
 		visible_callback = "is_pc_controller",
-		text_id = "menu_diff_filter"
+		text_id = "menu_diff_filter",
+		name = "difficulty_filter"
 	}
 	local data_node = {
 		{
-			_meta = "option",
 			value = 0,
+			_meta = "option",
 			text_id = "menu_all"
 		},
 		{
-			_meta = "option",
 			value = 1,
+			_meta = "option",
 			text_id = "menu_difficulty_easy"
 		},
 		{
-			_meta = "option",
 			value = 2,
+			_meta = "option",
 			text_id = "menu_difficulty_normal"
 		},
 		{
-			_meta = "option",
 			value = 3,
+			_meta = "option",
 			text_id = "menu_difficulty_hard"
 		},
 		{
-			_meta = "option",
 			value = 4,
+			_meta = "option",
 			text_id = "menu_difficulty_overkill"
 		},
 		type = "MenuItemMultiChoice"
@@ -2609,8 +2609,8 @@ function MenuLANHostBrowser:refresh_node(node)
 
 		if not item then
 			local params = {
-				callback = "connect_to_host_rpc",
 				localize = "false",
+				callback = "connect_to_host_rpc",
 				name = name_str,
 				text_id = name_str,
 				columns = {
@@ -2681,8 +2681,8 @@ function MenuMPHostBrowser:refresh_node(node)
 
 		if not item then
 			local params = {
-				callback = "connect_to_host_rpc",
 				localize = "false",
+				callback = "connect_to_host_rpc",
 				name = name_str,
 				text_id = name_str,
 				columns = {
@@ -2750,11 +2750,11 @@ function MenuResolutionCreator:modify_node(node)
 
 			if not new_node:item(res_string) then
 				local params = {
-					icon_visible_callback = "is_current_resolution",
 					icon = "guis/textures/scrollarrow",
-					icon_rotation = 90,
+					icon_visible_callback = "is_current_resolution",
 					callback = "change_resolution",
 					localize = "false",
+					icon_rotation = 90,
 					name = res_string,
 					text_id = res_string,
 					resolution = res
@@ -2874,10 +2874,10 @@ function MenuManager.refresh_level_select(node, verify_dlc_owned)
 		print("lobby_mission_item")
 
 		local params = {
-			name = "lobby_mission",
+			localize = "false",
 			callback = "choice_lobby_mission",
 			text_id = "menu_choose_mission",
-			localize = "false"
+			name = "lobby_mission"
 		}
 		local data_node = {
 			type = "MenuItemMultiChoice"
@@ -2886,18 +2886,18 @@ function MenuManager.refresh_level_select(node, verify_dlc_owned)
 		if mission_data then
 			for _, data in ipairs(mission_data) do
 				table.insert(data_node, {
-					_meta = "option",
 					localize = false,
+					_meta = "option",
 					text_id = data.mission,
 					value = data.mission
 				})
 			end
 		else
 			table.insert(data_node, {
+				localize = false,
 				_meta = "option",
-				value = "none",
 				text_id = "none",
-				localize = false
+				value = "none"
 			})
 		end
 
@@ -3042,108 +3042,108 @@ MenuCustomizeControllerCreator.AXIS_ORDERED = {
 }
 MenuCustomizeControllerCreator.CONTROLS_INFO = {
 	move = {
-		type = "movement",
 		category = "normal",
-		hidden = true
+		hidden = true,
+		type = "movement"
 	},
 	up = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_move_forward"
 	},
 	down = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_move_back"
 	},
 	left = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_move_left"
 	},
 	right = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_move_right"
 	},
 	primary_attack = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_fire_weapon"
 	},
 	secondary_attack = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_aim_down_sight"
 	},
 	primary_choice1 = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_weapon_slot1"
 	},
 	primary_choice2 = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_weapon_slot2"
 	},
 	primary_choice3 = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_weapon_slot3"
 	},
 	primary_choice4 = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_weapon_slot4"
 	},
 	switch_weapon = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_switch_weapon"
 	},
 	reload = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_reload"
 	},
 	run = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_sprint"
 	},
 	jump = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_jump"
 	},
 	duck = {
-		type = "movement",
 		category = "normal",
+		type = "movement",
 		text_id = "menu_button_crouch"
 	},
 	melee = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_melee"
 	},
 	interact = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_shout"
 	},
 	use_item = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_deploy"
 	},
 	toggle_chat = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_chat_message"
 	},
 	push_to_talk = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_push_to_talk"
 	},
 	continue = {
@@ -3151,8 +3151,8 @@ MenuCustomizeControllerCreator.CONTROLS_INFO = {
 		category = "normal"
 	},
 	weapon_firemode = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_weapon_firemode"
 	},
 	cash_inspect = {
@@ -3164,111 +3164,111 @@ MenuCustomizeControllerCreator.CONTROLS_INFO = {
 		category = "normal"
 	},
 	comm_wheel = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel"
 	},
 	comm_wheel_yes = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_yes"
 	},
 	comm_wheel_no = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_no"
 	},
 	comm_wheel_found_it = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_found_it"
 	},
 	comm_wheel_wait = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_wait"
 	},
 	comm_wheel_not_here = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_not_here"
 	},
 	comm_wheel_follow_me = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_follow_me"
 	},
 	comm_wheel_assistance = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_assistance"
 	},
 	comm_wheel_enemy = {
-		type = "communication",
 		category = "normal",
+		type = "communication",
 		text_id = "menu_button_comm_wheel_enemy"
 	},
 	activate_warcry = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_activate_warcry"
 	},
 	toggle_hud = {
-		type = "usage",
 		category = "normal",
+		type = "usage",
 		text_id = "menu_button_toggle_hud"
 	},
 	drive = {
-		type = "movement",
 		category = "vehicle",
-		hidden = true
+		hidden = true,
+		type = "movement"
 	},
 	accelerate = {
-		type = "movement",
 		category = "vehicle",
+		type = "movement",
 		text_id = "menu_button_accelerate"
 	},
 	brake = {
-		type = "movement",
 		category = "vehicle",
+		type = "movement",
 		text_id = "menu_button_brake"
 	},
 	turn_left = {
-		type = "movement",
 		category = "vehicle",
+		type = "movement",
 		text_id = "menu_button_turn_left"
 	},
 	turn_right = {
-		type = "movement",
 		category = "vehicle",
+		type = "movement",
 		text_id = "menu_button_turn_right"
 	},
 	hand_brake = {
-		type = "movement",
 		category = "vehicle",
+		type = "movement",
 		text_id = "menu_button_handbrake"
 	},
 	vehicle_rear_camera = {
-		type = "usage",
 		category = "vehicle",
+		type = "usage",
 		text_id = "menu_button_vehicle_rear_camera"
 	},
 	vehicle_shooting_stance = {
-		type = "usage",
 		category = "vehicle",
 		text_id = "menu_button_vehicle_shooting_stance",
+		type = "usage",
 		block = {
 			"normal"
 		}
 	},
 	vehicle_exit = {
-		type = "usage",
 		category = "vehicle",
+		type = "usage",
 		text_id = "menu_button_vehicle_exit"
 	},
 	vehicle_change_seat = {
-		type = "usage",
 		category = "vehicle",
+		type = "usage",
 		text_id = "menu_button_vehicle_change_seat"
 	}
 }
@@ -3304,22 +3304,22 @@ function MenuCustomizeControllerCreator:setup_node(node)
 	node:clean_items()
 
 	local params = {
-		name = "controller_type",
 		callback = "choice_controller_type",
-		text_id = "menu_controller_type"
+		text_id = "menu_controller_type",
+		name = "controller_type"
 	}
 	local data_node = {
 		type = "MenuItemMultiChoice"
 	}
 
 	table.insert(data_node, {
-		_meta = "option",
 		value = "normal",
+		_meta = "option",
 		text_id = "menu_controller_normal"
 	})
 	table.insert(data_node, {
-		_meta = "option",
 		value = "vehicle",
+		_meta = "option",
 		text_id = "menu_controller_vehicle"
 	})
 
@@ -3375,9 +3375,9 @@ function MenuCustomizeControllerCreator:setup_node(node)
 	end
 
 	local params = {
-		name = "set_default_controller",
-		text_id = "menu_set_default_controller",
 		callback = "set_default_controller",
+		text_id = "menu_set_default_controller",
+		name = "set_default_controller",
 		category = controller_category
 	}
 	local new_item = new_node:create_item(nil, params)
@@ -3940,8 +3940,8 @@ function ModMenuCreator:create_mod_menu(node)
 	for _, mod_name in ipairs(sorted_mods) do
 		local conflicts = table.size(mods[mod_name].conflicted) > 0
 		mod_item = self:create_item(node, {
-			enabled = true,
 			localize = false,
+			enabled = true,
 			name = mod_name,
 			text_id = mod_name,
 			hightlight_color = conflicts and tweak_data.screen_colors.important_1,
@@ -3984,6 +3984,9 @@ end
 function ModMenuCreator:create_toggle(node, params)
 	local data_node = {
 		{
+			x = 24,
+			_meta = "option",
+			s_y = 24,
 			s_h = 24,
 			s_w = 24,
 			y = 0,
@@ -3991,13 +3994,13 @@ function ModMenuCreator:create_toggle(node, params)
 			s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 			h = 24,
 			w = 24,
-			s_y = 24,
 			value = "on",
-			x = 24,
-			icon = "ui/main_menu/textures/debug_menu_tickbox",
-			_meta = "option"
+			icon = "ui/main_menu/textures/debug_menu_tickbox"
 		},
 		{
+			x = 0,
+			_meta = "option",
+			s_y = 24,
 			s_h = 24,
 			s_w = 24,
 			y = 0,
@@ -4005,11 +4008,8 @@ function ModMenuCreator:create_toggle(node, params)
 			s_icon = "ui/main_menu/textures/debug_menu_tickbox",
 			h = 24,
 			w = 24,
-			s_y = 24,
 			value = "off",
-			x = 0,
-			icon = "ui/main_menu/textures/debug_menu_tickbox",
-			_meta = "option"
+			icon = "ui/main_menu/textures/debug_menu_tickbox"
 		},
 		type = "MenuItemToggleWithIcon"
 	}
@@ -4025,11 +4025,11 @@ function ModMenuCreator:add_back_button(node)
 	node:delete_item("back")
 
 	local params = {
-		name = "back",
+		visible_callback = "is_pc_controller",
 		previous_node = true,
 		back = true,
-		visible_callback = "is_pc_controller",
-		text_id = "menu_back"
+		text_id = "menu_back",
+		name = "back"
 	}
 	local new_item = node:create_item(nil, params)
 
@@ -4038,8 +4038,8 @@ end
 
 function MenuManager:create_menu_item_background(panel, coord_x, coord_y, width, layer)
 	local menu_item_background = panel:bitmap({
-		texture = "ui/main_menu/textures/debug_menu_buttons",
 		visible = true,
+		texture = "ui/main_menu/textures/debug_menu_buttons",
 		name = "background_image",
 		texture_rect = {
 			0,

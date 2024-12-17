@@ -34,10 +34,10 @@ end
 
 function RaidGUIControlKickMuteWidget:_create_panel(parent, params)
 	local parent_params = {
-		visible = false,
-		halign = "scale",
 		name = "kick_mute_widget_panel",
+		halign = "scale",
 		valign = "top",
+		visible = false,
 		y = params.y,
 		h = RaidGUIControlKickMuteWidget.HEIGHT
 	}
@@ -105,8 +105,8 @@ function RaidGUIControlKickMuteWidget:_create_mute_button()
 	local move_up_index = self._index > 1 and self._index - 1 or 3
 	local move_down_index = self._index % 3 + 1
 	local mute_button_params = {
-		active_icon = "players_icon_unmute",
 		inactive_icon = "players_icon_mute",
+		active_icon = "players_icon_unmute",
 		name = "mute_button_" .. tostring(self._index),
 		on_click_callback = callback(self, self, "on_mute_pressed"),
 		on_menu_move = {
@@ -156,8 +156,8 @@ function RaidGUIControlKickMuteWidget:_create_invite_button()
 	local move_up_index = self._index > 1 and self._index - 1 or 3
 	local move_down_index = self._index % 3 + 1
 	local invite_button_params = {
-		active_icon = "players_icon_xbox_invite",
 		inactive_icon = "players_icon_xbox_invite",
+		active_icon = "players_icon_xbox_invite",
 		visible = false,
 		name = "invite_button_" .. tostring(self._index),
 		on_click_callback = callback(self, self, "on_invite_pressed"),

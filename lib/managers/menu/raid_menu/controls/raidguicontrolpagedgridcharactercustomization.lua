@@ -167,8 +167,8 @@ function RaidGUIControlPagedGridCharacterCustomization:_create_paging_controls()
 		}
 		self._paging_controls_panel = self._paged_grid_panel:panel(self._paging_controls_panel_params)
 		self._page_stepper_params = {
-			x = 0,
 			h = 25,
+			x = 0,
 			y = 0,
 			name = self._params.name .. "_page_stepper_stepper",
 			w = self._paging_controls_panel:w(),
@@ -247,8 +247,8 @@ function RaidGUIControlPagedGridCharacterCustomization:_create_filtering_control
 	}
 	self._filtering_controls_panel = self._paged_grid_panel:panel(self._filtering_controls_panel_params)
 	self._filter_stepper_params = {
-		x = 0,
 		h = 25,
+		x = 0,
 		y = 0,
 		name = self._params.name .. "_filter_stepper_stepper",
 		w = self._filtering_controls_panel:w(),

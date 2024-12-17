@@ -98,8 +98,8 @@ function GuiDataManager:_aspect_ratio()
 end
 
 local base_res = {
-	x = 1920,
-	y = 1080
+	y = 1080,
+	x = 1920
 }
 
 function GuiDataManager:_setup_workspace_data()
@@ -234,8 +234,8 @@ function GuiDataManager:scaled_size()
 	local h = math.round(self:_get_safe_rect().height * base_res.y)
 
 	return {
-		y = 0,
 		x = 0,
+		y = 0,
 		width = w,
 		height = h
 	}

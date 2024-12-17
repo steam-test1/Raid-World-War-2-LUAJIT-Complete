@@ -47,9 +47,9 @@ function RaidGUIControlWeaponPointPeerLoot:_create_weapon_point_details()
 	self._weapon_point_image = self._object:bitmap(params_weapon_point_image)
 	local params_player_name = {
 		layer = 1,
-		align = "left",
 		text = "",
 		name = "peer_weapon_point_name_label",
+		align = "left",
 		x = RaidGUIControlWeaponPointPeerLoot.TEXT_X,
 		y = RaidGUIControlWeaponPointPeerLoot.NAME_Y,
 		w = self._object:w() - RaidGUIControlWeaponPointPeerLoot.TEXT_X,
@@ -64,8 +64,8 @@ function RaidGUIControlWeaponPointPeerLoot:_create_weapon_point_details()
 
 	local params_weapon_point_description = {
 		layer = 1,
-		align = "left",
 		name = "weapon_point_description_label",
+		align = "left",
 		text = self:translate("weapon_point", true),
 		x = self._name_label:x(),
 		y = self._name_label:y() + self._name_label:h() + RaidGUIControlWeaponPointPeerLoot.NAME_PADDING_DOWN,

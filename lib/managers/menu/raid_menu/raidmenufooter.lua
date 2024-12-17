@@ -48,12 +48,12 @@ function RaidMenuFooter:_create_name_and_gold_panel()
 	local _, _, w1, _ = string_width_measure_text_field:text_rect()
 	w1 = w1 + 64
 	local params_profile_gold_label = {
+		y = 0,
+		x = 0,
 		h = 32,
 		vertical = "bottom",
 		name = "gold_label",
 		type = "label",
-		y = 0,
-		x = 0,
 		text = username,
 		w = w1,
 		color = tweak_data.gui.colors.raid_grey,
@@ -62,9 +62,9 @@ function RaidMenuFooter:_create_name_and_gold_panel()
 	}
 	local gold_icon = tweak_data.gui.icons.gold_amount_footer
 	local gold_icon_params = {
+		halign = "scale",
 		y = 0,
 		valign = "scale",
-		halign = "scale",
 		texture = gold_icon.texture,
 		texture_rect = gold_icon.texture_rect,
 		x = w1,

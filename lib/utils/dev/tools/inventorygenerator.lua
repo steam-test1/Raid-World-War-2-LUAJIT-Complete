@@ -23,12 +23,12 @@ function InventoryGenerator.next_defid(category, defid_list)
 
 	if category then
 		local categories = {
+			weapon_skins = 100000,
+			drills = 70000,
 			safes = 50000,
 			bundles = 30000,
 			contents = 10000,
-			gameplay = 1,
-			weapon_skins = 100000,
-			drills = 70000
+			gameplay = 1
 		}
 
 		if categories[category] then

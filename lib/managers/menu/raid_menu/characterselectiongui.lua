@@ -42,22 +42,22 @@ end
 function CharacterSelectionGui:_layout()
 	self:_disable_dof()
 	self._root_panel:label({
+		name = "subtitle_profiles",
 		h = 32,
 		w = 416,
 		y = 96,
 		x = 0,
-		name = "subtitle_profiles",
 		text = self:translate("character_selection_subtitle", true),
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.large,
 		color = tweak_data.gui.colors.raid_white
 	})
 	self._root_panel:label({
+		name = "subtitle_small_profiles",
 		h = 32,
 		w = 416,
 		y = 128,
 		x = 0,
-		name = "subtitle_small_profiles",
 		text = self:translate("character_selection_subtitle_small", true),
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.small,
@@ -65,6 +65,7 @@ function CharacterSelectionGui:_layout()
 	})
 
 	self._characters_list = self._root_panel:list_active({
+		name = "characters_list",
 		vertical_spacing = 2,
 		item_h = 94,
 		selection_enabled = true,
@@ -72,7 +73,6 @@ function CharacterSelectionGui:_layout()
 		w = 650,
 		y = 224,
 		x = 0,
-		name = "characters_list",
 		item_class = RaidGUIControlListItemCharacterSelect,
 		on_item_clicked_callback = callback(self, self, "_on_item_click"),
 		on_item_selected_callback = callback(self, self, "_on_item_selected"),
@@ -81,18 +81,18 @@ function CharacterSelectionGui:_layout()
 		special_action_callback = callback(self, self, "_character_action_callback")
 	})
 	self._select_character_button = self._root_panel:long_primary_button({
+		name = "select_character_button",
+		visible = false,
 		y = 736,
 		x = 0,
-		visible = false,
-		name = "select_character_button",
 		text = self:translate("character_selection_select_character_button", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		on_click_callback = callback(self, self, "on_select_character_button")
 	})
 	self._select_character_button_disabled = self._root_panel:long_primary_button_disabled({
+		name = "select_character_button_disabled",
 		y = 736,
 		x = 0,
-		name = "select_character_button_disabled",
 		text = self:translate("character_selection_selected_character_button", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		visible = not managers.controller:is_controller_present()
@@ -102,13 +102,13 @@ function CharacterSelectionGui:_layout()
 	self._select_character_button_disabled:set_x((416 - self._select_character_button_disabled:w()) / 2)
 
 	self._right_side_info = self._root_panel:create_custom_control(RaidGUIControlCharacterDescription, {
+		name = "right_side_info_panel",
 		h = 720,
 		w = 516,
 		y = 0,
-		x = 1308,
-		name = "right_side_info_panel"
+		x = 1308
 	}, {
-		slot = nil,
+		Vector3 = nil,
 		class = nil
 	})
 
@@ -137,8 +137,8 @@ function CharacterSelectionGui:_data_source_characters_list()
 			})
 		else
 			table.insert(characters, {
-				text = "",
 				info = "",
+				text = "",
 				value = slot_index
 			})
 		end

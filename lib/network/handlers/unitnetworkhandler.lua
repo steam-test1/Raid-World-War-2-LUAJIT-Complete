@@ -162,10 +162,10 @@ function UnitNetworkHandler:action_walk_start(unit, first_nav_point, nav_link_ya
 		no_strafe = no_strafe,
 		end_pose = end_pose,
 		blocks = {
-			turn = -1,
-			act = -1,
 			walk = -1,
-			idle = -1
+			idle = -1,
+			turn = -1,
+			act = -1
 		}
 	}
 
@@ -224,8 +224,8 @@ function UnitNetworkHandler:action_warp_start(unit, has_pos, pos, has_rot, yaw, 
 	end
 
 	local action_desc = {
-		body_part = 1,
 		type = "warp",
+		body_part = 1,
 		position = has_pos and pos,
 		rotation = has_rot and Rotation(360 * (yaw - 1) / 254, 0, 0)
 	}
@@ -834,9 +834,9 @@ function UnitNetworkHandler:action_aim_state(cop, state)
 
 	if state then
 		local shoot_action = {
-			body_part = 3,
 			type = "shoot",
-			block_type = "action"
+			block_type = "action",
+			body_part = 3
 		}
 
 		cop:movement():action_request(shoot_action)
@@ -1901,44 +1901,44 @@ function UnitNetworkHandler:sync_player_movement_state(unit, state, down_time, u
 	if local_peer:unit() and unit:key() == local_peer:unit():key() then
 		local valid_transitions = {
 			standard = {
+				carry = true,
 				incapacitated = true,
 				tased = true,
-				bleed_out = true,
-				carry = true
+				bleed_out = true
 			},
 			carry = {
+				standard = true,
 				incapacitated = true,
 				tased = true,
-				bleed_out = true,
-				standard = true
+				bleed_out = true
 			},
 			mask_off = {
-				carry = true,
-				standard = true
+				standard = true,
+				carry = true
 			},
 			bleed_out = {
+				standard = true,
 				carry = true,
-				fatal = true,
-				standard = true
+				fatal = true
 			},
 			fatal = {
-				carry = true,
-				standard = true
+				standard = true,
+				carry = true
 			},
 			tased = {
-				incapacitated = true,
 				carry = true,
+				incapacitated = true,
 				standard = true
 			},
 			incapacitated = {
-				carry = true,
-				standard = true
+				standard = true,
+				carry = true
 			},
 			clean = {
+				civilian = true,
 				standard = true,
 				carry = true,
-				mask_off = true,
-				civilian = true
+				mask_off = true
 			}
 		}
 
@@ -2289,8 +2289,8 @@ function UnitNetworkHandler:set_teammate_hud(unit, percent, id, sender)
 	if id == PlayerDamage.HUD_NET_EVENTS.health then
 		if character_data and character_data.panel_id then
 			managers.hud:set_teammate_health(character_data.panel_id, {
-				max = 1,
 				total = 1,
+				max = 1,
 				current = percent / 100
 			})
 			character_data.unit:character_damage():set_health_ratio(percent / 100)
@@ -2304,8 +2304,8 @@ function UnitNetworkHandler:set_teammate_hud(unit, percent, id, sender)
 	elseif id == PlayerDamage.HUD_NET_EVENTS.armor then
 		if character_data and character_data.panel_id then
 			managers.hud:set_teammate_armor(character_data.panel_id, {
-				max = 1,
 				total = 1,
+				max = 1,
 				current = percent / 100
 			})
 		else
@@ -2337,8 +2337,8 @@ function UnitNetworkHandler:set_armor(unit, percent, sender)
 
 	if character_data and character_data.panel_id then
 		managers.hud:set_teammate_armor(character_data.panel_id, {
-			max = 1,
 			total = 1,
+			max = 1,
 			current = percent / 100
 		})
 	else
@@ -2358,8 +2358,8 @@ function UnitNetworkHandler:set_health(unit, percent, sender)
 
 	if character_data and character_data.panel_id then
 		managers.hud:set_teammate_health(character_data.panel_id, {
-			max = 1,
 			total = 1,
+			max = 1,
 			current = health_ratio
 		})
 	else
@@ -2561,9 +2561,10 @@ function UnitNetworkHandler:send_statistics(total_kills, total_specials_kills, t
 	managers.statistics:on_statistics_recieved(peer:id(), total_kills, total_specials_kills, total_head_shots, accuracy, downs, revives)
 end
 
-function UnitNetworkHandler:sync_statistics_result(top_stat_1_id, top_stat_1_peer_id, top_stat_1_peer_name, top_stat_1_score, top_stat_2_id, top_stat_2_peer_id, top_stat_2_peer_name, top_stat_2_score, top_stat_3_id, top_stat_3_peer_id, top_stat_3_peer_name, top_stat_3_score, bottom_stat_1_id, bottom_stat_1_peer_id, bottom_stat_1_peer_name, bottom_stat_1_score, bottom_stat_2_id, bottom_stat_2_peer_id, bottom_stat_2_peer_name, bottom_stat_2_score, bottom_stat_3_id, bottom_stat_3_peer_id, bottom_stat_3_peer_name, bottom_stat_3_score)
+function UnitNetworkHandler:sync_statistics_result(top_stat_1_id, top_stat_1_peer_id, top_stat_1_peer_name, top_stat_1_score, top_stat_2_id, top_stat_2_peer_id, top_stat_2_peer_name, top_stat_2_score, top_stat_3_id, top_stat_3_peer_id, top_stat_3_peer_name, top_stat_3_score, bottom_stat_1_id, bottom_stat_1_peer_id, bottom_stat_1_peer_name, bottom_stat_1_score, bottom_stat_2_id, bottom_stat_2_peer_id, bottom_stat_2_peer_name, bottom_stat_2_score, bottom_stat_3_id, bottom_stat_3_peer_id, bottom_stat_3_peer_name, bottom_stat_3_score, total_downs, all_players_downed)
 	managers.statistics:set_top_stats(top_stat_1_id, top_stat_1_peer_id, top_stat_1_peer_name, top_stat_1_score, top_stat_2_id, top_stat_2_peer_id, top_stat_2_peer_name, top_stat_2_score, top_stat_3_id, top_stat_3_peer_id, top_stat_3_peer_name, top_stat_3_score)
 	managers.statistics:set_bottom_stats(bottom_stat_1_id, bottom_stat_1_peer_id, bottom_stat_1_peer_name, bottom_stat_1_score, bottom_stat_2_id, bottom_stat_2_peer_id, bottom_stat_2_peer_name, bottom_stat_2_score, bottom_stat_3_id, bottom_stat_3_peer_id, bottom_stat_3_peer_name, bottom_stat_3_score)
+	managers.statistics:set_downed_stats(total_downs, all_players_downed)
 	managers.system_event_listener:call_listeners(CoreSystemEventListenerManager.SystemEventListenerManager.TOP_STATS_READY)
 end
 
@@ -3598,9 +3599,9 @@ local function warcry_dmg_func(peer_name, data)
 	local percent = Utl.mul_to_string_percent(data)
 	local notification_data = {
 		icon = "test_icon",
-		id = "skill_ammo_warcry_from",
-		force = true,
 		priority = 1,
+		force = true,
+		id = "skill_ammo_warcry_from",
 		duration = 5,
 		notification_type = HUDNotification.ICON,
 		text = managers.localization:text("skill_ammo_warcry_from", {

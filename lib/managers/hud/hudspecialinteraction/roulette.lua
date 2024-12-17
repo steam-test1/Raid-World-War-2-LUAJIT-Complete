@@ -84,8 +84,8 @@ function HUDSpecialInteractionRoulette:_create_wheel()
 	circle:set_center(self._object:center())
 
 	self._circle = {
-		valid = true,
 		completed = false,
+		valid = true,
 		circle = circle
 	}
 end

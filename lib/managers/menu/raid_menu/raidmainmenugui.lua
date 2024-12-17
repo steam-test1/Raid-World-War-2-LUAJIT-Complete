@@ -75,32 +75,32 @@ end
 
 function RaidMainMenuGui:_layout_title_logo()
 	self._title_label = self._root_panel:text({
+		h = 64,
 		y = 0,
 		x = 0,
 		text = "",
-		h = 64,
 		w = self._root_panel:w(),
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_56
 	})
 	self._title_icon = self._root_panel:bitmap({
-		y = 0,
-		x = 0,
 		h = 64,
 		w = 64,
+		y = 0,
+		x = 0,
 		texture = tweak_data.gui.icons.missions_camp.texture,
 		texture_rect = tweak_data.gui.icons.missions_camp.texture_rect
 	})
 	local logo_texture, logo_texture_rect = nil
-	local is_halloween = tweak_data.lootdrop:get_month_event() == LootDropTweakData.EVENT_MONTH_HALLOWEEN
+	local event_data = managers.event_system:active_event_data()
 	local is_freeweek = Steam:is_subscribed_from_free_weekend()
 
 	if is_freeweek then
 		logo_texture = tweak_data.gui.icons.raid_logo_small.texture
 		logo_texture_rect = tweak_data.gui.icons.raid_logo_small.texture_rect
-	elseif is_halloween then
-		logo_texture = tweak_data.gui.icons.raid_hw_logo_small.texture
-		logo_texture_rect = tweak_data.gui.icons.raid_hw_logo_small.texture_rect
+	elseif event_data and event_data.game_logo then
+		logo_texture = event_data.game_logo.texture
+		logo_texture_rect = event_data.game_logo.texture_rect
 	elseif managers.dlc:is_dlc_unlocked(DLCTweakData.DLC_NAME_SPECIAL_EDITION) then
 		logo_texture = tweak_data.gui.icons.raid_se_logo_small.texture
 		logo_texture_rect = tweak_data.gui.icons.raid_se_logo_small.texture_rect
@@ -110,9 +110,9 @@ function RaidMainMenuGui:_layout_title_logo()
 	end
 
 	self._raid_logo_small = self._root_panel:image({
+		name = "raid_logo_small",
 		y = 0,
 		x = 0,
-		name = "raid_logo_small",
 		texture = logo_texture,
 		texture_rect = logo_texture_rect
 	})
@@ -167,13 +167,13 @@ end
 function RaidMainMenuGui:_layout_list_menu()
 	if Network:multiplayer() then
 		local list_menu_params_multiplayer = {
-			y = 120,
-			loop_items = true,
 			name = "list_menu",
+			loop_items = true,
 			h = 972,
 			w = 480,
-			selection_enabled = true,
+			y = 120,
 			x = 15,
+			selection_enabled = true,
 			on_item_clicked_callback = callback(self, self, "_on_list_menu_item_selected"),
 			data_source_callback = callback(self, self, "_list_menu_data_source"),
 			on_menu_move = {}
@@ -188,13 +188,13 @@ function RaidMainMenuGui:_layout_list_menu()
 		self._list_menu = self._root_panel:list(list_menu_params_multiplayer)
 	else
 		local list_menu_params = {
-			y = 120,
-			loop_items = true,
 			name = "list_menu",
+			loop_items = true,
 			h = 972,
 			w = 480,
-			selection_enabled = true,
+			y = 120,
 			x = 15,
+			selection_enabled = true,
 			on_item_clicked_callback = callback(self, self, "_on_list_menu_item_selected"),
 			data_source_callback = callback(self, self, "_list_menu_data_source"),
 			on_menu_move = {}
@@ -223,11 +223,11 @@ function RaidMainMenuGui:_layout_version_id()
 	end
 
 	local item_params = {
+		name = "version_id",
+		w = 600,
 		x = 0,
 		alpha = 0.33,
-		name = "version_id",
 		h = 100,
-		w = 600,
 		y = self._root_panel:h() - 50,
 		text = text
 	}
@@ -314,9 +314,9 @@ function RaidMainMenuGui:_layout_kick_mute_widget()
 		self._widget_panel:clear()
 	else
 		local widget_panel_params = {
+			name = "widget_panel",
 			valign = "top",
 			halign = "right",
-			name = "widget_panel",
 			y = RaidMainMenuGui.WIDGET_PANEL_Y,
 			w = RaidMainMenuGui.WIDGET_PANEL_W,
 			h = RaidMainMenuGui.WIDGET_PANEL_H
@@ -328,9 +328,9 @@ function RaidMainMenuGui:_layout_kick_mute_widget()
 
 	if not alive(self._widget_label_panel) then
 		local label_panel_params = {
+			h = 64,
 			name = "widget_label_panel",
 			halign = "scale",
-			h = 64,
 			visible = false
 		}
 		self._widget_label_panel = self._widget_panel:get_engine_panel():panel(label_panel_params)
@@ -339,12 +339,12 @@ function RaidMainMenuGui:_layout_kick_mute_widget()
 	end
 
 	local widget_title_params = {
-		vertical = "center",
-		x = 32,
-		align = "left",
-		name = "widget_title",
 		h = 64,
+		vertical = "center",
 		halign = "left",
+		name = "widget_title",
+		align = "left",
+		x = 32,
 		w = self._widget_panel:w() - 32,
 		font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.din_compressed, tweak_data.gui.font_sizes.menu_list),
 		font_size = tweak_data.gui.font_sizes.menu_list,
@@ -353,12 +353,12 @@ function RaidMainMenuGui:_layout_kick_mute_widget()
 	}
 	local widget_title = self._widget_label_panel:text(widget_title_params)
 	local widget_action_title_params = {
+		h = 64,
 		vertical = "center",
 		halign = "right",
-		align = "right",
 		name = "widget_action_title",
-		h = 64,
 		w = 150,
+		align = "right",
 		text = "",
 		font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.din_compressed, tweak_data.gui.font_sizes.extra_small),
 		font_size = tweak_data.gui.font_sizes.extra_small,
@@ -506,8 +506,8 @@ function RaidMainMenuGui:_list_menu_data_source()
 		text = utf8.to_upper(managers.localization:text("menu_resume_game"))
 	})
 	table.insert(_list_items, {
-		callback = "raid_play_tutorial",
 		item_font_size = 48,
+		callback = "raid_play_tutorial",
 		item_h = 72,
 		availability_flags = {
 			RaidGUIItemAvailabilityFlag.SHOULD_SHOW_TUTORIAL
@@ -523,8 +523,8 @@ function RaidMainMenuGui:_list_menu_data_source()
 		text = utf8.to_upper(managers.localization:text("menu_tutorial_skip_hl"))
 	})
 	table.insert(_list_items, {
-		callback = "raid_play_online",
 		item_font_size = 60,
+		callback = "raid_play_online",
 		item_h = 72,
 		availability_flags = {
 			RaidGUIItemAvailabilityFlag.IS_IN_MAIN_MENU,

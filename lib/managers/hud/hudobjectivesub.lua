@@ -36,9 +36,9 @@ end
 
 function HUDObjectiveSub:_create_panel(objectives_panel)
 	local panel_params = {
-		name = "sub_objective",
 		halign = "scale",
 		valign = "top",
+		name = "sub_objective",
 		w = objectives_panel:w(),
 		h = HUDObjectiveSub.H
 	}
@@ -47,13 +47,13 @@ end
 
 function HUDObjectiveSub:_create_objective_text()
 	local objective_text_params = {
+		y = 0,
+		x = 0,
 		align = "right",
 		halign = "right",
 		valign = "center",
 		vertical = "center",
 		name = "objective_text",
-		y = 0,
-		x = 0,
 		font = HUDObjectiveSub.OBJECTIVE_TEXT_FONT,
 		font_size = HUDObjectiveSub.OBJECTIVE_TEXT_FONT_SIZE,
 		text = utf8.to_upper(self._objective.text)
@@ -65,9 +65,9 @@ end
 
 function HUDObjectiveSub:_create_amount()
 	local amount_panel_params = {
-		name = "amount_panel",
 		halign = "right",
 		valign = "center",
+		name = "amount_panel",
 		w = self._object:h(),
 		h = self._object:h()
 	}
@@ -87,8 +87,8 @@ function HUDObjectiveSub:_create_amount()
 	amount_progress_background:set_center_y(self._amount_panel:h() / 2)
 
 	local amount_progress_fill_params = {
-		name = "amount_progress_fill",
 		render_template = "VertexColorTexturedRadial",
+		name = "amount_progress_fill",
 		texture = tweak_data.gui.icons[HUDObjectiveSub.AMOUNT_FILL_ICON].texture,
 		texture_rect = {
 			tweak_data.gui:icon_w(HUDObjectiveSub.AMOUNT_FILL_ICON),
@@ -107,9 +107,9 @@ function HUDObjectiveSub:_create_amount()
 
 	local current_amount_text_params = {
 		align = "center",
-		name = "current_amount_text",
 		text = "00",
 		vertical = "center",
+		name = "current_amount_text",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -123,9 +123,9 @@ function HUDObjectiveSub:_create_amount()
 
 	local slash_params = {
 		align = "center",
-		name = "slash",
 		text = "/",
 		vertical = "center",
+		name = "slash",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -139,9 +139,9 @@ function HUDObjectiveSub:_create_amount()
 
 	local total_amount_text_params = {
 		align = "center",
-		name = "total_amount_text",
 		text = "00",
 		vertical = "center",
+		name = "total_amount_text",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -155,9 +155,9 @@ function HUDObjectiveSub:_create_amount()
 
 	local percentage_amount_text_params = {
 		align = "center",
-		name = "percentage_amount_text",
-		vertical = "center",
 		text = "00%",
+		vertical = "center",
+		name = "percentage_amount_text",
 		w = self._amount_panel:w(),
 		h = self._amount_panel:h(),
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
@@ -168,9 +168,9 @@ end
 
 function HUDObjectiveSub:_create_checkbox()
 	local checkbox_panel_params = {
-		name = "checkbox_panel",
 		halign = "right",
 		valign = "center",
+		name = "checkbox_panel",
 		w = self._object:h(),
 		h = self._object:h()
 	}
@@ -190,8 +190,8 @@ function HUDObjectiveSub:_create_checkbox()
 	checkbox_unchecked:set_center_y(self._checkbox_panel:h() / 2)
 
 	local checkbox_checked_params = {
-		name = "checkbox_checked",
 		visible = false,
+		name = "checkbox_checked",
 		texture = tweak_data.gui.icons[HUDObjectiveSub.CHECKBOX_CHECKED_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDObjectiveSub.CHECKBOX_CHECKED_ICON].texture_rect
 	}

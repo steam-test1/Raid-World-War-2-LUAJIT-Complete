@@ -1879,12 +1879,12 @@ end
 
 BaseElement = BaseElement or class()
 BaseElement.BASE_ATTRIBUTE_MAP = BaseElement.BASE_ATTRIBUTE_MAP or {
-	start_time_id_var = true,
 	start_time_element_id = true,
 	start_time = true,
-	repeat_nr = true,
 	delayed_filter = true,
-	filter = true
+	filter = true,
+	start_time_id_var = true,
+	repeat_nr = true
 }
 BaseElement.SAVE_STATE = true
 
@@ -3945,24 +3945,24 @@ end
 BodyElement = BodyElement or class(BaseElement)
 BodyElement.NAME = "body"
 BodyElement.VALID_MOTION_MAP = BodyElement.VALID_MOTION_MAP or {
-	keyframed = "set_keyframed",
 	dynamic = "set_dynamic",
-	fixed = "set_fixed"
+	fixed = "set_fixed",
+	keyframed = "set_keyframed"
 }
 BodyElement.FUNC_MAP = BodyElement.FUNC_MAP or {
+	remove_ray_type = "remove_ray_type",
+	add_ray_type = "add_ray_type",
 	interpolate = "interpolate",
-	enabled = "set_enabled",
 	mover = "set_mover",
 	pushed_by_mover = "set_pushed_by_mover",
 	mover_collision = "set_mover_collision",
 	body_collision = "set_body_collision",
-	motion = "set_motion",
-	remove_ray_type = "remove_ray_type",
-	add_ray_type = "add_ray_type"
+	enabled = "set_enabled",
+	motion = "set_motion"
 }
 BodyElement.VALID_MOVER_MAP = BodyElement.VALID_MOVER_MAP or {
-	none = "",
-	callback = "callback"
+	callback = "callback",
+	none = ""
 }
 
 function BodyElement:init(node, unit_element)
@@ -4787,8 +4787,8 @@ MaterialElement.FUNC_MAP = MaterialElement.FUNC_MAP or {
 	render_template = "set_render_template"
 }
 MaterialElement.TIMER_STATE_MAP = MaterialElement.TIMER_STATE_MAP or {
-	stop = 0,
 	play = 1,
+	stop = 0,
 	pause = 0
 }
 
@@ -6109,17 +6109,17 @@ end
 SpawnUnitElement = SpawnUnitElement or class(BaseElement)
 SpawnUnitElement.NAME = "spawn_unit"
 SpawnUnitElement.SPAWN_UNIT_ATTRIBUTE_MAP = SpawnUnitElement.SPAWN_UNIT_ATTRIBUTE_MAP or {
-	src_link_obj = true,
-	transfer_velocity = true,
-	run_sequence = true,
-	to_trigger = true,
 	rotation = true,
+	run_sequence = true,
 	name = true,
 	to_trigger_sequence = true,
-	position = true,
+	to_trigger = true,
 	from_trigger_sequence = true,
 	from_trigger = true,
-	dest_link_obj = true
+	dest_link_obj = true,
+	src_link_obj = true,
+	transfer_velocity = true,
+	position = true
 }
 
 function SpawnUnitElement:init(node, unit_element)

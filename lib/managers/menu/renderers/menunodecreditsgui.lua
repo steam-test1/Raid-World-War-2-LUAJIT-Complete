@@ -62,10 +62,10 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 	bg:set_width(text_width)
 	bg:set_size(self._clipping_panel:size())
 	self._clipping_panel:gradient({
-		orientation = "vertical",
-		visible = false,
 		y = 0,
 		x = 0,
+		orientation = "vertical",
+		visible = false,
 		w = self._clipping_panel:width(),
 		h = 75 * global_scale,
 		layer = self.layers.items + 1,
@@ -77,9 +77,9 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 		}
 	})
 	self._clipping_panel:gradient({
+		x = 0,
 		orientation = "vertical",
 		visible = false,
-		x = 0,
 		y = self._clipping_panel:height() - 75 * global_scale,
 		w = self._clipping_panel:width(),
 		h = 75 * global_scale,
@@ -101,8 +101,8 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 	bg:animate(animate_fade_in)
 
 	local blur = self._fullscreen_ws:panel():bitmap({
-		texture = "guis/textures/test_blur_df",
 		render_template = "VertexColorTexturedBlur3D",
+		texture = "guis/textures/test_blur_df",
 		w = self._fullscreen_ws:panel():w(),
 		h = self._fullscreen_ws:panel():h(),
 		layer = self.layers.background - 1
@@ -150,13 +150,13 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 
 			height = height * global_scale
 			local text_field = self._credits_panel:text({
+				halign = "left",
+				x = 0,
+				align = "center",
+				vertical = "bottom",
+				wrap = true,
 				word_wrap = true,
 				h = 0,
-				x = 0,
-				wrap = true,
-				vertical = "bottom",
-				halign = "left",
-				align = "center",
 				text = data.text,
 				y = ypos,
 				w = text_width,

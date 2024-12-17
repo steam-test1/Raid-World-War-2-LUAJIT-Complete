@@ -206,10 +206,6 @@ function CopBrain:post_init()
 	if not self._unit:contour() then
 		debug_pause_unit(self._unit, "[CopBrain:post_init] character missing contour extension", self._unit)
 	end
-
-	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_PUMKIN_HEADS) and self._unit:damage() then
-		self._unit:damage():has_then_run_sequence_simple("halloween_2017")
-	end
 end
 
 function CopBrain:set_logic_queued(data)
@@ -886,14 +882,14 @@ function CopBrain:on_cool_state_changed(state)
 	if state then
 		alert_listen_filter = managers.groupai:state():get_unit_type_filter("criminals_enemies_civilians")
 		alert_types = {
-			aggression = true,
-			vo_distress = true,
 			vo_intimidate = true,
 			vo_cbt = true,
 			bullet = true,
 			footstep = true,
-			fire = true,
-			explosion = true
+			explosion = true,
+			aggression = true,
+			vo_distress = true,
+			fire = true
 		}
 
 		if self._logic_data and self._logic_data.internal_data.vision_cool then
@@ -904,10 +900,10 @@ function CopBrain:on_cool_state_changed(state)
 	else
 		alert_listen_filter = managers.groupai:state():get_unit_type_filter("criminal")
 		alert_types = {
+			explosion = true,
 			aggression = true,
 			bullet = true,
-			fire = true,
-			explosion = true
+			fire = true
 		}
 
 		if self._logic_data then
@@ -1041,16 +1037,16 @@ function CopBrain:convert_to_criminal(mastermind_criminal)
 	self._unit:movement():set_stance("hos")
 
 	local action_data = {
+		type = "act",
 		clamp_to_graph = true,
 		body_part = 1,
-		type = "act",
 		variant = "attached_collar_enter",
 		blocks = {
-			hurt = -1,
 			action = -1,
 			walk = -1,
 			heavy_hurt = -1,
-			light_hurt = -1
+			light_hurt = -1,
+			hurt = -1
 		}
 	}
 

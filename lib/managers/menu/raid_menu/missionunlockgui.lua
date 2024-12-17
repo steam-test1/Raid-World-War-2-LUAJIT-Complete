@@ -53,8 +53,8 @@ end
 function MissionUnlockGui:_layout_contents_panel()
 	local contents_panel_params = {
 		halign = "scale",
-		name = "contents_panel",
-		valign = "scale"
+		valign = "scale",
+		name = "contents_panel"
 	}
 	self._contents_panel = self._root_panel:panel(contents_panel_params)
 end
@@ -114,8 +114,8 @@ end
 
 function MissionUnlockGui:_layout_unlock_button()
 	local unlock_button_params = {
-		name = "unlock_button",
 		layer = 1,
+		name = "unlock_button",
 		text = self:translate("mission_unlock_button_text", true),
 		on_click_callback = callback(self, self, "show_unlock_confirmation_prompt")
 	}
@@ -151,15 +151,15 @@ function MissionUnlockGui:_play_control_briefing_video(mission_id)
 	end
 
 	local video_panel_params = {
-		layer = 100,
-		is_root_panel = true
+		is_root_panel = true,
+		layer = 100
 	}
 	self._video_panel = RaidGUIPanel:new(self._full_panel, video_panel_params)
 	local video_panel_background_params = {
-		name = "video_background",
-		halign = "scale",
 		layer = 1,
+		halign = "scale",
 		valign = "scale",
+		name = "video_background",
 		color = Color.black
 	}
 	local video_panel_background = self._video_panel:rect(video_panel_background_params)
@@ -180,8 +180,8 @@ function MissionUnlockGui:_play_control_briefing_video(mission_id)
 
 	local press_any_key_text = managers.controller:is_using_controller() and "press_any_key_to_skip_controller" or "press_any_key_to_skip"
 	local press_any_key_params = {
-		name = "press_any_key_prompt",
 		alpha = 0,
+		name = "press_any_key_prompt",
 		font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.din_compressed, tweak_data.gui.font_sizes.size_32),
 		font_size = tweak_data.gui.font_sizes.size_32,
 		text = utf8.to_upper(managers.localization:text(press_any_key_text)),

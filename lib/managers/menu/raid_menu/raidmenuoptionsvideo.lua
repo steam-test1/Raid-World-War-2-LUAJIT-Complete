@@ -38,8 +38,8 @@ function RaidMenuOptionsVideo:_layout_video()
 		text = managers.localization:to_upper_text("menu_options_video_advanced_button"),
 		on_click_callback = callback(self, self, "on_click_options_video_advanced_button"),
 		on_menu_move = {
-			down = "stepper_menu_resolution",
-			up = "default_video"
+			up = "default_video",
+			down = "stepper_menu_resolution"
 		}
 	}
 	self._btn_advanced_options = self._root_panel:long_tertiary_button(previous_panel)
@@ -114,8 +114,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._stepper_menu_window_mode = self._root_panel:stepper(previous_panel)
 	previous_panel = {
-		value_format = "%02d%%",
 		name = "effect_quality",
+		value_format = "%02d%%",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_effect_quality"),
@@ -128,8 +128,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	self._progress_bar_menu_effect_quality = self._root_panel:slider(previous_panel)
 	previous_panel = {
 		value = 0,
-		value_format = "%02d%%",
 		name = "progress_bar_menu_brightness",
+		value_format = "%02d%%",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_brightness"),
@@ -172,8 +172,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._toggle_menu_camera_accel = self._root_panel:toggle_button(previous_panel)
 	previous_panel = {
-		value_format = "%02d%%",
 		name = "camera_shake",
+		value_format = "%02d%%",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_camera_shake"),
@@ -254,8 +254,8 @@ function RaidMenuOptionsVideo:data_source_stepper_menu_window_mode()
 		info = managers.localization:to_upper_text("menu_windowed")
 	})
 	table.insert(result, {
-		value = "WINDOWED_FULLSCREEN",
 		selected = true,
+		value = "WINDOWED_FULLSCREEN",
 		text = managers.localization:to_upper_text("menu_windowed_fullscreen"),
 		info = managers.localization:to_upper_text("menu_windowed_fullscreen")
 	})

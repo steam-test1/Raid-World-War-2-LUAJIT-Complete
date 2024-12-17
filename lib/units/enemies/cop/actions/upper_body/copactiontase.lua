@@ -345,8 +345,8 @@ end
 function CopActionTase:get_husk_interrupt_desc()
 	local action_desc = {
 		body_part = 3,
-		type = "tase",
-		block_type = "action"
+		block_type = "action",
+		type = "tase"
 	}
 
 	return action_desc

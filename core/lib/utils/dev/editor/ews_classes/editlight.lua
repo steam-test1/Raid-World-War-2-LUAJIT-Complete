@@ -22,9 +22,9 @@ function EditUnitLight:init(editor)
 
 	local lights_sizer = EWS:BoxSizer("HORIZONTAL")
 	self._lights_params = {
-		sorted = true,
 		ctrlr_proportions = 4,
 		name_proportions = 3,
+		sorted = true,
 		tooltip = "Select a light to edit from the combobox",
 		sizer_proportions = 4,
 		name = "Lights:",
@@ -153,11 +153,11 @@ function EditUnitLight:init(editor)
 	end
 
 	self._intensity_params = {
-		default = "none",
-		sorted = false,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
+		default = "none",
 		tooltip = "Select an intensity from the combobox",
+		sorted = false,
 		name = "Intensity:",
 		panel = panel,
 		sizer = sizer,
@@ -168,14 +168,14 @@ function EditUnitLight:init(editor)
 	self._intensity_params.ctrlr:connect("EVT_COMMAND_COMBOBOX_SELECTED", callback(self, self, "update_intensity"), nil)
 
 	self._falloff_params = {
-		floats = 7,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Controls quadratic attenuation factor",
 		min = 0,
-		max = 2,
+		floats = 7,
 		value = 0.0001,
 		name = "Quadratic attenuation:",
+		max = 2,
 		panel = panel,
 		sizer = sizer
 	}
@@ -187,14 +187,14 @@ function EditUnitLight:init(editor)
 	self._falloff_params.number_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "update_falloff"), nil)
 
 	self._linear_atten_params = {
-		floats = 7,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Controls linear attenuation factor",
 		min = 1e-07,
-		max = 1,
+		floats = 7,
 		value = 0.0001,
 		name = "Linear attenuation:",
+		max = 1,
 		panel = panel,
 		sizer = sizer
 	}
@@ -206,14 +206,14 @@ function EditUnitLight:init(editor)
 	self._linear_atten_params.number_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "update_linear_atten"), nil)
 
 	self._spot_start_angle_params = {
-		floats = 0,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Controls the start angle of the spot light",
 		min = 1,
-		max = 179,
+		floats = 0,
 		value = 1,
 		name = "Start angle:",
+		max = 179,
 		panel = panel,
 		sizer = sizer
 	}
@@ -225,14 +225,14 @@ function EditUnitLight:init(editor)
 	self._spot_start_angle_params.number_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "update_start_angle"), nil)
 
 	self._spot_end_angle_params = {
-		floats = 0,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Controls the end angle of the spot light",
 		min = 1,
-		max = 179,
+		floats = 0,
 		value = 1,
 		name = "End angle:",
+		max = 179,
 		panel = panel,
 		sizer = sizer
 	}
@@ -244,11 +244,11 @@ function EditUnitLight:init(editor)
 	self._spot_end_angle_params.number_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "update_end_angle"), nil)
 
 	self._shadow_resolution_params = {
-		sorted = false,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
-		numbers = true,
 		tooltip = "Select an resolution from the combobox",
+		sorted = false,
+		numbers = true,
 		name = "Shadow Resolution:",
 		panel = panel,
 		sizer = sizer,
@@ -267,9 +267,9 @@ function EditUnitLight:init(editor)
 	self._shadow_resolution_params.ctrlr:connect("EVT_COMMAND_COMBOBOX_SELECTED", callback(self, self, "update_resolution"), nil)
 
 	self._spot_projection_texture_params = {
-		sorted = true,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
+		sorted = true,
 		tooltip = "Select a spot projection texture from the combobox",
 		name = "Spot Texture:",
 		panel = panel,

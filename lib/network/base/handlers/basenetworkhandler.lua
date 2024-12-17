@@ -1,7 +1,6 @@
 BaseNetworkHandler = BaseNetworkHandler or class()
 BaseNetworkHandler._gamestate_filter = {
 	any_ingame = {
-		ingame_fatal = true,
 		ingame_bleed_out = true,
 		ingame_standard = true,
 		gameoverscreen = true,
@@ -17,10 +16,10 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_waiting_for_respawn = true,
 		ingame_waiting_for_players = true,
 		ingame_incapacitated = true,
-		ingame_electrified = true
+		ingame_electrified = true,
+		ingame_fatal = true
 	},
 	any_ingame_playing = {
-		ingame_fatal = true,
 		ingame_bleed_out = true,
 		ingame_standard = true,
 		event_complete_screen = true,
@@ -34,10 +33,10 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_access_camera = true,
 		ingame_waiting_for_respawn = true,
 		ingame_incapacitated = true,
-		ingame_electrified = true
+		ingame_electrified = true,
+		ingame_fatal = true
 	},
 	any_ingame_mission = {
-		ingame_fatal = true,
 		ingame_bleed_out = true,
 		ingame_standard = true,
 		ingame_special_interaction = true,
@@ -47,17 +46,18 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_access_camera = true,
 		ingame_waiting_for_respawn = true,
 		ingame_incapacitated = true,
-		ingame_electrified = true
+		ingame_electrified = true,
+		ingame_fatal = true
 	},
 	downed = {
-		ingame_fatal = true,
 		ingame_bleed_out = true,
-		ingame_incapacitated = true
+		ingame_incapacitated = true,
+		ingame_fatal = true
 	},
 	need_revive = {
-		ingame_fatal = true,
 		ingame_bleed_out = true,
-		ingame_incapacitated = true
+		ingame_incapacitated = true,
+		ingame_fatal = true
 	},
 	game_over = {
 		gameoverscreen = true
@@ -74,17 +74,17 @@ BaseNetworkHandler._gamestate_filter = {
 		ingame_waiting_for_respawn = true
 	},
 	menu = {
-		ingame_menu = true,
-		menu_main = true
+		menu_main = true,
+		ingame_menu = true
 	},
 	player_slot = {
-		ingame_lobby_menu = true,
 		ingame_waiting_for_players = true,
+		ingame_lobby_menu = true,
 		menu_main = true
 	},
 	lobby = {
-		ingame_lobby_menu = true,
-		menu_main = true
+		menu_main = true,
+		ingame_lobby_menu = true
 	}
 }
 

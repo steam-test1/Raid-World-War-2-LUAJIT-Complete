@@ -171,9 +171,9 @@ function NpcVehicleStatePursuit:_loco_unit_proximity(npc_driving_ext, target_ste
 		npc_driving_ext:set_state(NpcVehicleDrivingExt.STATE_PLAYER_PROXIMITY)
 
 		retval = {
+			handbrake = 1,
 			brake = 1,
 			acceleration = 0,
-			handbrake = 1,
 			steering = target_steering
 		}
 	end

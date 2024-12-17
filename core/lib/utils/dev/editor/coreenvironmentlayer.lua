@@ -22,69 +22,69 @@ function EnvironmentLayer:init(owner)
 	self._wind_speeds = {}
 
 	table.insert(self._wind_speeds, {
+		description = "Calm",
 		beaufort = 0,
-		speed = 0,
-		description = "Calm"
+		speed = 0
 	})
 	table.insert(self._wind_speeds, {
+		description = "Light air",
 		beaufort = 1,
-		speed = 0.3,
-		description = "Light air"
+		speed = 0.3
 	})
 	table.insert(self._wind_speeds, {
+		description = "Light breeze",
 		beaufort = 2,
-		speed = 1.6,
-		description = "Light breeze"
+		speed = 1.6
 	})
 	table.insert(self._wind_speeds, {
+		description = "Gentle breeze",
 		beaufort = 3,
-		speed = 3.4,
-		description = "Gentle breeze"
+		speed = 3.4
 	})
 	table.insert(self._wind_speeds, {
+		description = "Moderate breeze",
 		beaufort = 4,
-		speed = 5.5,
-		description = "Moderate breeze"
+		speed = 5.5
 	})
 	table.insert(self._wind_speeds, {
+		description = "Fresh breeze",
 		beaufort = 5,
-		speed = 8,
-		description = "Fresh breeze"
+		speed = 8
 	})
 	table.insert(self._wind_speeds, {
+		description = "Strong breeze",
 		beaufort = 6,
-		speed = 10.8,
-		description = "Strong breeze"
+		speed = 10.8
 	})
 	table.insert(self._wind_speeds, {
+		description = "Near Gale",
 		beaufort = 7,
-		speed = 13.9,
-		description = "Near Gale"
+		speed = 13.9
 	})
 	table.insert(self._wind_speeds, {
+		description = "Fresh Gale",
 		beaufort = 8,
-		speed = 17.2,
-		description = "Fresh Gale"
+		speed = 17.2
 	})
 	table.insert(self._wind_speeds, {
+		description = "Strong Gale",
 		beaufort = 9,
-		speed = 20.8,
-		description = "Strong Gale"
+		speed = 20.8
 	})
 	table.insert(self._wind_speeds, {
+		description = "Whole storm",
 		beaufort = 10,
-		speed = 24.5,
-		description = "Whole storm"
+		speed = 24.5
 	})
 	table.insert(self._wind_speeds, {
+		description = "Violent storm",
 		beaufort = 11,
-		speed = 28.5,
-		description = "Violent storm"
+		speed = 28.5
 	})
 	table.insert(self._wind_speeds, {
+		description = "Hurricane",
 		beaufort = 12,
-		speed = 32.7,
-		description = "Hurricane"
+		speed = 32.7
 	})
 
 	self._draw_wind = false

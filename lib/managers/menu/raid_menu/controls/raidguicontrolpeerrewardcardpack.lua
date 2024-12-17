@@ -39,9 +39,9 @@ end
 
 function RaidGUIControlPeerRewardCardPack:_create_card_pack_details()
 	local params_weapon_point_image = {
-		y = 0,
 		name = "card_pack_image",
 		x = 0,
+		y = 0,
 		texture = tweak_data.gui.icons[RaidGUIControlPeerRewardCardPack.ICON].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlPeerRewardCardPack.ICON].texture_rect
 	}

@@ -59,14 +59,14 @@ function RaidGUIControlCardDetails:_create_card_details()
 	self._card_control = self._object:create_custom_control(RaidGUIControlCardBase, card_params)
 	local x_spacing = self._card_control:w() + 48
 	local params_card_name_right = {
-		h = 64,
-		w = 640,
 		wrap = true,
 		align = "left",
-		vertical = "bottom",
 		text = "",
+		vertical = "bottom",
 		name = "card_name_label_right",
 		y = 16,
+		h = 64,
+		w = 640,
 		x = x_spacing,
 		color = tweak_data.gui.colors.white,
 		layer = self._object:layer() + 1,
@@ -75,14 +75,10 @@ function RaidGUIControlCardDetails:_create_card_details()
 	}
 	self._card_name_label_right = self._object:label(params_card_name_right)
 	local params_card_description_right = {
-		x = 0,
-		h = 0,
-		w = 0,
-		wrap = true,
-		visible = false,
-		text = "",
 		name = "card_description_label_right",
-		y = 0,
+		wrap = true,
+		text = "",
+		visible = false,
 		color = Color.white,
 		layer = self._object:layer() + 1,
 		font = tweak_data.gui.fonts.lato,
@@ -92,12 +88,12 @@ function RaidGUIControlCardDetails:_create_card_details()
 	local label_y = 160
 	local icon_y = 96
 	self._experience_bonus_count = self._object:label({
-		h = 64,
-		w = 160,
 		align = "right",
 		visible = false,
 		text = "",
 		name = "experience_bonus_count",
+		h = 64,
+		w = 160,
 		x = x_spacing + 224,
 		y = icon_y,
 		font = RaidGUIControlCardDetails.FONT,
@@ -105,11 +101,11 @@ function RaidGUIControlCardDetails:_create_card_details()
 		color = tweak_data.gui.colors.raid_white
 	})
 	self._experience_bonus_label = self._object:label({
-		h = 32,
-		w = 160,
 		align = "right",
 		visible = false,
 		name = "experience_bonus_label",
+		h = 32,
+		w = 160,
 		x = x_spacing + 224,
 		y = label_y,
 		font = RaidGUIControlCardDetails.FONT,
@@ -127,11 +123,11 @@ function RaidGUIControlCardDetails:_create_card_details()
 		texture_rect = type_def_icon.texture_rect
 	})
 	self._type_label = self._object:label({
-		h = 32,
-		w = 96,
 		align = "center",
 		text = "",
 		name = "type_label",
+		h = 32,
+		w = 96,
 		x = x_spacing,
 		y = label_y,
 		font = RaidGUIControlCardDetails.FONT,
@@ -148,11 +144,11 @@ function RaidGUIControlCardDetails:_create_card_details()
 		texture_rect = rarity_def_icon.texture_rect
 	})
 	self._rarity_label = self._object:label({
-		h = 32,
-		w = 128,
 		align = "center",
 		text = "",
 		name = "rarity_label",
+		h = 32,
+		w = 128,
 		x = x_spacing + 96,
 		y = label_y,
 		font = RaidGUIControlCardDetails.FONT,
@@ -160,33 +156,33 @@ function RaidGUIControlCardDetails:_create_card_details()
 		color = tweak_data.gui.colors.raid_grey
 	})
 	self._bonus_effect_icon = self._object:image({
-		h = 64,
-		w = 64,
 		visible = false,
 		name = "bonus_effect_icon",
+		h = 64,
+		w = 64,
 		x = x_spacing,
 		y = RaidGUIControlCardDetails.BONUS_EFFECT_Y,
 		texture = tweak_data.gui.icons.ico_bonus.texture,
 		texture_rect = tweak_data.gui.icons.ico_bonus.texture_rect
 	})
 	self._malus_effect_icon = self._object:image({
-		h = 64,
-		w = 64,
 		visible = false,
 		name = "malus_effect_icon",
+		h = 64,
+		w = 64,
 		x = x_spacing,
 		y = RaidGUIControlCardDetails.MALUS_EFFECT_Y,
 		texture = tweak_data.gui.icons.ico_malus.texture,
 		texture_rect = tweak_data.gui.icons.ico_malus.texture_rect
 	})
 	self._bonus_effect_label = self._object:label({
-		h = 64,
-		w = 288,
 		align = "left",
 		vertical = "center",
-		wrap = true,
 		text = "",
+		wrap = true,
 		name = "bonus_effect_label",
+		h = 64,
+		w = 288,
 		x = x_spacing + 80,
 		y = RaidGUIControlCardDetails.BONUS_EFFECT_Y,
 		font = tweak_data.gui.fonts.lato,
@@ -194,13 +190,13 @@ function RaidGUIControlCardDetails:_create_card_details()
 		color = tweak_data.gui.colors.raid_grey
 	})
 	self._malus_effect_label = self._object:label({
-		h = 150,
-		w = 288,
 		align = "left",
 		vertical = "center",
-		wrap = true,
 		text = "",
+		wrap = true,
 		name = "malus_effect_label",
+		h = 150,
+		w = 288,
 		x = x_spacing + 80,
 		y = RaidGUIControlCardDetails.MALUS_EFFECT_Y,
 		font = tweak_data.gui.fonts.lato,

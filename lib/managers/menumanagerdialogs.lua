@@ -2624,9 +2624,9 @@ function MenuManager:show_skill_profile_rename_dialog(params)
 		callback_func = params.callback_no
 	}
 	local dialog_data = {
-		capitalize = false,
-		textbox = true,
 		focus_button = 1,
+		textbox = true,
+		capitalize = false,
 		title = managers.localization:to_upper_text("menu_skill_profile_rename_title"),
 		textbox_value = params.textbox_value,
 		button_list = {

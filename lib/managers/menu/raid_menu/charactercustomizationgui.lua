@@ -122,9 +122,9 @@ function CharacterCustomizationGui:_layout()
 	})
 	local body_part_data = self._all_customizations[self._selected_upper_name]
 	self._body_part_title = self._root_panel:label({
-		w = 288,
 		wor_wrap = true,
 		wrap = true,
+		w = 288,
 		x = self._body_part_icon:x() + 48,
 		y = self._body_part_icon:y(),
 		text = self:translate(body_part_data.name, true),
@@ -147,8 +147,8 @@ function CharacterCustomizationGui:_layout()
 
 	self._coord_center_y = 864
 	self._equip_button = self._root_panel:short_primary_button({
-		visible = false,
 		name = "equip_button",
+		visible = false,
 		x = 0,
 		text = self:translate("character_customization_equip_button", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
@@ -158,8 +158,8 @@ function CharacterCustomizationGui:_layout()
 	self._equip_button:set_center_y(self._coord_center_y)
 
 	self._equip_gold_button = self._root_panel:short_primary_gold_button({
-		visible = false,
 		name = "equip_gold_button",
+		visible = false,
 		x = 0,
 		text = self:translate("character_customization_equip_button", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
@@ -169,8 +169,8 @@ function CharacterCustomizationGui:_layout()
 	self._equip_gold_button:set_center_y(self._coord_center_y)
 
 	self._buy_button = self._root_panel:short_primary_gold_button({
-		visible = false,
 		name = "buy_button",
+		visible = false,
 		x = 0,
 		text = self:translate("character_customization_buy_button", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
@@ -182,11 +182,11 @@ function CharacterCustomizationGui:_layout()
 	self._info_label = self._root_panel:label({
 		name = "info_label",
 		x = 0,
-		word_wrap = true,
-		h = 60,
-		w = 520,
 		wrap = true,
 		visible = false,
+		h = 60,
+		w = 520,
+		word_wrap = true,
 		text = self:translate("character_customization_insuficient_gold_label", true),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -197,9 +197,9 @@ function CharacterCustomizationGui:_layout()
 
 	self._gold_currency_label = self._root_panel:label({
 		text = "",
-		visible = false,
 		name = "gold_currency_label",
 		x = 250,
+		visible = false,
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		color = tweak_data.gui.colors.gold_orange,
 		font = tweak_data.gui.fonts.din_compressed,

@@ -36,8 +36,8 @@ function HUDManager:init()
 	local safe_rect = managers.viewport:get_safe_rect()
 	local res = RenderSettings.resolution
 	self._workspace_size = {
-		x = 0,
 		y = 0,
+		x = 0,
 		w = res.x,
 		h = res.y
 	}
@@ -671,9 +671,9 @@ function HUDManager:update(t, dt)
 					dogTagData[#allDogTags] = {}
 					dogTagData[#allDogTags].unit = v
 					dogTagData[#allDogTags].textlabel = panel:text({
-						name = "dogtagdebug",
 						text = "0.0",
 						font_size = 14,
+						name = "dogtagdebug",
 						layer = 1,
 						font = tweak_data.gui.fonts.din_compressed_outlined_20,
 						color = Color(1, 1, 0)
@@ -1061,10 +1061,10 @@ function HUDManager:add_waypoint(id, data)
 
 		if rect_over then
 			bitmap_over = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 0,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "bitmap_over" .. id,
 				texture = icon,
@@ -1073,20 +1073,20 @@ function HUDManager:add_waypoint(id, data)
 			local aiming_icon, aiming_rect = tweak_data.hud_icons:get_icon_data("wp_aiming")
 			local searching_icon, searching_rect = tweak_data.hud_icons:get_icon_data("wp_investigating")
 			searching = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 16,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "searching" .. id,
 				texture = searching_icon,
 				texture_rect = searching_rect
 			})
 			aiming = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 16,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "aiming" .. id,
 				texture = aiming_icon,
@@ -1097,9 +1097,9 @@ function HUDManager:add_waypoint(id, data)
 		local arrow_icon = tweak_data.gui.icons.map_waypoint_pov_out.texture
 		local arrow_texture_rect = tweak_data.gui.icons.map_waypoint_pov_out.texture_rect
 		local arrow = waypoint_panel:bitmap({
-			rotation = 360,
 			layer = 0,
 			visible = false,
+			rotation = 360,
 			name = "arrow" .. id,
 			texture = arrow_icon,
 			texture_rect = arrow_texture_rect,
@@ -1112,13 +1112,13 @@ function HUDManager:add_waypoint(id, data)
 
 		if data.distance then
 			distance = waypoint_panel:text({
+				layer = 0,
 				text = "",
+				rotation = 360,
 				vertical = "center",
 				align = "center",
 				h = 26,
 				w = 128,
-				rotation = 360,
-				layer = 0,
 				name = "distance" .. id,
 				color = data.color or Color.white,
 				font = tweak_data.gui.fonts.din_compressed_outlined_24,
@@ -1130,13 +1130,13 @@ function HUDManager:add_waypoint(id, data)
 		end
 
 		local timer = data.timer and waypoint_panel:text({
-			vertical = "center",
+			layer = 0,
 			rotation = 360,
+			vertical = "center",
 			align = "center",
+			font_size = 32,
 			h = 32,
 			w = 32,
-			layer = 0,
-			font_size = 32,
 			name = "timer" .. id,
 			text = (math.round(data.timer) < 10 and "0" or "") .. math.round(data.timer),
 			font = tweak_data.gui.fonts.din_compressed_outlined_32
@@ -1239,10 +1239,10 @@ function HUDManager:change_waypoint_icon(id, icon)
 				rect_over[4]
 			}
 			wp_data.bitmap_over = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 0,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "bitmap_over" .. id,
 				texture = texture,
@@ -1251,20 +1251,20 @@ function HUDManager:change_waypoint_icon(id, icon)
 			local aiming_icon, aiming_rect = tweak_data.hud_icons:get_icon_data("wp_aiming")
 			local searching_icon, searching_rect = tweak_data.hud_icons:get_icon_data("wp_investigating")
 			wp_data.searching = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 16,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "searching" .. id,
 				texture = searching_icon,
 				texture_rect = searching_rect
 			})
 			wp_data.aiming = waypoint_panel:bitmap({
-				blend_mode = "normal",
-				layer = 0,
 				h = 16,
+				blend_mode = "normal",
 				w = 32,
+				layer = 0,
 				rotation = 360,
 				name = "aiming" .. id,
 				texture = aiming_icon,
@@ -1618,8 +1618,8 @@ function HUDManager:set_mugshot_armor(id, amount)
 	for i, data in ipairs(self._hud.mugshots) do
 		if data.id == id then
 			self:set_teammate_armor(managers.criminals:character_data_by_name(data.character_name_id).panel_id, {
-				total = 1,
 				max = 1,
+				total = 1,
 				current = amount
 			})
 
@@ -1636,8 +1636,8 @@ function HUDManager:set_mugshot_health(id, amount)
 	for i, data in ipairs(self._hud.mugshots) do
 		if data.id == id then
 			self:set_teammate_health(managers.criminals:character_data_by_name(data.character_name_id).panel_id, {
-				total = 1,
 				max = 1,
+				total = 1,
 				current = amount
 			})
 
@@ -1681,14 +1681,14 @@ function HUDManager:set_mugshot_custody(id)
 		local i = managers.criminals:character_data_by_name(data.character_name_id).panel_id
 
 		self:set_teammate_health(i, {
-			total = 100,
 			current = 0,
-			no_hint = true
+			no_hint = true,
+			total = 100
 		})
 		self:set_teammate_armor(i, {
-			total = 100,
 			current = 0,
-			no_hint = true
+			no_hint = true,
+			total = 100
 		})
 	end
 end
@@ -2537,22 +2537,22 @@ function HUDManager:debug_show_coordinates()
 	}
 	self._debug.panel = self._debug.ws:panel()
 	self._debug.coord = self._debug.panel:text({
-		name = "debug_coord",
-		x = 14,
 		text = "",
 		font_size = 14,
-		layer = 2000,
+		name = "debug_coord",
 		y = 14,
+		x = 14,
+		layer = 2000,
 		font = tweak_data.gui.fonts.din_compressed_outlined_18,
 		color = Color.white
 	})
 	self._debug.dogtagCoord = self._debug.panel:text({
-		name = "debug_dogtag",
-		x = 14,
 		text = "",
 		font_size = 18,
-		layer = 2000,
+		name = "debug_dogtag",
 		y = 32,
+		x = 14,
+		layer = 2000,
 		font = tweak_data.gui.fonts.din_compressed_outlined_20,
 		color = Color.white
 	})

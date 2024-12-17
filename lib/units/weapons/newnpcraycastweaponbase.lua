@@ -54,23 +54,22 @@ function NewNPCRaycastWeaponBase:init(unit)
 		position = Vector3(),
 		normal = Vector3()
 	}
-	self._flashlight_light_lod_enabled = true
 
 	if self._multivoice then
-		if not NewNPCRaycastWeaponBase._next_i_voice[self._name_id] then
-			NewNPCRaycastWeaponBase._next_i_voice[self._name_id] = 1
-		end
+		local next_i_voice = NewNPCRaycastWeaponBase._next_i_voice[self._name_id]
+		next_i_voice = next_i_voice or 1
+		self._voice = NewNPCRaycastWeaponBase._VOICES[next_i_voice]
 
-		self._voice = NewNPCRaycastWeaponBase._VOICES[NewNPCRaycastWeaponBase._next_i_voice[self._name_id]]
-
-		if NewNPCRaycastWeaponBase._next_i_voice[self._name_id] == #NewNPCRaycastWeaponBase._VOICES then
-			NewNPCRaycastWeaponBase._next_i_voice[self._name_id] = 1
+		if next_i_voice == #NewNPCRaycastWeaponBase._VOICES then
+			next_i_voice = 1
 		else
-			NewNPCRaycastWeaponBase._next_i_voice[self._name_id] = NewNPCRaycastWeaponBase._next_i_voice[self._name_id] + 1
+			next_i_voice = next_i_voice + 1
 		end
 	else
 		self._voice = "a"
 	end
+
+	self._flashlight_light_lod_enabled = true
 
 	if self._unit:get_object(Idstring("ls_flashlight")) then
 		self._flashlight_data = {

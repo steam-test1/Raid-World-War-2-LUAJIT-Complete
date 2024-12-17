@@ -431,8 +431,8 @@ function LaserTriggerUnitElement:_build_panel(panel, panel_sizer)
 	panel_sizer = panel_sizer or self._panel_sizer
 
 	self:_build_value_number(panel, panel_sizer, "interval", {
-		min = 0.01,
-		floats = 2
+		floats = 2,
+		min = 0.01
 	}, "Set the check interval for the laser, in seconds", "Check interval:")
 	self:_build_value_combobox(panel, panel_sizer, "instigator", managers.mission:area_instigator_categories(), "Select an instigator type")
 	self:_build_value_combobox(panel, panel_sizer, "color", {
@@ -446,12 +446,12 @@ function LaserTriggerUnitElement:_build_panel(panel, panel_sizer)
 	self:_build_value_checkbox(panel, panel_sizer, "skip_dummies")
 	self:_build_value_checkbox(panel, panel_sizer, "flicker_remove", "Will flicker the lasers when removed")
 	self:_build_value_number(panel, panel_sizer, "cycle_interval", {
-		min = 0,
-		floats = 2
+		floats = 2,
+		min = 0
 	}, "Set the check cycle interval for the laser, in seconds (0 == disabled)")
 	self:_build_value_number(panel, panel_sizer, "cycle_active_amount", {
-		min = 1,
-		floats = 0
+		floats = 0,
+		min = 1
 	}, "Defines how many are active during cycle")
 	self:_build_value_combobox(panel, panel_sizer, "cycle_type", {
 		"flow",
@@ -498,8 +498,8 @@ function LaserTriggerUnitElement:add_to_mission_package()
 
 	for _, file in ipairs(sequence_files) do
 		managers.editor:add_to_world_package({
-			init = true,
 			category = "script_data",
+			init = true,
 			name = file:s() .. ".sequence_manager",
 			continent = self._unit:unit_data().continent
 		})

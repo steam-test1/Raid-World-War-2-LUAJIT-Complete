@@ -42,8 +42,8 @@ end
 
 function HUDDriving:_create_panel(hud)
 	local panel_params = {
-		halign = "center",
 		visible = false,
+		halign = "center",
 		valign = "bottom",
 		name = "driving_panel",
 		w = HUDDriving.W,
@@ -118,8 +118,8 @@ function HUDDriving:_create_carry_info()
 	local carry_info_panel_params = {
 		halign = "right",
 		valign = "scale",
-		name = "carry_info_panel",
 		y = 0,
+		name = "carry_info_panel",
 		x = carry_panel_x,
 		w = self._object:w() - carry_panel_x,
 		h = self._slot_panel:h() + 20
@@ -138,8 +138,8 @@ function HUDDriving:_create_carry_info()
 	carry_panel_background:set_bottom(carry_info_panel:h())
 
 	local carry_indicator_params = {
-		name = "carry_indicator",
 		layer = 5,
+		name = "carry_indicator",
 		texture = tweak_data.gui.icons[HUDDriving.CARRY_PANEL_INDICATOR_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDDriving.CARRY_PANEL_INDICATOR_ICON].texture_rect
 	}
@@ -150,12 +150,12 @@ function HUDDriving:_create_carry_info()
 
 	local carry_info_text_x = self._carry_indicator:x() + self._carry_indicator:w() + HUDDriving.CARRY_PANEL_PADDING_RIGHT
 	local carry_info_text_params = {
-		halign = "center",
-		vertical = "center",
 		valign = "left",
+		halign = "center",
 		text = "",
-		name = "carry_info_text",
+		vertical = "center",
 		align = "left",
+		name = "carry_info_text",
 		x = carry_info_text_x,
 		w = carry_info_panel:w() - carry_info_text_x,
 		font = HUDDriving.CARRY_INFO_TEXT_FONT,
@@ -169,8 +169,8 @@ end
 function HUDDriving:_create_button_prompts()
 	local button_prompts_panel_params = {
 		halign = "scale",
-		valign = "top",
 		alpha = 0,
+		valign = "top",
 		name = "button_prompts_panel",
 		w = self._object:w(),
 		h = HUDDriving.BUTTON_PROMPTS_H
@@ -245,8 +245,8 @@ function HUDDriving:_create_button_prompt(prompt_name, prompt, buttons)
 
 	local button_prompt_params = {
 		valign = "center",
-		vertical = "center",
 		halign = "center",
+		vertical = "center",
 		align = "center",
 		name = "button_prompt_" .. tostring(prompt_name),
 		font = HUDDriving.BUTTON_PROMPT_TEXT_FONT,
@@ -394,7 +394,7 @@ function HUDDriving:set_vehicle_loot_info(vehicle, current_loot, current_loot_am
 		return
 	end
 
-	if current_loot and current_loot[1] and current_loot[1].carry_id == "german_spy" then
+	if current_loot and current_loot[1] and current_loot[1].carry_id == "german_spy_body" then
 		return
 	end
 

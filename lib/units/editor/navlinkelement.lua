@@ -247,9 +247,9 @@ function NavLinkUnitElement:_draw_follow_up(selected_unit, all_units)
 
 			if draw then
 				self:_draw_link({
+					r = 0,
 					b = 0,
 					g = 0.75,
-					r = 0,
 					from_unit = self._unit,
 					to_unit = unit
 				})
@@ -431,11 +431,11 @@ function NavLinkUnitElement:_build_panel(panel, panel_sizer)
 	self._nav_link_filter = managers.navigation:convert_access_filter_to_table(self._hed.SO_access)
 	local opt_sizer = EWS:StaticBoxSizer(panel, "VERTICAL", "Filter")
 	local filter_preset_params = {
-		name = "Preset:",
-		tooltip = "Select a preset.",
 		ctrlr_proportions = 2,
-		sorted = true,
+		name = "Preset:",
 		name_proportions = 1,
+		sorted = true,
+		tooltip = "Select a preset.",
 		panel = panel,
 		sizer = opt_sizer,
 		options = {
@@ -498,8 +498,8 @@ function NavLinkUnitElement:_build_panel(panel, panel_sizer)
 		"none"
 	}, ElementSpecialObjective._ATTITUDES), "Select combat attitude.")
 	self:_build_value_number(panel, panel_sizer, "interval", {
-		min = -1,
-		floats = 2
+		floats = 2,
+		min = -1
 	}, "Used to specify how often the SO should search for an actor. A negative value means it will check only once.")
 
 	local test_units = table.list_add(SpawnCivilianUnitElement._options, managers.enemy:enemy_units())

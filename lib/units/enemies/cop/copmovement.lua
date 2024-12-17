@@ -1318,23 +1318,23 @@ function CopMovement:on_suppressed(state)
 	if Network:is_server() and state and (not self._tweak_data.allowed_poses or self._tweak_data.allowed_poses.crouch) and (not self._tweak_data.allowed_poses or self._tweak_data.allowed_poses.stand) and not self:chk_action_forbidden("walk") then
 		if state == "panic" and not self:chk_action_forbidden("act") then
 			local action_desc = {
-				type = "act",
 				clamp_to_graph = true,
 				body_part = 1,
+				type = "act",
 				variant = self._ext_anim.run and self._ext_anim.move_fwd and "e_so_sup_fumble_run_fwd" or "e_so_sup_fumble_inplace",
 				blocks = {
-					action = -1,
-					walk = -1
+					walk = -1,
+					action = -1
 				}
 			}
 
 			self:action_request(action_desc)
 		elseif self._ext_anim.idle and (not self._active_actions[2] or self._active_actions[2]:type() == "idle") then
 			local action_desc = {
-				type = "act",
 				clamp_to_graph = true,
-				variant = "suppressed_reaction",
 				body_part = 1,
+				type = "act",
+				variant = "suppressed_reaction",
 				blocks = {
 					walk = -1
 				}
@@ -1417,10 +1417,10 @@ function CopMovement:damage_clbk(my_unit, damage_info)
 	if not lgt_hurt then
 		blocks = {
 			walk = -1,
-			aim = -1,
+			tase = -1,
 			act = -1,
-			action = -1,
-			tase = -1
+			aim = -1,
+			action = -1
 		}
 
 		if hurt_type == "bleedout" then
@@ -2221,14 +2221,14 @@ function CopMovement:sync_action_act_start(index, blocks_hurt, clamp_to_graph, n
 
 	local redir_name = self._actions.act:_get_act_name_from_index(index)
 	local action_data = {
-		type = "act",
 		body_part = 1,
+		type = "act",
 		variant = redir_name,
 		blocks = {
-			action = -1,
 			walk = -1,
 			idle = -1,
-			act = -1
+			act = -1,
+			action = -1
 		},
 		start_rot = start_rot,
 		start_pos = start_pos,
@@ -2313,18 +2313,18 @@ function CopMovement:sync_action_hurt_end()
 		if hurt_type == "bleedout" or hurt_type == "fatal" then
 			local action_data = {
 				client_interrupt = true,
+				body_part = 1,
 				type = "act",
 				variant = "stand",
-				body_part = 1,
 				blocks = {
 					walk = -1,
-					aim = -1,
-					light_hurt = -1,
-					action = -1,
-					heavy_hurt = -1,
 					hurt = -1,
 					stand = -1,
-					crouch = -1
+					crouch = -1,
+					aim = -1,
+					heavy_hurt = -1,
+					light_hurt = -1,
+					action = -1
 				}
 			}
 			local res = CopMovement.action_request(self, action_data)

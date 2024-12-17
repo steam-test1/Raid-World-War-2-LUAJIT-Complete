@@ -45,8 +45,8 @@ end
 
 function HUDSuspicionIndicator:_create_panel(hud)
 	local panel_params = {
-		alpha = 0,
 		name = "suspicion_indicator",
+		alpha = 0,
 		w = HUDSuspicionIndicator.W,
 		h = HUDSuspicionIndicator.H
 	}
@@ -55,9 +55,9 @@ end
 
 function HUDSuspicionIndicator:_create_eye_background()
 	local eye_panel_params = {
-		halign = "scale",
+		valign = "scale",
 		name = "eye_panel",
-		valign = "scale"
+		halign = "scale"
 	}
 	self._eye_panel = self._object:panel(eye_panel_params)
 	local eye_background_params = {
@@ -85,8 +85,8 @@ end
 
 function HUDSuspicionIndicator:_create_eye_fill()
 	local eye_fill_params = {
-		name = "eye_fill",
 		position_z = 0,
+		name = "eye_fill",
 		render_template = "VertexColorTexturedRadial",
 		texture = tweak_data.gui.icons[HUDSuspicionIndicator.EYE_FILL_ICON].texture,
 		texture_rect = {
@@ -106,9 +106,9 @@ end
 
 function HUDSuspicionIndicator:_create_calling_indicator()
 	local calling_indicator_panel_params = {
-		halign = "scale",
+		valign = "scale",
 		name = "calling_indicator_panel",
-		valign = "scale"
+		halign = "scale"
 	}
 	self._calling_indicator_panel = self._object:panel(calling_indicator_panel_params)
 	self._calling_indicators = {}

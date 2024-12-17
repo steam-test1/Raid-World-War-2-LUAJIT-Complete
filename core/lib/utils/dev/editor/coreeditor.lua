@@ -193,8 +193,8 @@ function CoreEditor:_init_listener()
 
 	self._listener_always_enabled = false
 	self._sound_check_object = managers.sound_environment:add_check_object({
-		primary = true,
 		active = true,
+		primary = true,
 		object = self:camera()
 	})
 end
@@ -202,8 +202,8 @@ end
 function CoreEditor:_init_mute()
 	self._mute_source = SoundDevice:create_source("editor_mute")
 	self._mute_states = {
-		wanted = true,
-		current = false
+		current = false,
+		wanted = true
 	}
 end
 
@@ -215,10 +215,10 @@ function CoreEditor:_init_gui()
 	self._gui = self._workspace:panel():gui(Idstring("core/guis/core_editor"))
 
 	self._gui:child("camera"):text({
+		font = "core/fonts/nice_editor_font",
 		font_size = 20,
 		name = "select_units_amount",
-		text = "",
-		font = "core/fonts/nice_editor_font"
+		text = ""
 	})
 	self:_align_gui()
 end
@@ -923,7 +923,7 @@ end
 
 function CoreEditor:_fire_level_loaded_event()
 	Application:trace("[CoreEditor:_fire_level_loaded_event()]")
-	managers.global_state:fire_event("system_level_loaded")
+	managers.global_state:fire_event(GlobalStateManager.EVENT_LEVEL_LOADED)
 end
 
 function CoreEditor:_simulation_disable_continents()
@@ -1888,10 +1888,10 @@ function CoreEditor:reload_units(unit_names, small_compile, skip_replace_units)
 		end
 
 		Application:data_compile({
-			preprocessor_definitions = "preprocessor_definitions",
-			send_idstrings = false,
 			target_db_name = "all",
 			verbose = false,
+			preprocessor_definitions = "preprocessor_definitions",
+			send_idstrings = false,
 			platform = string.lower(SystemInfo:platform():s()),
 			source_root = managers.database:base_path(),
 			target_db_root = Application:base_path() .. "assets",
@@ -2685,8 +2685,8 @@ function CoreEditor:update_ruler(t, dt)
 	Application:draw_sphere(pos, 10, 1, 1, 1)
 
 	local ray = self:unit_by_raycast({
-		ray_type = "body editor",
 		sample = true,
+		ray_type = "body editor",
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -3154,8 +3154,8 @@ function CoreEditor:do_save(path, dir, save_continents)
 
 	for continent, values in pairs(self._values) do
 		local t = {
-			single_data_block = true,
 			entry = "values",
+			single_data_block = true,
 			continent = continent,
 			data = values
 		}
@@ -3266,10 +3266,10 @@ end
 function CoreEditor:_recompile(dir)
 	local source_files = self:_source_files(dir)
 	local t = {
-		preprocessor_definitions = "preprocessor_definitions",
-		send_idstrings = false,
 		target_db_name = "all",
 		verbose = false,
+		preprocessor_definitions = "preprocessor_definitions",
+		send_idstrings = false,
 		platform = string.lower(SystemInfo:platform():s()),
 		source_root = managers.database:root_path() .. "/assets",
 		target_db_root = Application:base_path() .. "assets",
@@ -3555,8 +3555,8 @@ end
 
 function CoreEditor:_save_continent_files(dir)
 	local layer_files = {
-		mission = "mission",
-		mission_scripts = "mission"
+		mission_scripts = "mission",
+		mission = "mission"
 	}
 
 	for continent, data in pairs(self._continent_save_tables) do
@@ -4341,8 +4341,8 @@ end
 
 function CoreEditor:change_continent_by_unit()
 	local ray = self:unit_by_raycast({
-		ray_type = "body editor",
 		sample = true,
+		ray_type = "body editor",
 		mask = managers.slot:get_mask("all")
 	})
 
@@ -4418,8 +4418,8 @@ function CoreEditor:set_ruler_points()
 	end
 
 	local ray = self:unit_by_raycast({
-		ray_type = "body editor",
 		sample = true,
+		ray_type = "body editor",
 		mask = managers.slot:get_mask("all")
 	})
 

@@ -20,26 +20,26 @@ function RaidGUIControlIntelBulletin:_layout()
 		texture_rect = tweak_data.gui.icons.intel_table_newspapers.texture_rect
 	})
 	self._update_date = self._object:text({
+		align = "left",
+		text = "",
+		h = 32,
 		w = 192,
 		y = 112,
 		x = 96,
 		vertical = "center",
-		align = "left",
-		text = "",
-		h = 32,
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_20,
 		color = tweak_data.gui.colors.intel_newspapers_text
 	})
 	self._update_person = self._object:text({
+		align = "right",
+		text = "",
+		h = 32,
 		w = 192,
 		y = 112,
 		x = 96,
 		vertical = "center",
-		align = "right",
-		text = "",
-		h = 32,
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_20,
@@ -49,13 +49,13 @@ function RaidGUIControlIntelBulletin:_layout()
 	self._update_person:set_right(self._object:w() - 128)
 
 	local content_panel_scrollable_area_params = {
-		h = 512,
 		name = "content_panel_scrollable_area",
+		h = 512,
 		scroll_step = 19,
-		scrollbar_width = 10,
 		w = 576,
 		y = 208,
 		x = 256,
+		scrollbar_width = 10,
 		layer = self._object:layer() + 2
 	}
 	self.content_panel_scrollable_area = self._object:scrollable_area(content_panel_scrollable_area_params)
@@ -68,12 +68,12 @@ function RaidGUIControlIntelBulletin:_layout()
 	}
 	self._content_panel = self.content_panel_scrollable_area:get_panel():panel(content_panel_params)
 	self._title = self._content_panel:text({
+		align = "center",
+		text = "",
 		wrap = true,
 		y = 0,
 		x = 0,
 		vertical = "center",
-		align = "center",
-		text = "",
 		w = self._content_panel:w(),
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -81,12 +81,12 @@ function RaidGUIControlIntelBulletin:_layout()
 		color = tweak_data.gui.colors.chat_border
 	})
 	self._text = self._content_panel:text({
+		align = "left",
+		text = "",
 		wrap = true,
 		y = 0,
 		x = 0,
 		vertical = "top",
-		align = "left",
-		text = "",
 		w = self._content_panel:w(),
 		layer = self._object:layer() + 2,
 		font = tweak_data.gui.fonts.din_compressed,

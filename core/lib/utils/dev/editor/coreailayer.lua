@@ -270,32 +270,32 @@ function AiLayer:build_panel(notebook)
 
 	button_sizer1:add(calc_btn, 0, 5, "RIGHT")
 	calc_btn:connect("EVT_COMMAND_BUTTON_CLICKED", callback(self, self, "_calc_graphs"), {
-		build_type = "all",
-		vis_graph = true
+		vis_graph = true,
+		build_type = "all"
 	})
 
 	local calc_selected_btn = EWS:Button(self._ews_panel, "Selected", "", "BU_EXACTFIT,NO_BORDER")
 
 	button_sizer1:add(calc_selected_btn, 0, 5, "RIGHT")
 	calc_selected_btn:connect("EVT_COMMAND_BUTTON_CLICKED", callback(self, self, "_calc_graphs"), {
-		build_type = "selected",
-		vis_graph = true
+		vis_graph = true,
+		build_type = "selected"
 	})
 
 	local calc_ground_btn = EWS:Button(self._ews_panel, "Ground All", "", "BU_EXACTFIT,NO_BORDER")
 
 	button_sizer1:add(calc_ground_btn, 0, 5, "RIGHT")
 	calc_ground_btn:connect("EVT_COMMAND_BUTTON_CLICKED", callback(self, self, "_calc_graphs"), {
-		build_type = "all",
-		vis_graph = false
+		vis_graph = false,
+		build_type = "all"
 	})
 
 	local calc_ground_selected_btn = EWS:Button(self._ews_panel, "Ground Selected", "", "BU_EXACTFIT,NO_BORDER")
 
 	button_sizer1:add(calc_ground_selected_btn, 0, 5, "RIGHT")
 	calc_ground_selected_btn:connect("EVT_COMMAND_BUTTON_CLICKED", callback(self, self, "_calc_graphs"), {
-		build_type = "selected",
-		vis_graph = false
+		vis_graph = false,
+		build_type = "selected"
 	})
 
 	local calc_vis_graph_btn = EWS:Button(self._ews_panel, "Visibility", "", "BU_EXACTFIT,NO_BORDER")
@@ -323,9 +323,9 @@ function AiLayer:build_panel(notebook)
 	build_settings:add(self._all_visible, 0, 0, "EXPAND")
 
 	self._ray_length_params = {
+		ctrlr_proportions = 3,
 		value = 150,
 		name = "Ray length [cm]:",
-		ctrlr_proportions = 3,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 1,
@@ -375,9 +375,9 @@ end
 function AiLayer:_build_ai_settings()
 	local graphs_sizer = EWS:StaticBoxSizer(self._ews_panel, "VERTICAL", "Settings")
 	local group_state = {
+		ctrlr_proportions = 3,
 		sorted = true,
 		name = "Group state:",
-		ctrlr_proportions = 3,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		tooltip = "Select a group state from the combo box",
@@ -400,9 +400,9 @@ end
 function AiLayer:_build_ai_unit_settings()
 	local sizer = EWS:StaticBoxSizer(self._ews_panel, "VERTICAL", "Unit settings")
 	local suspicion_multiplier = {
+		ctrlr_proportions = 4,
 		value = 1,
 		name = "Suspicion Multiplier:",
-		ctrlr_proportions = 4,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 1,
@@ -417,9 +417,9 @@ function AiLayer:_build_ai_unit_settings()
 	suspicion_multiplier_ctrlr:connect("EVT_KILL_FOCUS", callback(self, self, "_set_suspicion_mul"), nil)
 
 	local detection_multiplier = {
+		ctrlr_proportions = 4,
 		value = 1,
 		name = "Detection Multiplier:",
-		ctrlr_proportions = 4,
 		name_proportions = 1,
 		sizer_proportions = 1,
 		min = 0.01,
@@ -509,8 +509,8 @@ function AiLayer:_build_motion_path_section()
 	end
 
 	local mop_type = {
-		sorted = false,
 		name = "Selected path type:",
+		sorted = false,
 		ctrlr_proportions = 3,
 		name_proportions = 1,
 		tooltip = "Path is used for either ground or airborne units.",
@@ -524,9 +524,9 @@ function AiLayer:_build_motion_path_section()
 	path_type_ctrlr:connect("EVT_COMMAND_COMBOBOX_SELECTED", callback(self, self, "_set_mop_type"), nil)
 
 	local speed_limit = {
+		ctrlr_proportions = 3,
 		value = 50,
 		name = "Default Speed Limit [km/h]:",
-		ctrlr_proportions = 3,
 		name_proportions = 1,
 		min = -1,
 		tooltip = "Default speed limit for units moved along this path. -1 for no limit.",

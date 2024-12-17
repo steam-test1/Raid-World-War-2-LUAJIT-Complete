@@ -722,8 +722,8 @@ function BrushLayer:create_slider(name, value, s_value, e_value, default_value)
 	slider_sizer:add(EWS:StaticText(self._ews_panel, name, "", "ALIGN_LEFT"), 0, 0, "EXPAND")
 
 	local slider_params = {
-		slider_ctrlr_proportions = 0.2,
 		number_ctrlr_proportions = 0.1,
+		slider_ctrlr_proportions = 0.2,
 		floats = 0,
 		panel = self._ews_panel,
 		sizer = slider_sizer,

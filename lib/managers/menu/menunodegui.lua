@@ -90,8 +90,8 @@ function MenuNodeGui:_setup_panels(node)
 		h = tweak_data.load_level.upper_saferect_border
 	})
 	self._topic_text2 = self._topic_panel2:text({
-		y = 0,
 		x = 0,
+		y = 0,
 		align = "right",
 		valign = "bottom",
 		vertical = "bottom",
@@ -115,8 +115,8 @@ function MenuNodeGui:_setup_panels(node)
 	local height = 15
 	local aw = safe_rect_pixels.width - self:_mid_align()
 	self._info_bg_rect = self.safe_rect_panel:rect({
-		x = 0,
 		visible = false,
+		x = 0,
 		y = tweak_data.load_level.upper_saferect_border,
 		w = safe_rect_pixels.width * 0.41,
 		h = safe_rect_pixels.height - tweak_data.load_level.upper_saferect_border * 2,
@@ -127,16 +127,16 @@ function MenuNodeGui:_setup_panels(node)
 	self:_create_legends(node)
 
 	local mini_info = self.safe_rect_panel:panel({
-		h = 0,
-		w = 0,
 		y = 0,
-		x = 0
+		x = 0,
+		h = 0,
+		w = 0
 	})
 	local mini_text = mini_info:text({
 		vertical = "top",
 		x = 0,
-		text = "",
 		align = "left",
+		text = "",
 		y = 0,
 		halign = "top",
 		word_wrap = true,
@@ -233,10 +233,10 @@ end
 function MenuNodeGui:_create_marker(node)
 	self._marker_data = {
 		marker = self.item_panel:panel({
-			h = 10,
-			w = 1920,
 			x = 0,
 			y = 0,
+			h = 10,
+			w = 1920,
 			layer = self.layers.marker
 		})
 	}
@@ -296,10 +296,10 @@ function MenuNodeGui:_setup_item_panel(safe_rect, res)
 		local bg_width = self:_get_node_background_width()
 
 		self.item_panel:rect({
-			valign = "scale",
 			alpha = 0,
 			halign = "scale",
 			name = "bg_color",
+			valign = "scale",
 			color = Color.black,
 			width = bg_width
 		})
@@ -376,9 +376,9 @@ function MenuNodeGui:_create_menu_item(row_item)
 		row_item.gui_panel:set_text(utf8.to_upper(row_item.gui_panel:text()))
 
 		row_item.gui_level_panel = self._item_panel_parent:panel({
-			x = 0,
-			visible = false,
 			y = 0,
+			visible = false,
+			x = 0,
 			layer = self.layers.items,
 			w = self:_left_align(),
 			h = self._item_panel_parent:h()
@@ -421,26 +421,26 @@ function MenuNodeGui:_create_menu_item(row_item)
 		})
 		row_item.chat_output = row_item.gui_panel:gui(Idstring("guis/chat/textscroll"), {
 			valign = "grow",
-			w = 500,
-			h = 120,
 			halign = "grow",
+			h = 120,
+			w = 500,
 			layer = self.layers.items
 		})
 		row_item.chat_input = row_item.gui_panel:gui(Idstring("guis/chat/chat_input"), {
-			valign = "bottom",
-			w = 500,
 			y = 125,
 			halign = "grow",
+			valign = "bottom",
 			h = 25,
+			w = 500,
 			layer = self.layers.items
 		})
 		row_item.chat_input:script().enter_callback = callback(self, self, "_cb_chat", row_item)
 		row_item.chat_input:script().esc_callback = callback(self, self, "_cb_unlock", row_item)
 		row_item.chat_input:script().typing_callback = callback(self, self, "_cb_lock", row_item)
 		row_item.border = row_item.gui_panel:rect({
+			visible = false,
 			h = 2,
 			w = 800,
-			visible = false,
 			layer = self.layers.items,
 			color = tweak_data.hud.prime_color
 		})
@@ -499,9 +499,9 @@ end
 
 function MenuNodeGui:_create_info_panel(row_item)
 	row_item.gui_info_panel = self.safe_rect_panel:panel({
-		x = 0,
-		visible = false,
 		y = 0,
+		visible = false,
+		x = 0,
 		layer = self.layers.first,
 		w = self:_left_align(),
 		h = self._item_panel_parent:h()
@@ -547,9 +547,9 @@ end
 
 function MenuNodeGui:_create_lobby_campaign(row_item)
 	row_item.gui_info_panel = self.safe_rect_panel:panel({
-		x = 0,
-		visible = false,
 		y = 0,
+		visible = false,
+		x = 0,
 		layer = self.layers.items,
 		w = self:_left_align(),
 		h = self._item_panel_parent:h()
@@ -655,9 +655,9 @@ end
 
 function MenuNodeGui:_create_lobby_difficulty(row_item)
 	row_item.gui_info_panel = self.safe_rect_panel:panel({
-		x = 0,
-		visible = false,
 		y = 0,
+		visible = false,
+		x = 0,
 		layer = self.layers.items,
 		w = self:_left_align(),
 		h = self._item_panel_parent:h()
@@ -979,10 +979,10 @@ end
 function MenuNodeGui:_text_item_part(row_item, panel, align_x, text_align)
 	local new_text = panel:text({
 		y = 0,
-		kern = 2,
 		vertical = "center",
 		halign = "left",
 		name = "row_item_gui_panel_text_item_part",
+		kern = 2,
 		font_size = tweak_data.gui.font_sizes.size_20,
 		x = align_x,
 		w = panel:w(),
@@ -1509,9 +1509,9 @@ function MenuNodeMainGui:_setup_item_rows(node)
 
 	if Application:debug_enabled() or IS_PC then
 		self._version_string = self.ws:panel():text({
-			alpha = 0.5,
 			vertical = "bottom",
 			name = "version_string",
+			alpha = 0.5,
 			text = Application:version(),
 			font = tweak_data.gui.font_paths.din_compressed[20],
 			font_size = tweak_data.gui.font_sizes.size_20,

@@ -21,13 +21,13 @@ CopDamage.WEAPON_TYPE_BULLET = 2
 CopDamage.WEAPON_TYPE_FLAMER = 3
 CopDamage.DEBUG_HP = CopDamage.DEBUG_HP or false
 CopDamage._hurt_severities = {
+	light = "light_hurt",
 	none = false,
 	poison = "poison_hurt",
 	fire = "fire_hurt",
 	explode = "expl_hurt",
 	heavy = "heavy_hurt",
-	moderate = "hurt",
-	light = "light_hurt"
+	moderate = "hurt"
 }
 CopDamage._COMMENT_DEATH_TABLE = {
 	german_flamer = "enemy_flamer_comment_death",
@@ -279,8 +279,8 @@ function CopDamage:_dismember_part(dismember_part, decal_data, variant)
 		local check_to = self._unit:movement() and self._unit:movement():m_head_pos() or self._unit:position()
 
 		if managers.player:is_player_looking_at(check_to, {
-			raycheck = true,
-			distance = 4000
+			distance = 4000,
+			raycheck = true
 		}) then
 			managers.dialog:queue_dialog("player_gen_grenade_aftermath", {
 				skip_idle_check = true
@@ -1601,8 +1601,8 @@ function CopDamage:damage_mission(attack_data)
 		end
 
 		local data = {
-			head_shot = false,
 			variant = "explosion",
+			head_shot = false,
 			name = self._unit:base()._tweak_table,
 			stats_name = self._unit:base()._stats_name,
 			weapon_unit = attack_data.weapon_unit
@@ -1811,6 +1811,7 @@ function CopDamage:die(attack_data)
 		end
 	end
 
+	self._unit:base():set_gear_dead()
 	self._unit:inventory():drop_shield()
 
 	if self._unit:unit_data().mission_element then
@@ -1941,8 +1942,8 @@ function CopDamage:sync_damage_knockdown(attacker_unit, damage_percent, i_body, 
 
 	attack_data.attack_dir = attack_dir
 	local result = {
-		type = "expl_hurt",
-		variant = "expl_hurt"
+		variant = "expl_hurt",
+		type = "expl_hurt"
 	}
 	attack_data.variant = "expl_hurt"
 	attack_data.attacker_unit = attacker_unit
@@ -2065,8 +2066,8 @@ function CopDamage:sync_damage_explosion(attacker_unit, damage_percent, i_attack
 		self:die(attack_data)
 
 		local data = {
-			head_shot = false,
 			variant = "explosion",
+			head_shot = false,
 			name = self._unit:base()._tweak_table,
 			stats_name = self._unit:base()._stats_name,
 			weapon_unit = attacker_unit and attacker_unit:inventory() and attacker_unit:inventory():equipped_unit()
@@ -2122,8 +2123,8 @@ function CopDamage:sync_damage_explosion(attacker_unit, damage_percent, i_attack
 
 	if is_kill_shot then
 		local data = {
-			head_shot = false,
 			variant = "explosion",
+			head_shot = false,
 			unit_key = self._unit:key(),
 			name = self._unit:base()._tweak_table,
 			stats_name = self._unit:base()._stats_name,
@@ -2223,8 +2224,8 @@ function CopDamage:sync_damage_fire(attacker_unit, damage_percent, start_dot_dan
 		self:chk_killshot(attacker_unit, "fire")
 
 		local data = {
-			head_shot = false,
 			variant = "fire",
+			head_shot = false,
 			name = self._unit:base()._tweak_table,
 			stats_name = self._unit:base()._stats_name,
 			weapon_unit = attacker_unit and attacker_unit:inventory() and attacker_unit:inventory():equipped_unit()
@@ -2273,8 +2274,8 @@ function CopDamage:sync_damage_fire(attacker_unit, damage_percent, start_dot_dan
 
 	if result.type == "death" then
 		local data = {
-			head_shot = false,
 			variant = "fire",
+			head_shot = false,
 			unit_key = self._unit:key(),
 			name = self._unit:base()._tweak_table,
 			stats_name = self._unit:base()._stats_name,
@@ -2824,41 +2825,41 @@ function CopDamage:_create_debug_ws()
 	self._ws:set_billboard(self._ws.BILLBOARD_BOTH)
 	self._ws:panel():text({
 		name = "health",
-		align = "left",
-		y = 0,
-		visible = true,
-		render_template = "OverlayVertexColorTextured",
-		font_size = 30,
-		layer = 1,
-		vertical = "top",
 		font = "fonts/font_medium_shadow_mf",
+		y = 0,
+		layer = 1,
+		font_size = 30,
+		visible = true,
+		vertical = "top",
+		align = "left",
+		render_template = "OverlayVertexColorTextured",
 		text = "" .. self._health,
 		color = Color.white
 	})
 	self._ws:panel():text({
 		name = "ld",
-		align = "left",
-		y = 30,
-		visible = true,
-		render_template = "OverlayVertexColorTextured",
-		font_size = 30,
-		layer = 1,
-		vertical = "top",
-		text = "",
 		font = "fonts/font_medium_shadow_mf",
+		y = 30,
+		layer = 1,
+		font_size = 30,
+		visible = true,
+		vertical = "top",
+		align = "left",
+		text = "",
+		render_template = "OverlayVertexColorTextured",
 		color = Color.white
 	})
 	self._ws:panel():text({
 		name = "variant",
-		align = "left",
-		y = 60,
-		visible = true,
-		render_template = "OverlayVertexColorTextured",
-		font_size = 30,
-		layer = 1,
-		vertical = "top",
-		text = "",
 		font = "fonts/font_medium_shadow_mf",
+		y = 60,
+		layer = 1,
+		font_size = 30,
+		visible = true,
+		vertical = "top",
+		align = "left",
+		text = "",
+		render_template = "OverlayVertexColorTextured",
 		color = Color.white
 	})
 	self:_update_debug_ws()
@@ -2901,17 +2902,17 @@ function CopDamage:_update_debug_ws(damage_info)
 
 		if damage_info and damage_info.damage > 0 then
 			local text = self._ws:panel():text({
-				align = "center",
+				font = "fonts/font_medium_shadow_mf",
 				y = -20,
-				font_size = 20,
-				layer = 1,
-				render_template = "OverlayVertexColorTextured",
-				visible = true,
-				rotation = 360,
 				w = 40,
 				h = 40,
+				font_size = 20,
+				rotation = 360,
 				vertical = "center",
-				font = "fonts/font_medium_shadow_mf",
+				visible = true,
+				align = "center",
+				layer = 1,
+				render_template = "OverlayVertexColorTextured",
 				text = string.format("%.2f", damage_info.damage),
 				color = Color.white
 			})
@@ -2964,6 +2965,10 @@ function CopDamage:load(data)
 	end
 
 	self._dead = data.char_dmg.dead
+
+	if data.char_dmg.dead then
+		self._unit:base():set_gear_dead()
+	end
 
 	if data.char_dmg.health then
 		self._health = data.char_dmg.health
@@ -3037,21 +3042,21 @@ function CopDamage.skill_action_knockdown(unit, hit_position, direction, hurt_ty
 		hurt_type = hurt_type or "knockdown"
 		local client_interrupt = Network:is_client()
 		local action_data = {
-			type = "hurt",
 			block_type = "heavy_hurt",
 			body_part = 1,
+			type = "hurt",
 			direction_vec = direction,
 			hit_pos = hit_position,
 			hurt_type = hurt_type,
 			client_interrupt = client_interrupt,
 			blocks = {
+				idle = -1,
+				dodge = -1,
+				aim = -1,
 				act = -1,
 				action = -1,
 				walk = -1,
-				hurt = -1,
-				idle = -1,
-				dodge = -1,
-				aim = -1
+				hurt = -1
 			}
 		}
 

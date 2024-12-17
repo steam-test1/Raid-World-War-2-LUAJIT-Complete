@@ -17,6 +17,7 @@ ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE = "positive_effect"
 ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE = "negative_effect"
 ChallengeCardsTweakData.CARD_SELECTION_TIMER = 60
 ChallengeCardsTweakData.PACK_TYPE_REGULAR = 1
+ChallengeCardsTweakData.PACK_TYPE_HALLOWEEN = 2
 ChallengeCardsTweakData.STACKABLE_AREA = {
 	width = 500,
 	height = 680
@@ -1535,7 +1536,7 @@ function ChallengeCardsTweakData:init(tweak_data)
 			name = BuffEffectManager.EFFECT_PLAYER_CARRY_INVERT_SPEED
 		},
 		{
-			value = 4,
+			value = 16,
 			type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
 			name = BuffEffectManager.EFFECT_ENEMIES_MELEE_DAMAGE_INCREASE
 		}
@@ -1546,14 +1547,14 @@ function ChallengeCardsTweakData:init(tweak_data)
 	self.cards.ra_holiday_rush.negative_description = {
 		desc_id = BuffEffectManager.EFFECT_ENEMIES_MELEE_DAMAGE_INCREASE,
 		desc_params = {
-			EFFECT_VALUE_1 = "400%"
+			EFFECT_VALUE_1 = "1600%"
 		}
 	}
 	self.cards.ra_holiday_rush.rarity = LootDropTweakData.RARITY_UNCOMMON
 	self.cards.ra_holiday_rush.card_type = ChallengeCardsTweakData.CARD_TYPE_RAID
 	self.cards.ra_holiday_rush.achievement_id = ""
 	self.cards.ra_holiday_rush.def_id = 402
-	self.cards.ra_holiday_rush.card_category = ChallengeCardsTweakData.CARD_CATEGORY_BOOSTER
+	self.cards.ra_holiday_rush.card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD
 	self.cards.free_crowbar = setup_card("free_crowbar")
 	self.cards.free_crowbar.effects = {
 		{
@@ -1621,11 +1622,48 @@ function ChallengeCardsTweakData:init(tweak_data)
 	self.cards.ra_mag_roulette.negative_description = {
 		desc_id = "effect_player_random_reload"
 	}
-	self.cards.ra_mag_roulette.rarity = LootDropTweakData.RARITY_HALLOWEEN_2017
+	self.cards.ra_mag_roulette.rarity = LootDropTweakData.RARITY_RARE
 	self.cards.ra_mag_roulette.card_type = ChallengeCardsTweakData.CARD_TYPE_RAID
 	self.cards.ra_mag_roulette.achievement_id = ""
+	self.cards.ra_mag_roulette.bonus_xp = 350
 	self.cards.ra_mag_roulette.def_id = 405
 	self.cards.ra_mag_roulette.card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD
+	self.cards.ra_trick_or_treat = setup_card("trick_or_treat")
+	self.cards.ra_trick_or_treat.card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD
+	self.cards.ra_trick_or_treat.card_type = ChallengeCardsTweakData.CARD_TYPE_RAID
+	self.cards.ra_trick_or_treat.rarity = LootDropTweakData.RARITY_HALLOWEEN_2017
+	self.cards.ra_trick_or_treat.def_id = 406
+	self.cards.ra_trick_or_treat.achievement_id = ""
+	self.cards.ra_trick_or_treat.selected_sound = "halloween_challenge_card_chosen"
+	self.cards.ra_trick_or_treat.bonus_xp_multiplier = 1.75
+	self.cards.ra_trick_or_treat.event = true
+	self.cards.ra_trick_or_treat.effects = {
+		{
+			effect_class = "BuffEffectCandy",
+			value = true,
+			type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+			name = BuffEffectManager.EFFECT_TRICK_OR_TREAT
+		},
+		{
+			value = true,
+			type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+			name = BuffEffectManager.EFFECT_PUMKIN_HEADS
+		},
+		{
+			value = 1,
+			type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+			name = BuffEffectManager.EFFECT_FORCED_CRATE_TIER
+		}
+	}
+	self.cards.ra_trick_or_treat.positive_description = {
+		desc_id = "effect_trick_or_treat_positive",
+		desc_params = {
+			AMOUNT_XP = "50%"
+		}
+	}
+	self.cards.ra_trick_or_treat.negative_description = {
+		desc_id = "effect_trick_or_treat_malus"
+	}
 	self.cards_index = {
 		"ra_on_the_scrounge",
 		"ra_no_backups",
@@ -1671,7 +1709,8 @@ function ChallengeCardsTweakData:init(tweak_data)
 		"ra_roulette",
 		"free_crowbar",
 		"lucky_day",
-		"ra_mag_roulette"
+		"ra_mag_roulette",
+		"ra_trick_or_treat"
 	}
 	self.playtimegenerator = {}
 	self.bundledefinitions = {}

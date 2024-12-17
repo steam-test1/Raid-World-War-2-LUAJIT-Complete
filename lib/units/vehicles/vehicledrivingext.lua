@@ -49,7 +49,7 @@ VehicleDrivingExt.cumulative_dt = 0
 VehicleDrivingExt.cumulative_gravity = 0
 VehicleDrivingExt.PLAYER_CAPSULE_OFFSET = Vector3(0, 0, -150)
 VehicleDrivingExt.SPECIAL_OBJECTIVE_TYPE_DRIVING = "special_objective_type_driving"
-VehicleDrivingExt.SPECIAL_LOOT_GERMAN_SPY_CARRY_ID = "german_spy"
+VehicleDrivingExt.SPECIAL_LOOT_GERMAN_SPY_CARRY_ID = "german_spy_body"
 
 function VehicleDrivingExt:init(unit)
 	self._unit = unit
@@ -1023,7 +1023,7 @@ function VehicleDrivingExt:place_player_on_seat(player, seat_name, move, previou
 
 		managers.dialog:queue_dialog("gen_vehicle_good_to_go", {
 			skip_idle_check = true,
-			position = nil
+			done_cbk = nil
 		})
 	end
 
@@ -1175,9 +1175,9 @@ function VehicleDrivingExt:evacuate_seat(seat)
 		-- Nothing
 	elseif Network:is_server() then
 		seat.occupant:movement():action_request({
-			body_part = 1,
 			type = "idle",
-			sync = true
+			sync = true,
+			body_part = 1
 		})
 	end
 
@@ -1400,9 +1400,9 @@ function VehicleDrivingExt:on_team_ai_enter(ai_unit)
 
 			if Network:is_server() then
 				ai_unit:movement():action_request({
-					body_part = 1,
 					type = "idle",
-					sync = true
+					sync = true,
+					body_part = 1
 				})
 			end
 
@@ -2139,9 +2139,9 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 	end
 
 	local ride_objective = {
+		type = "act",
 		destroy_clbk_key = false,
 		pose = "stand",
-		type = "act",
 		haste = haste,
 		nav_seg = align_nav_seg,
 		area = align_area,
@@ -2150,16 +2150,16 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 		fail_clbk = callback(self, self, "on_drive_SO_failed", seat),
 		action = {
 			body_part = 1,
-			align_sync = false,
 			type = "act",
 			needs_full_blend = true,
+			align_sync = false,
 			variant = team_ai_animation,
 			blocks = {
-				act = 1,
-				heavy_hurt = -1,
 				action = -1,
+				heavy_hurt = -1,
 				walk = -1,
-				hurt = -1
+				hurt = -1,
+				act = 1
 			}
 		},
 		objective_type = VehicleDrivingExt.SPECIAL_OBJECTIVE_TYPE_DRIVING

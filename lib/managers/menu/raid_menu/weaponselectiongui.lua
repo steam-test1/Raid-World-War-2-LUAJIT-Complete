@@ -146,32 +146,32 @@ end
 
 function WeaponSelectionGui:_layout_left_side_panels()
 	self._weapon_selection_panel = self._root_panel:panel({
+		layer = 1,
 		h = 924,
 		w = 728,
 		y = 96,
 		x = 0,
-		name = "weapon_selection_panel",
-		layer = 1
+		name = "weapon_selection_panel"
 	})
 	self._weapon_skills_panel = self._root_panel:panel({
+		layer = 1,
 		h = 924,
 		w = 480,
 		y = 96,
 		x = 0,
-		name = "weapon_skills_panel",
 		visible = false,
-		layer = 1
+		name = "weapon_skills_panel"
 	})
 end
 
 function WeaponSelectionGui:_layout_category_tabs()
 	local category_tabs_params = {
-		initial_tab_idx = 1,
-		tab_align = "center",
-		tab_height = 64,
 		y = 0,
 		x = 0,
 		name = "category_tabs",
+		initial_tab_idx = 1,
+		tab_align = "center",
+		tab_height = 64,
 		on_click_callback = callback(self, self, "on_weapon_category_selected"),
 		parent_control_ref = self,
 		tabs_params = {
@@ -214,24 +214,24 @@ function WeaponSelectionGui:_layout_category_tabs()
 	self._selected_weapon_category_id = WeaponInventoryManager.BM_CATEGORY_PRIMARY_ID
 	self._equippable_filters_tabs = self._weapon_selection_panel:tabs({
 		initial_tab_idx = 1,
-		tab_align = "center",
-		tab_height = 64,
+		name = "equippable_filters_tabs",
 		y = 54,
 		x = 0,
-		name = "equippable_filters_tabs",
 		tab_width = 140,
+		tab_align = "center",
+		tab_height = 64,
 		icon = tweak_data.gui.icons.ico_filter,
 		item_class = RaidGUIControlTabFilter,
 		on_click_callback = callback(self, self, "on_click_filter_equippable"),
 		tabs_params = {
 			{
-				name = "tab_all",
 				callback_param = "all",
+				name = "tab_all",
 				text = self:translate("menu_filter_all", true)
 			},
 			{
-				name = "tab_equippable",
 				callback_param = "equippable",
+				name = "tab_equippable",
 				text = self:translate("menu_weapons_filter_equippable", true)
 			}
 		}
@@ -242,22 +242,22 @@ end
 function WeaponSelectionGui:_layout_lists()
 	local weapon_list_width = 480
 	local weapon_list_scrollable_area_params = {
+		scroll_step = 19,
 		h = 456,
 		y = 128,
 		x = 0,
-		scroll_step = 19,
 		name = "weapon_list_scrollable_area",
 		w = weapon_list_width
 	}
 	self._weapon_list_scrollable_area = self._weapon_selection_panel:scrollable_area(weapon_list_scrollable_area_params)
 	local weapon_list_params = {
-		on_mouse_over_sound_event = "highlight",
-		use_unlocked = false,
-		selection_enabled = true,
-		name = "weapon_list",
 		y = 0,
 		x = 0,
 		item_h = 62,
+		name = "weapon_list",
+		on_mouse_over_sound_event = "highlight",
+		use_unlocked = false,
+		selection_enabled = true,
 		on_mouse_click_sound_event = "weapon_click",
 		w = weapon_list_width,
 		on_item_clicked_callback = callback(self, self, "on_item_clicked_weapon_list"),
@@ -273,31 +273,31 @@ end
 function WeaponSelectionGui:_layout_weapon_stats()
 	local weapon_stats_params = {
 		tab_height = 60,
-		y = 771,
 		selection_enabled = false,
+		y = 771,
 		x = 550,
-		name = "weapon_stats",
 		tab_width = 160,
+		name = "weapon_stats",
 		label_class = RaidGUIControlLabelNamedValueWithDelta
 	}
 	self._weapon_stats = self._root_panel:create_custom_control(RaidGUIControlWeaponStats, weapon_stats_params)
 	local melee_weapon_stats_params = {
 		tab_height = 60,
-		y = 771,
 		selection_enabled = false,
+		y = 771,
 		x = 550,
-		name = "melee_weapon_stats",
 		tab_width = 200,
+		name = "melee_weapon_stats",
 		label_class = RaidGUIControlLabelNamedValue
 	}
 	self._melee_weapon_stats = self._root_panel:create_custom_control(RaidGUIControlMeleeWeaponStats, melee_weapon_stats_params)
 	local grenade_weapon_stats_params = {
 		tab_height = 60,
-		y = 771,
 		selection_enabled = false,
+		y = 771,
 		x = 550,
-		name = "grenade_weapon_stats",
 		tab_width = 180,
+		name = "grenade_weapon_stats",
 		label_class = RaidGUIControlLabelNamedValue
 	}
 	self._grenade_weapon_stats = self._root_panel:create_custom_control(RaidGUIControlGrenadeWeaponStats, grenade_weapon_stats_params)
@@ -308,19 +308,19 @@ function WeaponSelectionGui:_layout_equip_button()
 		layer = 1,
 		y = 710,
 		x = 0,
-		name = "equip_button",
 		visible = false,
+		name = "equip_button",
 		text = self:translate("menu_weapons_equip", true),
 		on_click_callback = callback(self, self, "on_equip_button_click"),
 		on_click_sound = WeaponSelectionGui.WEAPON_EQUIP_SOUND
 	}
 	self._equip_button = self._weapon_selection_panel:short_primary_button(equip_button_params)
 	local equip_disabled_button_params = {
+		layer = 1,
 		y = 710,
 		x = 0,
-		name = "equip_disabled_button",
 		visible = true,
-		layer = 1,
+		name = "equip_disabled_button",
 		text = self:translate("menu_weapons_equipped", true)
 	}
 	self._equip_disabled_button = self._weapon_selection_panel:short_primary_button_disabled(equip_disabled_button_params)
@@ -331,17 +331,17 @@ function WeaponSelectionGui:_layout_equip_button()
 	end
 
 	local cant_equip_explanation_label_params = {
+		layer = 1,
+		text = "",
+		w = 520,
 		y = 722,
+		x = 0,
+		wrap = true,
+		name = "cant_equip_explenation_label",
 		align = "left",
+		h = 60,
 		word_wrap = true,
 		visible = false,
-		layer = 1,
-		h = 60,
-		w = 520,
-		text = "",
-		x = 0,
-		name = "cant_equip_explenation_label",
-		wrap = true,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.small,
 		color = tweak_data.gui.colors.raid_red
@@ -351,11 +351,11 @@ end
 
 function WeaponSelectionGui:_layout_skill_panel()
 	local weapon_skills_params = {
-		w = 448,
-		layer = 1,
 		h = 440,
+		w = 448,
 		y = 11,
 		x = 0,
+		layer = 1,
 		name = "weapon_skills",
 		on_mouse_enter_callback = callback(self, self, "_on_mouse_enter_weapon_skill_button"),
 		on_mouse_exit_callback = callback(self, self, "_on_mouse_exit_weapon_skill_button"),
@@ -365,11 +365,11 @@ function WeaponSelectionGui:_layout_skill_panel()
 	}
 	self._weapon_skills = self._weapon_skills_panel:create_custom_control(RaidGUIControlWeaponSkills, weapon_skills_params)
 	local skill_desc_params = {
+		layer = 1,
 		h = 244,
 		y = 447,
 		x = 0,
 		name = "skill_desc",
-		layer = 1,
 		w = self._weapon_skills_panel:w()
 	}
 	self._skill_desc = self._weapon_skills_panel:create_custom_control(RaidGUIControlWeaponSkillDesc, skill_desc_params)
@@ -387,16 +387,16 @@ function WeaponSelectionGui:_layout_skill_panel()
 	self._apply_button:disable()
 
 	local available_points_skills_params = {
-		y = 590,
-		value_align = "left",
-		align = "left",
-		visible = false,
 		layer = 1,
 		h = 64,
 		w = 190,
+		y = 590,
 		x = 0,
-		name = "available_points_skills",
 		value_padding = 3,
+		name = "available_points_skills",
+		value_align = "left",
+		align = "left",
+		visible = false,
 		text = self:translate("menu_available_points", true),
 		value = "" .. managers.weapon_skills:get_available_weapon_skill_points(),
 		value_color = tweak_data.gui.colors.raid_red,
@@ -405,17 +405,17 @@ function WeaponSelectionGui:_layout_skill_panel()
 	}
 	self._available_points_skills_label = self._weapon_skills_panel:label_named_value(available_points_skills_params)
 	local upgrade_cost_params = {
-		value = "00",
-		y = 590,
-		value_align = "left",
-		align = "left",
-		visible = false,
 		layer = 1,
 		h = 64,
 		w = 190,
+		y = 590,
 		x = 200,
-		name = "upgrade_cost",
 		value_padding = 3,
+		name = "upgrade_cost",
+		value = "00",
+		value_align = "left",
+		align = "left",
+		visible = false,
 		text = self:translate("menu_upgrade_cost", true),
 		value_color = tweak_data.gui.colors.raid_red,
 		value_font_size = tweak_data.gui.font_sizes.size_32,
@@ -426,29 +426,29 @@ end
 
 function WeaponSelectionGui:_layout_rotate_unit()
 	local params_rotate_weapon = {
-		x = 470,
-		y = 90,
-		mouse_over_sound = "weapon_mouse_over",
 		mouse_release_sound = "weapon_turn_stoped",
 		h = 570,
 		w = 1220,
+		y = 90,
 		rotation_click_sound = "weapon_turn",
 		sound_click_every_n_degrees = 10,
+		name = "rotate_weapon",
 		mouse_click_sound = "weapon_click",
-		name = "rotate_weapon"
+		mouse_over_sound = "weapon_mouse_over",
+		x = 470
 	}
 	self._rotate_weapon = self._root_panel:rotate_unit(params_rotate_weapon)
 end
 
 function WeaponSelectionGui:_layout_available_points()
 	local available_points_params = {
-		y = 672,
 		layer = 1,
 		h = 90,
 		w = 192,
 		x = 1536,
-		name = "available_points_label",
 		value_padding = 10,
+		name = "available_points_label",
+		y = 672,
 		text = self:translate("menu_available_points", true),
 		value = "" .. managers.weapon_skills:get_available_weapon_skill_points(),
 		value_color = tweak_data.gui.colors.raid_red
@@ -477,10 +477,10 @@ function WeaponSelectionGui:_layout_skins_button()
 	local x_off = self._equip_button:x()
 	local y_off = self._equip_button:y() + 15
 	local skins_button_params = {
-		stepper_w = 280,
 		layer = 1,
 		w = 450,
 		name = "skins_button",
+		stepper_w = 280,
 		description = self:translate("menu_weapons_skins", true),
 		x = x_off,
 		y = y_off,
@@ -599,11 +599,11 @@ function WeaponSelectionGui:_layout_weapon_name()
 	local font_size = tweak_data.gui.font_sizes.size_46
 	local weapon_name_params = {
 		align = "right",
-		y = 0,
-		vertical = "bottom",
 		text = "THOMPSON\nGUNGUN",
+		y = 0,
 		x = 1500,
 		name = "weapon_name",
+		vertical = "bottom",
 		w = self._root_panel:w() / 2,
 		h = font_size,
 		color = tweak_data.gui.colors.raid_dirty_white,
@@ -619,19 +619,19 @@ end
 function WeaponSelectionGui:_layout_weapon_desc()
 	local font_size = tweak_data.gui.font_sizes.size_24
 	local weapon_name_params = {
-		name = "weapon_desc",
 		align = "right",
-		vertical = "top",
-		y = 0,
 		w = 520,
+		y = 0,
+		word_wrap = true,
+		wrap = true,
+		name = "weapon_desc",
 		text = [[
 Despite Sterlings attitude he is infact a right bugger.
 Slap his buns for me.
 Ok but seriously now what is up with space?
 I am not joking about the buns thing.]],
 		x = 1500,
-		word_wrap = true,
-		wrap = true,
+		vertical = "top",
 		h = font_size * 6,
 		color = tweak_data.gui.colors.raid_dirty_white,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -1263,41 +1263,50 @@ function WeaponSelectionGui:_select_weapon(weapon_id, weapon_category_switched)
 		self._upgrade_button:hide()
 		self._skins_button:hide()
 
-		if self._selected_weapon_category_id ~= WeaponInventoryManager.BM_CATEGORY_MELEE_ID then
-			local class_name = managers.skilltree:get_character_profile_class()
-			local weapon_unlock_levels = tweak_data.skilltree:get_weapon_unlock_levels()
-			local weapon_id = selected_weapon:data().value.weapon_id
-			local level = weapon_unlock_levels[weapon_id][class_name]
+		local info_label_text = nil
 
-			if level then
-				self._cant_equip_explanation_label:set_text(utf8.to_upper(managers.localization:text("menu_weapons_locked_higher_level", {
-					LEVEL = level
-				})))
-			else
-				local classes = ""
-
-				for class_name, _ in pairs(weapon_unlock_levels[weapon_id]) do
-					classes = classes .. self:translate("character_skill_tree_" .. class_name, true) .. ", "
-				end
-
-				classes = string.sub(classes, 0, -3)
-
-				self._cant_equip_explanation_label:set_text(utf8.to_upper(managers.localization:text("menu_weapons_locked_wrong_class", {
-					CLASSES = classes
-				})))
-			end
-		else
-			local info_label_text = nil
-
+		if self._selected_weapon_category_id == WeaponInventoryManager.BM_CATEGORY_MELEE_ID then
 			if selected_weapon:data().value.is_challenge_reward then
 				info_label_text = self:translate("character_customization_locked_cc_label", true)
 			else
 				info_label_text = self:translate("character_customization_locked_drop_label", true)
 			end
+		else
+			local class_name = managers.skilltree:get_character_profile_class()
+			local weapon_unlock_levels = tweak_data.skilltree:get_weapon_unlock_levels()
+			local weapon_id = selected_weapon:data().value.weapon_id
+			local weapon_unlocks = weapon_unlock_levels[weapon_id]
+			local level = weapon_unlocks and weapon_unlocks[class_name]
 
-			self._cant_equip_explanation_label:set_text(info_label_text)
+			if selected_weapon:data().value.challenge then
+				local challenge_id = selected_weapon:data().value.challenge
+				local challenge = tweak_data.challenge[challenge_id]
+
+				if challenge and challenge.challenge_name_id then
+					local challenge_name = managers.localization:to_upper_text(challenge.challenge_name_id)
+					info_label_text = managers.localization:to_upper_text("character_customization_locked_challenge_label", {
+						CHALLENGE = challenge_name
+					})
+				end
+			elseif level then
+				info_label_text = managers.localization:to_upper_text("menu_weapons_locked_higher_level", {
+					LEVEL = level
+				})
+			elseif weapon_unlocks then
+				local classes = ""
+
+				for class_name, _ in pairs(weapon_unlocks) do
+					classes = classes .. self:translate("character_skill_tree_" .. class_name, true) .. ", "
+				end
+
+				classes = string.sub(classes, 0, -3)
+				info_label_text = managers.localization:to_upper_text("menu_weapons_locked_wrong_class", {
+					CLASSES = classes
+				})
+			end
 		end
 
+		self._cant_equip_explanation_label:set_text(info_label_text)
 		self._cant_equip_explanation_label:show()
 	end
 

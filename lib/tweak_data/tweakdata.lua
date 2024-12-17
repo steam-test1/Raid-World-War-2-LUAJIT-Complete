@@ -351,7 +351,7 @@ function TweakData:init()
 	self.attention = AttentionTweakData:new()
 	self.timespeed = TimeSpeedEffectTweakData:new()
 	self.sound = SoundTweakData:new()
-	self.events = EventsTweakData:new()
+	self.events = EventsTweakData:new(self)
 	self.lootdrop = LootDropTweakData:new(self)
 	self.drop_loot = DropLootTweakData:new(self)
 	self.dlc = DLCTweakData:new(self)
@@ -407,41 +407,41 @@ function TweakData:init()
 		{
 			name = "german",
 			static_data = {
+				color_id = 1,
 				ssuffix = "l",
 				ai_character_id = "ai_german",
 				mask_id = 1,
-				voice = "germ",
-				color_id = 1
+				voice = "germ"
 			}
 		},
 		{
 			name = "russian",
 			static_data = {
+				color_id = 2,
 				ssuffix = "c",
 				ai_character_id = "ai_russian",
 				mask_id = 2,
-				voice = "russ",
-				color_id = 2
+				voice = "russ"
 			}
 		},
 		{
 			name = "american",
 			static_data = {
+				color_id = 3,
 				ssuffix = "a",
 				ai_character_id = "ai_american",
 				mask_id = 3,
-				voice = "amer",
-				color_id = 3
+				voice = "amer"
 			}
 		},
 		{
 			name = "british",
 			static_data = {
+				color_id = 4,
 				ssuffix = "b",
 				ai_character_id = "ai_british",
 				mask_id = 4,
-				voice = "brit",
-				color_id = 4
+				voice = "brit"
 			}
 		}
 	}
@@ -785,20 +785,20 @@ function TweakData:init()
 		color = Color(0.1, 1, 1, 1)
 	}
 	self.overlay_effects.fade_out_e3_demo = {
+		text_blend_mode = "add",
+		font = "fonts/font_large_mf",
+		play_paused = true,
+		font_size = 44,
 		fade_out = 0,
 		fade_in = 3,
 		sustain = 20,
 		text_to_upper = true,
 		blend_mode = "normal",
-		text_blend_mode = "add",
-		font = "fonts/font_large_mf",
-		font_size = 44,
 		text = [[
 Great job, Raid gang!
 
 You've reached the end of our PAX EAST demo.
 ]],
-		play_paused = true,
 		color = Color(1, 0, 0, 0),
 		timer = TimerManager:main(),
 		text_color = Color(255, 255, 204, 0) / 255
@@ -899,6 +899,7 @@ You've reached the end of our PAX EAST demo.
 	self.experience_manager.extra_objectives_bonus = 1.25
 	self.experience_manager.tiny_objectives_bonus = 1.01
 	self.experience_manager.tiny_loot_bonus = 1.01
+	self.experience_manager.sugar_high_bonus = 1.5
 	local level_xp_requirements = {
 		0,
 		1200,
@@ -1021,6 +1022,36 @@ You've reached the end of our PAX EAST demo.
 	}
 	self.pickups.scrap = {
 		unit = Idstring("units/vanilla/props/props_wooden_crate_01/props_wooden_crate_scrap_parts")
+	}
+	self.pickups.candy_simple = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/simple/pku_candy_simple")
+	}
+	self.pickups.candy_simple_drop = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/simple/pku_candy_simple_drop")
+	}
+	self.pickups.candy_unlimited_ammo = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/unlimited_ammo/pku_candy_unlimited_ammo_drop")
+	}
+	self.pickups.candy_armor_pen = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/armor_pen/pku_candy_armor_pen_drop")
+	}
+	self.pickups.candy_sprint_speed = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/sprint_speed/pku_candy_sprint_speed_drop")
+	}
+	self.pickups.candy_jump_boost = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/jump_boost/pku_candy_jump_boost_drop")
+	}
+	self.pickups.candy_atk_dmg = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/atk_dmg/pku_candy_atk_dmg_drop")
+	}
+	self.pickups.candy_crit_chance = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/crit_chance/pku_candy_crit_chance_drop")
+	}
+	self.pickups.candy_health_regen = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/health_regen/pku_candy_health_regen_drop")
+	}
+	self.pickups.candy_god_mode = {
+		unit = Idstring("units/upd_candy/pickups/pku_candy/god_mode/pku_candy_god_mode_drop")
 	}
 	self.pickups.enigma_part_01 = {
 		unit = Idstring("units/vanilla/props/props_enigma_machine_part/props_enigma_machine_part_01")
@@ -1181,10 +1212,10 @@ You've reached the end of our PAX EAST demo.
 	}
 	self.dot_types = {
 		poison = {
-			dot_length = 10,
-			hurt_animation_chance = 0.5,
 			damage_class = "PoisonBulletBase",
-			dot_damage = 2
+			dot_damage = 2,
+			dot_length = 10,
+			hurt_animation_chance = 0.5
 		}
 	}
 
@@ -1236,62 +1267,62 @@ function TweakData:set_scale()
 	local lang_key = SystemInfo:language():key()
 	local lang_mods = {
 		[Idstring("german"):key()] = {
-			small = 1,
-			large = 0.9,
-			w_interact_multiplier = 1.65,
-			sd_w_interact_multiplier = 1.55,
 			kit_desc_large = 0.9,
-			menu_logo_multiplier = 0.9,
+			small = 1,
 			objectives_text_kern = -1,
 			level_up_text_kern = -1.5,
 			stats_upgrade_kern = -1,
 			sd_menu_border_multiplier = 0.9,
 			sd_small = 0.9,
-			sd_large = 0.9
+			sd_large = 0.9,
+			menu_logo_multiplier = 0.9,
+			sd_w_interact_multiplier = 1.55,
+			w_interact_multiplier = 1.65,
+			large = 0.9
 		},
 		[Idstring("french"):key()] = {
-			subtitle_multiplier = 0.85,
-			sd_level_up_font_multiplier = 0.9,
-			victory_screen_kern = -0.5,
-			large = 0.9,
-			w_interact_multiplier = 1.4,
-			sd_w_interact_multiplier = 1.3,
 			kit_desc_large = 0.9,
+			small = 1,
 			objectives_text_kern = -0.8,
 			level_up_text_kern = -1.5,
 			stats_upgrade_kern = -1,
-			small = 1,
+			sd_w_interact_multiplier = 1.3,
 			sd_small = 0.95,
-			sd_large = 0.9
+			sd_large = 0.9,
+			subtitle_multiplier = 0.85,
+			sd_level_up_font_multiplier = 0.9,
+			victory_screen_kern = -0.5,
+			w_interact_multiplier = 1.4,
+			large = 0.9
 		},
 		[Idstring("italian"):key()] = {
-			objectives_text_kern = -0.8,
-			large = 1,
-			sd_w_interact_multiplier = 1.5,
-			small = 1,
-			sd_small = 1,
-			sd_large = 1,
 			kit_desc_large = 0.9,
-			w_interact_multiplier = 1.35
+			small = 1,
+			objectives_text_kern = -0.8,
+			sd_large = 1,
+			sd_w_interact_multiplier = 1.5,
+			w_interact_multiplier = 1.35,
+			sd_small = 1,
+			large = 1
 		},
 		[Idstring("spanish"):key()] = {
+			kit_desc_large = 0.9,
+			menu_logo_multiplier = 0.9,
+			objectives_text_kern = -0.8,
 			level_up_text_kern = -1.5,
+			stats_upgrade_kern = -1,
 			sd_menu_border_multiplier = 0.85,
+			sd_small = 0.9,
+			sd_large = 1,
+			small = 1,
+			sd_w_interact_multiplier = 1.5,
 			victory_title_multiplier = 0.9,
 			server_list_font_multiplier = 0.9,
 			objectives_desc_text_kern = 0,
 			upgrade_menu_kern = -1.25,
 			sd_level_up_font_multiplier = 0.9,
 			w_interact_multiplier = 1.6,
-			sd_w_interact_multiplier = 1.5,
-			kit_desc_large = 0.9,
-			menu_logo_multiplier = 0.9,
-			objectives_text_kern = -0.8,
-			large = 1,
-			stats_upgrade_kern = -1,
-			small = 1,
-			sd_small = 0.9,
-			sd_large = 1
+			large = 1
 		}
 	}
 	local lang_l_mod = lang_mods[lang_key] and lang_mods[lang_key].large or 1
@@ -1419,35 +1450,35 @@ end
 function TweakData:set_menu_scale()
 	local lang_mods_def = {
 		[Idstring("german"):key()] = {
-			challenges_font_size = 1,
-			upgrades_font_size = 1,
 			mission_end_font_size = 1,
-			topic_font_size = 0.8
+			topic_font_size = 0.8,
+			challenges_font_size = 1,
+			upgrades_font_size = 1
 		},
 		[Idstring("french"):key()] = {
-			challenges_font_size = 1,
-			upgrades_font_size = 1,
 			mission_end_font_size = 1,
-			topic_font_size = 1
+			topic_font_size = 1,
+			challenges_font_size = 1,
+			upgrades_font_size = 1
 		},
 		[Idstring("italian"):key()] = {
-			challenges_font_size = 1,
-			upgrades_font_size = 1,
 			mission_end_font_size = 0.95,
-			topic_font_size = 1
+			topic_font_size = 1,
+			challenges_font_size = 1,
+			upgrades_font_size = 1
 		},
 		[Idstring("spanish"):key()] = {
-			challenges_font_size = 0.95,
-			upgrades_font_size = 1,
 			mission_end_font_size = 1,
-			topic_font_size = 0.95
+			topic_font_size = 0.95,
+			challenges_font_size = 0.95,
+			upgrades_font_size = 1
 		}
 	}
 	local lang_mods = lang_mods_def[SystemInfo:language():key()] or {
-		challenges_font_size = 1,
-		upgrades_font_size = 1,
 		mission_end_font_size = 1,
-		topic_font_size = 1
+		topic_font_size = 1,
+		challenges_font_size = 1,
+		upgrades_font_size = 1
 	}
 	local scale_multiplier = self.scale.default_font_multiplier
 	local small_scale_multiplier = self.scale.small_font_multiplier
@@ -1526,45 +1557,45 @@ end
 function TweakData:set_hud_values()
 	local lang_mods_def = {
 		[Idstring("german"):key()] = {
+			next_player_font_size = 0.85,
+			present_mid_text_font_size = 0.8,
 			active_objective_title_font_size = 0.9,
 			stats_challenges_font_size = 0.7,
 			hint_font_size = 0.9,
-			location_font_size = 1,
-			next_player_font_size = 0.85,
-			present_mid_text_font_size = 0.8
+			location_font_size = 1
 		},
 		[Idstring("french"):key()] = {
+			next_player_font_size = 0.85,
+			present_mid_text_font_size = 1,
 			active_objective_title_font_size = 1,
 			stats_challenges_font_size = 1,
 			hint_font_size = 0.825,
-			location_font_size = 1,
-			next_player_font_size = 0.85,
-			present_mid_text_font_size = 1
+			location_font_size = 1
 		},
 		[Idstring("italian"):key()] = {
+			next_player_font_size = 0.85,
+			present_mid_text_font_size = 1,
 			active_objective_title_font_size = 1,
 			stats_challenges_font_size = 1,
 			hint_font_size = 1,
-			location_font_size = 1,
-			next_player_font_size = 0.85,
-			present_mid_text_font_size = 1
+			location_font_size = 1
 		},
 		[Idstring("spanish"):key()] = {
+			next_player_font_size = 0.85,
+			present_mid_text_font_size = 1,
 			active_objective_title_font_size = 1,
 			stats_challenges_font_size = 1,
 			hint_font_size = 1,
-			location_font_size = 0.7,
-			next_player_font_size = 0.85,
-			present_mid_text_font_size = 1
+			location_font_size = 0.7
 		}
 	}
 	local lang_mods = lang_mods_def[SystemInfo:language():key()] or {
+		next_player_font_size = 1,
+		present_mid_text_font_size = 1,
 		active_objective_title_font_size = 1,
 		stats_challenges_font_size = 1,
 		hint_font_size = 1,
-		location_font_size = 1,
-		next_player_font_size = 1,
-		present_mid_text_font_size = 1
+		location_font_size = 1
 	}
 	self.hud.large_font = "fonts/font_large"
 	self.hud.medium_kern = 1.7

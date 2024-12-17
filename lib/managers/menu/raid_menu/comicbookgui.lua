@@ -176,8 +176,8 @@ function ComicBookGui:_layout_page_bullets()
 		table.insert(self._bullets_normal, normal_bullet)
 
 		local active_bullet = self._bullet_panel:bitmap({
-			h = 0,
 			w = 0,
+			h = 0,
 			x = bullet_x,
 			texture = bullet_active_icon.texture,
 			texture_rect = bullet_active_icon.texture_rect,

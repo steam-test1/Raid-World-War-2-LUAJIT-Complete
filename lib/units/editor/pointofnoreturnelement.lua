@@ -30,10 +30,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	self:_build_add_remove_unit_from_list(panel, panel_sizer, self._hed.elements, nil, exact_names)
 
 	local time_params_easy = {
+		min = 1,
 		name = "Time left on easy:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -52,10 +52,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	})
 
 	local time_params_normal = {
+		min = 1,
 		name = "Time left on normal:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -74,10 +74,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	})
 
 	local time_params_hard = {
+		min = 1,
 		name = "Time left on hard:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -96,10 +96,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	})
 
 	local time_params_overkill = {
+		min = 1,
 		name = "Time left on overkill:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -118,10 +118,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	})
 
 	local time_params_overkill_145 = {
+		min = 1,
 		name = "Time left on overkill 145:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -140,10 +140,10 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 	})
 
 	local time_params_overkill_290 = {
+		min = 1,
 		name = "Time left on overkill 290:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		min = 1,
 		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
@@ -176,9 +176,9 @@ function PointOfNoReturnElement:update_selected(t, dt, selected_unit, all_units)
 
 		if draw then
 			self:_draw_link({
+				b = 0.75,
 				g = 0,
 				r = 0.75,
-				b = 0.75,
 				from_unit = self._unit,
 				to_unit = unit
 			})

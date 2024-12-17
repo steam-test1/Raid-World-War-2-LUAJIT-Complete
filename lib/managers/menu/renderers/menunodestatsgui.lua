@@ -110,11 +110,11 @@ function MenuNodeStatsGui:_add_stats(params)
 		y = y
 	})
 	local topic = panel:text({
+		x = 0,
 		vertical = "center",
 		halign = "right",
 		align = "right",
 		y = 0,
-		x = 0,
 		font_size = tweak_data.menu.stats_font_size,
 		w = self:_left_align(),
 		font = self.font,

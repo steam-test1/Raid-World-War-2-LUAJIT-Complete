@@ -140,8 +140,8 @@ function MenuNodeUpdatesGui:setup()
 	local title_text = managers.localization:to_upper_text(self._tweak_data.title_id or "menu_content_updates")
 
 	panel:text({
-		vertical = "top",
 		align = "left",
+		vertical = "top",
 		text = title_text,
 		font_size = tweak_data.menu.pd2_large_font_size,
 		font = tweak_data.menu.pd2_large_font,
@@ -149,9 +149,9 @@ function MenuNodeUpdatesGui:setup()
 	})
 
 	local back_button = panel:text({
+		align = "right",
 		vertical = "bottom",
 		name = "back_button",
-		align = "right",
 		text = managers.localization:to_upper_text("menu_back"),
 		font_size = tweak_data.menu.pd2_large_font_size,
 		font = tweak_data.menu.pd2_large_font,
@@ -313,18 +313,18 @@ function MenuNodeUpdatesGui:setup()
 	if self._tweak_data.button then
 		local top_button = panel:panel({
 			w = 32,
-			name = "top_button",
-			h = 32
+			h = 32,
+			name = "top_button"
 		})
 		local w = 0
 		local h = 0
 
 		if self._tweak_data.button.text_id then
 			local text = top_button:text({
-				halign = "right",
-				valign = "top",
-				vertical = "top",
 				align = "right",
+				valign = "top",
+				halign = "right",
+				vertical = "top",
 				text = managers.localization:to_upper_text(self._tweak_data.button.text_id),
 				font_size = tweak_data.menu.pd2_medium_font_size,
 				font = tweak_data.menu.pd2_medium_font,
@@ -461,24 +461,24 @@ function MenuNodeUpdatesGui:setup()
 			h = tweak_data.menu.pd2_medium_font_size
 		})
 		local prev_text = self._prev_page:text({
+			align = "center",
 			vertical = "center",
 			name = "text_obj",
-			align = "center",
 			text = managers.menu:is_pc_controller() and "<" or managers.localization:get_default_macro("BTN_BOTTOM_L"),
 			font = tweak_data.menu.pd2_medium_font,
 			font_size = tweak_data.menu.pd2_medium_font_size
 		})
 		local next_text = self._next_page:text({
+			align = "center",
 			vertical = "center",
 			name = "text_obj",
-			align = "center",
 			text = managers.menu:is_pc_controller() and ">" or managers.localization:get_default_macro("BTN_BOTTOM_R"),
 			font = tweak_data.menu.pd2_medium_font,
 			font_size = tweak_data.menu.pd2_medium_font_size
 		})
 		local page_text = panel:text({
-			vertical = "center",
 			align = "center",
+			vertical = "center",
 			text = tostring(current_page) .. "/" .. tostring(num_pages),
 			font = tweak_data.menu.pd2_medium_font,
 			font_size = tweak_data.menu.pd2_medium_font_size,

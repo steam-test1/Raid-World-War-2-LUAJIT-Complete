@@ -86,8 +86,8 @@ function IngameWaitingForRespawnState:_setup_sound_listener()
 
 	self._listener_activation_id = managers.listener:activate_set("main", "spectator_camera")
 	self._sound_check_object = managers.sound_environment:add_check_object({
-		primary = true,
 		active = true,
+		primary = true,
 		object = self._camera_object
 	})
 end
@@ -395,14 +395,14 @@ function IngameWaitingForRespawnState:at_enter()
 	managers.player:force_drop_carry()
 	managers.hud:hide_stats_screen()
 	managers.hud:set_player_health({
+		no_hint = true,
 		total = 100,
-		current = 0,
-		no_hint = true
+		current = 0
 	})
 	managers.hud:set_player_armor({
+		no_hint = true,
 		total = 100,
-		current = 0,
-		no_hint = true
+		current = 0
 	})
 	managers.hud:set_player_condition("mugshot_in_custody", managers.localization:text("debug_mugshot_in_custody"))
 	managers.overlay_effect:play_effect(tweak_data.overlay_effects.fade_in)

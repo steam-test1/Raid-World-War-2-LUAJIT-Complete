@@ -51,12 +51,12 @@ end
 
 function RaidGUIControlTopStatBig:_create_stat_info()
 	local player_name_params = {
-		vertical = "center",
-		alpha = 0,
-		align = "center",
-		text = "PLAYER NAME",
 		name = "player_name_label",
+		alpha = 0,
+		text = "PLAYER NAME",
 		layer = 1,
+		vertical = "center",
+		align = "center",
 		w = self._object:w(),
 		h = RaidGUIControlTopStatBig.PLAYER_NAME_H,
 		font = RaidGUIControlTopStatBig.FONT,
@@ -68,14 +68,14 @@ function RaidGUIControlTopStatBig:_create_stat_info()
 	self._player_name_label:set_center_y(self._object:h() - RaidGUIControlTopStatBig.PLAYER_NAME_CENTER_Y_FROM_BOTTOM)
 
 	local stat_name_params = {
-		vertical = "center",
+		name = "stat_name_label",
 		alpha = 0,
+		text = "Most things done well",
+		layer = 3,
+		vertical = "center",
 		align = "center",
 		word_wrap = true,
 		wrap = true,
-		text = "Most things done well",
-		name = "stat_name_label",
-		layer = 3,
 		w = self._object:w(),
 		h = RaidGUIControlTopStatBig.STAT_NAME_H,
 		font = RaidGUIControlTopStatBig.FONT,
@@ -87,14 +87,14 @@ function RaidGUIControlTopStatBig:_create_stat_info()
 	self._stat_name_label:set_center_y(self._object:h() - RaidGUIControlTopStatBig.STAT_NAME_CENTER_Y_FROM_BOTTOM)
 
 	local stat_value_params = {
-		vertical = "center",
+		name = "stat_value_label",
 		alpha = 0,
+		text = "1",
+		layer = 3,
+		vertical = "center",
 		align = "center",
 		word_wrap = true,
 		wrap = true,
-		text = "1",
-		name = "stat_value_label",
-		layer = 3,
 		w = self._object:w(),
 		h = RaidGUIControlTopStatBig.STAT_VALUE_H,
 		font = RaidGUIControlTopStatBig.FONT,
@@ -108,8 +108,8 @@ end
 
 function RaidGUIControlTopStatBig:_create_icon_background()
 	local icon_background_params = {
-		alpha = 0,
 		name = "icon_background",
+		alpha = 0,
 		texture = tweak_data.gui.icons[RaidGUIControlTopStatBig.ICON_BACKGROUND].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlTopStatBig.ICON_BACKGROUND].texture_rect
 	}
@@ -132,8 +132,8 @@ function RaidGUIControlTopStatBig:set_data(data)
 	self._stat_value_label:set_text(score)
 
 	local icon_params = {
-		alpha = 0,
 		name = "stat_icon",
+		alpha = 0,
 		texture = tweak_data.gui.icons[data.icon].texture,
 		texture_rect = tweak_data.gui.icons[data.icon].texture_rect
 	}

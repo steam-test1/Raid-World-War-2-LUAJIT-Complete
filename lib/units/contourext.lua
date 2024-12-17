@@ -6,9 +6,9 @@ local idstr_contour_distance = Idstring("contour_distance")
 ContourExt.UNSET_CONTOUR_DISTANCE = 200000
 ContourExt._types = {
 	teammate = {
-		priority = 5,
 		ray_check = true,
-		persistence = 0.1
+		persistence = 0.1,
+		priority = 5
 	},
 	teammate_downed = {
 		priority = 4,
@@ -43,8 +43,8 @@ ContourExt._types = {
 	},
 	mark_enemy = {
 		fadeout = 4.5,
-		priority = 5,
 		fadeout_silent = 13.5,
+		priority = 5,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_enemy_damage_bonus = {
@@ -54,8 +54,8 @@ ContourExt._types = {
 	},
 	mark_enemy_turret = {
 		fadeout = 4.5,
-		priority = 5,
 		fadeout_silent = 13.5,
+		priority = 5,
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_enemy_ghost = {
@@ -67,8 +67,8 @@ ContourExt._types = {
 	},
 	mark_enemy_sharpshooter = {
 		fadeout = 0,
-		priority = 3,
 		persistence = 0.1,
+		priority = 3,
 		color = tweak_data.contour.character.sharpshooter_warcry
 	},
 	mark_enemy_silver_bullet = {
@@ -99,23 +99,23 @@ ContourExt._types = {
 		color = tweak_data.contour.character_interactable.standard_color
 	},
 	deployable_selected = {
-		priority = 1,
 		unique = true,
+		priority = 1,
 		color = tweak_data.contour.deployable.selected_color
 	},
 	deployable_disabled = {
-		priority = 2,
 		unique = true,
+		priority = 2,
 		color = tweak_data.contour.deployable.disabled_color
 	},
 	deployable_active = {
-		priority = 3,
 		unique = true,
+		priority = 3,
 		color = tweak_data.contour.deployable.active_color
 	},
 	deployable_interactable = {
-		priority = 4,
 		unique = true,
+		priority = 4,
 		color = tweak_data.contour.deployable.interact_color
 	}
 }
@@ -576,6 +576,16 @@ function ContourExt:_get_materials()
 		table.map_append(check_units, customization:attached_units())
 	else
 		table.insert(check_units, self._unit)
+	end
+
+	local spawned_gear = self._unit:base().get_spawned_gear and self._unit:base():get_spawned_gear()
+
+	if spawned_gear then
+		for _, gear in ipairs(spawned_gear) do
+			if alive(gear.unit) and gear.unit:acc_gear() then
+				table.insert(check_units, gear.unit)
+			end
+		end
 	end
 
 	local inventory = self._unit:inventory()

@@ -485,8 +485,8 @@ function PlayerDamage:damage_tase(attack_data)
 
 		local damage_info = {
 			result = {
-				type = "hurt",
-				variant = "tase"
+				variant = "tase",
+				type = "hurt"
 			}
 		}
 
@@ -546,7 +546,7 @@ function PlayerDamage:damage_melee(attack_data)
 		"melee_hit_var2"
 	}
 
-	self._unit:camera():play_shaker(vars[math.random(#vars)], 1 * managers.player:upgrade_value("player", "on_hit_flinch_reduction", 1))
+	self._unit:camera():play_shaker(table.random(vars), 1 * managers.player:upgrade_value("player", "on_hit_flinch_reduction", 1))
 
 	if managers.player:current_state() == "bipod" or managers.player:current_state() == "turret" then
 		managers.player:set_player_state("standard")
@@ -590,8 +590,8 @@ end
 function PlayerDamage:damage_bullet(attack_data)
 	local damage_info = {
 		result = {
-			type = "hurt",
-			variant = "bullet"
+			variant = "bullet",
+			type = "hurt"
 		},
 		attacker_unit = attack_data.attacker_unit
 	}
@@ -766,8 +766,8 @@ end
 function PlayerDamage:damage_killzone(attack_data)
 	local damage_info = {
 		result = {
-			type = "hurt",
-			variant = "killzone"
+			variant = "killzone",
+			type = "hurt"
 		}
 	}
 
@@ -804,8 +804,8 @@ end
 function PlayerDamage:damage_fall(data)
 	local damage_info = {
 		result = {
-			type = "hurt",
-			variant = "fall"
+			variant = "fall",
+			type = "hurt"
 		}
 	}
 
@@ -925,8 +925,8 @@ end
 function PlayerDamage:damage_explosion(attack_data)
 	local damage_info = {
 		result = {
-			type = "hurt",
-			variant = "explosion"
+			variant = "explosion",
+			type = "hurt"
 		}
 	}
 
@@ -965,8 +965,8 @@ end
 function PlayerDamage:damage_fire(attack_data)
 	local damage_info = {
 		result = {
-			type = "hurt",
-			variant = "fire"
+			variant = "fire",
+			type = "hurt"
 		}
 	}
 
@@ -1071,10 +1071,10 @@ function PlayerDamage:_check_bleed_out(ignore_upgrades, ignore_movement_state)
 				local max_lives = self:get_max_revives()
 
 				managers.hud:set_big_prompt({
-					background = "backgrounds_detected_msg",
-					priority = true,
 					id = "hint_downed",
 					duration = 4,
+					priority = true,
+					background = "backgrounds_detected_msg",
 					title = managers.localization:to_upper_text("hud_hint_downs_title"),
 					description = managers.localization:to_upper_text("hud_hint_downs_desc", {
 						DOWNS = self._revives - 1,
@@ -1384,8 +1384,7 @@ function PlayerDamage:shoot_pos_mid(m_pos)
 end
 
 function PlayerDamage:set_regenerate_timer_to_max()
-	local mul = managers.player:body_armor_regen_multiplier(alive(self._unit) and self._unit:movement():current_state()._moving, self:health_ratio())
-	self._regenerate_timer = tweak_data.player.damage.REGENERATE_TIME * mul
+	self._regenerate_timer = tweak_data.player.damage.REGENERATE_TIME
 	self._regenerate_speed = self._regenerate_speed or 1
 end
 

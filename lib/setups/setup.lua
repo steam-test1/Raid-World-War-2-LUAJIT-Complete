@@ -240,6 +240,7 @@ require("lib/managers/menu/raid_menu/controls/custom/RaidGUIControlKickMuteWidge
 require("lib/managers/menu/raid_menu/controls/custom/RaidGUIControlGridItemSkill")
 require("lib/managers/menu/raid_menu/controls/custom/RaidGUIControlSkillProgression")
 require("lib/managers/menu/raid_menu/controls/custom/RaidGUIControlButtonSkillTiny")
+require("lib/managers/menu/raid_menu/controls/custom/RaidGUIControlEventDisplay")
 require("lib/managers/menu/raid_menu/controls/RaidGUIControlWeaponStats")
 require("lib/managers/menu/raid_menu/controls/RaidGUIControlMeleeWeaponStats")
 require("lib/managers/menu/raid_menu/controls/RaidGUIControlGrenadeWeaponStats")
@@ -323,15 +324,15 @@ end
 
 function Setup:init_managers(managers)
 	Global.game_settings = Global.game_settings or {
+		search_appropriate_jobs = true,
+		job_plan = -1,
+		kick_option = 1,
+		drop_in_allowed = true,
 		reputation_permission = 0,
 		team_ai = true,
 		selected_team_ai = true,
 		permission = "public",
 		is_playing = false,
-		search_appropriate_jobs = true,
-		job_plan = -1,
-		kick_option = 1,
-		drop_in_allowed = true,
 		level_id = OperationsTweakData.ENTRY_POINT_LEVEL,
 		difficulty = Global.DEFAULT_DIFFICULTY
 	}
@@ -471,8 +472,8 @@ function Setup:_start_loading_screen()
 		load_level_data.controller_shapes = {
 			{
 				position = {
-					cx = 0.5,
-					cy = 0.5
+					cy = 0.5,
+					cx = 0.5
 				},
 				texture_rect = {
 					0,
@@ -501,8 +502,8 @@ function Setup:_start_loading_screen()
 			aspect_ratio = aspect_ratio,
 			res = res,
 			workspace_size = {
-				y = 0,
 				x = 0,
+				y = 0,
 				w = res.x,
 				h = res.y
 			},
@@ -541,10 +542,10 @@ function Setup:_setup_loading_environment()
 				slice3 = Vector3(5100, 17500, 0)
 			},
 			apply_ambient = {
+				effect_light_scale = 1,
 				ambient_falloff_scale = 0,
 				ambient_scale = 1,
 				ambient_color_scale = 0.31999999284744,
-				effect_light_scale = 1,
 				ambient_color = Vector3(1, 1, 1),
 				sky_top_color = Vector3(0, 0, 0),
 				sky_bottom_color = Vector3(0, 0, 0)

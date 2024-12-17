@@ -156,8 +156,8 @@ function IngameWaitingForPlayersState:update(t, dt)
 
 				if btn_skip_press and not self._skip_data then
 					self._skip_data = {
-						total = 1,
-						current = 0
+						current = 0,
+						total = 1
 					}
 				elseif not btn_skip_press and self._skip_data then
 					self._skip_data = nil

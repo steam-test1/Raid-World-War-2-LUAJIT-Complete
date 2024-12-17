@@ -334,8 +334,8 @@ function PS4DLCManager:buy_full_game()
 	managers.menu:show_waiting_NPCommerce_open()
 
 	self._request = {
-		type = "buy_product",
-		product = "full_game"
+		product = "full_game",
+		type = "buy_product"
 	}
 	self._activity = {
 		type = "open"
@@ -468,13 +468,13 @@ function XB1DLCManager:init()
 		Global.dlc_manager = {
 			all_dlc_data = {
 				full_game = {
-					is_default = true,
 					verified = true,
+					is_default = true,
 					index = 0
 				},
 				preorder = {
-					is_default = false,
 					product_id = "123456",
+					is_default = false,
 					index = 1
 				}
 			}
@@ -535,8 +535,8 @@ function WINDLCManager:init()
 			all_dlc_data = {
 				full_game = {
 					verified = true,
-					no_install = true,
 					external = true,
+					no_install = true,
 					app_id = tostring(self:get_app_id())
 				},
 				preorder = {

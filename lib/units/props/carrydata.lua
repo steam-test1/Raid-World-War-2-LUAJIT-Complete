@@ -1,7 +1,7 @@
 CarryData = CarryData or class()
 CarryData.EVENT_IDS = {
-	explode = 2,
-	will_explode = 1
+	will_explode = 1,
+	explode = 2
 }
 
 function CarryData:init(unit)
@@ -422,16 +422,16 @@ function CarryData:_chk_register_steal_SO()
 		fail_clbk = callback(self, self, "on_secure_SO_failed"),
 		complete_clbk = callback(self, self, "on_secure_SO_completed"),
 		action = {
-			body_part = 1,
-			align_sync = true,
 			variant = "untie",
-			type = "act"
+			type = "act",
+			body_part = 1,
+			align_sync = true
 		}
 	}
 	local pickup_objective = {
+		haste = "run",
 		interrupt_health = 0.9,
 		interrupt_dis = 700,
-		haste = "run",
 		destroy_clbk_key = false,
 		pose = "crouch",
 		type = "act",
@@ -441,10 +441,10 @@ function CarryData:_chk_register_steal_SO()
 		fail_clbk = callback(self, self, "on_pickup_SO_failed"),
 		complete_clbk = callback(self, self, "on_pickup_SO_completed"),
 		action = {
-			body_part = 1,
-			align_sync = true,
 			variant = "untie",
-			type = "act"
+			type = "act",
+			body_part = 1,
+			align_sync = true
 		},
 		action_duration = math.lerp(1, 2.5, math.random()),
 		followup_objective = drop_objective

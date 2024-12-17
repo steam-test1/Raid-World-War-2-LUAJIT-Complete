@@ -21,8 +21,8 @@ function NpcVehicleStateManeuverBackRight:on_enter(npc_driving_ext)
 			}
 		},
 		{
-			tick_at = 0,
 			duration = 1,
+			tick_at = 0,
 			input = {
 				handbrake = 0,
 				brake = 0,

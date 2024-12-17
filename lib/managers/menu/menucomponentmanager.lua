@@ -628,8 +628,8 @@ function MenuComponentManager:mouse_pressed(o, button, x, y)
 		if button == Idstring("0") then
 			if self._server_info_gui:check_minimize(x, y) then
 				local minimized_data = {
-					text = "SERVER INFO",
-					help_text = "MAXIMIZE SERVER INFO WINDOW"
+					help_text = "MAXIMIZE SERVER INFO WINDOW",
+					text = "SERVER INFO"
 				}
 
 				self._server_info_gui:set_minimized(true, minimized_data)
@@ -968,12 +968,12 @@ function MenuComponentManager:create_chat_gui()
 	self:close_chat_gui()
 
 	local config = {
+		header_type = "fit",
 		use_minimize_legend = true,
 		no_close_legend = true,
 		h = 220,
 		w = 540,
-		x = 290,
-		header_type = "fit"
+		x = 290
 	}
 	self._chat_book = BookBoxGui:new(self._ws, nil, config)
 
@@ -1093,10 +1093,10 @@ function MenuComponentManager:create_view_character_profile_gui(user, x, y)
 	self:close_view_character_profile_gui()
 
 	self._view_character_profile_gui = ViewCharacterProfileBoxGui:new(self._ws, nil, nil, nil, {
+		w = 360,
 		x = 837,
 		y = 100,
-		h = 160,
-		w = 360
+		h = 160
 	}, user)
 
 	self._view_character_profile_gui:set_title(nil)
@@ -1127,20 +1127,20 @@ function MenuComponentManager:add_minimized(config)
 	self._minimized_list = self._minimized_list or {}
 	self._minimized_id = (self._minimized_id or 0) + 1
 	local panel = self._main_panel:panel({
-		h = 20,
 		w = 100,
+		h = 20,
 		layer = tweak_data.gui.MENU_COMPONENT_LAYER
 	})
 	local text = nil
 
 	if config.text then
 		text = panel:text({
+			vertical = "center",
 			halign = "left",
 			hvertical = "center",
 			align = "center",
 			layer = 2,
 			font_size = 22,
-			vertical = "center",
 			text = config.text,
 			font = tweak_data.menu.default_font
 		})
@@ -1154,8 +1154,8 @@ function MenuComponentManager:add_minimized(config)
 	end
 
 	local help_text = panel:parent():text({
-		layer = 3,
 		hvertical = "center",
+		layer = 3,
 		vertical = "center",
 		halign = "left",
 		align = "left",
@@ -1169,17 +1169,17 @@ function MenuComponentManager:add_minimized(config)
 	help_text:set_shape(help_text:text_rect())
 
 	local unselected = panel:bitmap({
-		texture = "guis/textures/menu_unselected",
-		layer = 0
+		layer = 0,
+		texture = "guis/textures/menu_unselected"
 	})
 
 	unselected:set_h(64 * panel:h() / 32)
 	unselected:set_center_y(panel:center_y())
 
 	local selected = panel:bitmap({
-		visible = false,
+		layer = 1,
 		texture = "guis/textures/menu_selected",
-		layer = 1
+		visible = false
 	})
 
 	selected:set_h(64 * panel:h() / 32)
@@ -1188,8 +1188,8 @@ function MenuComponentManager:add_minimized(config)
 
 	local top_line = panel:parent():bitmap({
 		visible = false,
-		texture = "guis/textures/headershadow",
 		layer = 1,
+		texture = "guis/textures/headershadow",
 		w = panel:w()
 	})
 

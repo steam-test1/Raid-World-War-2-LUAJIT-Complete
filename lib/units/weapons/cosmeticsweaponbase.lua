@@ -130,10 +130,10 @@ local material_defaults = {
 	diffuse_layer3_texture = Idstring("texture_removed_in_cleanup")
 }
 local material_textures = {
+	pattern = "diffuse_layer0_texture",
 	pattern_gradient = "diffuse_layer2_texture",
 	base_gradient = "diffuse_layer1_texture",
-	sticker = "diffuse_layer3_texture",
-	pattern = "diffuse_layer0_texture"
+	sticker = "diffuse_layer3_texture"
 }
 local material_variables = {
 	cubemap_pattern_control = "cubemap_pattern_control",

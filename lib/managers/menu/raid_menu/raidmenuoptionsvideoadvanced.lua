@@ -151,8 +151,8 @@ function RaidMenuOptionsVideoAdvanced:_layout_video_advanced()
 	}
 	self._toggle_menu_toggle_volumetric_light_scattering = self._root_panel:toggle_button(toggle_menu_toggle_volumetric_light_scattering_params)
 	local progress_bar_menu_detail_distance_params = {
-		value_format = "%02d%%",
 		name = "progress_bar_menu_detail_distance",
+		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_detail_distance")),
 		x = start_x,
 		y = toggle_menu_toggle_volumetric_light_scattering_params.y + RaidGuiBase.PADDING,
@@ -276,9 +276,9 @@ function RaidMenuOptionsVideoAdvanced:_layout_video_advanced()
 	}
 	self._stepper_menu_toggle_vsync = self._root_panel:stepper(_stepper_menu_toggle_vsync_params)
 	local default_advanced_video_params = {
+		name = "default_advanced_video",
 		y = 832,
 		x = 1472,
-		name = "default_advanced_video",
 		text = utf8.to_upper(managers.localization:text("menu_options_controls_default")),
 		on_click_callback = callback(self, self, "on_click_default_advanced_video"),
 		layer = RaidGuiBase.FOREGROUND_LAYER

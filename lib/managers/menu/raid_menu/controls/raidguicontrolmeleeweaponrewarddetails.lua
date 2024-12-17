@@ -73,10 +73,10 @@ end
 function RaidGUIControlMeleeWeaponRewardDetails:_create_title()
 	local title_description_params = {
 		align = "left",
-		vertical = "center",
-		name = "title_description",
 		layer = 10,
 		alpha = 0,
+		vertical = "center",
+		name = "title_description",
 		y = RaidGUIControlMeleeWeaponRewardDetails.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlMeleeWeaponRewardDetails.TITLE_DESCRIPTION_H,
 		font = RaidGUIControlMeleeWeaponRewardDetails.FONT,
@@ -91,11 +91,11 @@ function RaidGUIControlMeleeWeaponRewardDetails:_create_title()
 
 	local title_params = {
 		align = "left",
-		vertical = "top",
 		layer = 10,
-		name = "customization_name",
 		wrap = true,
 		alpha = 0,
+		vertical = "top",
+		name = "customization_name",
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlMeleeWeaponRewardDetails.TITLE_PADDING_TOP,
 		font = RaidGUIControlMeleeWeaponRewardDetails.FONT,
 		font_size = RaidGUIControlMeleeWeaponRewardDetails.TITLE_FONT_SIZE,
@@ -118,14 +118,14 @@ end
 
 function RaidGUIControlMeleeWeaponRewardDetails:_create_reward_image()
 	local reward_image_panel_params = {
-		layer = 10,
 		name = "reward_image_panel",
+		layer = 10,
 		w = self._left_panel:w()
 	}
 	self._reward_image_panel = self._left_panel:panel(reward_image_panel_params)
 	local reward_image_params = {
-		alpha = 0,
 		name = "reward_image",
+		alpha = 0,
 		texture = tweak_data.gui.icons[RaidGUIControlMeleeWeaponRewardDetails.REWARD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[RaidGUIControlMeleeWeaponRewardDetails.REWARD_ICON].texture_rect
 	}
@@ -201,12 +201,12 @@ end
 function RaidGUIControlMeleeWeaponRewardDetails:_create_description()
 	local description_params = {
 		align = "left",
-		vertical = "top",
-		name = "description",
 		layer = 10,
 		wrap = true,
 		alpha = 0,
 		text = "",
+		vertical = "top",
+		name = "description",
 		y = RaidGUIControlMeleeWeaponRewardDetails.DESCRIPTION_Y,
 		w = RaidGUIControlMeleeWeaponRewardDetails.DESCRIPTION_W,
 		font = RaidGUIControlMeleeWeaponRewardDetails.DESCRIPTION_FONT,
@@ -221,12 +221,12 @@ end
 function RaidGUIControlMeleeWeaponRewardDetails:_create_item_title()
 	local item_type_params = {
 		align = "left",
-		vertical = "center",
-		name = "item_type",
+		alpha = 0,
 		layer = 10,
 		wrap = true,
-		alpha = 0,
 		text = "",
+		vertical = "center",
+		name = "item_type",
 		x = self._description:x(),
 		y = RaidGUIControlMeleeWeaponRewardDetails.ITEM_TYPE_Y,
 		w = RaidGUIControlMeleeWeaponRewardDetails.DESCRIPTION_W,

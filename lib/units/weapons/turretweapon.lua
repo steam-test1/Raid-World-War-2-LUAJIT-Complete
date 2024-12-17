@@ -1150,10 +1150,10 @@ function TurretWeapon:_create_turret_SO()
 	managers.navigation:destroy_nav_tracker(tracker_align)
 
 	local turret_objective = {
-		destroy_clbk_key = false,
-		pose = "stand",
 		haste = "run",
+		pose = "stand",
 		type = "turret",
+		destroy_clbk_key = false,
 		nav_seg = align_nav_seg,
 		area = align_area,
 		pos = align_pos,
@@ -1161,16 +1161,16 @@ function TurretWeapon:_create_turret_SO()
 		fail_clbk = callback(self, self, "on_turret_SO_failed"),
 		complete_clbk = callback(self, self, "on_turret_SO_completed"),
 		action = {
-			body_part = 1,
-			type = "act",
 			needs_full_blend = true,
+			type = "act",
 			align_sync = true,
+			body_part = 1,
 			variant = variant,
 			blocks = {
+				hurt = -1,
 				walk = -1,
 				heavy_hurt = -1,
-				action = -1,
-				hurt = -1
+				action = -1
 			}
 		}
 	}
@@ -1431,9 +1431,9 @@ function TurretWeapon:_cancel_active_SO()
 			admin_unit_brain:set_objective(nil)
 			admin_unit_brain:set_logic("idle", nil)
 			admin_unit_brain:action_request({
+				sync = true,
 				body_part = 2,
-				type = "idle",
-				sync = true
+				type = "idle"
 			})
 			self:on_turret_SO_failed(self._administered_unit_data.unit)
 

@@ -72,9 +72,9 @@ end
 
 function RaidGUIControlWeaponPointRewardDetails:_create_title()
 	local title_description_params = {
-		vertical = "center",
 		name = "title_description",
 		align = "left",
+		vertical = "center",
 		h = RaidGUIControlWeaponPointRewardDetails.TITLE_DESCRIPTION_H,
 		font = RaidGUIControlWeaponPointRewardDetails.FONT,
 		font_size = RaidGUIControlWeaponPointRewardDetails.TITLE_DESCRIPTION_FONT_SIZE,
@@ -87,9 +87,9 @@ function RaidGUIControlWeaponPointRewardDetails:_create_title()
 	title_description:set_w(w)
 
 	local title_params = {
-		vertical = "top",
 		name = "customization_name",
 		align = "center",
+		vertical = "top",
 		y = title_description:y() + title_description:h() + RaidGUIControlWeaponPointRewardDetails.TITLE_PADDING_TOP,
 		font = RaidGUIControlWeaponPointRewardDetails.FONT,
 		font_size = RaidGUIControlWeaponPointRewardDetails.TITLE_FONT_SIZE,

@@ -38,10 +38,10 @@ function BootupState:setup()
 
 	if not is_win32 then
 		table.insert(self._play_data_list, {
+			duration = 6,
 			can_skip = false,
 			height = 200,
 			width = 600,
-			duration = 6,
 			gui = Idstring("guis/autosave_warning"),
 			layer = item_layer,
 			fade_in = fade_time,
@@ -90,19 +90,19 @@ function BootupState:setup()
 	self._panel = self._workspace:panel()
 
 	self._full_panel:rect({
-		layer = 0,
 		visible = false,
+		layer = 0,
 		color = Color.red
 	})
 
 	local press_any_key_font_size = tweak_data.gui.font_sizes.medium
 	local press_any_key_prompt_params = {
-		layer = 3,
-		wrap = true,
-		alpha = 0,
-		vertical = "bottom",
 		align = "center",
+		layer = 3,
+		alpha = 0,
 		name = "press_any_key_text",
+		wrap = true,
+		vertical = "bottom",
 		w = self._full_panel:w(),
 		h = press_any_key_font_size,
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.FONT, press_any_key_font_size),

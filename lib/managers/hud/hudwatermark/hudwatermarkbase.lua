@@ -18,8 +18,8 @@ end
 function HUDWatermarkBase:_create_panel(hud)
 	local panel_params = {
 		valign = "center",
-		layer = 1000,
 		name = "watermark_panel",
+		layer = 1000,
 		halign = "center",
 		w = HUDWatermarkBase.W,
 		h = HUDWatermarkBase.H

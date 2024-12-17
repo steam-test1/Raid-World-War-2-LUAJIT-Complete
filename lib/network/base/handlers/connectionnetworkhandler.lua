@@ -763,9 +763,10 @@ function ConnectionNetworkHandler:voting_data(type, value, result, sender)
 end
 
 ConnectionNetworkHandler._SYNC_AWARD_ACHIEVEMENT_ALLOWED = {
-	"ach_kill_enemies_with_single_grenade_5",
-	"landmines_kill_some",
-	"ach_all_players_go_to_bleedout"
+	ach_grenade_kill_spotter = true,
+	ach_kill_enemies_with_single_grenade_5 = true,
+	landmines_kill_some = true,
+	ach_decoy_kill_anyone = true
 }
 
 function ConnectionNetworkHandler:sync_award_achievement(achievement_id, sender)
@@ -957,8 +958,8 @@ function ConnectionNetworkHandler:sync_picked_up_loot_values(picked_up_current_l
 	managers.lootdrop:set_picked_up_total(picked_up_total)
 	managers.notification:add_notification({
 		shelf_life = 5,
-		id = "hud_hint_grabbed_nazi_gold",
 		duration = 2,
+		id = "hud_hint_grabbed_nazi_gold",
 		notification_type = HUDNotification.DOG_TAG,
 		acquired = picked_up_current_leg,
 		total = picked_up_total
@@ -1334,5 +1335,61 @@ function ConnectionNetworkHandler:sync_warcry_team_buff(upgrade_id, identifier, 
 		managers.upgrades:aquire(upgrade_id, nil, identifier)
 	else
 		managers.upgrades:unaquire(upgrade_id, identifier)
+	end
+end
+
+function ConnectionNetworkHandler:sync_warcry_team_buff_status_effect_add(skill_id, tier, sender)
+	if not self._verify_sender(sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame_playing) then
+		return
+	end
+
+	local skill_data = tweak_data.skilltree.skills[skill_id]
+
+	if managers.hud and skill_data then
+		Application:debug("[StatusEffects] Networking status", skill_id, tier)
+
+		local buff_icon = skill_data.upgrades_team_buff_icon
+
+		managers.hud:add_status_effect({
+			id = skill_id,
+			icon = buff_icon,
+			color = tweak_data.gui.colors.progress_green,
+			tier = tier
+		})
+	end
+end
+
+function ConnectionNetworkHandler:sync_warcry_team_buff_status_effect_remove(skill_id, sender)
+	if not self._verify_sender(sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame_playing) then
+		return
+	end
+
+	if managers.hud then
+		Application:debug("[StatusEffects] Networking status REMOVE", skill_id)
+		managers.hud:remove_status_effect(skill_id, false)
+	end
+end
+
+function ConnectionNetworkHandler:sync_candy_consumed(tweak_id, sender)
+	if not self._verify_sender(sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame_playing) then
+		return
+	end
+
+	local effect = managers.buff_effect:get_effect(BuffEffectManager.EFFECT_TRICK_OR_TREAT)
+
+	if effect then
+		effect:sync_candy_consumed(tweak_id)
+	end
+end
+
+function ConnectionNetworkHandler:sync_candy_sugar_high(effect_name, sender)
+	if not self._verify_sender(sender) or not self._verify_gamestate(self._gamestate_filter.any_ingame_playing) then
+		return
+	end
+
+	local effect = managers.buff_effect:get_effect(BuffEffectManager.EFFECT_TRICK_OR_TREAT)
+
+	if effect then
+		effect:sync_candy_sugar_high(effect_name)
 	end
 end

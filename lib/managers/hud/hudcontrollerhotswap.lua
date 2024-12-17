@@ -60,8 +60,8 @@ function HUDControllerHotswap:update_input_device()
 		self._icon:set_texture_rect(unpack(gui.texture_rect))
 	else
 		self._icon = self._object:bitmap({
-			y = 4,
 			x = 4,
+			y = 4,
 			w = HUDControllerHotswap.H - 8,
 			h = HUDControllerHotswap.H - 8,
 			texture = gui.texture,

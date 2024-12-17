@@ -38,10 +38,10 @@ function RaidGUIControlListItemCharacterCreateNation:_layout()
 	})
 	local nationality_text = self:translate("character_profile_creation_" .. self._nation_name, true)
 	self._nation_name_label = self._object:label({
+		h = 32,
 		w = 272,
 		y = 32,
 		x = 96,
-		h = 32,
 		text = nationality_text,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_32,

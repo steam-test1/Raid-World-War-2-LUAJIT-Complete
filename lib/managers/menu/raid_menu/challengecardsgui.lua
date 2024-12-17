@@ -230,11 +230,12 @@ function ChallengeCardsGui:_layout()
 	self._continue_without_a_card_button:set_right(self._phase_two_panel:right())
 
 	self._filter_type = managers.raid_job:current_job_type()
+	local rm_head = self._node.components.raid_menu_header
 
-	if self._filter_type == OperationsTweakData.JOB_TYPE_RAID then
-		self._node.components.raid_menu_header:set_screen_name("menu_challenge_cards_suggest_raid_title")
-	elseif self._filter_type == OperationsTweakData.JOB_TYPE_OPERATION then
-		self._node.components.raid_menu_header:set_screen_name("menu_challenge_cards_suggest_operation_title")
+	if self._filter_type == OperationsTweakData.JOB_TYPE_OPERATION then
+		rm_head:set_screen_name("menu_challenge_cards_suggest_operation_title")
+	else
+		rm_head:set_screen_name("menu_challenge_cards_suggest_raid_title")
 	end
 
 	self:suggestions_changed()
@@ -245,8 +246,8 @@ function ChallengeCardsGui:_layout()
 		local host_name = managers.network:session():all_peers()[1]:name()
 		self._host_ph2_message = self._phase_two_panel:label({
 			h = 36,
-			x = 0,
 			align = "center",
+			x = 0,
 			name = "client_waiting_message",
 			y = self._phase_two_activate_button:y() - 48,
 			w = self._phase_two_panel:w(),
@@ -270,8 +271,6 @@ function ChallengeCardsGui:_layout()
 			w = 200,
 			text = "",
 			visible = true,
-			y = 0,
-			x = 0,
 			name = "timer_label",
 			color = tweak_data.gui.colors.raid_white,
 			font = tweak_data.gui.fonts.din_compressed,
@@ -303,12 +302,13 @@ end
 
 function ChallengeCardsGui:_setup_single_player()
 	self._is_single_player = managers.network:session():count_all_peers() == 1
-	self._suggest_button_string_id = "menu_suggest_card_buton"
-	self._disabled_suggest_button_string_id = "menu_suggested"
 
 	if self._is_single_player then
 		self._suggest_button_string_id = "menu_select_card_buton"
 		self._disabled_suggest_button_string_id = "menu_selected"
+	else
+		self._suggest_button_string_id = "menu_suggest_card_buton"
+		self._disabled_suggest_button_string_id = "menu_suggested"
 	end
 
 	self._suggest_card_button:set_text(self:translate(self._suggest_button_string_id, true))

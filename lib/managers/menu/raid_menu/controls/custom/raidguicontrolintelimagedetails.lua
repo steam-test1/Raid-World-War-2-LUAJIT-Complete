@@ -72,8 +72,8 @@ function RaidGUIControlIntelImageDetails:_create_details()
 
 	local intel_title_params = {
 		x = 20,
-		text = "",
 		name = "intel_title",
+		text = "",
 		wrap = true,
 		y = self._image_panel:y() + self._image_panel:h() + 32,
 		font = tweak_data.gui.fonts.din_compressed,
@@ -87,8 +87,8 @@ function RaidGUIControlIntelImageDetails:_create_details()
 	self._intel_title:set_h(h)
 
 	local intel_subtitle_params = {
-		text = "",
 		name = "intel_subtitle",
+		text = "",
 		wrap = true,
 		x = self._intel_title:x(),
 		y = self._intel_title:y() + self._intel_title:h() + 12,

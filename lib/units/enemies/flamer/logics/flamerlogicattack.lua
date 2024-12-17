@@ -146,8 +146,8 @@ function FlamerLogicAttack.update(data)
 
 			if focus_enemy.verified_dis < 800 and unit:anim_data().run then
 				local new_action = {
-					type = "idle",
-					body_part = 2
+					body_part = 2,
+					type = "idle"
 				}
 
 				data.unit:brain():action_request(new_action)
@@ -223,8 +223,8 @@ function FlamerLogicAttack._cancel_chase_attempt(data, my_data)
 
 	if my_data.walking_to_chase_pos then
 		local new_action = {
-			type = "idle",
-			body_part = 2
+			body_part = 2,
+			type = "idle"
 		}
 
 		data.unit:brain():action_request(new_action)
@@ -281,8 +281,8 @@ function FlamerLogicAttack._chk_request_action_walk_to_chase_pos(data, my_data, 
 	if not data.unit:movement():chk_action_forbidden("walk") then
 		local new_action_data = {
 			body_part = 2,
-			type = "walk",
 			no_strafe = false,
+			type = "walk",
 			nav_path = my_data.chase_path,
 			variant = speed or "run",
 			end_rot = end_rot

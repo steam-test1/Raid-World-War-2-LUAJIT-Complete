@@ -20,8 +20,8 @@ function RaidGUIControlTabs:init(parent, params)
 
 	if self._params.icon then
 		self._icon_title = self._object:image({
-			y = 0,
 			x = 0,
+			y = 0,
 			name = "tabs_control_icon_title",
 			vertical = "center",
 			w = self._params.icon.texture_rect[3],

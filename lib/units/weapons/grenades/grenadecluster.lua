@@ -47,13 +47,13 @@ function GrenadeCluster:_detonate(tag, unit, body, other_unit, other_body, posit
 		self._damage = self._damage * (PlayerSkill.warcry_data("player", "warcry_grenade_cluster_damage", 2, peer_id) - 1)
 	end
 
-	managers.explosion:give_local_player_dmg(pos, range, self._player_damage)
-	managers.explosion:play_sound_and_effects(pos, normal, range, self._custom_params)
+	managers.explosion:give_local_player_dmg(pos, self._range, self._player_damage)
+	managers.explosion:play_sound_and_effects(pos, normal, self._range, self._custom_params)
 
 	local hit_units, splinters = managers.explosion:detect_and_give_dmg({
 		player_damage = 0,
 		hit_pos = pos,
-		range = range,
+		range = self._range,
 		collision_slotmask = slot_mask,
 		curve_pow = self._curve_pow,
 		damage = self._damage,

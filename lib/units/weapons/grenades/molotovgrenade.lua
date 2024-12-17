@@ -161,12 +161,12 @@ end
 
 function MolotovGrenade:detonate(normal)
 	managers.explosion:detect_and_give_dmg({
-		range = 250,
 		curve_pow = 0.1,
+		damage = 3,
 		push_units = false,
 		ignite_character = true,
 		player_damage = 0,
-		damage = 3,
+		range = 250,
 		hit_pos = self._unit:position(),
 		collision_slotmask = managers.slot:get_mask("explosion_targets"),
 		alert_radius = self._alert_radius,

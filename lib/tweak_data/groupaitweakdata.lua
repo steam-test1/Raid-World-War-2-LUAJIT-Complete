@@ -41,10 +41,10 @@ end
 function GroupAITweakData:_init_chatter_data()
 	self.enemy_chatter = {
 		spotted_player = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "spotted_player",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -55,10 +55,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		aggressive = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "aggressive",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -69,10 +69,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		retreat = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "retreat",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -83,10 +83,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		follow_me = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "follow_me",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -97,10 +97,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		clear = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "clear",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -111,10 +111,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		go_go = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "go_go",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -125,10 +125,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		ready = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "ready",
 			group_min = 1,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				1,
 				2
@@ -139,10 +139,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		smoke = {
-			max_nr = 1,
-			radius = 3500,
 			queue = "smoke",
 			group_min = 2,
+			max_nr = 1,
+			radius = 3500,
 			duration = {
 				0,
 				0
@@ -153,10 +153,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		incomming_flamer = {
-			max_nr = 1,
-			radius = 4000,
 			queue = "incomming_flamer",
 			group_min = 1,
+			max_nr = 1,
+			radius = 4000,
 			duration = {
 				60,
 				60
@@ -167,10 +167,10 @@ function GroupAITweakData:_init_chatter_data()
 			}
 		},
 		incomming_commander = {
-			max_nr = 1,
-			radius = 4000,
 			queue = "incomming_commander",
 			group_min = 1,
+			max_nr = 1,
+			radius = 4000,
 			duration = {
 				60,
 				60
@@ -2153,10 +2153,10 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 	self.phalanx.minions.distance = 100
 	self.phalanx.vip.health_ratio_flee = 0.2
 	self.phalanx.vip.damage_reduction = {
-		increase = 0.05,
-		start = 0.1,
 		increase_intervall = 5,
-		max = 0.5
+		max = 0.5,
+		increase = 0.05,
+		start = 0.1
 	}
 	self.phalanx.check_spawn_intervall = 120
 	self.phalanx.chance_increase_intervall = 120

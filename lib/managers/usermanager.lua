@@ -26,10 +26,10 @@ function GenericUserManager:init()
 
 	if not self:is_global_initialized() then
 		Global.user_manager = {
-			reset_network_setting_map = nil,
+			setting_changed = nil,
 			initializing = true,
-			[""] = nil,
-			add_setting_changed_callback = nil,
+			has_setting_changed = nil,
+			value = nil,
 			setting_map = {},
 			setting_data_map = {},
 			setting_data_id_to_name_map = {},

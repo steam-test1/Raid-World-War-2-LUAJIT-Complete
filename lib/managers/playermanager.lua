@@ -27,27 +27,27 @@ function PlayerManager:init()
 	}
 	self._viewport_configs[1][1] = {
 		dimensions = {
+			y = 0,
 			x = 0,
 			h = 1,
-			w = 1,
-			y = 0
+			w = 1
 		}
 	}
 	self._viewport_configs[2] = {
 		{
 			dimensions = {
+				y = 0,
 				x = 0,
 				h = 0.5,
-				w = 1,
-				y = 0
+				w = 1
 			}
 		},
 		{
 			dimensions = {
+				y = 0.5,
 				x = 0,
 				h = 0.5,
-				w = 1,
-				y = 0.5
+				w = 1
 			}
 		}
 	}
@@ -57,9 +57,6 @@ function PlayerManager:init()
 
 	self._local_player_minions = 0
 	self._player_states = {
-		fatal = "ingame_fatal",
-		turret = "ingame_standard",
-		bleed_out = "ingame_bleed_out",
 		parachuting = "ingame_parachuting",
 		standard = "ingame_standard",
 		freefall = "ingame_freefall",
@@ -70,7 +67,10 @@ function PlayerManager:init()
 		carry = "ingame_standard",
 		incapacitated = "ingame_incapacitated",
 		tased = "ingame_electrified",
-		charging = "ingame_standard"
+		charging = "ingame_standard",
+		fatal = "ingame_fatal",
+		turret = "ingame_standard",
+		bleed_out = "ingame_bleed_out"
 	}
 	self._DEFAULT_STATE = "standard"
 	self._current_state = self._DEFAULT_STATE
@@ -186,7 +186,7 @@ end
 function PlayerManager:soft_reset()
 	self._listener_holder = EventListenerHolder:new()
 	self._equipment = {
-		nationality = nil,
+		add_coroutine = nil,
 		selections = {},
 		specials = {}
 	}
@@ -202,7 +202,7 @@ end
 
 function PlayerManager:_setup()
 	self._equipment = {
-		nationality = nil,
+		add_coroutine = nil,
 		selections = {},
 		specials = {}
 	}
@@ -1189,6 +1189,20 @@ function PlayerManager:activate_temporary_upgrade(category, upgrade)
 	self._temporary_upgrades[category][upgrade] = {
 		expire_time = Application:time() + lifetime
 	}
+
+	if category == "temporary" then
+		local icon_id = "status_effect_" .. upgrade
+
+		if tweak_data.gui.icons[icon_id] then
+			managers.hud:add_status_effect({
+				id = upgrade,
+				tier = upgrade_level,
+				icon = icon_id,
+				color = tweak_data.gui.colors.progress_green,
+				lifetime = lifetime
+			})
+		end
+	end
 end
 
 function PlayerManager:activate_temporary_upgrade_by_level(category, upgrade, level)
@@ -1210,6 +1224,20 @@ function PlayerManager:activate_temporary_upgrade_by_level(category, upgrade, le
 		upgrade_value = upgrade_value[1],
 		expire_time = Application:time() + lifetime
 	}
+
+	if category == "temporary" then
+		local icon_id = "status_effect_" .. upgrade
+
+		if tweak_data.gui.icons[icon_id] then
+			managers.hud:add_status_effect({
+				id = upgrade,
+				tier = upgrade_value[1],
+				icon = icon_id,
+				color = tweak_data.gui.colors.progress_green,
+				lifetime = lifetime
+			})
+		end
+	end
 end
 
 function PlayerManager:deactivate_temporary_upgrade(category, upgrade)
@@ -1224,6 +1252,11 @@ function PlayerManager:deactivate_temporary_upgrade(category, upgrade)
 	end
 
 	self._temporary_upgrades[category][upgrade] = nil
+	local icon_id = "status_effect_" .. upgrade
+
+	if tweak_data.gui.icons[icon_id] then
+		managers.hud:remove_status_effect(upgrade, false)
+	end
 end
 
 function PlayerManager:has_activate_temporary_upgrade(category, upgrade)
@@ -1382,6 +1415,7 @@ function PlayerManager:movement_speed_multiplier(is_running, is_climbing, is_cro
 	end
 
 	multiplier = multiplier + warcry_multiplier
+	multiplier = multiplier + self:temporary_upgrade_value("temporary", "candy_sprint_speed", 1) - 1
 
 	if self:has_activate_temporary_upgrade("temporary", "warcry_sentry_shooting") then
 		multiplier = multiplier * self:upgrade_value("player", "warcry_shooting_movement_speed_reduction", 1)
@@ -1456,6 +1490,8 @@ function PlayerManager:critical_hit_chance(distance)
 	if self:has_activate_temporary_upgrade("temporary", "revenant_revived_critical_hit_chance") then
 		multiplier = multiplier + self:temporary_upgrade_value("temporary", "revenant_revived_critical_hit_chance", 1) - 1
 	end
+
+	multiplier = multiplier + managers.player:temporary_upgrade_value("temporary", "candy_critical_hit_chance", 1) - 1
 
 	if self:current_state() == "bleed_out" then
 		multiplier = multiplier + self:upgrade_value("player", "revenant_downed_critical_hit_chance", 1) - 1
@@ -1534,6 +1570,7 @@ function PlayerManager:health_regen(health_ratio, real_armor)
 
 	health_regen = health_regen + self:team_upgrade_value("player", "warcry_health_regeneration", 1) - 1
 	health_regen = health_regen + self:temporary_upgrade_value("temporary", "big_game_special_health_regen", 1) - 1
+	health_regen = health_regen + self:temporary_upgrade_value("temporary", "candy_health_regen", 1) - 1
 
 	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_PLAYER_HEALTH_REGEN) then
 		health_regen = health_regen + managers.buff_effect:get_effect_value(BuffEffectManager.EFFECT_PLAYER_HEALTH_REGEN)
@@ -1558,6 +1595,11 @@ end
 
 function PlayerManager:damage_reduction_skill_multiplier(damage_type, current_state, health_ratio)
 	local multiplier = 1
+
+	if self:has_activate_temporary_upgrade("temporary", "candy_god_mode") then
+		return self:temporary_upgrade_value("temporary", "candy_god_mode", 1)
+	end
+
 	local is_bullet = damage_type == "bullet"
 	local is_melee = damage_type == "melee"
 	local is_explosion = damage_type == "explosion"
@@ -2270,7 +2312,11 @@ function PlayerManager:from_server_interaction_reply(status)
 	self:player_unit():movement():set_carry_restriction(false)
 
 	if not status then
-		self:clear_carry()
+		local carry_data = self:get_my_carry_data()
+
+		if carry_data then
+			self:remove_carry(#carry_data)
+		end
 	end
 end
 
@@ -3162,6 +3208,40 @@ function PlayerManager:_set_grenade(params)
 	})
 end
 
+function PlayerManager:set_temporary_grenade(new_grenade)
+	local player = self:player_unit()
+
+	if not alive(player) then
+		return
+	end
+
+	if not self._grenade_overriden then
+		local peer_id = managers.network:session():local_peer():id()
+		local grenade = player:inventory().equipped_grenade
+		local grenade_amount = self:get_grenade_amount(peer_id)
+		local new_grenade_amount = self:get_max_grenades(new_grenade)
+		self._grenade_overriden = {
+			grenade = grenade,
+			amount = grenade_amount
+		}
+
+		self:_set_grenade({
+			grenade = new_grenade,
+			amount = new_grenade_amount
+		})
+		managers.blackmarket:equip_grenade(new_grenade)
+	end
+end
+
+function PlayerManager:clear_temporary_grenade()
+	if self._grenade_overriden then
+		self:_set_grenade(self._grenade_overriden)
+		managers.blackmarket:equip_grenade(self._grenade_overriden.grenade)
+
+		self._grenade_overriden = nil
+	end
+end
+
 function PlayerManager:add_grenade_amount(amount)
 	local peer_id = managers.network:session():local_peer():id()
 
@@ -3443,9 +3523,9 @@ function PlayerManager:_update_carry_wheel()
 
 	while carry_max >= i do
 		local option = {
+			disabled = true,
 			icon = "comm_wheel_no",
 			text_id = "",
-			disabled = true,
 			id = "carry_" .. i
 		}
 
@@ -3524,8 +3604,8 @@ function PlayerManager:drop_carry(carry_id, zipline_unit, skip_cooldown)
 	if carry_needs_headroom and not player:movement():current_state():_can_stand() then
 		managers.notification:add_notification({
 			id = "cant_throw_body",
-			shelf_life = 5,
 			duration = 2,
+			shelf_life = 5,
 			text = managers.localization:text("cant_throw_body")
 		})
 

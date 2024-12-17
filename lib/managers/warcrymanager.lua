@@ -323,8 +323,8 @@ end
 
 function WarcryManager:add_warcry_comm_wheel_option(index)
 	local warcry_comm_wheel_option = {
-		text_id = "com_wheel_warcry",
 		id = "warcry",
+		text_id = "com_wheel_warcry",
 		icon = tweak_data.warcry[self._active_warcry:get_type()].hud_icon,
 		color = Color.white,
 		clbk = callback(self, self, "activate_warcry")
@@ -366,9 +366,9 @@ function WarcryManager:_on_meter_full(skip_notification)
 			end
 
 			managers.hud:set_big_prompt({
-				background = "backgrounds_warcry_msg",
-				flares = true,
 				id = "warcry_ready",
+				flares = true,
+				background = "backgrounds_warcry_msg",
 				priority = true,
 				title = prompt_title,
 				description = prompt_desc,

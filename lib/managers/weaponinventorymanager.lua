@@ -47,6 +47,7 @@ function WeaponInventoryManager:setup()
 
 	self:_setup_initial_weapons()
 	self:_setup_initial_weapon_skins()
+	self:_setup_weapon_challenges()
 end
 
 function WeaponInventoryManager:_setup_initial_weapons()
@@ -100,6 +101,21 @@ function WeaponInventoryManager:_setup_initial_weapon_skins()
 	self._weapon_skins = {
 		_applied = {}
 	}
+end
+
+function WeaponInventoryManager:_setup_weapon_challenges()
+	for _, weapon_data in pairs(tweak_data.weapon_inventory.weapon_grenades_index) do
+		if weapon_data.challenge and not managers.challenge:challenge_exists(ChallengeManager.CATEGORY_GENERIC, weapon_data.challenge) then
+			local challenge_tasks = {
+				tweak_data.challenge[weapon_data.challenge]
+			}
+			local challenge_data = {
+				weapon = weapon_data.weapon_id
+			}
+
+			managers.challenge:create_challenge(ChallengeManager.CATEGORY_GENERIC, weapon_data.challenge, challenge_tasks, nil, challenge_data)
+		end
+	end
 end
 
 function WeaponInventoryManager:get_all_weapons_from_category(category_name)
@@ -429,6 +445,11 @@ function WeaponInventoryManager:get_owned_grenades()
 		for index, weapon_data in pairs(tweak_data.weapon_inventory.weapon_grenades_index) do
 			local weapon_stats = tweak_data.projectiles[weapon_data.weapon_id]
 			weapon_data.unlocked = weapon_data.default or managers.upgrades:aquired(weapon_data.weapon_id)
+
+			if weapon_data.challenge and weapon_data.unlocked then
+				local challenge = managers.challenge:get_challenge(ChallengeManager.CATEGORY_GENERIC, weapon_data.challenge)
+				weapon_data.unlocked = challenge:completed()
+			end
 
 			if weapon_stats then
 				table.insert(result, weapon_data)

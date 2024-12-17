@@ -11,9 +11,9 @@ end
 
 function HUDObjectives:_create_panel(panel)
 	local panel_params = {
+		halign = "right",
 		valign = "top",
 		name = "objectives",
-		halign = "right",
 		w = HUDObjectives.W,
 		h = HUDObjectives.H
 	}

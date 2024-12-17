@@ -206,10 +206,10 @@ end
 
 function HUDMapWaypointPoint:_create_distance()
 	local distance_text_params = {
-		name = "distance_text",
+		align = "center",
 		text = "",
 		vertical = "center",
-		align = "center",
+		name = "distance_text",
 		w = self._object:w(),
 		h = HUDMapWaypointPoint.DISTANCE_H,
 		font = HUDMapWaypointPoint.DISTANCE_FONT,

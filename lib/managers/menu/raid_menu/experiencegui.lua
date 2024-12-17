@@ -38,8 +38,8 @@ function ExperienceGui:_layout()
 		w = center - menu_shift
 	})
 	self._menu_right_side = self._object:panel({
-		name = "menu_right_side",
 		layer = 1,
+		name = "menu_right_side",
 		w = center + menu_shift
 	})
 
@@ -134,8 +134,8 @@ function ExperienceGui:_layout_equipped_upgrades()
 			end
 
 			local grid_item = self._menu_left_side:create_custom_control(RaidGUIControlButtonSkillTiny, {
-				layer = 1,
 				y = 4,
+				layer = 1,
 				name = "equippped_slot_" .. slot_type_str .. i,
 				x = x,
 				w = block_size,
@@ -243,8 +243,8 @@ function ExperienceGui:_layout_equipable_upgrades()
 	local h = self._menu_left_side:h() - y
 	local backgrounds_chat_bg = tweak_data.gui.icons.backgrounds_chat_bg
 	self._equipable_upgrades_background = self._menu_left_side:bitmap({
-		name = "grid_item_icon_sprite",
 		alpha = 0.5,
+		name = "grid_item_icon_sprite",
 		layer = -1,
 		y = y,
 		w = self._menu_left_side:w(),
@@ -254,8 +254,8 @@ function ExperienceGui:_layout_equipable_upgrades()
 	})
 	local item_size = 90
 	local equippable_upgrades_scrollable_area_params = {
-		scrollbar_offset = 8,
 		name = "equippable_upgrades_scrollable_area_params",
+		scrollbar_offset = 8,
 		y = y,
 		w = self._menu_left_side:w(),
 		h = h,
@@ -298,10 +298,10 @@ function ExperienceGui:_layout_skill_profile()
 	local y_padding = 8
 	local x, y, w, h = self._equipable_upgrades_background:shape()
 	self._skill_profiles_list = self._menu_left_side:create_custom_control(RaidGUIControlListSeparated, {
+		name = "skill_profiles_list",
+		loop_items = true,
 		visible = false,
 		selection_enabled = false,
-		loop_items = true,
-		name = "skill_profiles_list",
 		x = x + x_padding,
 		y = y + y_padding,
 		w = w - x_padding * 2,
@@ -580,13 +580,13 @@ function ExperienceGui:data_source_stats()
 	})
 	table.insert(t, {
 		text_id = "character_stats_stamina_regen_label",
-		name = "stamina_regen",
-		format_value = "%.2g/s"
+		format_value = "%.2g/s",
+		name = "stamina_regen"
 	})
 	table.insert(t, {
 		text_id = "character_stats_stamina_delay_label",
-		name = "stamina_delay",
-		format_value = "%.2gs"
+		format_value = "%.2gs",
+		name = "stamina_delay"
 	})
 	table.insert(t, {
 		text_id = "character_stats_speed_walk_label",
@@ -627,8 +627,8 @@ function ExperienceGui:_layout_experience_progress()
 		texture_rect = backgrounds_chat_bg.texture_rect
 	})
 	self._progress_bar = self._menu_right_side:create_custom_control(RaidGUIControlSkilltreeProgressBar, {
-		name = "progress_bar",
 		horizontal_padding = 15,
+		name = "progress_bar",
 		w = self._menu_right_side:w() - 100,
 		h = h - 12
 	})

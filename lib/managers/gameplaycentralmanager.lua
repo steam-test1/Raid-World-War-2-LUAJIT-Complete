@@ -638,8 +638,8 @@ function GamePlayCentralManager:weapon_dropped(weapon)
 
 	weapon:set_flashlight_light_lod_enabled(true)
 	table.insert(self._dropped_weapons.units, {
-		t = 0,
 		state = "wait",
+		t = 0,
 		unit = weapon,
 		flashlight_data = flashlight_data,
 		last_t = Application:time()

@@ -169,10 +169,10 @@ function HUDTeammatePeer:_create_warcry_bar()
 	warcry_background:set_center_y(warcry_panel:h() / 2)
 
 	local warcry_bar_params = {
-		halign = "center",
-		render_template = "VertexColorTexturedRadial",
 		name = "warcry_bar",
+		render_template = "VertexColorTexturedRadial",
 		valign = "center",
+		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.WARCRY_BAR_ICON].texture,
 		texture_rect = {
 			tweak_data.gui:icon_w(HUDTeammatePeer.WARCRY_BAR_ICON),
@@ -212,8 +212,8 @@ end
 function HUDTeammatePeer:_create_dead_icon()
 	local dead_icon_params = {
 		name = "dead_icon",
-		halign = "center",
 		alpha = 0,
+		halign = "center",
 		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.DEAD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.DEAD_ICON].texture_rect
@@ -228,8 +228,8 @@ function HUDTeammatePeer:_create_carry_icon()
 	local temp_carry_icon = "carry_alive"
 	local carry_icon_params = {
 		name = "carry_icon",
-		halign = "center",
 		alpha = 0,
+		halign = "center",
 		valign = "center",
 		texture = tweak_data.gui.icons[temp_carry_icon].texture,
 		texture_rect = tweak_data.gui.icons[temp_carry_icon].texture_rect
@@ -244,8 +244,8 @@ function HUDTeammatePeer:_create_special_interaction_icon()
 	local gui_icon = tweak_data.gui:get_full_gui_data(HUDNameLabel.LOCKPICK_ICON)
 	self._special_interaction_icon = self._status_panel:bitmap({
 		name = "special_interaction_icon",
-		halign = "center",
 		alpha = 0,
+		halign = "center",
 		valign = "center",
 		texture = gui_icon.texture,
 		texture_rect = gui_icon.texture_rect
@@ -257,8 +257,8 @@ end
 function HUDTeammatePeer:_create_mounted_weapon_icon()
 	local mounted_weapon_icon_params = {
 		name = "mounted_weapon_icon",
-		halign = "center",
 		alpha = 0,
+		halign = "center",
 		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.MOUNTED_WEAPON_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.MOUNTED_WEAPON_ICON].texture_rect
@@ -272,8 +272,8 @@ end
 function HUDTeammatePeer:_create_timer()
 	local timer_panel_params = {
 		name = "timer_panel",
-		layer = 5,
 		alpha = 0,
+		layer = 5,
 		x = self._left_panel:x(),
 		y = self._left_panel:y(),
 		w = self._left_panel:w(),
@@ -294,11 +294,11 @@ function HUDTeammatePeer:_create_timer()
 	timer_background:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_bar_params = {
-		halign = "center",
-		render_template = "VertexColorTexturedRadial",
 		name = "timer_bar",
+		render_template = "VertexColorTexturedRadial",
 		layer = 2,
 		valign = "center",
+		halign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.TIMER_BAR_ICON].texture,
 		texture_rect = {
 			tweak_data.gui:icon_w(HUDTeammatePeer.TIMER_BAR_ICON),
@@ -315,13 +315,13 @@ function HUDTeammatePeer:_create_timer()
 	self._timer_bar:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_text_params = {
-		layer = 3,
-		y = 0,
-		x = 0,
 		name = "timer_text",
 		text = "37",
 		vertical = "center",
 		align = "center",
+		layer = 3,
+		y = 0,
+		x = 0,
 		w = self._timer_panel:w(),
 		h = self._timer_panel:h(),
 		font = tweak_data.gui.fonts[HUDTeammatePeer.TIMER_FONT],
@@ -357,11 +357,11 @@ function HUDTeammatePeer:_create_interaction_meter()
 	interaction_meter_background:set_center_y(self._interaction_meter_panel:h() / 2)
 
 	local interaction_meter_params = {
-		halign = "scale",
-		render_template = "VertexColorTexturedRadial",
 		name = "interaction_meter",
+		render_template = "VertexColorTexturedRadial",
 		layer = 2,
 		valign = "scale",
+		halign = "scale",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.INTERACTION_METER_FILL].texture,
 		texture_rect = {
 			tweak_data.gui:icon_w(HUDTeammatePeer.INTERACTION_METER_FILL),
@@ -384,8 +384,8 @@ function HUDTeammatePeer:_create_host_indicator()
 	local warcry_background = warcry_panel:child("warcry_background")
 	local host_indicator_params = {
 		name = "host_indicator",
-		layer = 30,
 		alpha = 0,
+		layer = 30,
 		texture = tweak_data.gui.icons[HUDTeammatePeer.HOST_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePeer.HOST_ICON].texture_rect
 	}
@@ -460,12 +460,12 @@ end
 
 function HUDTeammatePeer:_create_player_name()
 	local player_name_params = {
-		y = -2,
-		x = 0,
 		name = "player_name",
 		text = "",
 		vertical = "center",
 		align = "left",
+		y = -2,
+		x = 0,
 		w = self._right_panel:w() - HUDTeammatePeer.PLAYER_LEVEL_W - HUDTeammatePeer.CHAT_PANEL_W,
 		h = HUDTeammatePeer.PLAYER_NAME_H,
 		font = tweak_data.gui.fonts[HUDTeammatePeer.PLAYER_NAME_FONT],

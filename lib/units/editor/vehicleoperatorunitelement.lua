@@ -36,8 +36,8 @@ end
 
 function VehicleOperatorUnitElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		sample = true,
 		ray_type = "body",
+		sample = true,
 		mask = managers.slot:get_mask("vehicles")
 	})
 
@@ -58,8 +58,8 @@ end
 
 function VehicleOperatorUnitElement:update_editing()
 	local ray = managers.editor:unit_by_raycast({
-		sample = true,
 		ray_type = "body",
+		sample = true,
 		mask = managers.slot:get_mask("vehicles")
 	})
 
@@ -80,9 +80,9 @@ function VehicleOperatorUnitElement:draw_links_unselected(...)
 
 		if alive(unit) then
 			local params = {
-				r = 0,
 				b = 0.5,
 				g = 0,
+				r = 0,
 				from_unit = unit,
 				to_unit = self._unit
 			}
@@ -102,9 +102,9 @@ function VehicleOperatorUnitElement:draw_links_selected(...)
 	for _, id in ipairs(self._hed.elements) do
 		local unit = managers.editor:unit_with_id(id)
 		local params = {
-			r = 0,
 			b = 0.5,
 			g = 0,
+			r = 0,
 			from_unit = unit,
 			to_unit = self._unit
 		}
@@ -164,8 +164,8 @@ function VehicleOperatorUnitElement:_build_panel(panel, panel_sizer)
 
 	self:_build_value_combobox(panel, panel_sizer, "operation", self._actions, "Select an operation for the selected elements")
 	self:_build_value_number(panel, panel_sizer, "damage", {
-		min = 1,
-		floats = 0
+		floats = 0,
+		min = 1
 	}, "Specify the amount of damage.")
 
 	local toolbar = EWS:ToolBar(panel, "", "TB_FLAT,TB_NODIVIDER")

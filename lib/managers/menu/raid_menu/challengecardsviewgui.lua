@@ -36,16 +36,16 @@ function ChallengeCardsViewGui:_layout()
 			callback_param = LootDropTweakData.RARITY_OTHER
 		},
 		{
-			name = "tab_all",
 			callback_param = nil,
+			name = "tab_all",
 			text = self:translate("menu_filter_all", true)
 		}
 	}
 	self._rarity_filters_tabs = self._root_panel:tabs({
-		tab_align = "center",
 		tab_height = 64,
-		y = 96,
 		x = 0,
+		y = 96,
+		tab_align = "center",
 		name = "rarity_filters_tabs",
 		dont_trigger_special_buttons = true,
 		tab_width = 640 / #tabs_params,
@@ -54,13 +54,13 @@ function ChallengeCardsViewGui:_layout()
 		tabs_params = tabs_params
 	})
 	self._type_filters_tabs = self._root_panel:tabs({
-		name = "type_filters_tabs",
 		initial_tab_idx = 3,
-		tab_align = "center",
-		tab_height = 32,
 		tab_width = 140,
 		y = 176,
 		x = 0,
+		tab_align = "center",
+		tab_height = 32,
+		name = "type_filters_tabs",
 		dont_trigger_special_buttons = true,
 		icon = tweak_data.gui.icons.ico_filter,
 		item_class = RaidGUIControlTabFilter,
@@ -77,18 +77,18 @@ function ChallengeCardsViewGui:_layout()
 				callback_param = OperationsTweakData.JOB_TYPE_OPERATION
 			},
 			{
-				name = "filter_type_all",
 				callback_param = nil,
+				name = "filter_type_all",
 				text = self:translate("menu_mission_selected_mission_type_both", true)
 			}
 		}
 	})
 	local challenge_cards_grid_scrollable_area_params = {
 		w = 640,
+		scroll_step = 30,
 		y = 224,
 		x = 0,
 		name = "challenge_cards_grid_scrollable_area",
-		scroll_step = 30,
 		h = 580
 	}
 	self._challenge_cards_grid_scrollable_area = self._root_panel:scrollable_area(challenge_cards_grid_scrollable_area_params)
@@ -118,11 +118,11 @@ function ChallengeCardsViewGui:_layout()
 	self._card_grid = self._challenge_cards_grid_scrollable_area:get_panel():grid(challenge_cards_grid_params)
 	local card_details_params = {
 		w = 992,
+		visible = true,
 		y = 96,
 		x = 736,
-		h = 736,
 		name = "card_deatils",
-		visible = true
+		h = 736
 	}
 	self._card_details = self._root_panel:create_custom_control(RaidGUIControlCardDetails, card_details_params)
 

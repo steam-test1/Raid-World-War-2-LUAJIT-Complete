@@ -83,10 +83,10 @@ function ItemSlider:setup_gui(node, row_item)
 
 	local bar_w = 192
 	row_item.gui_slider_bg = row_item.gui_panel:rect({
-		visible = false,
-		h = 22,
 		vertical = "center",
+		h = 22,
 		halign = "center",
+		visible = false,
 		align = "center",
 		x = node:_left_align() - bar_w,
 		y = h / 2 - 11,

@@ -19,10 +19,10 @@ end
 
 function HUDCarry:_create_panel(hud)
 	local panel_params = {
+		valign = "bottom",
 		name = "carry_panel",
 		alpha = 0,
 		halign = "center",
-		valign = "bottom",
 		h = HUDCarry.H
 	}
 	self._object = hud.panel:panel(panel_params)
@@ -30,9 +30,9 @@ end
 
 function HUDCarry:_create_icon()
 	self._icon_panel = self._object:panel({
+		valign = "top",
 		name = "icon_panel",
 		halign = "center",
-		valign = "top",
 		w = HUDCarry.ICON_SIZE,
 		h = HUDCarry.ICON_SIZE
 	})

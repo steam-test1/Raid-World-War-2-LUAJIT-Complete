@@ -50,10 +50,10 @@ function MenuModInfoGui:setup()
 		color = Color.black
 	})
 	panel:bitmap({
-		name = "blur",
+		layer = -1,
 		render_template = "VertexColorTexturedBlur3D",
 		texture = "guis/textures/test_blur_df",
-		layer = -1,
+		name = "blur",
 		w = panel:w(),
 		h = panel:h()
 	})
@@ -105,8 +105,8 @@ function MenuModInfoGui:set_mod_info(item)
 		name = "modded"
 	})
 	local title = self.safe_rect_panel:text({
-		name = "info_title",
 		layer = 1,
+		name = "info_title",
 		text = managers.localization:to_upper_text("menu_mods_info_title", {
 			mod = mod_name
 		}),
@@ -119,8 +119,8 @@ function MenuModInfoGui:set_mod_info(item)
 	if mod_data then
 		local text = conflicted_panel:text({
 			layer = 1,
-			x = 10,
 			y = 0,
+			x = 10,
 			text = managers.localization:to_upper_text("menu_mods_conflict_title"),
 			font = self.medium_font,
 			font_size = self.medium_font_size,
@@ -137,8 +137,8 @@ function MenuModInfoGui:set_mod_info(item)
 
 		local text = modded_panel:text({
 			layer = 1,
-			x = 10,
 			y = 0,
+			x = 10,
 			text = managers.localization:to_upper_text("menu_mods_modded_title"),
 			font = self.medium_font,
 			font_size = self.medium_font_size,
@@ -168,9 +168,9 @@ function MenuModInfoGui:set_mod_info(item)
 				conflict_text_title:show()
 			else
 				text = modded_panel:text({
-					wrap = true,
 					layer = 1,
 					x = 20,
+					wrap = true,
 					text = path,
 					font = self.small_font,
 					font_size = self.small_font_size,
@@ -198,9 +198,9 @@ function MenuModInfoGui:set_mod_info(item)
 
 		for _, mod in ipairs(sorted_conflicts) do
 			text = conflicted_panel:text({
-				wrap = true,
 				layer = 1,
 				x = 20,
+				wrap = true,
 				text = utf8.to_upper(mod) .. ":",
 				font = self.small_font,
 				font_size = self.small_font_size,
@@ -215,9 +215,9 @@ function MenuModInfoGui:set_mod_info(item)
 
 			for _, path in ipairs(conflicted_mods[mod]) do
 				text = conflicted_panel:text({
-					wrap = true,
 					layer = 1,
 					x = 25,
+					wrap = true,
 					text = path,
 					font = self.small_font,
 					font_size = self.small_font_size,
@@ -274,8 +274,8 @@ function MenuModInfoGui:set_mod_info(item)
 			local texture, rect = tweak_data.hud_icons:get_icon_data("scrollbar_arrow")
 			local scroll_up_indicator_arrow = self._scroll_bar_panel:bitmap({
 				blend_mode = "add",
-				name = "scroll_up_indicator_arrow",
 				layer = 2,
+				name = "scroll_up_indicator_arrow",
 				texture = texture,
 				texture_rect = rect,
 				color = Color.white
@@ -286,9 +286,9 @@ function MenuModInfoGui:set_mod_info(item)
 			local texture, rect = tweak_data.hud_icons:get_icon_data("scrollbar_arrow")
 			local scroll_down_indicator_arrow = self._scroll_bar_panel:bitmap({
 				blend_mode = "add",
-				name = "scroll_down_indicator_arrow",
 				layer = 2,
 				rotation = 180,
+				name = "scroll_down_indicator_arrow",
 				texture = texture,
 				texture_rect = rect,
 				color = Color.white

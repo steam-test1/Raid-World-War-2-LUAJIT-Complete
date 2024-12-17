@@ -55,10 +55,10 @@ end
 
 function HUDChat:_create_panel(panel)
 	local panel_params = {
-		valign = "bottom",
 		visible = false,
 		name = "chat_panel",
 		halign = "left",
+		valign = "bottom",
 		w = HUDChat.W,
 		h = HUDChat.H
 	}
@@ -75,10 +75,10 @@ end
 
 function HUDChat:_create_input()
 	local input_panel_params = {
-		valign = "bottom",
 		alpha = 0.3,
 		name = "input_panel",
 		halign = "scale",
+		valign = "bottom",
 		w = self._object:w(),
 		h = HUDChat.INPUT_PANEL_H
 	}
@@ -87,9 +87,9 @@ function HUDChat:_create_input()
 	self._input_panel:set_bottom(self._object:h())
 
 	local input_text_panel_params = {
-		valign = "bottom",
 		halign = "scale",
 		name = "input_text_panel",
+		valign = "bottom",
 		x = HUDChat.CHAT_BOX_PADDING,
 		w = self._input_panel:w() - HUDChat.CHAT_BOX_PADDING * 2,
 		h = HUDChat.INPUT_TEXT_PANEL_H
@@ -99,10 +99,10 @@ function HUDChat:_create_input()
 	self._input_text_panel:set_bottom(self._input_panel:h() - HUDChat.CHAT_BOX_PADDING)
 
 	local input_text_background_params = {
-		valign = "center",
 		layer = 2,
 		name = "input_text_background",
 		halign = "center",
+		valign = "center",
 		texture = tweak_data.gui.icons[HUDChat.INPUT_TEXT_BACKGROUND].texture,
 		texture_rect = tweak_data.gui.icons[HUDChat.INPUT_TEXT_BACKGROUND].texture_rect
 	}
@@ -112,13 +112,13 @@ function HUDChat:_create_input()
 	background:set_center_y(self._input_text_panel:h() / 2)
 
 	local input_text_params = {
-		vertical = "center",
-		align = "left",
 		name = "input_text",
 		halign = "scale",
 		valign = "center",
 		layer = 5,
 		text = "",
+		vertical = "center",
+		align = "left",
 		x = HUDChat.INPUT_TEXT_X,
 		w = self._input_text_panel:w() - HUDChat.INPUT_TEXT_X - HUDChat.INPUT_TEXT_PADDING_RIGHT,
 		font = HUDChat.MESSAGE_FONT,
@@ -143,10 +143,10 @@ end
 function HUDChat:_create_message_panel()
 	local message_panel_layer = self._object:child("background") and self._object:child("background"):layer() + 1 or 20
 	local message_panel_params = {
-		valign = "scale",
 		halign = "center",
 		name = "message_panel",
 		y = 0,
+		valign = "scale",
 		x = HUDChat.CHAT_BOX_PADDING,
 		w = self._object:w() - HUDChat.CHAT_BOX_PADDING * 2,
 		h = self._object:h() - self._input_panel:h(),
@@ -208,30 +208,30 @@ end
 function HUDChat:_create_input_panel()
 	self._input_panel = self._panel:panel({
 		name = "input_panel",
-		h = 24,
-		layer = 1,
 		alpha = 0,
+		layer = 1,
 		x = 0,
+		h = 24,
 		w = self._panel_width
 	})
 
 	self._input_panel:rect({
 		visible = false,
-		layer = 0,
 		name = "focus_indicator",
+		layer = 0,
 		color = Color.white:with_alpha(0.2)
 	})
 
 	local say = self._input_panel:text({
+		name = "say",
+		y = 0,
+		x = 0,
+		hvertical = "center",
+		layer = 1,
+		blend_mode = "normal",
+		halign = "left",
 		vertical = "center",
 		align = "left",
-		y = 0,
-		halign = "left",
-		hvertical = "center",
-		blend_mode = "normal",
-		layer = 1,
-		name = "say",
-		x = 0,
 		text = utf8.to_upper(managers.localization:text("menu_chat_say")),
 		font = tweak_data.menu.pd2_small_font,
 		font_size = tweak_data.menu.pd2_small_font_size,
@@ -242,37 +242,37 @@ function HUDChat:_create_input_panel()
 	say:set_size(w, self._input_panel:h())
 
 	local input_text = self._input_panel:text({
+		name = "input_text",
+		y = 0,
+		word_wrap = false,
+		wrap = true,
+		layer = 1,
+		hvertical = "center",
+		x = 0,
+		blend_mode = "normal",
+		halign = "left",
+		text = "",
 		vertical = "center",
 		align = "left",
-		y = 0,
-		halign = "left",
-		hvertical = "center",
-		word_wrap = false,
-		layer = 1,
-		name = "input_text",
-		wrap = true,
-		blend_mode = "normal",
-		x = 0,
-		text = "",
 		font = tweak_data.menu.pd2_small_font,
 		font_size = tweak_data.menu.pd2_small_font_size,
 		color = Color.white
 	})
 	local caret = self._input_panel:rect({
 		h = 0,
-		layer = 2,
-		w = 0,
 		name = "caret",
 		y = 0,
 		x = 0,
+		layer = 2,
+		w = 0,
 		color = Color(0.05, 1, 1, 1)
 	})
 
 	self._input_panel:gradient({
-		valign = "grow",
-		layer = -1,
 		name = "input_bg",
 		blend_mode = "sub",
+		valign = "grow",
+		layer = -1,
 		gradient_points = {
 			0,
 			Color.white:with_alpha(0),

@@ -41,8 +41,8 @@ function RaycastWeaponBase:init(unit)
 	self._autohit_data = tweak_data.weapon[self._name_id].autohit
 	self._autohit_current = self._autohit_data.INIT_RATIO
 	self._shoot_through_data = {
-		_shooting = nil,
 		kills = 0,
+		stop_shooting = nil,
 		from = Vector3()
 	}
 	self._can_shoot_through_shield = tweak_data.weapon[self._name_id].can_shoot_through_shield
@@ -110,6 +110,7 @@ end
 function RaycastWeaponBase:get_shoot_through_enemies_count()
 	local pen_count = self._can_shoot_through_enemy or 0
 	pen_count = pen_count + managers.player:upgrade_value("player", "warcry_shoot_through_enemies", 0)
+	pen_count = pen_count + managers.player:temporary_upgrade_value("temporary", "candy_armor_pen", 0)
 
 	return pen_count
 end
@@ -378,6 +379,7 @@ function RaycastWeaponBase:fire(from_pos, direction, dmg_mul, shoot_player, spre
 
 	if self._setup.user_unit == managers.player:player_unit() then
 		consume_ammo = consume_ammo and not managers.player:has_category_upgrade("player", "warcry_no_reloads")
+		consume_ammo = consume_ammo and not managers.player:has_activate_temporary_upgrade("temporary", "candy_unlimited_ammo")
 		local active_warcry = managers.warcry:get_active_warcry()
 
 		if managers.warcry:active() and active_warcry.check_ammo_consumption then
@@ -1958,10 +1960,10 @@ InstantExplosiveBulletBase.CURVE_POW = tweak_data.upgrades.explosive_bullet.curv
 InstantExplosiveBulletBase.PLAYER_DMG_MUL = tweak_data.upgrades.explosive_bullet.player_dmg_mul
 InstantExplosiveBulletBase.RANGE = tweak_data.upgrades.explosive_bullet.range
 InstantExplosiveBulletBase.EFFECT_PARAMS = {
+	effect = "effects/vanilla/weapons/shotgun/sho_explosive_round",
 	sound_muffle_effect = true,
 	on_unit = true,
 	sound_event = "round_explode",
-	effect = "effects/vanilla/weapons/shotgun/sho_explosive_round",
 	feedback_range = tweak_data.upgrades.explosive_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.explosive_bullet.camera_shake_max_mul,
 	idstr_decal = Idstring("explosion_round"),
@@ -2064,8 +2066,8 @@ function InstantExplosiveBulletBase:on_collision_server(position, normal, damage
 
 		if enemies_hit > 0 then
 			managers.statistics:shot_fired({
-				hit = true,
 				skip_bullet_count = true,
+				hit = true,
 				weapon_unit = weapon_unit
 			})
 		end
@@ -2091,9 +2093,9 @@ end
 
 FlameBulletBase = FlameBulletBase or class(InstantExplosiveBulletBase)
 FlameBulletBase.EFFECT_PARAMS = {
+	on_unit = true,
 	sound_muffle_effect = true,
 	sound_event = "round_explode",
-	on_unit = true,
 	feedback_range = tweak_data.upgrades.flame_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.flame_bullet.camera_shake_max_mul,
 	idstr_decal = Idstring("explosion_round"),

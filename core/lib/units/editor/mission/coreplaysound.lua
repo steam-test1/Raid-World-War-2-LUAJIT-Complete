@@ -32,9 +32,9 @@ function CorePlaySoundUnitElement:update_selected(t, dt, selected_unit, all_unit
 
 		if draw then
 			self:_draw_link({
+				r = 0.75,
 				b = 0,
 				g = 0,
-				r = 0.75,
 				from_unit = self._unit,
 				to_unit = unit
 			})

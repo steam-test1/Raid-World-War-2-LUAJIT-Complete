@@ -16,19 +16,19 @@ function RaidMenuOptionsControlsKeybinds:_layout()
 	RaidMenuOptionsControlsKeybinds.super._layout(self)
 
 	self._keybind_panel = self._root_panel:panel({
+		y = 0,
 		x = 0,
-		name = "keybind_panel",
-		y = 0
+		name = "keybind_panel"
 	})
 	self._rarity_filters_tabs = self._root_panel:tabs({
-		x = 0,
-		dont_trigger_special_buttons = true,
 		initial_tab_idx = 1,
 		tab_align = "center",
 		tab_height = 64,
 		tab_width = 160,
 		name = "tabs_keybind_types",
 		y = 96,
+		x = 0,
+		dont_trigger_special_buttons = true,
 		on_click_callback = callback(self, self, "on_click_tabs_keybind_types"),
 		tabs_params = {
 			{

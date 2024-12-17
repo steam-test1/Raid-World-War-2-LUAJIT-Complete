@@ -192,10 +192,10 @@ function CoreMissionElement:build_default_gui(panel, sizer)
 	on_executed_sizer:add(element_sizer, 0, 1, "EXPAND,LEFT")
 
 	self._elements_params = {
-		tooltip = "Select an element from the combobox",
+		ctrlr_proportions = 2,
 		sorted = true,
 		sizer_proportions = 1,
-		ctrlr_proportions = 2,
+		tooltip = "Select an element from the combobox",
 		name_proportions = 1,
 		name = "Element:",
 		panel = panel,
@@ -227,9 +227,9 @@ function CoreMissionElement:build_default_gui(panel, sizer)
 	if self.ON_EXECUTED_ALTERNATIVES then
 		local on_executed_alternatives_params = {
 			tooltip = "Select an alternative on executed from the combobox",
+			name_proportions = 1,
 			sorted = false,
 			ctrlr_proportions = 2,
-			name_proportions = 1,
 			name = "Alternative:",
 			panel = panel,
 			sizer = on_executed_sizer,
@@ -248,13 +248,13 @@ function CoreMissionElement:build_default_gui(panel, sizer)
 	on_executed_sizer:add(delay_sizer, 0, 0, "EXPAND,LEFT")
 
 	self._element_delay_params = {
-		value = 0,
+		name_proportions = 1,
 		ctrlr_proportions = 1,
 		sizer_proportions = 2,
 		min = 0,
 		floats = 2,
 		tooltip = "Sets the delay time for the selected on executed element",
-		name_proportions = 1,
+		value = 0,
 		name = "Delay:",
 		panel = panel,
 		sizer = delay_sizer
@@ -265,13 +265,13 @@ function CoreMissionElement:build_default_gui(panel, sizer)
 	element_delay:connect("EVT_KILL_FOCUS", callback(self, self, "on_executed_element_delay"), nil)
 
 	self._element_delay_rand_params = {
-		value = 0,
+		name_proportions = 0,
 		ctrlr_proportions = 1,
 		sizer_proportions = 1,
 		min = 0,
 		floats = 2,
 		tooltip = "Specifies an additional random time to be added to delay (delay + rand)",
-		name_proportions = 0,
+		value = 0,
 		name = "  Random:",
 		panel = panel,
 		sizer = delay_sizer
@@ -406,9 +406,9 @@ function CoreMissionElement:_build_instance_var_names(panel)
 
 	for _, data in ipairs(self.INSTANCE_VAR_NAMES) do
 		local params = {
+			default = "not_used",
 			ctrlr_proportions = 2,
 			sizer_proportions = 1,
-			default = "not_used",
 			sorted = true,
 			tooltip = "Select a value",
 			name_proportions = 1,
@@ -1222,10 +1222,10 @@ function CoreMissionElement:_build_value_combobox(panel, sizer, value_name, opti
 	sizer:add(horizontal_sizer, params and params.horizontal_sizer_proportions or 0, 1, "EXPAND,LEFT")
 
 	local combobox_params = {
+		name_proportions = 1,
 		sizer_proportions = 1,
 		sorted = false,
 		ctrlr_proportions = 2,
-		name_proportions = 1,
 		name = string.pretty(custom_name or value_name, true) .. ":",
 		panel = panel,
 		sizer = horizontal_sizer,

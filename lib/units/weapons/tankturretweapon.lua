@@ -180,8 +180,8 @@ function TankTurretWeapon:_hit_explosion_on_client(position, radius, damage, pla
 	local damage_radius = radius or self._tweak_data.turret.damage_radius or 1000
 	local custom_params = {
 		sound_event = "grenade_explode",
-		sound_muffle_effect = true,
 		camera_shake_max_mul = 4,
+		sound_muffle_effect = true,
 		effect = self._effect_name,
 		feedback_range = damage_radius * 2
 	}

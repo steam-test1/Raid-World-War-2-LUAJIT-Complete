@@ -123,8 +123,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			base_icon = "map_camp",
 			texture = "map",
+			base_icon = "map_camp",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -156,8 +156,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			base_icon = "map_camp",
 			texture = "map",
+			base_icon = "map_camp",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -189,8 +189,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			base_icon = "map_camp",
 			texture = "map",
+			base_icon = "map_camp",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -222,8 +222,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			base_icon = "map_camp",
 			texture = "map",
+			base_icon = "map_camp",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -255,8 +255,8 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			base_icon = "map_camp",
 			texture = "map",
+			base_icon = "map_camp",
 			base_location = {
 				y = -2850,
 				x = -200
@@ -487,15 +487,15 @@ function LevelsTweakData:get_team_setup()
 		teams = {
 			criminal1 = {
 				foes = {
-					mobster1 = true,
-					law1 = true
+					law1 = true,
+					mobster1 = true
 				}
 			},
 			law1 = {
 				foes = {
-					mobster1 = true,
 					criminal1 = true,
-					converted_enemy = true
+					converted_enemy = true,
+					mobster1 = true
 				}
 			},
 			mobster1 = {
@@ -507,8 +507,8 @@ function LevelsTweakData:get_team_setup()
 			},
 			converted_enemy = {
 				foes = {
-					mobster1 = true,
-					law1 = true
+					law1 = true,
+					mobster1 = true
 				}
 			},
 			neutral1 = {
@@ -516,8 +516,8 @@ function LevelsTweakData:get_team_setup()
 			},
 			hacked_turret = {
 				foes = {
-					mobster1 = true,
-					law1 = true
+					law1 = true,
+					mobster1 = true
 				}
 			}
 		}

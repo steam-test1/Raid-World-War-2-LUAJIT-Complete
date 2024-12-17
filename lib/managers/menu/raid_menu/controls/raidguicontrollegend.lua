@@ -50,8 +50,8 @@ function RaidGUIControlLegend:_create_legend()
 	if managers.controller:is_controller_present() then
 		self:_create_console_legend({
 			y = 0,
-			x = 0,
 			w = 200,
+			x = 0,
 			h = RaidGUIControlLegend.H,
 			font = self._params.font or RaidGUIControlLegend.FONT,
 			font_size = self._params.font_size or RaidGUIControlLegend.FONT_SIZE,
@@ -105,9 +105,9 @@ function RaidGUIControlLegend:_create_pc_legend()
 
 	for _, legend_item in ipairs(self._legend.keyboard) do
 		local legend_pc_params = {
-			h = 32,
 			y = 0,
 			icon_align = "right",
+			h = 32,
 			name = "pc_legend_" .. legend_item.key,
 			x = coord_x,
 			icon = tweak_data.gui.icons.ico_nav_right_base,
