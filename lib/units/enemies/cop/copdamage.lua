@@ -396,10 +396,6 @@ function CopDamage:damage_bullet(attack_data)
 		if alive(attack_data.weapon_unit) and attack_data.weapon_unit:base().weapon_tweak_data then
 			weapon_headshot_multiplier = attack_data.weapon_unit:base():weapon_tweak_data().headshot_multiplier or 1
 		end
-
-		if head then
-			managers.player:on_headshot_dealt()
-		end
 	end
 
 	if self._damage_reduction_multiplier then
@@ -457,6 +453,10 @@ function CopDamage:damage_bullet(attack_data)
 			if WeaponTweakData.HIT_INDICATOR_ABSOLUTE <= damage or WeaponTweakData.HIT_INDICATOR_PERCENT <= percent_dmg then
 				managers.hud:on_hit_confirmed()
 			end
+		end
+
+		if head then
+			managers.player:on_headshot_dealt(self._health <= damage)
 		end
 	end
 

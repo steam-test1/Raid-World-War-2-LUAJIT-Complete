@@ -277,6 +277,42 @@ function CarryTweakData:init(tweak_data)
 			SO_category = "enemies"
 		}
 	}
+	self.dev_pku_carry_light = {
+		type = "light",
+		name_id = "hud_carry_gold_bar",
+		bag_value = "gold_bar",
+		loot_value = 5,
+		unit = "units/vanilla/dev/dev_pku_carry_light/dev_pku_carry_light_bag",
+		hud_icon = "carry_gold",
+		value_in_gold = 1,
+		AI_carry = {
+			SO_category = "enemies"
+		}
+	}
+	self.dev_pku_carry_medium = {
+		type = "medium",
+		name_id = "hud_carry_gold_bar",
+		bag_value = "gold_bar",
+		loot_value = 5,
+		unit = "units/vanilla/dev/dev_pku_carry_medium/dev_pku_carry_medium_bag",
+		hud_icon = "carry_gold",
+		value_in_gold = 1,
+		AI_carry = {
+			SO_category = "enemies"
+		}
+	}
+	self.dev_pku_carry_heavy = {
+		type = "heavy",
+		name_id = "hud_carry_gold_bar",
+		bag_value = "gold_bar",
+		loot_value = 5,
+		unit = "units/vanilla/dev/dev_pku_carry_heavy/dev_pku_carry_heavy_bag",
+		hud_icon = "carry_gold",
+		value_in_gold = 1,
+		AI_carry = {
+			SO_category = "enemies"
+		}
+	}
 	self.german_grunt_body = {
 		type = "heavy",
 		name_id = "hud_carry_body",

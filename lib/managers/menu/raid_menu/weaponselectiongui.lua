@@ -169,6 +169,11 @@ function WeaponSelectionGui:_layout_category_tabs()
 				callback_param = WeaponInventoryManager.BM_CATEGORY_SECONDARY_ID
 			},
 			{
+				name = "tab_grenades",
+				text = self:translate("menu_weapons_tab_category_grenades", true),
+				callback_param = WeaponInventoryManager.BM_CATEGORY_GRENADES_ID
+			},
+			{
 				name = "tab_melee",
 				text = self:translate("menu_weapons_tab_category_melee", true),
 				breadcrumb = {
@@ -902,7 +907,10 @@ function WeaponSelectionGui:_update_weapon_stats(reset_applied_stats)
 		local magazine = f2s(base_stats.magazine.value) + f2s(skill_stats.magazine.value)
 		local total_ammo = f2s(base_stats.totalammo.value) + f2s(skill_stats.totalammo.value)
 		local fire_rate = f2s(base_stats.fire_rate.value) + f2s(skill_stats.fire_rate.value)
-		local accuracy = f2s(base_stats.spread.value) + f2s(skill_stats.spread.value)
+		local accuracy = f2s(100 / (1 + tweak_data.weapon[selected_weapon_data.weapon_id].spread.steelsight)) + f2s(skill_stats.spread.value)
+
+		print(skill_stats.spread.value)
+
 		local stability = f2s(base_stats.recoil.value) + f2s(skill_stats.recoil.value)
 
 		if reset_applied_stats then

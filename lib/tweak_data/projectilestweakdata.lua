@@ -18,7 +18,6 @@ function ProjectilesTweakData:init(tweak_data)
 		damage = 500,
 		player_damage = 10,
 		range = 1000,
-		name_id = "bm_grenade_frag",
 		init_timer = 4.5,
 		animations = {}
 	}
@@ -47,7 +46,6 @@ function ProjectilesTweakData:init(tweak_data)
 		adjust_z = 5,
 		player_damage = 3,
 		range = 350,
-		name_id = "bm_grenade_cluster",
 		animations = {}
 	}
 	self.cluster.animations.equip_id = "equip_welrod"
@@ -67,7 +65,6 @@ function ProjectilesTweakData:init(tweak_data)
 		damage = 0,
 		player_damage = 0,
 		range = 1000,
-		name_id = "bm_grenade_frag",
 		init_timer = 4.5,
 		animations = {}
 	}
@@ -102,7 +99,6 @@ function ProjectilesTweakData:init(tweak_data)
 		burn_duration = 20,
 		burn_tick_period = 0.5,
 		sound_event_impact_duration = 4,
-		name_id = "bm_grenade_molotov",
 		alert_radius = 1500,
 		fire_alert_radius = 1500,
 		animations = {}

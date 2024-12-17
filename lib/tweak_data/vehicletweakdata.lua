@@ -136,7 +136,7 @@ function VehicleTweakData:_init_data_kubelwagen()
 				fov = 75,
 				driving = true,
 				camera_limits = {
-					90,
+					50,
 					45
 				}
 			},
