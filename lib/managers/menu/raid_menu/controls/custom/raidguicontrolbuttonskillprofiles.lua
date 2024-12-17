@@ -49,10 +49,10 @@ function RaidGUIControlButtonSkillProfiles:_layout(params)
 	self._icon:set_center(self._background:center_x(), self._background:center_y() - icon_offset)
 
 	self._controller_button = self._object:label({
-		name = "controller_switch_button",
 		vertical = "bottom",
 		align = "center",
 		x = 2,
+		name = "controller_switch_button",
 		text = self.CONTROLLER_BUTTON,
 		font = self.CONTROLLER_FONT,
 		font_size = self.CONTROLLER_FONT_SIZE,

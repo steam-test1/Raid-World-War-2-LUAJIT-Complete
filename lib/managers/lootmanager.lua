@@ -97,8 +97,10 @@ end
 
 function LootManager:secure(carry_id, multiplier_level, silent)
 	if Network:is_server() then
+		Application:info("[LootManager] SERVER secure loot:", carry_id, multiplier_level, silent)
 		self:server_secure_loot(carry_id, multiplier_level, silent)
 	else
+		Application:info("[LootManager] CLIENT secure loot:", carry_id, multiplier_level, silent)
 		managers.network:session():send_to_host("server_secure_loot", carry_id, multiplier_level, silent)
 	end
 end

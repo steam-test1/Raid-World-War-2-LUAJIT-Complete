@@ -152,6 +152,7 @@ function ChallengeCardsTweakData:init(tweak_data)
 			color = Color("d88023")
 		},
 		loot_rarity_none = {
+			color = nil,
 			texture = ChallengeCardsTweakData.CARDS_TEXTURE_PATH,
 			texture_rect = {
 				0,
@@ -578,9 +579,9 @@ function ChallengeCardsTweakData:init(tweak_data)
 		description = "card_ra_a_perfect_score_desc_id",
 		effects = {
 			{
-				value = true,
+				value = 2,
 				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
-				name = BuffEffectManager.EFFECT_ALL_CHESTS_ARE_LOCKED
+				name = BuffEffectManager.EFFECT_FORCED_CRATE_TIER
 			},
 			{
 				value = true,
@@ -753,6 +754,11 @@ function ChallengeCardsTweakData:init(tweak_data)
 				value = 3,
 				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
 				name = BuffEffectManager.EFFECT_PLAYER_HEADSHOT_DAMAGE
+			},
+			{
+				value = true,
+				type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+				name = BuffEffectManager.EFFECT_PUMKIN_HEADS
 			},
 			{
 				value = true,
@@ -1551,9 +1557,9 @@ function ChallengeCardsTweakData:init(tweak_data)
 	self.cards.free_crowbar = setup_card("free_crowbar")
 	self.cards.free_crowbar.effects = {
 		{
-			value = true,
+			value = 3,
 			type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
-			name = BuffEffectManager.EFFECT_ALL_CHESTS_ARE_TIER3
+			name = BuffEffectManager.EFFECT_FORCED_CRATE_TIER
 		},
 		{
 			value = true,
@@ -1562,7 +1568,7 @@ function ChallengeCardsTweakData:init(tweak_data)
 		}
 	}
 	self.cards.free_crowbar.positive_description = {
-		desc_id = BuffEffectManager.EFFECT_ALL_CHESTS_ARE_TIER3
+		desc_id = "effect_all_chests_are_tier3"
 	}
 	self.cards.free_crowbar.rarity = LootDropTweakData.RARITY_COMMON
 	self.cards.free_crowbar.card_type = ChallengeCardsTweakData.CARD_TYPE_RAID
@@ -1593,6 +1599,33 @@ function ChallengeCardsTweakData:init(tweak_data)
 	self.cards.lucky_day.achievement_id = ""
 	self.cards.lucky_day.def_id = 404
 	self.cards.lucky_day.card_category = ChallengeCardsTweakData.CARD_CATEGORY_BOOSTER
+	self.cards.ra_mag_roulette = setup_card("mag_roulette")
+	self.cards.ra_mag_roulette.effects = {
+		{
+			value = 1.3,
+			type = ChallengeCardsTweakData.EFFECT_TYPE_POSITIVE,
+			name = BuffEffectManager.EFFECT_PLAYER_RELOAD_SPEED
+		},
+		{
+			value = true,
+			type = ChallengeCardsTweakData.EFFECT_TYPE_NEGATIVE,
+			name = BuffEffectManager.EFFECT_PLAYER_RANDOM_RELOAD
+		}
+	}
+	self.cards.ra_mag_roulette.positive_description = {
+		desc_id = "effect_player_faster_reload",
+		desc_params = {
+			EFFECT_VALUE_1 = "30%"
+		}
+	}
+	self.cards.ra_mag_roulette.negative_description = {
+		desc_id = "effect_player_random_reload"
+	}
+	self.cards.ra_mag_roulette.rarity = LootDropTweakData.RARITY_HALLOWEEN_2017
+	self.cards.ra_mag_roulette.card_type = ChallengeCardsTweakData.CARD_TYPE_RAID
+	self.cards.ra_mag_roulette.achievement_id = ""
+	self.cards.ra_mag_roulette.def_id = 405
+	self.cards.ra_mag_roulette.card_category = ChallengeCardsTweakData.CARD_CATEGORY_CHALLENGE_CARD
 	self.cards_index = {
 		"ra_on_the_scrounge",
 		"ra_no_backups",
@@ -1637,7 +1670,8 @@ function ChallengeCardsTweakData:init(tweak_data)
 		"ra_dooms_day",
 		"ra_roulette",
 		"free_crowbar",
-		"lucky_day"
+		"lucky_day",
+		"ra_mag_roulette"
 	}
 	self.playtimegenerator = {}
 	self.bundledefinitions = {}

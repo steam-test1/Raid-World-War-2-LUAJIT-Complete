@@ -17,8 +17,8 @@ function GrenadeCluster:_setup_from_tweak_data()
 	self._player_damage = self._tweak_data.player_damage
 	local sound_event = self._tweak_data.sound_event or "grenade_explode"
 	self._custom_params = {
-		camera_shake_max_mul = 4,
 		sound_muffle_effect = true,
+		camera_shake_max_mul = 4,
 		effect = self._effect_name,
 		sound_event = sound_event,
 		feedback_range = self._range * 2

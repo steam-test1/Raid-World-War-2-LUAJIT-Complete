@@ -62,9 +62,9 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 	bg:set_width(text_width)
 	bg:set_size(self._clipping_panel:size())
 	self._clipping_panel:gradient({
-		y = 0,
-		visible = false,
 		orientation = "vertical",
+		visible = false,
+		y = 0,
 		x = 0,
 		w = self._clipping_panel:width(),
 		h = 75 * global_scale,
@@ -77,8 +77,8 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 		}
 	})
 	self._clipping_panel:gradient({
-		visible = false,
 		orientation = "vertical",
+		visible = false,
 		x = 0,
 		y = self._clipping_panel:height() - 75 * global_scale,
 		w = self._clipping_panel:width(),
@@ -150,13 +150,13 @@ function MenuNodeCreditsGui:_build_credits_panel(file)
 
 			height = height * global_scale
 			local text_field = self._credits_panel:text({
-				vertical = "bottom",
-				h = 0,
-				wrap = true,
-				align = "center",
 				word_wrap = true,
-				halign = "left",
+				h = 0,
 				x = 0,
+				wrap = true,
+				vertical = "bottom",
+				halign = "left",
+				align = "center",
 				text = data.text,
 				y = ypos,
 				w = text_width,

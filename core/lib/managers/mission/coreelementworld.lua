@@ -181,6 +181,7 @@ function ElementWorldPoint:on_executed(instigator)
 		Application:debug("[ElementWorldPoint:_set_alarm_state()] alarmed????", alarmed, self._action)
 
 		local que_data = {
+			world_id = nil,
 			alarmed = alarmed
 		}
 

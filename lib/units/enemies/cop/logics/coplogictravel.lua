@@ -765,8 +765,8 @@ function CopLogicTravel._chk_request_action_walk_to_advance_pos(data, my_data, s
 
 		local path = my_data.advance_path
 		local new_action_data = {
-			type = "walk",
 			body_part = 2,
+			type = "walk",
 			nav_path = path,
 			variant = speed or "run",
 			end_rot = end_rot,
@@ -990,8 +990,8 @@ function CopLogicTravel._get_pos_on_wall(from_pos, max_dist, step_offset, is_rec
 
 	local from_tracker = nav_manager:create_nav_tracker(from_pos)
 	local ray_params = {
-		allow_entry = false,
 		trace = true,
+		allow_entry = false,
 		tracker_from = from_tracker,
 		pos_to = to_pos
 	}

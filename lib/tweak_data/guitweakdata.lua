@@ -3,8 +3,8 @@ GuiTweakData = GuiTweakData or class()
 function GuiTweakData:init()
 	self.base_resolution = {
 		z = 60,
-		x = 1920,
-		y = 1080
+		y = 1080,
+		x = 1920
 	}
 
 	self:_setup_layers()
@@ -127,7 +127,7 @@ function GuiTweakData:_setup_hud_colors()
 			color = self.colors.progress_red
 		},
 		{
-			start_percentage = 0.5,
+			start_percentage = 0.25,
 			color = self.colors.light_grey
 		}
 	}
@@ -367,22 +367,22 @@ end
 function GuiTweakData:_setup_crosshairs()
 	self.crosshairs = {
 		pistol = {
-			edge_pips_icon = "weapons_reticles_flatline",
-			edge_pips = 4,
 			degree_field = 360,
-			base_rotation = 0
+			base_rotation = 0,
+			edge_pips = 4,
+			edge_pips_icon = "weapons_reticles_flatline"
 		},
 		smg = {
-			edge_pips_icon = "weapons_reticles_flatline",
-			edge_pips = 3,
 			degree_field = 270,
-			base_rotation = 0
+			base_rotation = 0,
+			edge_pips = 3,
+			edge_pips_icon = "weapons_reticles_flatline"
 		},
 		lmg = {
-			edge_pips = 5,
 			degree_field = 225,
-			core_dot = "weapons_reticles_static_diamond",
 			base_rotation = 0,
+			edge_pips = 5,
+			core_dot = "weapons_reticles_static_diamond",
 			edge_pips_icon = {
 				"weapons_reticles_flatline"
 			}
@@ -402,33 +402,34 @@ function GuiTweakData:_setup_crosshairs()
 		"weapons_reticles_bowbend"
 	}
 	self.crosshairs.assault_rifle = {
-		edge_pips_icon = "weapons_reticles_flatline",
-		edge_pips = 4,
 		degree_field = 360,
-		core_dot = "weapons_reticles_static_dot",
-		base_rotation = 0
+		base_rotation = 0,
+		edge_pips = 4,
+		edge_pips_icon = "weapons_reticles_flatline",
+		core_dot = "weapons_reticles_static_dot"
 	}
 	self.crosshairs.sniper = {
-		edge_pips_icon = "weapons_reticles_flatline",
-		edge_pips = 3,
 		degree_field = 270,
-		core_dot = "weapons_reticles_static_tri_small",
-		base_rotation = 0
+		base_rotation = 0,
+		edge_pips = 3,
+		edge_pips_icon = "weapons_reticles_flatline",
+		core_dot = "weapons_reticles_static_tri_small"
 	}
 	self.crosshairs.shotgun = {
-		edge_pips_icon = "weapons_reticles_bowbend",
-		edge_pips = 4,
 		degree_field = 360,
-		core_dot = "weapons_reticles_static_dot",
-		base_rotation = 0
+		base_rotation = 0,
+		edge_pips = 4,
+		edge_pips_icon = "weapons_reticles_bowbend",
+		core_dot = "weapons_reticles_static_dot"
 	}
 	self.crosshairs.shotgun_db = deep_clone(self.crosshairs.shotgun)
 	self.crosshairs.shotgun_db.edge_pips = 2
 	self.crosshairs.grenade = {
-		edge_pips = 0,
 		degree_field = 0,
-		core_dot = "weapons_reticles_static_diamond",
-		base_rotation = 0
+		base_rotation = 0,
+		edge_pips = 0,
+		edge_pips_icon = nil,
+		core_dot = "weapons_reticles_static_diamond"
 	}
 end
 
@@ -6291,15 +6292,16 @@ function GuiTweakData:_setup_hud_reticles()
 end
 
 function GuiTweakData:_setup_hud_status_effects()
-	local function _make_icon(name, x, y)
+	local function _make_icon(name, x, y, path, color)
 		self.icons[name] = {
-			texture = "ui/atlas/raid_atlas_hud_status_effects",
+			texture = path or "ui/atlas/raid_atlas_hud_status_effects",
 			texture_rect = {
 				64 * x,
 				64 * y,
 				64,
 				64
-			}
+			},
+			color = color
 		}
 	end
 
@@ -6440,6 +6442,7 @@ function GuiTweakData:_setup_skill_icons()
 	_make_icon("skills_toughness", 0, 7)
 	_make_icon("skills_big_game", 1, 7)
 	_make_icon("skills_sapper", 2, 7)
+	_make_icon("skills_cache_basket", 3, 7)
 
 	self.icons.player_panel_warcry_berserk = {
 		texture = "ui/atlas/skilltree/raid_atlas_wc_hud_small",
@@ -8455,9 +8458,9 @@ end
 
 function GuiTweakData:_setup_old_tweak_data()
 	self.content_updates = {
-		title_id = "menu_content_updates",
 		num_items = 6,
-		choice_id = "menu_content_updates_previous"
+		choice_id = "menu_content_updates_previous",
+		title_id = "menu_content_updates"
 	}
 
 	if IS_PC then
@@ -8469,28 +8472,28 @@ function GuiTweakData:_setup_old_tweak_data()
 	end
 
 	self.fav_videos = {
+		db_url = "http://www.overkillsoftware.com/?page_id=1263",
 		title_id = "menu_fav_videos",
 		num_items = 3,
-		db_url = "http://www.overkillsoftware.com/?page_id=1263",
 		button = {
 			url = "http://www.overkillsoftware.com/?page_id=1263",
 			text_id = "menu_fav_video_homepage"
 		},
 		item_list = {
 			{
-				id = "fav3",
 				image = "guis/textures/pd2/fav_video3",
-				use_db = true
+				use_db = true,
+				id = "fav3"
 			},
 			{
-				id = "fav2",
 				image = "guis/textures/pd2/fav_video2",
-				use_db = true
+				use_db = true,
+				id = "fav2"
 			},
 			{
-				id = "fav1",
 				image = "guis/textures/pd2/fav_video1",
-				use_db = true
+				use_db = true,
+				id = "fav1"
 			}
 		}
 	}
@@ -8530,7 +8533,7 @@ function GuiTweakData:_setup_old_tweak_data()
 		new_job_min_time = 1.5,
 		new_job_max_time = 3.5,
 		refresh_servers_time = 5,
-		total_active_jobs = 40,
+		total_active_jobs = 50,
 		max_active_server_jobs = 100
 	}
 	self.rename_max_letters = 20
@@ -8540,12 +8543,12 @@ function GuiTweakData:_setup_old_tweak_data()
 	self.stats_present_multiplier = 10
 	self.armor_damage_shake_base = 1.1
 	self.buy_weapon_category_groups = {
-		flamethrower = "wpn_special",
+		saw = "wpn_special",
 		grenade_launcher = "wpn_special",
-		bow = "wpn_special",
 		crossbow = "wpn_special",
-		minigun = "wpn_special",
-		saw = "wpn_special"
+		bow = "wpn_special",
+		flamethrower = "wpn_special",
+		minigun = "wpn_special"
 	}
 	self.weapon_texture_switches = {}
 end

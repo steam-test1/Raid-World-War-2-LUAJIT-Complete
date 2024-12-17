@@ -4,10 +4,10 @@ AchievmentManager.FILE_EXTENSION = "achievment"
 
 function AchievmentManager:init()
 	self.exp_awards = {
-		b = 1500,
 		a = 500,
+		none = 0,
 		c = 5000,
-		none = 0
+		b = 1500
 	}
 	self.script_data = {}
 
@@ -436,14 +436,14 @@ end
 
 AchievmentManager._T = {
 	clear_skies = {
+		hardest_nobleed = "ach_clear_skies_hardest_no_bleedout",
 		hardest = "ach_clear_skies_hardest",
-		nobleed = "ach_clear_skies_no_bleedout",
-		hardest_nobleed = "ach_clear_skies_hardest_no_bleedout"
+		nobleed = "ach_clear_skies_no_bleedout"
 	},
 	oper_flamable = {
+		hardest_nobleed = "ach_burn_hardest_no_bleedout",
 		hardest = "ach_burn_hardest",
-		nobleed = "ach_burn_no_bleedout",
-		hardest_nobleed = "ach_burn_hardest_no_bleedout"
+		nobleed = "ach_burn_no_bleedout"
 	}
 }
 

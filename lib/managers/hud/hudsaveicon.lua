@@ -33,8 +33,8 @@ function HUDSaveIcon:_create_panel(params)
 		layer = tweak_data.gui.SAVEFILE_LAYER
 	}
 	local panel_params = {
-		name = "save_icon_panel",
 		alpha = 0,
+		name = "save_icon_panel",
 		w = params.w,
 		h = params.h,
 		layer = params.layer
@@ -64,11 +64,11 @@ end
 
 function HUDSaveIcon:_create_text()
 	local text_params = {
-		name = "save_icon_text",
-		vertical = "center",
 		text = "",
+		vertical = "center",
 		y = 0,
 		x = 0,
+		name = "save_icon_text",
 		h = self._panel:h(),
 		font = HUDSaveIcon.FONT,
 		font_size = HUDSaveIcon.FONT_SIZE,
@@ -80,11 +80,11 @@ end
 function HUDSaveIcon:_create_bullets()
 	local bullet_panel_params = {
 		halign = "left",
-		name = "bullet_panel",
+		valign = "center",
 		y = 0,
 		w = 32,
 		x = 0,
-		valign = "center",
+		name = "bullet_panel",
 		h = self._panel:h()
 	}
 	self._bullet_panel = self._panel:panel(bullet_panel_params)

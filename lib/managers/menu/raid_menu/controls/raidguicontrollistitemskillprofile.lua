@@ -103,8 +103,8 @@ function RaidGUIControlListItemSkillProfile:_layout_purchasable(item_data)
 	local purchase_cost = item_data.purchase_cost and tostring(item_data.purchase_cost)
 	self._gold_value_label = self._context_info_panel:label({
 		name = "profile_name_label",
-		fit_text = true,
 		vertical = "center",
+		fit_text = true,
 		font = self.PURCHASE_VALUE_FONT,
 		font_size = self.PURCHASE_VALUE_FONT_SIZE,
 		text = purchase_cost,
@@ -116,9 +116,9 @@ function RaidGUIControlListItemSkillProfile:_layout_purchasable(item_data)
 
 	local gold_amount_footer = tweak_data.gui:get_full_gui_data("gold_amount_footer")
 	self._gold_icon = self._object:image({
-		name = "profile_gold_icon",
 		h = 25,
 		w = 25,
+		name = "profile_gold_icon",
 		texture = gold_amount_footer.texture,
 		texture_rect = gold_amount_footer.texture_rect,
 		color = self.PURCHASE_COLOR

@@ -93,11 +93,11 @@ function SentryGunBase:activate_as_module(team_type, tweak_table_id)
 	self._unit:movement():on_activated(tweak_table_id)
 
 	local weapon_setup_data = {
-		auto_reload = true,
-		expend_ammo = true,
 		spread_mul = 1,
-		autoaim = true,
 		alert_AI = false,
+		autoaim = true,
+		expend_ammo = true,
+		auto_reload = true,
 		ignore_units = {
 			self._unit
 		},
@@ -187,9 +187,9 @@ function SentryGunBase:setup(owner, ammo_multiplier, armor_multiplier, damage_mu
 	end
 
 	local setup_data = {
-		expend_ammo = true,
-		autoaim = true,
 		alert_AI = true,
+		autoaim = true,
+		expend_ammo = true,
 		creates_alerts = true,
 		user_unit = self._owner,
 		ignore_units = {
@@ -273,8 +273,8 @@ function SentryGunBase._attach(pos, rot, sentrygun_unit)
 
 	if ray then
 		local attached_data = {
-			max_index = 3,
 			index = 1,
+			max_index = 3,
 			body = ray.body,
 			position = ray.body:position(),
 			rotation = ray.body:rotation()

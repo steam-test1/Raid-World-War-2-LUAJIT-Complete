@@ -15,28 +15,28 @@ function RaidMenuOptionsControlsControllerMapping:_layout()
 	RaidMenuOptionsControlsControllerMapping.super._layout(self)
 
 	self._controller_image = self._root_panel:bitmap({
-		texture = "ui/main_menu/textures/controller",
+		x = 0,
 		name = "controller_image",
+		texture = "ui/main_menu/textures/controller",
 		h = 600,
-		y = 0,
 		w = 1200,
-		x = 0
+		y = 0
 	})
 
 	self._controller_image:set_center_x(self._root_panel:w() / 2)
 	self._controller_image:set_center_y(self._root_panel:h() / 2)
 
 	self._panel_on_foot = self._root_panel:panel({
-		y = 0,
-		name = "panel_on_foot",
 		x = 0,
-		visible = true
+		visible = true,
+		name = "panel_on_foot",
+		y = 0
 	})
 	self._panel_in_vehicle = self._root_panel:panel({
-		y = 0,
-		name = "panel_on_foot",
 		x = 0,
-		visible = false
+		visible = false,
+		name = "panel_on_foot",
+		y = 0
 	})
 
 	if IS_PS4 then
@@ -152,8 +152,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.6,
+		align = "bottom",
 		control = self._controller_keybind_melee_attack
 	})
 
@@ -230,8 +230,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.182,
+		align = "top",
 		control = self._controller_keybind_aim
 	})
 
@@ -243,8 +243,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.63,
+		align = "top",
 		control = self._controller_keybind_mission_info
 	})
 
@@ -256,8 +256,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.445,
+		align = "top",
 		control = self._controller_keybind_ingame_menu
 	})
 
@@ -269,8 +269,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.792,
+		align = "top",
 		control = self._controller_keybind_fire_weapon
 	})
 end
@@ -371,8 +371,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.6,
+		align = "bottom",
 		control = self._controller_keybind_look_back
 	})
 
@@ -449,8 +449,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.215,
+		align = "top",
 		control = self._controller_keybind_reverse
 	})
 
@@ -462,8 +462,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.63,
+		align = "top",
 		control = self._controller_keybind_mission_info_vehicle
 	})
 
@@ -475,8 +475,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.445,
+		align = "top",
 		control = self._controller_keybind_ingame_menu_vehicle
 	})
 
@@ -488,8 +488,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle_ps4()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.786,
+		align = "top",
 		control = self._controller_keybind_accelerate
 	})
 end
@@ -590,8 +590,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.47,
+		align = "bottom",
 		control = self._controller_keybind_knife
 	})
 
@@ -603,8 +603,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.6,
+		align = "bottom",
 		control = self._controller_keybind_melee_attack
 	})
 
@@ -694,8 +694,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.465,
+		align = "top",
 		control = self._controller_keybind_mission_info
 	})
 
@@ -707,8 +707,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_on_foot()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.56,
+		align = "top",
 		control = self._controller_keybind_ingame_menu
 	})
 
@@ -823,8 +823,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.47,
+		align = "bottom",
 		control = self._controller_keybind_na5
 	})
 
@@ -836,8 +836,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "bottom",
 		coord_x = 0.6,
+		align = "bottom",
 		control = self._controller_keybind_look_back
 	})
 
@@ -927,8 +927,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.465,
+		align = "top",
 		control = self._controller_keybind_mission_info_vehicle
 	})
 
@@ -940,8 +940,8 @@ function RaidMenuOptionsControlsControllerMapping:_layout_in_vehicle()
 	})
 
 	self:_set_position_size_controller_keybind_label({
-		align = "top",
 		coord_x = 0.56,
+		align = "top",
 		control = self._controller_keybind_ingame_menu_vehicle
 	})
 end

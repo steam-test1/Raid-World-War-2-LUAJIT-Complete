@@ -30,10 +30,10 @@ end
 function HUDSpecialInteractionFuseCutting:_create_bg_plate()
 	local gui_data = tweak_data.gui:get_full_gui_data(HUDSpecialInteractionFuseCutting.BACKGROUND_PLATE_IMAGE)
 	self._bg_plate = self._object:bitmap({
+		layer = 1,
 		name = "special_interaction_bg_plate",
 		halign = "center",
 		valign = "center",
-		layer = 1,
 		texture = gui_data.texture,
 		texture_rect = gui_data.texture_rect,
 		w = HUDSpecialInteractionFuseCutting.SIZE + 118,
@@ -59,12 +59,12 @@ end
 
 function HUDSpecialInteractionFuseCutting:_create_fuse_timer()
 	self._interact_text = self._object:text({
-		name = "_interact_text",
+		align = "center",
+		valign = "center",
 		h = 60,
 		w = 240,
-		align = "center",
+		name = "_interact_text",
 		text = "--:--",
-		valign = "center",
 		layer = self._bg_plate:layer() + 2,
 		font = HUDSpecialInteractionFuseCutting.TIMER_FONT,
 		font_size = HUDSpecialInteractionFuseCutting.TIMER_FONT_SIZE
@@ -106,8 +106,8 @@ function HUDSpecialInteractionFuseCutting:_create_circles()
 		local fill = current_gap * deviation
 
 		table.insert(self._circles, {
-			size = 0,
 			cut_point = true,
+			size = 0,
 			circle = circle,
 			max_size = fill * fill_mul,
 			rotation = HUDSpecialInteractionFuseCutting.TOTAL_ANGLE

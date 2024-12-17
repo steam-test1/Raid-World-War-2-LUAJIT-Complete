@@ -12,18 +12,18 @@ CopLogicBase = class()
 CopLogicBase.SAW_SOMETHING_THRESHOLD = 0.2
 CopLogicBase.INVESTIGATE_THRESHOLD = 0.4
 CopLogicBase._AGGRESSIVE_ALERT_TYPES = {
-	vo_distress = true,
 	aggression = true,
-	bullet = true,
+	vo_distress = true,
 	vo_intimidate = true,
-	explosion = true,
+	vo_cbt = true,
+	bullet = true,
 	footstep = true,
-	vo_cbt = true
+	explosion = true
 }
 CopLogicBase._DANGEROUS_ALERT_TYPES = {
-	explosion = true,
+	aggression = true,
 	bullet = true,
-	aggression = true
+	explosion = true
 }
 CopLogicBase._SUSPICIOUS_SO_ANIMS = {
 	rifle = {
@@ -1154,8 +1154,8 @@ function CopLogicBase._detection_obj_lost(data, attention_info)
 	if data._queued_objective and not managers.groupai:state():enemy_weapons_hot() then
 		local stop_current_action = {
 			action_duration = 1,
-			type = "act",
 			stance = "ntl",
+			type = "act",
 			followup_objective = data._queued_objective,
 			action = {
 				body_part = 1,
@@ -1169,9 +1169,11 @@ end
 
 function CopLogicBase.on_search_SO_failed(cop, params)
 	managers.groupai:state():hide_investigate_icon(cop)
+	managers.voice_over:guard_back_to_patrol(cop)
 end
 
 function CopLogicBase.on_search_SO_completed(cop, params)
+	managers.groupai:state():hide_investigate_icon(cop)
 	managers.voice_over:guard_back_to_patrol(cop)
 
 	if params.attention_info then
@@ -1180,14 +1182,18 @@ function CopLogicBase.on_search_SO_completed(cop, params)
 		params.attention_info.flagged_search = false
 	end
 
-	managers.groupai:state():hide_investigate_icon(cop)
-
 	cop:brain()._SO_id = nil
 end
 
+function CopLogicBase.on_search_SO_action_start(cop, params)
+	if params.search_data and alive(params.search_data.unit) and params.search_data.activated_clbk then
+		params.search_data.activated_clbk(cop)
+	end
+end
+
 function CopLogicBase.on_search_SO_started(cop, params)
-	managers.voice_over:guard_investigate(cop)
 	managers.groupai:state():show_investigate_icon(cop)
+	managers.voice_over:guard_investigate(cop)
 
 	if params.custom_stance then
 		cop:movement():set_stance(params.custom_stance, false, false)
@@ -1220,13 +1226,13 @@ function CopLogicBase._create_return_from_search_SO(cop, old_objective)
 	mrotation.multiply(rot, cop:movement():m_rot())
 
 	local objective = {
-		type = "free",
-		stance = "ntl",
-		haste = "walk",
-		scan = true,
-		interrupt_dis = -1,
 		attitude = "engage",
+		scan = true,
 		path_style = "coarse_complete",
+		type = "free",
+		interrupt_dis = -1,
+		haste = "walk",
+		stance = "ntl",
 		followup_objective = old_objective,
 		pos = pos,
 		rot = rot,
@@ -1237,7 +1243,7 @@ function CopLogicBase._create_return_from_search_SO(cop, old_objective)
 	return objective
 end
 
-function CopLogicBase.register_search_SO(cop, attention_info, position)
+function CopLogicBase.register_search_SO(cop, attention_info, position, search_data)
 	Application:debug("CopLogicBase.register_search_SO", attention_info, position)
 
 	if not cop:brain():stealth_action_allowed() or not managers.navigation:is_data_ready() then
@@ -1264,33 +1270,21 @@ function CopLogicBase.register_search_SO(cop, attention_info, position)
 		old_objective = CopLogicBase._create_return_from_search_SO(cop, old_objective)
 	end
 
-	local go_to_search_pos = {
-		stance = "ntl",
-		type = "free",
-		action_duration = 5,
-		haste = "walk",
-		scan = true,
-		interrupt_dis = -1,
-		attitude = "engage",
-		pos = pos,
-		nav_seg = nav_seg,
-		area = area,
-		followup_objective = old_objective,
-		complete_clbk = callback(cop, CopLogicBase, "on_search_SO_completed", {
-			attention_info = attention_info,
-			position = pos
-		})
-	}
 	local so_investigate = {
-		type = "act",
-		stance = "ntl",
-		haste = "walk",
-		interrupt_dis = -1,
 		attitude = "engage",
+		type = "act",
+		interrupt_dis = -1,
+		haste = "walk",
+		stance = "ntl",
 		pos = pos,
 		nav_seg = nav_seg,
 		area = area,
 		followup_objective = old_objective,
+		action_start_clbk = callback(cop, CopLogicBase, "on_search_SO_action_start", {
+			attention_info = attention_info,
+			position = pos,
+			search_data = search_data
+		}),
 		complete_clbk = callback(cop, CopLogicBase, "on_search_SO_completed", {
 			attention_info = attention_info,
 			position = pos
@@ -1302,23 +1296,23 @@ function CopLogicBase.register_search_SO(cop, attention_info, position)
 		action = {
 			align_sync = true,
 			needs_full_blend = true,
-			type = "act",
 			body_part = 1,
+			type = "act",
 			variant = table.random(CopLogicBase._INVESTIGATE_SO_ANIMS),
 			blocks = {
 				light_hurt = -1,
-				hurt = -1,
 				action = -1,
-				heavy_hurt = -1,
+				walk = -1,
 				aim = -1,
-				walk = -1
+				hurt = -1,
+				heavy_hurt = -1
 			}
 		}
 	}
 	local stop_current_action = {
 		action_duration = 1,
-		type = "act",
 		stance = "ntl",
+		type = "act",
 		followup_objective = so_investigate,
 		complete_clbk = callback(cop, CopLogicBase, "on_search_SO_started", {
 			attention_info = attention_info
@@ -2193,16 +2187,16 @@ end
 function CopLogicBase._say_call_the_police(data, my_data)
 	local blame_list = {
 		hostage_civ = "saw_hostage_civ",
-		drill = "saw_drill",
-		civilian = "saw_civilian",
-		trip_mine = "saw_trip_mine",
-		w_hot = "spotted_player",
-		criminal = "spotted_player",
 		sentry_gun = "saw_sentry_gun",
-		dead_cop = "saw_body",
-		hostage_cop = "saw_hostage_cop",
+		civilian = "saw_civilian",
+		w_hot = "spotted_player",
+		drill = "saw_drill",
+		criminal = "spotted_player",
+		trip_mine = "saw_trip_mine",
 		body_bag = "saw_bag",
-		dead_civ = "saw_body"
+		dead_cop = "saw_body",
+		dead_civ = "saw_body",
+		hostage_cop = "saw_hostage_cop"
 	}
 	local event = blame_list[my_data.call_in_event] or "spotted_player"
 
@@ -2689,11 +2683,11 @@ function CopLogicBase.chk_start_action_dodge(data, reason)
 		speed = data.char_tweak.dodge.speed,
 		shoot_accuracy = variation_data.shoot_accuracy,
 		blocks = {
+			walk = -1,
+			dodge = -1,
+			bleedout = -1,
 			act = -1,
 			tase = -1,
-			bleedout = -1,
-			dodge = -1,
-			walk = -1,
 			action = body_part == 1 and -1 or nil,
 			aim = body_part == 1 and -1 or nil
 		}
@@ -2909,13 +2903,13 @@ function CopLogicBase._start_idle_action_from_act(data)
 		type = "act",
 		blocks = {
 			light_hurt = -1,
-			hurt = -1,
 			action = -1,
 			expl_hurt = -1,
 			heavy_hurt = -1,
-			idle = -1,
+			walk = -1,
 			fire_hurt = -1,
-			walk = -1
+			hurt = -1,
+			idle = -1
 		}
 	})
 end

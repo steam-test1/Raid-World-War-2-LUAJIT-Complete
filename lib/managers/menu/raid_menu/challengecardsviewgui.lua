@@ -37,16 +37,17 @@ function ChallengeCardsViewGui:_layout()
 		},
 		{
 			name = "tab_all",
+			callback_param = nil,
 			text = self:translate("menu_filter_all", true)
 		}
 	}
 	self._rarity_filters_tabs = self._root_panel:tabs({
 		tab_align = "center",
-		name = "rarity_filters_tabs",
 		tab_height = 64,
 		y = 96,
-		dont_trigger_special_buttons = true,
 		x = 0,
+		name = "rarity_filters_tabs",
+		dont_trigger_special_buttons = true,
 		tab_width = 640 / #tabs_params,
 		initial_tab_idx = #tabs_params,
 		on_click_callback = callback(self, self, "on_click_filter_rarity"),
@@ -54,13 +55,13 @@ function ChallengeCardsViewGui:_layout()
 	})
 	self._type_filters_tabs = self._root_panel:tabs({
 		name = "type_filters_tabs",
-		tab_width = 140,
 		initial_tab_idx = 3,
 		tab_align = "center",
-		dont_trigger_special_buttons = true,
 		tab_height = 32,
+		tab_width = 140,
 		y = 176,
 		x = 0,
+		dont_trigger_special_buttons = true,
 		icon = tweak_data.gui.icons.ico_filter,
 		item_class = RaidGUIControlTabFilter,
 		on_click_callback = callback(self, self, "on_click_filter_type"),
@@ -77,24 +78,25 @@ function ChallengeCardsViewGui:_layout()
 			},
 			{
 				name = "filter_type_all",
+				callback_param = nil,
 				text = self:translate("menu_mission_selected_mission_type_both", true)
 			}
 		}
 	})
 	local challenge_cards_grid_scrollable_area_params = {
-		name = "challenge_cards_grid_scrollable_area",
-		h = 580,
-		y = 224,
 		w = 640,
+		y = 224,
 		x = 0,
-		scroll_step = 30
+		name = "challenge_cards_grid_scrollable_area",
+		scroll_step = 30,
+		h = 580
 	}
 	self._challenge_cards_grid_scrollable_area = self._root_panel:scrollable_area(challenge_cards_grid_scrollable_area_params)
 	local challenge_cards_grid_params = {
-		name = "challenge_cards_grid",
-		y = 0,
 		w = 636,
+		y = 0,
 		x = 0,
+		name = "challenge_cards_grid",
 		scrollable_area_ref = self._challenge_cards_grid_scrollable_area,
 		grid_params = {
 			scroll_marker_w = 32,
@@ -104,23 +106,23 @@ function ChallengeCardsViewGui:_layout()
 			on_select_callback = callback(self, self, "_on_select_inventory_cards")
 		},
 		item_params = {
-			item_w = 156,
 			hover_selects = true,
 			key_value_field = "key_name",
-			item_h = 216,
 			selected_marker_h = 250,
 			selected_marker_w = 192,
+			item_h = 216,
+			item_w = 156,
 			row_class = RaidGUIControlCardWithSelector
 		}
 	}
 	self._card_grid = self._challenge_cards_grid_scrollable_area:get_panel():grid(challenge_cards_grid_params)
 	local card_details_params = {
-		y = 96,
-		name = "card_deatils",
-		h = 736,
-		visible = true,
 		w = 992,
-		x = 736
+		y = 96,
+		x = 736,
+		h = 736,
+		name = "card_deatils",
+		visible = true
 	}
 	self._card_details = self._root_panel:create_custom_control(RaidGUIControlCardDetails, card_details_params)
 

@@ -69,9 +69,9 @@ function HUDTabGreedBar:_create_icons()
 	}
 	self._icons_panel = self._object:panel(icons_panel_params)
 	local frame_icon_params = {
+		halign = "center",
 		name = "frame_icon",
 		valign = "center",
-		halign = "center",
 		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.FRAME_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.FRAME_ICON].texture_rect
@@ -82,9 +82,9 @@ function HUDTabGreedBar:_create_icons()
 	self._frame_icon:set_center_y(self._icons_panel:h() / 2)
 
 	local loot_icon_params = {
+		halign = "center",
 		name = "loot_icon",
 		valign = "center",
-		halign = "center",
 		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.LOOT_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.LOOT_ICON].texture_rect
@@ -95,10 +95,10 @@ function HUDTabGreedBar:_create_icons()
 	self._loot_icon:set_center_y(self._icons_panel:h() / 2)
 
 	local gold_icon_params = {
-		name = "gold_icon",
-		valign = "center",
 		halign = "center",
+		name = "gold_icon",
 		alpha = 0,
+		valign = "center",
 		layer = 10,
 		texture = tweak_data.gui.icons[HUDTabGreedBar.GOLD_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTabGreedBar.GOLD_ICON].texture_rect,
@@ -112,8 +112,8 @@ end
 
 function HUDTabGreedBar:_create_right_panel()
 	local right_panel_params = {
-		name = "right_panel",
 		halign = "right",
+		name = "right_panel",
 		valign = "top",
 		w = self._object:w() - self._icons_panel:w(),
 		h = self._object:h()
@@ -125,8 +125,8 @@ end
 
 function HUDTabGreedBar:_create_title()
 	local title_params = {
-		vertical = "center",
 		name = "tab_greed_bar_title",
+		vertical = "center",
 		align = "center",
 		w = self._right_panel:w(),
 		h = HUDTabGreedBar.TITLE_H,
@@ -180,10 +180,10 @@ end
 
 function HUDTabGreedBar:_create_counter()
 	local counter_params = {
-		vertical = "center",
 		name = "tab_greed_bar_counter",
-		align = "right",
 		text = "0",
+		vertical = "center",
+		align = "right",
 		w = self._right_panel:w(),
 		h = HUDTabGreedBar.COUNTER_H,
 		font = tweak_data.gui:get_font_path(HUDTabGreedBar.COUNTER_FONT, HUDTabGreedBar.COUNTER_FONT_SIZE),
@@ -198,8 +198,8 @@ end
 
 function HUDTabGreedBar:_create_tutorialization()
 	local tutorialization_params = {
-		wrap = true,
 		name = "tab_greed_tutorialization",
+		wrap = true,
 		y = self._object:h(),
 		w = self._object:w(),
 		font = tweak_data.gui:get_font_path(HUDTabGreedBar.TUTORIALIZATION_FONT, HUDTabGreedBar.TUTORIALIZATION_FONT_SIZE),

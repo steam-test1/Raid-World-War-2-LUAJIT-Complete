@@ -444,8 +444,6 @@ function WeaponFactoryManager:assemble_default(factory_id, p_unit, third_person,
 end
 
 function WeaponFactoryManager:assemble_from_blueprint(factory_id, p_unit, blueprint, third_person, done_cb, skip_queue)
-	Application:trace("[WEPTEST] assemble_from_blueprint", debug.traceback())
-
 	return self:_assemble(factory_id, p_unit, blueprint, third_person, done_cb, skip_queue)
 end
 
@@ -676,8 +674,8 @@ function WeaponFactoryManager:_add_parts(p_unit, factory_id, factory_weapon, blu
 
 	if self._uses_tasks and not skip_queue then
 		table.insert(self._tasks, {
-			need_parent_i = 1,
 			blueprint_i = 1,
+			need_parent_i = 1,
 			done_cb = done_cb,
 			p_unit = p_unit,
 			factory_id = factory_id,

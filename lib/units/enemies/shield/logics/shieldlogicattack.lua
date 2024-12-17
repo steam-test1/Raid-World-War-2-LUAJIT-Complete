@@ -234,9 +234,9 @@ end
 function ShieldLogicAttack._chk_request_action_walk_to_optimal_pos(data, my_data, end_rot)
 	if not data.unit:movement():chk_action_forbidden("walk") then
 		local new_action_data = {
-			type = "walk",
 			body_part = 2,
 			variant = "walk",
+			type = "walk",
 			nav_path = my_data.optimal_path,
 			end_rot = end_rot
 		}

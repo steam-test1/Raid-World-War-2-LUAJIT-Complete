@@ -61,8 +61,8 @@ function NavigationStitcherOperatorUnitElement:draw_links_unselected(...)
 
 		if alive(unit) then
 			local params = {
-				g = 0,
 				b = 0.5,
+				g = 0,
 				r = 0,
 				from_unit = unit,
 				to_unit = self._unit
@@ -82,8 +82,8 @@ function NavigationStitcherOperatorUnitElement:draw_links_selected(...)
 
 		if alive(unit) then
 			local params = {
-				g = 0,
 				b = 0.5,
+				g = 0,
 				r = 0,
 				from_unit = unit,
 				to_unit = self._unit

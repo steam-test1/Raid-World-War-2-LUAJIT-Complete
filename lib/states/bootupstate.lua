@@ -38,10 +38,10 @@ function BootupState:setup()
 
 	if not is_win32 then
 		table.insert(self._play_data_list, {
-			height = 200,
 			can_skip = false,
-			duration = 6,
+			height = 200,
 			width = 600,
+			duration = 6,
 			gui = Idstring("guis/autosave_warning"),
 			layer = item_layer,
 			fade_in = fade_time,
@@ -61,8 +61,8 @@ function BootupState:setup()
 		fade_out = fade_time
 	})
 	table.insert(self._play_data_list, {
-		auto_skip = true,
 		duration = 4.5,
+		auto_skip = true,
 		can_skip = has_full_game,
 		texture = tweak_data.gui.icons.bootup_logo_lgl.texture,
 		texture_rect = tweak_data.gui.icons.bootup_logo_lgl.texture_rect,
@@ -73,8 +73,8 @@ function BootupState:setup()
 		fade_out = fade_time
 	})
 	table.insert(self._play_data_list, {
-		auto_skip = true,
 		duration = 5,
+		auto_skip = true,
 		can_skip = has_full_game,
 		texture = tweak_data.gui.icons.bootup_logo_third_parties.texture,
 		texture_rect = tweak_data.gui.icons.bootup_logo_third_parties.texture_rect,
@@ -97,12 +97,12 @@ function BootupState:setup()
 
 	local press_any_key_font_size = tweak_data.gui.font_sizes.medium
 	local press_any_key_prompt_params = {
-		vertical = "bottom",
+		layer = 3,
 		wrap = true,
+		alpha = 0,
+		vertical = "bottom",
 		align = "center",
 		name = "press_any_key_text",
-		alpha = 0,
-		layer = 3,
 		w = self._full_panel:w(),
 		h = press_any_key_font_size,
 		font = tweak_data.gui:get_font_path(MenuTitlescreenState.FONT, press_any_key_font_size),

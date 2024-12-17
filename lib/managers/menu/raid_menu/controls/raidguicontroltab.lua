@@ -60,8 +60,8 @@ function RaidGUIControlTab:init(parent, params)
 	self._callback_param = params.callback_param
 	self._tab_select_callback = params.tab_select_callback
 	self._bottom_line = self._object:rect({
-		name = "tab_control_bottom_line",
 		x = 0,
+		name = "tab_control_bottom_line",
 		y = params.h - RaidGUIControlTab.BOTTOM_LINE_NORMAL_HEIGHT,
 		w = params.w,
 		h = RaidGUIControlTab.BOTTOM_LINE_NORMAL_HEIGHT,

@@ -53,8 +53,8 @@ HUDTeammatePeer.STATES = {
 		}
 	},
 	{
-		id = "interaction",
-		control = "interaction_meter_panel"
+		control = "interaction_meter_panel",
+		id = "interaction"
 	},
 	{
 		id = "carry",
@@ -64,20 +64,20 @@ HUDTeammatePeer.STATES = {
 		}
 	},
 	{
-		id = "special_interaction",
-		control = "special_interaction_icon"
+		control = "special_interaction_icon",
+		id = "special_interaction"
 	},
 	{
-		id = "mounted_weapon",
-		control = "mounted_weapon_icon"
+		control = "mounted_weapon_icon",
+		id = "mounted_weapon"
 	},
 	{
-		id = "warcry",
-		control = "warcry_icon"
+		control = "warcry_icon",
+		id = "warcry"
 	},
 	{
-		id = "normal",
-		control = "nationality_icon"
+		control = "nationality_icon",
+		id = "normal"
 	}
 }
 HUDTeammatePeer.CHAT_ICON_SPEAKING = "voice_chat_talking_icon"
@@ -169,9 +169,9 @@ function HUDTeammatePeer:_create_warcry_bar()
 	warcry_background:set_center_y(warcry_panel:h() / 2)
 
 	local warcry_bar_params = {
-		name = "warcry_bar",
 		halign = "center",
 		render_template = "VertexColorTexturedRadial",
+		name = "warcry_bar",
 		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.WARCRY_BAR_ICON].texture,
 		texture_rect = {
@@ -271,9 +271,9 @@ end
 
 function HUDTeammatePeer:_create_timer()
 	local timer_panel_params = {
-		alpha = 0,
 		name = "timer_panel",
 		layer = 5,
+		alpha = 0,
 		x = self._left_panel:x(),
 		y = self._left_panel:y(),
 		w = self._left_panel:w(),
@@ -294,10 +294,10 @@ function HUDTeammatePeer:_create_timer()
 	timer_background:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_bar_params = {
-		name = "timer_bar",
-		layer = 2,
 		halign = "center",
 		render_template = "VertexColorTexturedRadial",
+		name = "timer_bar",
+		layer = 2,
 		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.TIMER_BAR_ICON].texture,
 		texture_rect = {
@@ -315,13 +315,13 @@ function HUDTeammatePeer:_create_timer()
 	self._timer_bar:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_text_params = {
-		name = "timer_text",
-		vertical = "center",
-		align = "center",
-		text = "37",
+		layer = 3,
 		y = 0,
 		x = 0,
-		layer = 3,
+		name = "timer_text",
+		text = "37",
+		vertical = "center",
+		align = "center",
 		w = self._timer_panel:w(),
 		h = self._timer_panel:h(),
 		font = tweak_data.gui.fonts[HUDTeammatePeer.TIMER_FONT],
@@ -336,10 +336,10 @@ end
 
 function HUDTeammatePeer:_create_interaction_meter()
 	local interaction_meter_panel_params = {
-		layer = 4,
 		name = "interaction_meter_panel",
 		halign = "left",
 		alpha = 0,
+		layer = 4,
 		valign = "center"
 	}
 	self._interaction_meter_panel = self._status_panel:panel(interaction_meter_panel_params)
@@ -357,10 +357,10 @@ function HUDTeammatePeer:_create_interaction_meter()
 	interaction_meter_background:set_center_y(self._interaction_meter_panel:h() / 2)
 
 	local interaction_meter_params = {
-		name = "interaction_meter",
-		layer = 2,
 		halign = "scale",
 		render_template = "VertexColorTexturedRadial",
+		name = "interaction_meter",
+		layer = 2,
 		valign = "scale",
 		texture = tweak_data.gui.icons[HUDTeammatePeer.INTERACTION_METER_FILL].texture,
 		texture_rect = {
@@ -460,12 +460,12 @@ end
 
 function HUDTeammatePeer:_create_player_name()
 	local player_name_params = {
-		name = "player_name",
-		vertical = "center",
-		align = "left",
-		text = "",
 		y = -2,
 		x = 0,
+		name = "player_name",
+		text = "",
+		vertical = "center",
+		align = "left",
 		w = self._right_panel:w() - HUDTeammatePeer.PLAYER_LEVEL_W - HUDTeammatePeer.CHAT_PANEL_W,
 		h = HUDTeammatePeer.PLAYER_NAME_H,
 		font = tweak_data.gui.fonts[HUDTeammatePeer.PLAYER_NAME_FONT],
@@ -476,10 +476,10 @@ end
 
 function HUDTeammatePeer:_create_player_level()
 	local player_level_params = {
-		vertical = "center",
 		name = "player_level",
-		align = "right",
 		text = "",
+		vertical = "center",
+		align = "right",
 		x = self._right_panel:w() - HUDTeammatePeer.PLAYER_LEVEL_W,
 		y = HUDTeammatePeer.PLAYER_LEVEL_Y,
 		w = HUDTeammatePeer.PLAYER_LEVEL_W,
@@ -579,7 +579,7 @@ function HUDTeammatePeer:set_health(data)
 	local health_percentage = math.clamp(data.current / data.total, 0, 1)
 
 	self._health_bar:set_w(health_percentage * self._full_health_bar_w)
-	self._health_bar:set_color(self:_get_color_for_percentage(HUDTeammatePeer.PLAYER_HEALTH_COLORS, health_percentage))
+	self._health_bar:set_color(GuiTweakData.get_color_for_percentage(HUDTeammatePeer.PLAYER_HEALTH_COLORS, health_percentage))
 end
 
 function HUDTeammatePeer:set_active_warcry(warcry)
@@ -952,14 +952,4 @@ function HUDTeammatePeer:_animate_hide_host_indicator(host_indicator)
 	end
 
 	host_indicator:set_alpha(0)
-end
-
-function HUDTeammatePeer:_get_color_for_percentage(color_table, percentage)
-	for i = #color_table, 1, -1 do
-		if color_table[i].start_percentage < percentage then
-			return color_table[i].color
-		end
-	end
-
-	return color_table[1].color
 end

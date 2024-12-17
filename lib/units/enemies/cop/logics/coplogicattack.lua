@@ -306,9 +306,9 @@ function CopLogicAttack._start_action_move_back(data, my_data, focus_enemy, enga
 	CopLogicAttack._cancel_cover_pathing(data, my_data)
 
 	local new_action_data = {
-		variant = "walk",
 		body_part = 2,
 		type = "walk",
+		variant = "walk",
 		nav_path = {
 			from_pos,
 			retreat_to
@@ -359,8 +359,8 @@ function CopLogicAttack._peek_for_pos_sideways(data, my_data, from_racker, peek_
 
 	local back_pos = my_pos + back_vec
 	local ray_params = {
-		allow_entry = true,
 		trace = true,
+		allow_entry = true,
 		tracker_from = my_tracker,
 		pos_to = back_pos
 	}
@@ -497,8 +497,8 @@ function CopLogicAttack._request_action_walk_to_cover(data, my_data)
 	end
 
 	local new_action_data = {
-		type = "walk",
 		body_part = 2,
+		type = "walk",
 		nav_path = my_data.cover_path,
 		variant = movement_mode,
 		end_pose = end_pose

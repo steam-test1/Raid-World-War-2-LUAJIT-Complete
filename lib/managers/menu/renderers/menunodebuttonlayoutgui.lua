@@ -42,8 +42,8 @@ function MenuNodeButtonLayoutGui:_setup()
 	self._blur = managers.menu_component._fullscreen_ws:panel():panel()
 
 	self._blur:bitmap({
-		texture = "guis/textures/test_blur_df",
 		render_template = "VertexColorTexturedBlur3D",
+		texture = "guis/textures/test_blur_df",
 		w = managers.menu_component._fullscreen_ws:panel():w(),
 		h = managers.menu_component._fullscreen_ws:panel():h(),
 		layer = self.layers.background
@@ -69,9 +69,9 @@ function MenuNodeButtonLayoutGui:_setup()
 		layer = self.layers.background
 	})
 	self._controller = self.ws:panel():bitmap({
-		texture = "guis/textures/controller",
-		w = 512,
 		h = 256,
+		w = 512,
+		texture = "guis/textures/controller",
 		layer = self.layers.items
 	})
 

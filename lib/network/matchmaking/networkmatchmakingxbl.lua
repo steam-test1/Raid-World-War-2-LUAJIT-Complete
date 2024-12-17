@@ -87,7 +87,9 @@ function NetworkMatchMakingXBL:invite_accepted_callback(invitee_xuid)
 
 		Global.boot_invite[invitee_xuid_str] = nil
 
-		managers.menu:show_inactive_user_accepted_invite({})
+		managers.menu:show_inactive_user_accepted_invite({
+			add_lobby_filter = nil
+		})
 		managers.user:invite_accepted_by_inactive_user()
 
 		return
@@ -710,8 +712,8 @@ function NetworkMatchMakingXBL:_join_by_smartmatch(job_id_filter, difficulty_fil
 	end
 
 	self._hopper_variables = {
-		NrHosts = 0,
 		NrClients = 1,
+		NrHosts = 0,
 		PrefMission = tostring(job_id_filter == -1 and job_id_filter or tweak_data.operations:get_index_from_raid_id(job_id_filter)),
 		PrefDifficulty = difficulty_filter,
 		PlayerLevel = self:_get_smartmatch_player_level()
@@ -1053,8 +1055,8 @@ function NetworkMatchMakingXBL:create_lobby(settings)
 
 	if self:is_host_lobby_public() then
 		self._hopper_variables = {
-			NrHosts = 1,
 			NrClients = 0,
+			NrHosts = 1,
 			PrefMission = tostring(tweak_data.operations:get_index_from_raid_id(managers.raid_job:current_job_id())),
 			PrefDifficulty = tweak_data:difficulty_to_index(Global.game_settings.difficulty),
 			PlayerLevel = self:_get_smartmatch_player_level()

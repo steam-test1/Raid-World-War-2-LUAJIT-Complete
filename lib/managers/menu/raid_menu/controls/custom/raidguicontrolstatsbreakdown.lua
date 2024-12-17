@@ -52,8 +52,8 @@ end
 
 function RaidGUIControlStatsBreakdown:_create_stats_label()
 	local stats_label_params = {
-		name = "stats_label",
 		vertical = "center",
+		name = "stats_label",
 		x = RaidGUIControlStatsBreakdown.STATS_LABEL_X,
 		y = RaidGUIControlStatsBreakdown.STATS_LABEL_Y,
 		w = RaidGUIControlStatsBreakdown.DEFAULT_W,
@@ -68,8 +68,8 @@ end
 
 function RaidGUIControlStatsBreakdown:_create_breakdown_table(params)
 	local breakdown_table_params = {
-		name = "breakdown_table",
 		use_selector_mark = false,
+		name = "breakdown_table",
 		x = 0,
 		y = self._stats_label:y() + self._stats_label:h() + RaidGUIControlStatsBreakdown.LABEL_PADDING_DOWN,
 		w = RaidGUIControlStatsBreakdown.DEFAULT_W,

@@ -42,9 +42,9 @@ function EscortExt:_setup_health_bar()
 	self._health_panel = self._ws:panel():panel({})
 	self._health_bar_bg = self._health_panel:bitmap({
 		name = "bg",
-		valign = "center",
-		halign = "center",
 		layer = -1,
+		halign = "center",
+		valign = "center",
 		texture = tweak_data.gui.icons[HUDTeammatePlayer.PLAYER_HEALTH_BG_ICON].texture,
 		texture_rect = tweak_data.gui.icons[HUDTeammatePlayer.PLAYER_HEALTH_BG_ICON].texture_rect
 	})
@@ -112,15 +112,15 @@ function EscortExt:add_waypoint()
 	self._position = self._unit:position() + self._wp_offset
 	self._rotation = self._unit:rotation()
 	self._waypoint_data = {
-		present_timer = 0,
-		radius = 200,
-		distance = true,
-		map_icon = "waypoint_escort_crouch",
-		show_on_screen = true,
-		icon = "waypoint_escort_crouch",
-		blend_mode = "add",
-		no_sync = true,
 		waypoint_type = "unit_waypoint",
+		map_icon = "waypoint_escort_crouch",
+		icon = "waypoint_escort_crouch",
+		show_on_screen = true,
+		distance = true,
+		blend_mode = "add",
+		radius = 200,
+		present_timer = 0,
+		no_sync = true,
 		unit = self._unit,
 		position = self._position,
 		rotation = self._rotation,

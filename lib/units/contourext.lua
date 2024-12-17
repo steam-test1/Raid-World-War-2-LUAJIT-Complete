@@ -6,9 +6,9 @@ local idstr_contour_distance = Idstring("contour_distance")
 ContourExt.UNSET_CONTOUR_DISTANCE = 200000
 ContourExt._types = {
 	teammate = {
-		persistence = 0.1,
 		priority = 5,
-		ray_check = true
+		ray_check = true,
+		persistence = 0.1
 	},
 	teammate_downed = {
 		priority = 4,
@@ -59,10 +59,10 @@ ContourExt._types = {
 		color = tweak_data.contour.character.dangerous_color
 	},
 	mark_enemy_ghost = {
-		fadeout = 0,
-		priority = 6,
 		distance = 3200,
+		fadeout = 0,
 		persistence = 0.1,
+		priority = 6,
 		color = tweak_data.contour.character.ghost_warcry
 	},
 	mark_enemy_sharpshooter = {
@@ -72,10 +72,10 @@ ContourExt._types = {
 		color = tweak_data.contour.character.sharpshooter_warcry
 	},
 	mark_enemy_silver_bullet = {
-		fadeout = 0,
-		priority = 6,
 		distance = 3000,
+		fadeout = 0,
 		persistence = 0.1,
+		priority = 6,
 		color = tweak_data.contour.character.silver_bullet_warcry
 	},
 	highlight = {
@@ -124,6 +124,8 @@ ContourExt.indexed_types = {}
 for name, preset in pairs(ContourExt._types) do
 	table.insert(ContourExt.indexed_types, name)
 end
+
+table.sort(ContourExt.indexed_types)
 
 if #ContourExt.indexed_types > 32 then
 	Application:error("[ContourExt] max # contour presets exceeded!")

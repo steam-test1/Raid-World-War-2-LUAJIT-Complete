@@ -50,8 +50,8 @@ function GamePlayCentralManager:init()
 
 	self._mission_disabled_units = {}
 	self._heist_timer = {
-		running = false,
-		start_time = 0
+		start_time = 0,
+		running = false
 	}
 end
 
@@ -706,18 +706,18 @@ function GamePlayCentralManager:mission_disable_unit(unit, destroy)
 	if alive(unit) then
 		self._mission_disabled_units[unit:unit_data().unit_id] = true
 
+		unit:set_enabled(false)
+
+		if unit:base() and unit:base().on_unit_set_enabled then
+			unit:base():on_unit_set_enabled(false)
+		end
+
+		if unit:editable_gui() then
+			unit:editable_gui():on_unit_set_enabled(false)
+		end
+
 		if destroy then
 			unit:set_slot(0)
-		else
-			unit:set_enabled(false)
-
-			if unit:base() and unit:base().on_unit_set_enabled then
-				unit:base():on_unit_set_enabled(false)
-			end
-
-			if unit:editable_gui() then
-				unit:editable_gui():on_unit_set_enabled(false)
-			end
 		end
 	else
 		Application:warn("[GamePlayCentralManager:mission_disable_unit] Cannot disable unit, unit is not alive!", unit)

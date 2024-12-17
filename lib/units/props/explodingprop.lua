@@ -21,8 +21,8 @@ function ExplodingProp:detonate(pos, range, damage, player_damage)
 	local sound_event = self._explosion_sound_event or ExplodingProp.DEFAULT_EXPLODE_EVENT
 	local effect_params = {
 		effect = "effects/vanilla/explosions/exp_hand_grenade_001",
-		camera_shake_max_mul = 4,
 		sound_muffle_effect = true,
+		camera_shake_max_mul = 4,
 		sound_event = sound_event,
 		feedback_range = range * 2
 	}
@@ -32,8 +32,8 @@ function ExplodingProp:detonate(pos, range, damage, player_damage)
 		local slot_mask = managers.slot:get_mask("explosion_targets")
 		local damage_params = {
 			curve_pow = 3,
-			no_raycast_check_characters = true,
 			player_damage = 0,
+			no_raycast_check_characters = true,
 			hit_pos = pos,
 			range = range,
 			collision_slotmask = slot_mask,

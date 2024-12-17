@@ -59,25 +59,25 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 		layer = self._object:layer() + 1
 	})
 	self._select_marker_panel = self._object:panel({
+		x = 0,
 		visible = false,
 		y = 0,
-		x = 0,
 		name = "select_marker_panel_" .. self._name,
 		w = self._object:w(),
 		h = self._object:h(),
 		layer = self._object:layer()
 	})
 	self._select_marker_rect = self._select_marker_panel:rect({
-		y = 0,
 		x = 0,
+		y = 0,
 		name = "select_marker_rect_" .. self._name,
 		w = self._object:w(),
 		h = self._object:h(),
 		color = tweak_data.gui.colors.raid_select_card_background
 	})
 	self._top_select_triangle = self._select_marker_panel:image({
-		y = 0,
 		x = 0,
+		y = 0,
 		w = RaidGUIControlCardSuggestedLarge.SELECT_TRINGLE_SIZE,
 		h = RaidGUIControlCardSuggestedLarge.SELECT_TRINGLE_SIZE,
 		texture = tweak_data.gui.icons.ico_sel_rect_top_left.texture,
@@ -129,8 +129,8 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 		local title_font_size = tweak_data.gui.font_sizes.medium
 		self._card_title = self._challenge_card_panel:label({
 			wrap = true,
-			align = "center",
 			vertical = "center",
+			align = "center",
 			name = "suggested_card_title_" .. self._name,
 			w = self._card_image:w() * (1 - 2 * RaidGUIControlCardBase.TITLE_PADDING),
 			h = title_h,
@@ -149,11 +149,11 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 	end
 
 	local params_xp_bonus = {
-		name = "xp_bonus",
-		vertical = "center",
-		align = "center",
 		text = "",
+		vertical = "center",
 		x = 0,
+		align = "center",
+		name = "xp_bonus",
 		y = self._card_image:y() + self._card_image:h() * RaidGUIControlCardBase.XP_BONUS_Y,
 		w = self._card_image:w() * RaidGUIControlCardBase.XP_BONUS_W,
 		h = self._card_image:h() * RaidGUIControlCardBase.XP_BONUS_H,
@@ -187,9 +187,9 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 			texture_rect = tweak_data.gui.icons.ico_bonus.texture_rect
 		})
 		self._bonus_label = self._object:label({
-			vertical = "top",
-			h = 64,
 			wrap = true,
+			h = 64,
+			vertical = "top",
 			align = "left",
 			name = "suggested_card_bonus_label_" .. self._name,
 			x = self._bonus_image:x() + self._bonus_image:w() + 10,
@@ -215,9 +215,9 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 			texture_rect = tweak_data.gui.icons.ico_malus.texture_rect
 		})
 		self._malus_label = self._object:label({
-			vertical = "top",
-			h = 64,
 			wrap = true,
+			h = 64,
+			vertical = "top",
 			align = "left",
 			name = "suggested_card_malus_label_" .. self._name,
 			x = self._malus_image:x() + self._malus_image:w() + 10,
@@ -233,8 +233,8 @@ function RaidGUIControlCardSuggestedLarge:set_card(card_data)
 
 	self._peer_name_label = self._object:label({
 		h = 30,
-		align = "right",
 		x = 10,
+		align = "right",
 		name = "suggested_card_malus_label_" .. self._name,
 		y = self._object:h() - 64,
 		w = self._card_image:w(),
@@ -296,10 +296,10 @@ function RaidGUIControlCardSuggestedLarge:_show_pass_card_controls()
 		self._malus_label:set_visible(false)
 	else
 		local peer_name_label = self._object:label({
-			name = "peer_name",
 			h = 32,
-			align = "center",
 			x = 0,
+			align = "center",
+			name = "peer_name",
 			y = self._object:h() - 192,
 			w = self._object:w(),
 			layer = self._challenge_card_panel:layer() + 1,
@@ -310,10 +310,10 @@ function RaidGUIControlCardSuggestedLarge:_show_pass_card_controls()
 		})
 
 		self._object:label({
-			name = "didnt_select_card_label",
 			h = 24,
-			align = "center",
 			x = 0,
+			align = "center",
+			name = "didnt_select_card_label",
 			y = peer_name_label:bottom() + 16,
 			w = self._object:w(),
 			layer = self._challenge_card_panel:layer() + 1,

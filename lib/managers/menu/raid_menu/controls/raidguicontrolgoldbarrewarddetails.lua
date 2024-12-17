@@ -75,10 +75,10 @@ end
 
 function RaidGUIControlGoldBarRewardDetails:_create_gold_bar_value()
 	local title_description_params = {
-		name = "title_description",
-		vertical = "center",
-		alpha = 0,
 		align = "left",
+		name = "title_description",
+		alpha = 0,
+		vertical = "center",
 		y = RaidGUIControlGoldBarRewardDetails.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlGoldBarRewardDetails.TITLE_DESCRIPTION_H,
 		font = RaidGUIControlGoldBarRewardDetails.FONT,
@@ -92,11 +92,11 @@ function RaidGUIControlGoldBarRewardDetails:_create_gold_bar_value()
 	self._title_description:set_w(w)
 
 	local title_params = {
-		vertical = "top",
-		name = "gold_bars_name",
-		alpha = 0,
 		align = "center",
+		name = "gold_bars_name",
 		text = "",
+		alpha = 0,
+		vertical = "top",
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlGoldBarRewardDetails.TITLE_PADDING_TOP,
 		font = RaidGUIControlGoldBarRewardDetails.FONT,
 		font_size = RaidGUIControlGoldBarRewardDetails.TITLE_FONT_SIZE,
@@ -149,11 +149,11 @@ end
 
 function RaidGUIControlGoldBarRewardDetails:_create_description()
 	local description_params = {
-		vertical = "top",
+		align = "left",
 		name = "description",
 		wrap = true,
-		align = "left",
 		alpha = 0,
+		vertical = "top",
 		y = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_Y,
 		w = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_W,
 		font = RaidGUIControlGoldBarRewardDetails.DESCRIPTION_FONT,
@@ -168,10 +168,10 @@ end
 
 function RaidGUIControlGoldBarRewardDetails:_create_item_type()
 	local item_type_params = {
-		name = "item_type",
-		vertical = "center",
 		align = "left",
+		name = "item_type",
 		alpha = 0,
+		vertical = "center",
 		x = self._description:x(),
 		y = RaidGUIControlGoldBarRewardDetails.ITEM_TYPE_Y,
 		w = self._right_panel:w(),

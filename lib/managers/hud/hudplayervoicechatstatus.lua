@@ -19,8 +19,8 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_panel(index, parent_panel)
 	local panel_params = {
-		halign = "right",
 		valign = "top",
+		halign = "right",
 		x = HUDPlayerVoiceChatStatus.DEFAULT_X,
 		y = index * HUDPlayerVoiceChatStatus.DEFAULT_H,
 		w = HUDPlayerVoiceChatStatus.DEFAULT_W,
@@ -32,8 +32,8 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_background()
 	local background_params = {
-		name = "chat_background",
 		layer = 28,
+		name = "chat_background",
 		alpha = 0.75,
 		texture = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_BG_BLACK].texture,
 		texture_rect = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_BG_BLACK].texture_rect
@@ -46,10 +46,10 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_player_name()
 	local player_name_params = {
+		layer = 30,
+		x = 0,
 		name = "player_name",
 		text = "",
-		x = 0,
-		layer = 30,
 		w = self._object:w() - HUDPlayerVoiceChatStatus.CHAT_PANEL_W,
 		h = HUDPlayerVoiceChatStatus.PLAYER_NAME_H,
 		font = tweak_data.gui.fonts[HUDPlayerVoiceChatStatus.PLAYER_NAME_FONT],
@@ -63,8 +63,8 @@ end
 
 function HUDPlayerVoiceChatStatus:_create_voice_chat_indicator()
 	local chat_indicator_params_speaking = {
-		name = "chat_indicator_speaking",
 		layer = 30,
+		name = "chat_indicator_speaking",
 		alpha = 1,
 		texture = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_SPEAKING].texture,
 		texture_rect = tweak_data.gui.icons[HUDPlayerVoiceChatStatus.CHAT_ICON_SPEAKING].texture_rect,

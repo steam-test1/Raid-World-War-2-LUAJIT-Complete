@@ -16,37 +16,37 @@ function RaidMenuOptionsControlsKeybinds:_layout()
 	RaidMenuOptionsControlsKeybinds.super._layout(self)
 
 	self._keybind_panel = self._root_panel:panel({
-		name = "keybind_panel",
 		x = 0,
+		name = "keybind_panel",
 		y = 0
 	})
 	self._rarity_filters_tabs = self._root_panel:tabs({
-		tab_align = "center",
-		name = "tabs_keybind_types",
-		tab_width = 160,
-		initial_tab_idx = 1,
-		tab_height = 64,
-		y = 96,
-		dont_trigger_special_buttons = true,
 		x = 0,
+		dont_trigger_special_buttons = true,
+		initial_tab_idx = 1,
+		tab_align = "center",
+		tab_height = 64,
+		tab_width = 160,
+		name = "tabs_keybind_types",
+		y = 96,
 		on_click_callback = callback(self, self, "on_click_tabs_keybind_types"),
 		tabs_params = {
 			{
-				name = "tab_on_foot",
 				callback_param = "normal",
+				name = "tab_on_foot",
 				text = self:translate("menu_options_binding_type_on_foot", true)
 			},
 			{
-				name = "tab_in_vehicle",
 				callback_param = "vehicle",
+				name = "tab_in_vehicle",
 				text = self:translate("menu_options_binding_type_in_vehicle", true)
 			}
 		}
 	})
 	local default_controls_keybinds_params = {
+		x = 1472,
 		name = "default_controls_keybinds",
 		y = 832,
-		x = 1472,
 		text = utf8.to_upper(managers.localization:text("menu_options_controls_default")),
 		on_click_callback = callback(self, self, "on_click_default_controls_keybinds"),
 		layer = RaidGuiBase.FOREGROUND_LAYER

@@ -63,8 +63,8 @@ end
 function HUDMapWaypointCircle:_create_panel(panel, waypoint_data)
 	local radius = waypoint_data.waypoint_radius
 	local panel_params = {
-		visible = false,
 		is_root_panel = true,
+		visible = false,
 		name = "map_waypoint_circle_" .. tostring(self._id),
 		w = radius * 2,
 		h = radius * 2
@@ -169,8 +169,8 @@ end
 
 function HUDMapWaypointPoint:_create_panel(panel)
 	local panel_params = {
-		visible = false,
 		halign = "center",
+		visible = false,
 		valign = "center",
 		name = "map_waypoint_point_" .. tostring(self._id),
 		w = HUDMapWaypointPoint.W,
@@ -206,10 +206,10 @@ end
 
 function HUDMapWaypointPoint:_create_distance()
 	local distance_text_params = {
-		vertical = "center",
 		name = "distance_text",
-		align = "center",
 		text = "",
+		vertical = "center",
+		align = "center",
 		w = self._object:w(),
 		h = HUDMapWaypointPoint.DISTANCE_H,
 		font = HUDMapWaypointPoint.DISTANCE_FONT,

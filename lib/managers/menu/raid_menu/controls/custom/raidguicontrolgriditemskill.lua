@@ -69,8 +69,8 @@ function RaidGUIControlGridItemSkill:_layout_grid_item_icon(params)
 		color = tweak_data.gui.colors.grid_item_grey
 	})
 	self._grid_item_icon_sprite = self._object:bitmap({
-		name = "grid_item_icon_sprite",
 		layer = 13,
+		name = "grid_item_icon_sprite",
 		texture = gui_icon.texture,
 		texture_rect = gui_icon.texture_rect,
 		w = params.icon_size_off or params.item_w * 0.6,
@@ -86,12 +86,12 @@ end
 function RaidGUIControlGridItemSkill:_layout_level_tier(level)
 	if level and level > 0 then
 		self._level_tier_text = self._object:text({
-			vertical = "center",
-			name = "level_tier_text",
-			h = 32,
 			w = 32,
 			align = "left",
+			h = 32,
+			name = "level_tier_text",
 			layer = 50,
+			vertical = "center",
 			font = tweak_data.gui.fonts.lato,
 			font_size = tweak_data.gui.font_sizes.size_18,
 			text = to_roman(level)
@@ -133,9 +133,9 @@ function RaidGUIControlGridItemSkill:_layout_lock_locked()
 	})
 	local ico_locker = tweak_data.gui:get_full_gui_data("ico_locker")
 	self._item_status_lock_icon = self._item_status_panel:image({
+		w = 40,
 		name = "grid_item_lock_icon",
 		h = 40,
-		w = 40,
 		texture = ico_locker.texture,
 		texture_rect = ico_locker.texture_rect,
 		color = ico_locker.color,
@@ -147,9 +147,9 @@ function RaidGUIControlGridItemSkill:_layout_lock_locked()
 
 	local text = tostring(math.round(self._item_data.level_required or 0))
 	self._item_status_lock_text = self._item_status_panel:text({
-		h = 24,
-		name = "grid_item_lock_text",
 		align = "center",
+		name = "grid_item_lock_text",
+		h = 24,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_24,
 		text = text,
@@ -166,9 +166,9 @@ function RaidGUIControlGridItemSkill:_layout_lock_purchasable()
 
 	local gold_amount_footer = tweak_data.gui:get_full_gui_data("gold_amount_footer")
 	self._item_status_resource_icon = self._item_status_panel:image({
+		w = 25,
 		name = "grid_item_resource_icon",
 		h = 25,
-		w = 25,
 		texture = gold_amount_footer.texture,
 		texture_rect = gold_amount_footer.texture_rect,
 		color = tweak_data.gui.colors.gold_orange
@@ -183,8 +183,8 @@ function RaidGUIControlGridItemSkill:_layout_lock_dlc()
 
 	local ico_dlc = tweak_data.gui:get_full_gui_data("ico_dlc")
 	self._item_status_dlc_lock = self._item_status_panel:image({
-		name = "grid_item_dlc_lock_icon",
 		layer = 20,
+		name = "grid_item_dlc_lock_icon",
 		texture = ico_dlc.texture,
 		texture_rect = ico_dlc.texture_rect
 	})
@@ -197,8 +197,8 @@ function RaidGUIControlGridItemSkill:_layout_triangles()
 	local layer = 50
 	local ico_sel_rect_top_left_white = tweak_data.gui:get_full_gui_data("ico_sel_rect_top_left_white")
 	local params = {
-		h = 18,
 		w = -18,
+		h = 18,
 		texture = ico_sel_rect_top_left_white.texture,
 		texture_rect = ico_sel_rect_top_left_white.texture_rect,
 		layer = layer

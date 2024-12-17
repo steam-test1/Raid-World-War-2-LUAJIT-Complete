@@ -30,17 +30,17 @@ function RaidGUIControlListItemCharacterCreateClass:_layout()
 	})
 	self._red_selected_line = self._object:rect({
 		visible = false,
-		y = 0,
 		w = 2,
+		y = 0,
 		x = 0,
 		h = self._params.h,
 		color = tweak_data.gui.colors.raid_red
 	})
 	self._class_name_label = self._object:label({
 		vertical = "center",
+		align = "left",
 		h = 28,
 		w = 174,
-		align = "left",
 		y = 34,
 		x = 96,
 		text = self:translate(tweak_data.skilltree.classes[self._class_name].name_id, true),

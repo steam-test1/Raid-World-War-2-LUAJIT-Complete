@@ -86,8 +86,8 @@ end
 
 function RaidGUIControlListItemRaids:_layout_background(params)
 	local background_params = {
-		y = 1,
 		visible = false,
+		y = 1,
 		x = 0,
 		name = "list_item_back_" .. self._name,
 		w = params.w,
@@ -99,9 +99,9 @@ end
 
 function RaidGUIControlListItemRaids:_layout_highlight_marker()
 	local marker_params = {
-		y = 1,
-		w = 3,
 		visible = false,
+		w = 3,
+		y = 1,
 		x = 0,
 		name = "list_item_highlight_" .. self._name,
 		h = self._object:h() - 2,
@@ -145,8 +145,8 @@ end
 function RaidGUIControlListItemRaids:_layout_exp(params, data)
 	local xp_value = tweak_data.operations.missions[self._data.value].xp
 	self._exp_label = self._object:text({
-		vertical = "center",
 		align = "right",
+		vertical = "center",
 		name = "list_item_exp_label_" .. self._name,
 		text = utf8.to_upper(xp_value .. " XP"),
 		font = tweak_data.gui.fonts.din_compressed,

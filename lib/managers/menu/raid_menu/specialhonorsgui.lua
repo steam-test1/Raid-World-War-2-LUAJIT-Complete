@@ -59,16 +59,16 @@ end
 function SpecialHonorsGui:_layout_first_screen()
 	local top_stats_big_panel_params = {
 		halign = "scale",
-		name = "top_stats_big_panel",
-		valign = "scale"
+		valign = "scale",
+		name = "top_stats_big_panel"
 	}
 	self._top_stats_big_panel = self._root_panel:panel(top_stats_big_panel_params)
 	local title_text = game_state_machine:current_state():is_success() and SpecialHonorsGui.TOP_STATS_TITLE_TEXT or SpecialHonorsGui.TOP_STATS_TITLE_TEXT_FAILURE
 	local top_stats_title_params = {
+		align = "center",
+		alpha = 0,
 		vertical = "center",
 		name = "top_stats_title",
-		alpha = 0,
-		align = "center",
 		h = SpecialHonorsGui.TOP_STATS_TITLE_H,
 		font = SpecialHonorsGui.FONT,
 		font_size = SpecialHonorsGui.TOP_STATS_TITLE_FONT_SIZE,
@@ -207,8 +207,8 @@ function SpecialHonorsGui:bind_controller_inputs()
 	local legend = {
 		controller = {
 			{
-				text = "menu_legend_continue",
-				padding = 24
+				padding = 24,
+				text = "menu_legend_continue"
 			}
 		},
 		keyboard = {

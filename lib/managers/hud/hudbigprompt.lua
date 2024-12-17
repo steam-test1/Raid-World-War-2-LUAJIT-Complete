@@ -25,9 +25,9 @@ end
 
 function HUDBigPrompt:_create_panel(hud)
 	self._object = hud.panel:panel({
+		alpha = 0,
 		name = "big_prompt_panel",
 		halign = "center",
-		alpha = 0,
 		valign = "center",
 		w = HUDBigPrompt.W,
 		h = HUDBigPrompt.H
@@ -36,8 +36,8 @@ end
 
 function HUDBigPrompt:_create_background()
 	self._background = self._object:bitmap({
-		name = "big_prompt_background",
 		layer = 1,
+		name = "big_prompt_background",
 		w = HUDBigPrompt.W,
 		h = HUDBigPrompt.BACKGROUND_H,
 		texture = tweak_data.gui.icons[HUDBigPrompt.DEFAULT_BACKGROUND].texture,
@@ -50,12 +50,12 @@ end
 
 function HUDBigPrompt:_create_title()
 	self._title = self._object:text({
-		valign = "scale",
 		vertical = "center",
-		name = "big_prompt_text",
-		align = "center",
-		text = "TITLE",
 		halign = "scale",
+		align = "center",
+		valign = "scale",
+		text = "TITLE",
+		name = "big_prompt_text",
 		layer = self._background:layer() + 1,
 		h = HUDBigPrompt.BACKGROUND_H,
 		font = tweak_data.gui:get_font_path(HUDBigPrompt.TEXT_FONT, HUDBigPrompt.TEXT_FONT_SIZE),
@@ -67,12 +67,12 @@ end
 
 function HUDBigPrompt:_create_description()
 	self._description = self._object:text({
-		valign = "scale",
-		name = "big_prompt_description",
 		vertical = "bottom",
-		align = "center",
-		text = "DESCRIPTION",
 		halign = "scale",
+		align = "center",
+		valign = "scale",
+		text = "DESCRIPTION",
+		name = "big_prompt_description",
 		layer = self._background:layer() + 1,
 		w = self._object:w(),
 		h = self._object:h(),
@@ -84,9 +84,9 @@ end
 
 function HUDBigPrompt:_create_icon()
 	self._icon = self._object:bitmap({
-		valign = "scale",
 		name = "big_prompt_icon",
 		halign = "scale",
+		valign = "scale",
 		layer = self._background:layer(),
 		w = HUDBigPrompt.ICON_SIZE,
 		h = HUDBigPrompt.ICON_SIZE
@@ -108,9 +108,9 @@ function HUDBigPrompt:_create_flares(color)
 	self._flare_panel:set_center(self._icon:center())
 
 	self._lens_glint = self._flare_panel:bitmap({
-		name = "big_prompt_glint",
-		alpha = 0.65,
 		blend_mode = "add",
+		alpha = 0.65,
+		name = "big_prompt_glint",
 		rotation = 360,
 		color = color,
 		w = self._flare_panel:w(),

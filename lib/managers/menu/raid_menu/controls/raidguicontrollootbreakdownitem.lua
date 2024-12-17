@@ -115,10 +115,10 @@ end
 
 function RaidGUIControlLootBreakdownItem:_create_counter()
 	local counter_params = {
-		vertical = "center",
 		name = "counter",
-		align = "center",
 		text = "",
+		vertical = "center",
+		align = "center",
 		halign = "scale",
 		valign = "top",
 		h = RaidGUIControlLootBreakdownItem.COUNTER_H,

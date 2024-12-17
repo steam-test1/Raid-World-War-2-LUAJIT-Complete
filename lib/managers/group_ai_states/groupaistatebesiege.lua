@@ -480,6 +480,7 @@ function GroupAIStateBesiege:_begin_assault_task(assault_areas)
 	end
 
 	managers.dialog:queue_dialog("player_gen_incoming_wave", {
+		nr_units = nil,
 		skip_idle_check = true
 	})
 
@@ -685,10 +686,10 @@ function GroupAIStateBesiege:_upd_assault_spawning(task_data, primary_target_are
 
 			if spawn_group then
 				local grp_objective = {
-					attitude = "avoid",
-					stance = "hos",
 					pose = "crouch",
+					attitude = "avoid",
 					type = "assault_area",
+					stance = "hos",
 					area = spawn_group.area,
 					coarse_path = {
 						{
@@ -757,8 +758,8 @@ end
 
 function GroupAIStateBesiege:_begin_recon_task(recon_area)
 	local new_task = {
-		use_smoke = true,
 		use_spawn_event = true,
+		use_smoke = true,
 		target_area = recon_area,
 		start_t = self._t
 	}
@@ -929,9 +930,9 @@ function GroupAIStateBesiege:_upd_recon_tasks()
 	if spawn_group then
 		local grp_objective = {
 			attitude = "avoid",
+			type = "recon_area",
 			scan = true,
 			stance = "hos",
-			type = "recon_area",
 			area = spawn_group.area,
 			target_area = task_data.target_area
 		}
@@ -1154,10 +1155,10 @@ function GroupAIStateBesiege:force_spawn_group(group, nationality, group_types)
 
 		if spawn_group then
 			local grp_objective = {
-				attitude = "avoid",
-				stance = "hos",
 				pose = "crouch",
+				attitude = "avoid",
 				type = "assault_area",
+				stance = "hos",
 				area = spawn_group.area,
 				coarse_path = {
 					{
@@ -1175,8 +1176,8 @@ end
 function GroupAIStateBesiege:_spawn_in_individual_groups(grp_objective, spawn_points, task)
 	for i_sp, spawn_point in ipairs(spawn_points) do
 		local group_desc = {
-			size = 1,
-			type = "custom"
+			type = "custom",
+			size = 1
 		}
 		local grp_objective_cpy = clone(grp_objective)
 
@@ -1586,10 +1587,10 @@ function GroupAIStateBesiege:_reenforce_area(task_data)
 
 	if spawn_group then
 		local grp_objective = {
-			attitude = "avoid",
-			scan = true,
 			pose = "stand",
 			type = "reenforce_area",
+			attitude = "avoid",
+			scan = true,
 			stance = "hos",
 			area = spawn_group.area,
 			target_area = task_data.target_area
@@ -1756,25 +1757,25 @@ function GroupAIStateBesiege:on_cop_jobless(unit)
 
 	if undershot and undershot > 0 then
 		new_objective = {
-			type = "defend_area",
-			interrupt_health = 0.5,
-			is_default = true,
-			stance = "hos",
-			in_place = true,
-			scan = true,
-			interrupt_dis = 700,
 			attitude = "avoid",
+			scan = true,
+			type = "defend_area",
+			in_place = true,
+			is_default = true,
+			interrupt_health = 0.5,
+			interrupt_dis = 700,
+			stance = "hos",
 			nav_seg = nav_seg
 		}
 		jobless = true
 	elseif not area.is_safe then
 		new_objective = {
-			stance = "hos",
-			scan = true,
-			in_place = true,
-			type = "free",
-			is_default = true,
 			attitude = "avoid",
+			type = "free",
+			in_place = true,
+			scan = true,
+			is_default = true,
+			stance = "hos",
 			nav_seg = nav_seg
 		}
 		jobless = true
@@ -1870,9 +1871,9 @@ function GroupAIStateBesiege:_draw_enemy_activity(t)
 			end
 		else
 			unit_type_text = panel:text({
+				layer = 1,
 				name = "unit_type_text",
 				font_size = 20,
-				layer = 1,
 				text = text_str,
 				font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.lato, 20),
 				color = Color(0.47058823529411764, 0.8509803921568627, 0.30196078431372547)
@@ -1944,32 +1945,32 @@ function GroupAIStateBesiege:_draw_enemy_activity(t)
 		else
 			unit_health_bar_bg = panel:rect({
 				blend_mode = "normal",
-				name = "unit_health_bar_bg",
 				layer = 1,
+				name = "unit_health_bar_bg",
 				w = the_width * current_health,
 				h = the_height,
 				color = Color.black:with_alpha(0.7)
 			})
 			unit_health_bar_prev = panel:rect({
 				blend_mode = "normal",
-				name = "unit_health_bar_prev",
 				layer = 1,
+				name = "unit_health_bar_prev",
 				w = the_width * current_health,
 				h = the_height,
 				color = Color(0.39215686274509803, 0.058823529411764705, 0.058823529411764705)
 			})
 			unit_health_bar = panel:rect({
 				blend_mode = "normal",
-				name = "unit_health_bar",
 				layer = 1,
+				name = "unit_health_bar",
 				w = the_width * current_health,
 				h = the_height,
 				color = Color(0.47058823529411764, 0.8509803921568627, 0.30196078431372547)
 			})
 			unit_health_bar_val = panel:text({
+				layer = 1,
 				name = "unit_health_value",
 				font_size = 20,
-				layer = 1,
 				text = tostring(current_health_raw_value),
 				font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.lato, 20),
 				color = Color(0.47058823529411764, 0.8509803921568627, 0.30196078431372547)
@@ -2046,9 +2047,9 @@ function GroupAIStateBesiege:_draw_enemy_activity(t)
 			end
 		else
 			logic_name_text = panel:text({
+				layer = 1,
 				name = "text",
 				font_size = 20,
-				layer = 1,
 				text = text_str,
 				font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.lato, 20),
 				color = draw_color
@@ -2089,9 +2090,9 @@ function GroupAIStateBesiege:_draw_enemy_activity(t)
 		if not rect_bg then
 			rect_bg = panel:rect({
 				blend_mode = "normal",
+				layer = 0,
 				name = "rect_bg",
 				h = 54,
-				layer = 0,
 				w = rect_bg_width + 10,
 				color = Color.black:with_alpha(0.5)
 			})
@@ -2191,9 +2192,9 @@ function GroupAIStateBesiege:_draw_enemy_activity(t)
 			if group_pos_screen.z > 0 then
 				if not gui_text then
 					gui_text = panel:text({
+						layer = 2,
 						name = "text",
 						font_size = 24,
-						layer = 2,
 						text = group.team.id .. ":" .. group_id .. ":" .. group.objective.type,
 						font = tweak_data.gui:get_font_path(tweak_data.gui.fonts.lato, 20),
 						color = draw_data.group_id_color
@@ -2769,8 +2770,8 @@ function GroupAIStateBesiege:set_wave_mode(flag)
 
 		if self._task_data.assault.active then
 			self._task_data.assault.phase = "sustain"
-			self._task_data.use_smoke = true
-			self._task_data.use_smoke_timer = 0
+			self._task_data.assault.use_smoke = true
+			self._task_data.assault.use_smoke_timer = 0
 
 			managers.music:raid_music_state_change(MusicManager.RAID_MUSIC_ASSAULT)
 		else
@@ -3015,11 +3016,11 @@ function GroupAIStateBesiege:_set_recon_objective_to_group(group)
 			end
 
 			local grp_objective = {
-				scan = true,
 				pose = "stand",
 				type = "recon_area",
-				stance = "hos",
 				attitude = "avoid",
+				scan = true,
+				stance = "hos",
 				area = current_objective.area,
 				target_area = recon_area,
 				coarse_path = coarse_path
@@ -3045,10 +3046,10 @@ function GroupAIStateBesiege:_set_recon_objective_to_group(group)
 						end
 
 						local grp_objective = {
-							attitude = "avoid",
-							scan = true,
 							pose = "stand",
 							type = "recon_area",
+							attitude = "avoid",
+							scan = true,
 							stance = "hos",
 							area = self:get_area_from_nav_seg_id(current_objective.coarse_path[#current_objective.coarse_path][1]),
 							target_area = current_objective.target_area
@@ -3077,11 +3078,11 @@ function GroupAIStateBesiege:_set_recon_objective_to_group(group)
 				table.remove(coarse_path)
 
 				local grp_objective = {
-					scan = true,
 					pose = "stand",
 					type = "recon_area",
-					stance = "hos",
 					attitude = "avoid",
+					scan = true,
+					stance = "hos",
 					area = self:get_area_from_nav_seg_id(coarse_path[#coarse_path][1]),
 					target_area = current_objective.target_area,
 					coarse_path = coarse_path
@@ -3093,11 +3094,11 @@ function GroupAIStateBesiege:_set_recon_objective_to_group(group)
 
 		if not current_objective.moving_out and current_objective.area.neighbours[current_objective.target_area.id] then
 			local grp_objective = {
-				stance = "hos",
-				scan = true,
 				pose = "crouch",
+				scan = true,
 				type = "recon_area",
 				attitude = "avoid",
+				stance = "hos",
 				area = current_objective.target_area
 			}
 
@@ -3230,11 +3231,11 @@ function GroupAIStateBesiege:_set_assault_objective_to_group(group, phase)
 
 					if coarse_path then
 						local grp_objective = {
-							distance = 800,
-							type = "assault_area",
 							attitude = "engage",
 							tactic = "deathguard",
+							type = "assault_area",
 							moving_in = true,
+							distance = 800,
 							follow_unit = closest_crim_u_data.unit,
 							area = self:get_area_from_nav_seg_id(coarse_path[#coarse_path][1]),
 							coarse_path = coarse_path
@@ -3300,11 +3301,11 @@ function GroupAIStateBesiege:_set_assault_objective_to_group(group, phase)
 
 	if open_fire then
 		local grp_objective = {
-			attitude = "engage",
 			pose = "stand",
 			type = "assault_area",
-			stance = "hos",
+			attitude = "engage",
 			open_fire = true,
+			stance = "hos",
 			tactic = current_objective.tactic,
 			area = obstructed_area or current_objective.area,
 			coarse_path = {
@@ -3468,10 +3469,10 @@ function GroupAIStateBesiege:_set_assault_objective_to_group(group, phase)
 
 		if retreat_area then
 			local new_grp_objective = {
-				attitude = "avoid",
-				stance = "hos",
 				pose = "crouch",
+				attitude = "avoid",
 				type = "assault_area",
+				stance = "hos",
 				area = retreat_area,
 				coarse_path = {
 					{
@@ -3626,20 +3627,20 @@ function GroupAIStateBesiege:_assign_group_to_retire(group)
 
 	if retire_flee_point and retire_flee_point.so_action and retire_flee_point.so_action ~= "none" then
 		grp_objective.action = {
-			align_sync = true,
-			needs_full_blend = true,
 			type = "act",
 			body_part = 1,
+			needs_full_blend = true,
+			align_sync = true,
 			variant = retire_flee_point.so_action,
 			blocks = {
 				light_hurt = -1,
-				hurt = -1,
+				walk = 1,
+				idle = 1,
+				act = 1,
+				aim = 1,
 				action = 1,
 				heavy_hurt = -1,
-				idle = 1,
-				aim = 1,
-				act = 1,
-				walk = 1
+				hurt = -1
 			},
 			complete_callback = callback(self, self, "on_retire_action_complete")
 		}
@@ -3808,10 +3809,10 @@ function GroupAIStateBesiege:_assign_assault_groups_to_retire()
 
 			regroup_area = regroup_area or group.objective.area
 			local grp_objective = {
-				stance = "hos",
-				attitude = "avoid",
 				pose = "crouch",
+				attitude = "avoid",
 				type = "recon_area",
+				stance = "hos",
 				area = regroup_area
 			}
 
@@ -3826,10 +3827,10 @@ function GroupAIStateBesiege:_assign_recon_groups_to_retire()
 	local function suitable_grp_func(group)
 		if group.objective.type == "recon_area" then
 			local grp_objective = {
-				stance = "hos",
-				attitude = "avoid",
 				pose = "crouch",
+				attitude = "avoid",
 				type = "assault_area",
+				stance = "hos",
 				area = group.objective.area
 			}
 
@@ -3909,10 +3910,10 @@ function GroupAIStateBesiege:_set_reenforce_objective_to_group(group)
 						end
 
 						local grp_objective = {
-							attitude = "avoid",
-							scan = true,
 							pose = "stand",
 							type = "reenforce_area",
+							attitude = "avoid",
+							scan = true,
 							stance = "hos",
 							area = self:get_area_from_nav_seg_id(current_objective.coarse_path[#current_objective.coarse_path][1]),
 							target_area = current_objective.target_area
@@ -3941,11 +3942,11 @@ function GroupAIStateBesiege:_set_reenforce_objective_to_group(group)
 				table.remove(coarse_path)
 
 				local grp_objective = {
-					scan = true,
 					pose = "stand",
 					type = "reenforce_area",
-					stance = "hos",
 					attitude = "avoid",
+					scan = true,
+					stance = "hos",
 					area = self:get_area_from_nav_seg_id(coarse_path[#coarse_path][1]),
 					target_area = current_objective.target_area,
 					coarse_path = coarse_path
@@ -3957,11 +3958,11 @@ function GroupAIStateBesiege:_set_reenforce_objective_to_group(group)
 
 		if not current_objective.moving_out and current_objective.area.neighbours[current_objective.target_area.id] and not next(current_objective.target_area.criminal.units) then
 			local grp_objective = {
-				stance = "hos",
-				scan = true,
 				pose = "crouch",
+				scan = true,
 				type = "reenforce_area",
 				attitude = "engage",
+				stance = "hos",
 				area = current_objective.target_area
 			}
 

@@ -84,9 +84,9 @@ end
 function RaidGUIControlCharacterCustomizationDetails:_create_title()
 	local title_description_params = {
 		name = "title_description",
-		vertical = "center",
-		alpha = 0,
 		align = "left",
+		alpha = 0,
+		vertical = "center",
 		y = RaidGUIControlCharacterCustomizationDetails.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlCharacterCustomizationDetails.TITLE_DESCRIPTION_H,
 		font = RaidGUIControlCharacterCustomizationDetails.FONT,
@@ -100,12 +100,12 @@ function RaidGUIControlCharacterCustomizationDetails:_create_title()
 	self._title_description:set_w(w)
 
 	local title_params = {
-		vertical = "top",
-		name = "customization_name",
-		alpha = 0,
-		wrap = true,
 		align = "left",
+		name = "customization_name",
+		wrap = true,
+		alpha = 0,
 		text = "customization_name",
+		vertical = "top",
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlCharacterCustomizationDetails.TITLE_PADDING_TOP,
 		font = RaidGUIControlCharacterCustomizationDetails.FONT,
 		font_size = RaidGUIControlCharacterCustomizationDetails.TITLE_FONT_SIZE,
@@ -124,18 +124,18 @@ function RaidGUIControlCharacterCustomizationDetails:_layout_title()
 end
 
 function RaidGUIControlCharacterCustomizationDetails:_create_customization_image()
-	local customization_image_panel_params = {
+	local customization_image_panel = self._left_panel:panel({
 		name = "customization_image_panel",
-		y = RaidGUIControlCharacterCustomizationDetails.CUSTOMIZATION_IMAGE_PANEL_Y,
+		y = self.CUSTOMIZATION_IMAGE_PANEL_Y,
 		w = self._left_panel:w(),
-		h = RaidGUIControlCharacterCustomizationDetails.CUSTOMIZATION_IMAGE_PANEL_H
-	}
-	local customization_image_panel = self._left_panel:panel(customization_image_panel_params)
+		h = self.CUSTOMIZATION_IMAGE_PANEL_H
+	})
+	local icon_data = tweak_data.gui:get_full_gui_data(self.DEFAULT_ICON_UPPER)
 
-	self:_set_customization_image(RaidGUIControlCharacterCustomizationDetails.DEFAULT_ICON_UPPER)
+	self:_set_customization_image(icon_data.texture, icon_data.texture_rect)
 end
 
-function RaidGUIControlCharacterCustomizationDetails:_set_customization_image(image)
+function RaidGUIControlCharacterCustomizationDetails:_set_customization_image(texture, texture_rect)
 	local customization_image_panel = self._left_panel:child("customization_image_panel")
 
 	if self._customization_image then
@@ -144,13 +144,12 @@ function RaidGUIControlCharacterCustomizationDetails:_set_customization_image(im
 		self._customization_image = nil
 	end
 
-	local customization_image_params = {
+	self._customization_image = customization_image_panel:bitmap({
 		name = "customization_image",
 		alpha = 0,
-		texture = tweak_data.gui.icons[image].texture,
-		texture_rect = tweak_data.gui.icons[image].texture_rect
-	}
-	self._customization_image = customization_image_panel:bitmap(customization_image_params)
+		texture = texture,
+		texture_rect = texture_rect
+	})
 
 	self._customization_image:set_center_x(customization_image_panel:w() / 2)
 	self._customization_image:set_center_y(customization_image_panel:h() / 2)
@@ -158,8 +157,8 @@ end
 
 function RaidGUIControlCharacterCustomizationDetails:_create_redeem_info()
 	local redeem_description_params = {
-		name = "redeem_description",
 		alpha = 0,
+		name = "redeem_description",
 		font = RaidGUIControlCharacterCustomizationDetails.FONT,
 		font_size = RaidGUIControlCharacterCustomizationDetails.REDEEM_DESCRIPTION_FONT_SIZE,
 		color = RaidGUIControlCharacterCustomizationDetails.REDEEM_DESCRIPTION_COLOR,
@@ -167,9 +166,9 @@ function RaidGUIControlCharacterCustomizationDetails:_create_redeem_info()
 	}
 	local redeem_description = self._left_panel:text(redeem_description_params)
 	local redeem_value_params = {
-		text = "456 XP",
-		name = "redeem_value",
 		alpha = 0,
+		name = "redeem_value",
+		text = "456 XP",
 		font = RaidGUIControlCharacterCustomizationDetails.FONT,
 		font_size = RaidGUIControlCharacterCustomizationDetails.REDEEM_VALUE_FONT_SIZE,
 		color = RaidGUIControlCharacterCustomizationDetails.REDEEM_VALUE_COLOR
@@ -222,12 +221,12 @@ end
 
 function RaidGUIControlCharacterCustomizationDetails:_create_description()
 	local description_params = {
-		vertical = "top",
 		name = "description",
-		wrap = true,
 		align = "left",
+		wrap = true,
 		alpha = 0,
 		text = "",
+		vertical = "top",
 		y = RaidGUIControlCharacterCustomizationDetails.DESCRIPTION_Y,
 		w = RaidGUIControlCharacterCustomizationDetails.DESCRIPTION_W,
 		font = RaidGUIControlCharacterCustomizationDetails.DESCRIPTION_FONT,
@@ -241,9 +240,9 @@ end
 
 function RaidGUIControlCharacterCustomizationDetails:_create_item_description_name()
 	local item_type_params = {
+		align = "left",
 		name = "item_type",
 		wrap = true,
-		align = "left",
 		alpha = 0,
 		vertical = "center",
 		x = self._description:x(),
@@ -260,9 +259,9 @@ end
 
 function RaidGUIControlCharacterCustomizationDetails:_create_customization_info()
 	local rarity_info_params = {
-		top_offset_y = 15,
 		name = "rarity_info",
 		alpha = 0,
+		top_offset_y = 15,
 		text = "",
 		w = RaidGUIControlCharacterCustomizationDetails.RARITY_W,
 		h = RaidGUIControlCharacterCustomizationDetails.RARITY_H,
@@ -276,11 +275,11 @@ function RaidGUIControlCharacterCustomizationDetails:_create_customization_info(
 	self._rarity_info:set_x(self._description:x())
 
 	local nationality_info_params = {
-		top_offset_y = 6,
+		icon = "ico_flag_american",
 		name = "nationality_info",
 		alpha = 0,
+		top_offset_y = 6,
 		text = "",
-		icon = "ico_flag_american",
 		w = RaidGUIControlCharacterCustomizationDetails.NATIONALITY_W,
 		h = RaidGUIControlCharacterCustomizationDetails.NATIONALITY_H,
 		icon_color = Color.white,
@@ -419,7 +418,9 @@ function RaidGUIControlCharacterCustomizationDetails:set_customization(customiza
 			icon = RaidGUIControlCharacterCustomizationDetails.DEFAULT_ICON_LOWER
 		end
 
-		self:_set_customization_image(icon)
+		local icon_data = tweak_data.gui:get_full_gui_data(icon)
+
+		self:_set_customization_image(icon_data.texture, icon_data.texture_rect)
 	end
 
 	self._rarity_info:set_icon(customization.rarity)

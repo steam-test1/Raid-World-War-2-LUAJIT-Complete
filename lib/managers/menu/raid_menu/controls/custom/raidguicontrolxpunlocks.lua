@@ -21,37 +21,37 @@ end
 
 function RaidGUIControlXPSkillSet:_create_panel(parent)
 	local panel_params = {
-		halign = "scale",
-		name = "skill_set_unlock_panel",
+		valign = "scale",
 		visible = false,
-		valign = "scale"
+		name = "skill_set_unlock_panel",
+		halign = "scale"
 	}
 	self._object = parent:panel(panel_params)
 end
 
 function RaidGUIControlXPSkillSet:_create_content_panel()
 	local panel_params = {
+		valign = "scale",
 		alpha = 0,
 		name = "content_panel",
-		halign = "scale",
-		valign = "scale"
+		halign = "scale"
 	}
 	self._content_panel = self._object:panel(panel_params)
 end
 
 function RaidGUIControlXPSkillSet:_create_icon_panel()
 	local icon_panel_params = {
+		valign = "scale",
 		halign = "scale",
-		name = "icon_panel",
-		valign = "scale"
+		name = "icon_panel"
 	}
 	self._icon_panel = self._content_panel:panel(icon_panel_params)
 end
 
 function RaidGUIControlXPSkillSet:_create_text()
 	local title_text_params = {
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "skill_set_unlock_title_text",
 		h = RaidGUIControlXPSkillSet.TEXT_H,
 		font = RaidGUIControlXPSkillSet.FONT,
@@ -69,8 +69,8 @@ function RaidGUIControlXPSkillSet:_create_text()
 	title:set_center_x(self._content_panel:w() / 2)
 
 	local flavor_text_params = {
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "skill_set_unlock_flavor_text",
 		h = RaidGUIControlXPSkillSet.TEXT_H,
 		font = RaidGUIControlXPSkillSet.FONT,
@@ -225,36 +225,36 @@ end
 
 function RaidGUIControlXPDoubleUnlock:_create_panel(parent)
 	local panel_params = {
-		halign = "scale",
-		name = "skill_set_unlock_panel",
+		valign = "scale",
 		visible = false,
-		valign = "scale"
+		name = "skill_set_unlock_panel",
+		halign = "scale"
 	}
 	self._object = parent:panel(panel_params)
 end
 
 function RaidGUIControlXPDoubleUnlock:_create_weapon_panel()
 	local weapon_panel_params = {
-		halign = "scale",
-		name = "weapon_panel",
 		alpha = 0,
+		halign = "scale",
 		valign = "scale",
+		name = "weapon_panel",
 		y = RaidGUIControlXPDoubleUnlock.CONTENT_PANELS_Y,
 		h = RaidGUIControlXPDoubleUnlock.CONTENT_PANELS_H,
 		w = self._object:w() / 2
 	}
 	self._weapon_panel = self._object:panel(weapon_panel_params)
 	local weapon_icon_panel_params = {
+		valign = "scale",
 		halign = "scale",
-		name = "weapon_icon_panel",
-		valign = "scale"
+		name = "weapon_icon_panel"
 	}
 	self._weapon_icon_panel = self._weapon_panel:panel(weapon_icon_panel_params)
 	local weapon_name_params = {
-		text = "",
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "weapon_name",
+		text = "",
 		h = RaidGUIControlXPDoubleUnlock.TEXT_H,
 		font = RaidGUIControlXPDoubleUnlock.FONT,
 		font_size = RaidGUIControlXPDoubleUnlock.SUBTITLE_FONT_SIZE,
@@ -269,9 +269,9 @@ end
 function RaidGUIControlXPDoubleUnlock:_create_skill_panel()
 	local skill_panel_params = {
 		halign = "scale",
-		name = "skill_panel",
 		alpha = 0,
 		valign = "scale",
+		name = "skill_panel",
 		y = RaidGUIControlXPDoubleUnlock.CONTENT_PANELS_Y,
 		h = RaidGUIControlXPDoubleUnlock.CONTENT_PANELS_H,
 		x = self._object:w() / 2,
@@ -279,16 +279,16 @@ function RaidGUIControlXPDoubleUnlock:_create_skill_panel()
 	}
 	self._skill_panel = self._object:panel(skill_panel_params)
 	local skill_icon_panel_params = {
+		valign = "scale",
 		halign = "scale",
-		name = "skill_icon_panel",
-		valign = "scale"
+		name = "skill_icon_panel"
 	}
 	self._skill_icon_panel = self._skill_panel:panel(skill_icon_panel_params)
 	local skill_set_title_params = {
-		text = "",
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "skill_set_title",
+		text = "",
 		h = RaidGUIControlXPDoubleUnlock.TEXT_H,
 		font = RaidGUIControlXPDoubleUnlock.FONT,
 		font_size = RaidGUIControlXPDoubleUnlock.SUBTITLE_FONT_SIZE,
@@ -302,8 +302,8 @@ end
 
 function RaidGUIControlXPDoubleUnlock:_create_title_text()
 	local title_text_params = {
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "skill_set_unlock_title_text",
 		h = RaidGUIControlXPDoubleUnlock.TEXT_H,
 		font = RaidGUIControlXPDoubleUnlock.FONT,
@@ -319,8 +319,8 @@ function RaidGUIControlXPDoubleUnlock:_create_title_text()
 	title:set_center_x(self._object:w() / 2)
 
 	local flavor_text_params = {
-		align = "center",
 		vertical = "center",
+		align = "center",
 		name = "skill_set_unlock_flavor_text",
 		h = RaidGUIControlXPDoubleUnlock.TEXT_H,
 		font = RaidGUIControlXPDoubleUnlock.FONT,

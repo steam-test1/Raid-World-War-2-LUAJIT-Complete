@@ -19,10 +19,10 @@ function RaidGUIControlImageViewer:_layout()
 	self._bullets = {}
 	self._bullets_active = {}
 	self._image_frame_1 = self._object:bitmap({
-		name = "_image_frame_1",
-		alpha = 1,
 		y = 0,
 		x = 0,
+		name = "_image_frame_1",
+		alpha = 1,
 		w = self._params.w,
 		h = self._params.h - RaidGUIControlImageViewer.BULLET_PANEL_HEIGHT,
 		layer = self._object:layer() + 1,
@@ -33,9 +33,9 @@ function RaidGUIControlImageViewer:_layout()
 	table.insert(self._image_frames, self._image_frame_1)
 
 	self._image_frame_2 = self._object:bitmap({
+		y = 0,
 		name = "_image_frame_2",
 		alpha = 1,
-		y = 0,
 		x = self._params.w,
 		w = self._params.w,
 		h = self._params.h - RaidGUIControlImageViewer.BULLET_PANEL_HEIGHT,

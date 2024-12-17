@@ -219,13 +219,13 @@ function WireLayer:build_panel(notebook)
 	local slack_params = {
 		value = 0,
 		name = "Slack:",
-		ctrlr_proportions = 4,
-		slider_ctrlr_proportions = 3,
-		name_proportions = 1,
 		number_ctrlr_proportions = 1,
+		slider_ctrlr_proportions = 3,
+		ctrlr_proportions = 4,
+		name_proportions = 1,
+		max = 2500,
 		min = 0,
 		floats = 0,
-		max = 2500,
 		panel = self._ews_panel,
 		sizer = slack_sizer
 	}

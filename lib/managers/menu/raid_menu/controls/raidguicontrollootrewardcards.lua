@@ -74,8 +74,8 @@ function RaidGUIControlLootRewardCards:_create_title()
 	self._title_panel = self._object:panel(title_panel_params)
 	local title_description_params = {
 		name = "title_description",
-		vertical = "center",
 		alpha = 0,
+		vertical = "center",
 		align = "left",
 		y = RaidGUIControlLootRewardCards.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlLootRewardCards.TITLE_DESCRIPTION_H,
@@ -90,9 +90,9 @@ function RaidGUIControlLootRewardCards:_create_title()
 	self._title_description:set_w(w)
 
 	local title_params = {
-		vertical = "top",
 		name = "pack_title",
 		alpha = 0,
+		vertical = "top",
 		align = "center",
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlLootRewardCards.TITLE_PADDING_TOP,
 		font = RaidGUIControlLootRewardCards.FONT,
@@ -111,8 +111,8 @@ end
 
 function RaidGUIControlLootRewardCards:_create_card_details()
 	local details_panel_params = {
-		alpha = 0,
 		name = "details_panel",
+		alpha = 0,
 		y = RaidGUIControlLootRewardCards.CARD_DETAILS_Y
 	}
 	self._details_panel = self._object:panel(details_panel_params)
@@ -130,12 +130,12 @@ function RaidGUIControlLootRewardCards:_create_card_details()
 	}
 	self._malus_image = self._details_panel:bitmap(malus_image_params)
 	local bonus_label_params = {
+		wrap = true,
 		vertical = "center",
 		h = 64,
-		wrap = true,
+		text = "",
 		w = 390,
 		align = "left",
-		text = "",
 		name = "bonus_label_" .. self._name,
 		x = self._bonus_image:x() + self._bonus_image:w() + 16,
 		y = self._bonus_image:y(),
@@ -145,12 +145,12 @@ function RaidGUIControlLootRewardCards:_create_card_details()
 	}
 	self._bonus_label = self._details_panel:label(bonus_label_params)
 	local malus_label_params = {
+		wrap = true,
 		vertical = "center",
 		h = 64,
-		wrap = true,
+		text = "",
 		w = 390,
 		align = "left",
-		text = "",
 		name = "malus_label_" .. self._name,
 		x = self._malus_image:x() + self._malus_image:w() + 16,
 		y = self._malus_image:y(),

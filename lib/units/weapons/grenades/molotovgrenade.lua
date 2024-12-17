@@ -130,8 +130,8 @@ function MolotovGrenade:_do_damage()
 
 				if Network:is_server() then
 					local hit_units, splinters = managers.fire:detect_and_give_dmg({
-						player_damage = 0,
 						push_units = false,
+						player_damage = 0,
 						hit_pos = effect_position,
 						range = damage_range,
 						collision_slotmask = slot_mask,
@@ -163,10 +163,10 @@ function MolotovGrenade:detonate(normal)
 	managers.explosion:detect_and_give_dmg({
 		range = 250,
 		curve_pow = 0.1,
-		damage = 3,
-		player_damage = 0,
-		ignite_character = true,
 		push_units = false,
+		ignite_character = true,
+		player_damage = 0,
+		damage = 3,
 		hit_pos = self._unit:position(),
 		collision_slotmask = managers.slot:get_mask("explosion_targets"),
 		alert_radius = self._alert_radius,

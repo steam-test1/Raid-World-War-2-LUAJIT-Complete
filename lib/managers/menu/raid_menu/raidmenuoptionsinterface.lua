@@ -49,11 +49,24 @@ function RaidMenuOptionsInterface:_layout_menu()
 		w = default_width,
 		on_click_callback = callback(self, self, "on_click_objective_reminders"),
 		on_menu_move = {
-			down = "skip_cinematics",
+			down = "warcry_ready_indicator",
 			up = previous_panel.name
 		}
 	}
 	self._toggle_objective_reminders = self._root_panel:toggle_button(previous_panel)
+	previous_panel = {
+		name = "warcry_ready_indicator",
+		description = managers.localization:to_upper_text("menu_warcry_ready_indicator"),
+		x = start_x,
+		y = previous_panel.y + RaidGuiBase.PADDING,
+		w = default_width,
+		on_click_callback = callback(self, self, "on_click_warcry_ready_indicator"),
+		on_menu_move = {
+			down = "skip_cinematics",
+			up = previous_panel.name
+		}
+	}
+	self._toggle_warcry_ready_indicator = self._root_panel:toggle_button(previous_panel)
 	previous_panel = {
 		name = "skip_cinematics",
 		description = managers.localization:to_upper_text("menu_skip_cinematics"),
@@ -138,9 +151,9 @@ function RaidMenuOptionsInterface:_layout_menu()
 	}
 	self._stepper_menu_motion_dot_size = self._root_panel:stepper(previous_panel)
 	self._default_settings_button = self._root_panel:long_secondary_button({
+		x = 1472,
 		name = "default_interface",
 		y = 832,
-		x = 1472,
 		text = managers.localization:to_upper_text("menu_options_controls_default"),
 		on_click_callback = callback(self, self, "on_click_default_interface"),
 		layer = RaidGuiBase.FOREGROUND_LAYER,
@@ -225,6 +238,10 @@ function RaidMenuOptionsInterface:_load_menu_values()
 
 	self._toggle_skip_cinematics:set_value_and_render(skip_cinematics, true)
 
+	local warcry_ready_indicator = managers.user:get_setting("warcry_ready_indicator")
+
+	self._toggle_warcry_ready_indicator:set_value_and_render(warcry_ready_indicator, true)
+
 	local subtitle = managers.user:get_setting("subtitle")
 
 	self._toggle_menu_subtitle:set_value_and_render(subtitle, true)
@@ -265,6 +282,12 @@ function RaidMenuOptionsInterface:on_click_objective_reminders()
 	local reminders = self._toggle_objective_reminders:get_value()
 
 	managers.menu:active_menu().callback_handler:toggle_objective_reminder_raid(reminders)
+end
+
+function RaidMenuOptionsInterface:on_click_warcry_ready_indicator()
+	local warcry_ready_indicator = self._toggle_warcry_ready_indicator:get_value()
+
+	managers.menu:active_menu().callback_handler:toggle_warcry_ready_indicator_raid(warcry_ready_indicator)
 end
 
 function RaidMenuOptionsInterface:on_click_skip_cinematics()

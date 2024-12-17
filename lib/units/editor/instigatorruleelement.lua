@@ -29,11 +29,11 @@ function InstigatorRuleUnitElement:_build_panel(panel, panel_sizer)
 	panel = panel or self._panel
 	panel_sizer = panel_sizer or self._panel_sizer
 	local instigator_params = {
-		name = "Instigator:",
-		name_proportions = 1,
-		tooltip = "Select an instigator type for the area",
 		sorted = false,
 		ctrlr_proportions = 2,
+		name_proportions = 1,
+		tooltip = "Select an instigator type for the area",
+		name = "Instigator:",
 		panel = panel,
 		sizer = panel_sizer,
 		options = managers.mission:area_instigator_categories(),

@@ -52,8 +52,8 @@ end
 
 function RaidGUIControlXPBreakdown:_create_experience_label()
 	local experience_label_params = {
-		name = "experience_label",
 		vertical = "center",
+		name = "experience_label",
 		x = RaidGUIControlStatsBreakdown.EXPERIENCE_LABEL_X,
 		y = RaidGUIControlStatsBreakdown.EXPERIENCE_LABEL_Y,
 		w = RaidGUIControlStatsBreakdown.DEFAULT_W,

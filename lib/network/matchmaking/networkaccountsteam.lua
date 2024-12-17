@@ -1,25 +1,6 @@
 require("lib/network/matchmaking/NetworkAccount")
 
 NetworkAccountSTEAM = NetworkAccountSTEAM or class(NetworkAccount)
-NetworkAccountSTEAM.lb_diffs = {
-	hard = "Hard",
-	overkill = "Very Hard",
-	overkill_145 = "Overkill",
-	normal = "Normal",
-	overkill_290 = "Death Wish",
-	easy = "Easy"
-}
-NetworkAccountSTEAM.lb_levels = {
-	slaughter_house = "Slaughterhouse",
-	diamond_heist = "Diamond Heist",
-	hospital = "No Mercy",
-	suburbia = "Counterfeit",
-	bridge = "Green Bridge",
-	secret_stash = "Undercover",
-	apartment = "Panic Room",
-	bank = "First World Bank",
-	heat_street = "Heat Street"
-}
 
 function NetworkAccountSTEAM:init()
 	NetworkAccount.init(self)
@@ -198,13 +179,19 @@ function NetworkAccountSTEAM:get_global_stat(key, days)
 		global_stat = Steam:sa_handler():get_global_stat(key, days == 1 and 1 or days + 1)
 
 		for i = days > 1 and 2 or 1, #global_stat do
-			value = value + global_stat[i]
+			local day = global_stat[i]
+
+			if day > -2000000000 then
+				value = value + day
+			end
 		end
 	else
 		global_stat = Steam:sa_handler():get_global_stat(key)
 
 		for _, day in ipairs(global_stat) do
-			value = value + day
+			if day > -2000000000 then
+				value = value + day
+			end
 		end
 	end
 

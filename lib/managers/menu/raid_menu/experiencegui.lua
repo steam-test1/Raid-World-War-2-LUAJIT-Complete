@@ -31,8 +31,8 @@ function ExperienceGui:_layout()
 	local menu_shift = 140
 	local left_padding = 8
 	self._menu_left_side = self._object:panel({
-		name = "menu_left_side",
 		layer = 1,
+		name = "menu_left_side",
 		y = left_padding,
 		h = self._object:h() - left_padding * 2,
 		w = center - menu_shift
@@ -98,9 +98,9 @@ function ExperienceGui:_layout_equipped_upgrades()
 	block_size = math.floor(block_size / 2 - total_icons * 0.025)
 	local backgrounds_chat_bg = tweak_data.gui.icons.backgrounds_chat_bg
 	self._equipped_upgrades_area = self._menu_left_side:bitmap({
-		name = "_temp_equipped_upgrades",
-		alpha = 0.8,
 		layer = 0,
+		alpha = 0.8,
+		name = "_temp_equipped_upgrades",
 		w = self._menu_left_side:w(),
 		h = block_size + 8,
 		texture = backgrounds_chat_bg.texture,
@@ -134,8 +134,8 @@ function ExperienceGui:_layout_equipped_upgrades()
 			end
 
 			local grid_item = self._menu_left_side:create_custom_control(RaidGUIControlButtonSkillTiny, {
-				y = 4,
 				layer = 1,
+				y = 4,
 				name = "equippped_slot_" .. slot_type_str .. i,
 				x = x,
 				w = block_size,
@@ -162,10 +162,9 @@ function ExperienceGui:_layout_equipped_upgrades()
 	make_skill_button(unlocked_talent_slots, SkillTreeTweakData.TYPE_TALENT)
 	self:_update_equipped_upgrades()
 
-	local grid_item_fg = tweak_data.gui:get_full_gui_data("hslider_arrow_left_base")
 	self._skill_profiles_button = self._menu_left_side:create_custom_control(RaidGUIControlButtonSkillProfiles, {
-		name = "skill_profiles_button",
 		y = 4,
+		name = "skill_profiles_button",
 		w = skill_profiles_w,
 		h = block_size,
 		on_click_callback = callback(self, self, "_on_toggle_skill_profiles")
@@ -299,10 +298,10 @@ function ExperienceGui:_layout_skill_profile()
 	local y_padding = 8
 	local x, y, w, h = self._equipable_upgrades_background:shape()
 	self._skill_profiles_list = self._menu_left_side:create_custom_control(RaidGUIControlListSeparated, {
-		selection_enabled = false,
-		name = "skill_profiles_list",
-		loop_items = true,
 		visible = false,
+		selection_enabled = false,
+		loop_items = true,
+		name = "skill_profiles_list",
 		x = x + x_padding,
 		y = y + y_padding,
 		w = w - x_padding * 2,
@@ -580,14 +579,14 @@ function ExperienceGui:data_source_stats()
 		name = "stamina"
 	})
 	table.insert(t, {
-		format_value = "%.2g/s",
+		text_id = "character_stats_stamina_regen_label",
 		name = "stamina_regen",
-		text_id = "character_stats_stamina_regen_label"
+		format_value = "%.2g/s"
 	})
 	table.insert(t, {
-		format_value = "%.2gs",
+		text_id = "character_stats_stamina_delay_label",
 		name = "stamina_delay",
-		text_id = "character_stats_stamina_delay_label"
+		format_value = "%.2gs"
 	})
 	table.insert(t, {
 		text_id = "character_stats_speed_walk_label",

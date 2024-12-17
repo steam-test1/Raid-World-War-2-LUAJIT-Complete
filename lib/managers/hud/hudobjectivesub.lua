@@ -47,13 +47,13 @@ end
 
 function HUDObjectiveSub:_create_objective_text()
 	local objective_text_params = {
-		name = "objective_text",
-		vertical = "center",
-		halign = "right",
 		align = "right",
+		halign = "right",
+		valign = "center",
+		vertical = "center",
+		name = "objective_text",
 		y = 0,
 		x = 0,
-		valign = "center",
 		font = HUDObjectiveSub.OBJECTIVE_TEXT_FONT,
 		font_size = HUDObjectiveSub.OBJECTIVE_TEXT_FONT_SIZE,
 		text = utf8.to_upper(self._objective.text)
@@ -106,10 +106,10 @@ function HUDObjectiveSub:_create_amount()
 	self._amount_progress_fill:set_center_y(self._amount_panel:h() / 2)
 
 	local current_amount_text_params = {
+		align = "center",
+		name = "current_amount_text",
 		text = "00",
 		vertical = "center",
-		name = "current_amount_text",
-		align = "center",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -122,10 +122,10 @@ function HUDObjectiveSub:_create_amount()
 	self._current_amount_text:set_center_y(self._amount_panel:h() / 2)
 
 	local slash_params = {
+		align = "center",
+		name = "slash",
 		text = "/",
 		vertical = "center",
-		name = "slash",
-		align = "center",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -138,10 +138,10 @@ function HUDObjectiveSub:_create_amount()
 	slash:set_center_y(self._amount_panel:h() / 2)
 
 	local total_amount_text_params = {
+		align = "center",
+		name = "total_amount_text",
 		text = "00",
 		vertical = "center",
-		name = "total_amount_text",
-		align = "center",
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveSub.AMOUNT_TEXT_FONT_SIZE
 	}
@@ -154,10 +154,10 @@ function HUDObjectiveSub:_create_amount()
 	self._total_amount_text:set_center_y(self._amount_panel:h() / 2)
 
 	local percentage_amount_text_params = {
-		text = "00%",
 		align = "center",
-		vertical = "center",
 		name = "percentage_amount_text",
+		vertical = "center",
+		text = "00%",
 		w = self._amount_panel:w(),
 		h = self._amount_panel:h(),
 		font = HUDObjectiveSub.AMOUNT_TEXT_FONT,

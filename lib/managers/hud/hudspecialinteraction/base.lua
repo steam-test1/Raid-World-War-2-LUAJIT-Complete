@@ -53,10 +53,10 @@ end
 
 function HUDSpecialInteraction:_create_legend()
 	self._legend_interact_text = self._object:text({
-		text = "[F] LOCKPICK",
 		name = "legend_interact_text",
-		align = "center",
 		vertical = "center",
+		align = "center",
+		text = "[F] LOCKPICK",
 		valign = "bottom",
 		font = HUDSpecialInteraction.LEGEND_FONT,
 		font_size = HUDSpecialInteraction.LEGEND_FONT_SIZE,
@@ -67,10 +67,10 @@ function HUDSpecialInteraction:_create_legend()
 	self._legend_interact_text:set_center_y(self._object:center_y())
 
 	self._legend_exit_text = self._object:text({
-		text = "[SPACE] CANCEL",
 		name = "legend_exit_text",
-		align = "center",
 		vertical = "center",
+		align = "center",
+		text = "[SPACE] CANCEL",
 		valign = "bottom",
 		font = HUDSpecialInteraction.LEGEND_FONT,
 		font_size = HUDSpecialInteraction.LEGEND_FONT_SIZE,

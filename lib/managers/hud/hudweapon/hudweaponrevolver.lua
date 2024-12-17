@@ -59,9 +59,9 @@ end
 
 function HUDWeaponRevolver:_create_rotation_panel(w, h)
 	self._rotation_panel = self._ammo_panel:panel({
-		name = "rotation_panel",
 		halign = "center",
 		valign = "center",
+		name = "rotation_panel",
 		w = w,
 		h = h
 	})

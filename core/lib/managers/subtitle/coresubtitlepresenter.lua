@@ -129,27 +129,27 @@ function OverlayPresenter:show_text(text, duration, color, nationality_icon)
 	end
 
 	local label = self.__subtitle_panel:child("label") or self.__subtitle_panel:text({
-		name = "label",
+		layer = 1,
 		vertical = "top",
-		wrap = true,
 		align = "center",
 		y = 1,
 		x = 32,
-		layer = 1,
+		name = "label",
+		wrap = true,
 		font = self.__font_name,
 		font_size = self.__font_size,
 		color = Color.white
 	})
 	local shadow = self.__subtitle_panel:child("shadow") or self.__subtitle_panel:text({
-		y = 2,
-		name = "shadow",
-		vertical = "top",
-		wrap = true,
-		align = "center",
-		word_wrap = true,
-		visible = false,
-		x = 33,
 		layer = 0,
+		word_wrap = true,
+		vertical = "top",
+		align = "center",
+		y = 2,
+		x = 33,
+		name = "shadow",
+		visible = false,
+		wrap = true,
 		font = self.__font_name,
 		font_size = self.__font_size,
 		color = Color.black:with_alpha(0.5)
@@ -160,13 +160,13 @@ function OverlayPresenter:show_text(text, duration, color, nationality_icon)
 
 	if nationality_icon ~= nil then
 		local nation_icon = self.__subtitle_panel:child("nation_icon") or self.__subtitle_panel:bitmap({
-			name = "nation_icon",
+			layer = 1,
+			x = 1,
 			h = 32,
 			y = 1,
 			w = 32,
-			layer = 1,
+			name = "nation_icon",
 			visible = true,
-			x = 1,
 			texture = nationality_icon.texture,
 			texture_rect = nationality_icon.texture_rect
 		})
@@ -263,12 +263,12 @@ function OverlayPresenter:_layout_text_field()
 	assert(self.__subtitle_panel)
 
 	return self.__subtitle_panel:child("layout") or self.__subtitle_panel:text({
-		name = "layout",
-		vertical = "top",
 		word_wrap = true,
-		wrap = true,
+		vertical = "top",
 		align = "center",
+		name = "layout",
 		visible = false,
+		wrap = true,
 		width = self.__subtitle_panel:w() - 64,
 		font = self.__font_name,
 		font_size = self.__font_size
@@ -277,8 +277,8 @@ end
 
 function OverlayPresenter:_string_width(subtitle_string)
 	local string_width_measure_text_field = self.__ws:panel():child("string_width") or self.__ws:panel():text({
-		name = "string_width",
 		wrap = true,
+		name = "string_width",
 		visible = false,
 		font = self.__font_name,
 		font_size = self.__font_size

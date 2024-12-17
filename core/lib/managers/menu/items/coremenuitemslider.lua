@@ -84,10 +84,10 @@ function ItemSlider:setup_gui(node, row_item)
 	local bar_w = 192
 	row_item.gui_slider_bg = row_item.gui_panel:rect({
 		visible = false,
-		vertical = "center",
 		h = 22,
-		align = "center",
+		vertical = "center",
 		halign = "center",
+		align = "center",
 		x = node:_left_align() - bar_w,
 		y = h / 2 - 11,
 		w = bar_w,
@@ -95,10 +95,10 @@ function ItemSlider:setup_gui(node, row_item)
 		layer = node.layers.items - 1
 	})
 	row_item.gui_slider_gfx = row_item.gui_panel:gradient({
-		vertical = "center",
-		align = "center",
-		halign = "center",
 		orientation = "vertical",
+		vertical = "center",
+		halign = "center",
+		align = "center",
 		gradient_points = {
 			0,
 			_G.tweak_data.screen_colors.button_stage_3,
@@ -120,8 +120,8 @@ function ItemSlider:setup_gui(node, row_item)
 		h = row_item.gui_slider_bg:h() - 4
 	})
 	row_item.gui_slider_marker = row_item.gui_panel:bitmap({
-		texture = "guis/textures/debug_menu_icons",
 		visible = false,
+		texture = "guis/textures/debug_menu_icons",
 		texture_rect = {
 			0,
 			0,

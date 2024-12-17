@@ -77,11 +77,11 @@ end
 function RaidGUIControlXPProgressBar:_create_progress_bar()
 	local progress_bar_params = {
 		left = "slider_large_left",
-		name = "progress_bar",
 		y = 0,
-		center = "slider_large_center",
-		x = 0,
+		name = "progress_bar",
 		right = "slider_large_right",
+		x = 0,
+		center = "slider_large_center",
 		w = self._bar_w + self._horizontal_padding * 2,
 		h = self._params.progress_bar_h or RaidGUIControlXPProgressBar.PROGRESS_BAR_H
 	}
@@ -217,11 +217,11 @@ end
 
 function RaidGUIControlXPProgressBar:_create_new_xp_label()
 	local new_xp_params = {
-		vertical = "center",
 		name = "new_xp_text",
-		align = "center",
-		alpha = 0,
 		text = "",
+		alpha = 0,
+		vertical = "center",
+		align = "center",
 		w = RaidGUIControlXPProgressBar.NEW_XP_W,
 		h = RaidGUIControlXPProgressBar.NEW_XP_H,
 		font = RaidGUIControlXPProgressBar.NEW_XP_TEXT_FONT,
@@ -246,10 +246,10 @@ function RaidGUIControlXPProgressBar:_create_label_for_level(level, draw_level_l
 
 	if draw_level_label then
 		local level_label_text_params = {
-			vertical = "center",
-			name = "level_label_text",
-			align = "center",
 			y = 0,
+			name = "level_label_text",
+			vertical = "center",
+			align = "center",
 			x = 0,
 			w = level_label_panel:w(),
 			h = level_label_panel:h(),
@@ -295,8 +295,8 @@ function RaidGUIControlXPProgressBar:_create_label_for_level(level, draw_level_l
 
 		if number_of_weapon_unlocks > 1 then
 			local weapon_unlock_amount_text_params = {
-				name = "weapon_unlock_number_text",
 				y = 0,
+				name = "weapon_unlock_number_text",
 				x = 0,
 				font = RaidGUIControlXPProgressBar.WEAPON_UNLOCK_TEXT_FONT,
 				font_size = RaidGUIControlXPProgressBar.WEAPON_UNLOCK_TEXT_FONT_SIZE,

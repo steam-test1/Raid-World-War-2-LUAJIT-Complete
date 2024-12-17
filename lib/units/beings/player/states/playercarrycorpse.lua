@@ -77,9 +77,9 @@ function PlayerCarryCorpse:_check_action_interact(t, input)
 	if input.btn_interact_press then
 		if managers.interaction:active_unit() then
 			managers.notification:add_notification({
+				id = "hud_hint_carry_corpse_block_interact",
 				duration = 2,
 				shelf_life = 5,
-				id = "hud_hint_carry_corpse_block_interact",
 				text = managers.localization:text("hud_hint_carry_corpse_block_interact")
 			})
 

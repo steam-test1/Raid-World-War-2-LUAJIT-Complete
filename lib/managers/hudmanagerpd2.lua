@@ -98,7 +98,7 @@ function HUDManager:add_weapon(data)
 	}
 	local tweak_data = data.unit:base():weapon_tweak_data()
 
-	if tweak_data.hud and (not self._weapon_panels[data.inventory_index] or self._weapon_panels[data.inventory_index] and self._weapon_panels[data.inventory_index]:name_id() ~= tweak_data.name_id) then
+	if tweak_data.hud and not self._weapon_panels[data.inventory_index] or self._weapon_panels[data.inventory_index] and (data.force or self._weapon_panels[data.inventory_index]:name_id() ~= tweak_data.name_id) then
 		if self._weapon_panels[data.inventory_index] then
 			self._weapon_panels[data.inventory_index]:destroy()
 		end
@@ -702,11 +702,11 @@ function HUDManager:_create_ammo_test()
 	end
 
 	local panel = hud.panel:panel({
-		name = "ammo_test",
-		h = 4,
 		y = 200,
+		x = 550,
+		name = "ammo_test",
 		w = 100,
-		x = 550
+		h = 4
 	})
 
 	panel:set_center_y(hud.panel:h() / 2 - 40)
@@ -716,8 +716,8 @@ function HUDManager:_create_ammo_test()
 		color = Color.black:with_alpha(0.5)
 	})
 	panel:rect({
-		name = "ammo_test_rect",
 		layer = 1,
+		name = "ammo_test_rect",
 		color = Color.white
 	})
 end
@@ -951,10 +951,10 @@ function HUDManager:_create_teammates_panel(hud)
 	end
 
 	local teammates_panel_params = {
-		halign = "left",
-		name = "teammates_panel",
 		y = 0,
 		x = 0,
+		name = "teammates_panel",
+		halign = "left",
 		valign = "grow",
 		w = HUDManager.TEAMMATE_PANEL_W,
 		h = hud.panel:h()
@@ -1013,9 +1013,9 @@ end
 function HUDManager:_create_weapons_panel(hud)
 	hud = hud or managers.hud:script(PlayerBase.INGAME_HUD_SAFERECT)
 	local weapons_panel_params = {
+		valign = "bottom",
 		name = "weapons_panel",
 		halign = "right",
-		valign = "bottom",
 		w = HUDManager.WEAPONS_PANEL_W,
 		h = HUDManager.WEAPONS_PANEL_H
 	}
@@ -1367,9 +1367,9 @@ function HUDManager:on_progression_cycle_completed()
 	end
 
 	local notification_params = {
-		id = "progression_cycle_completed",
 		duration = 6,
 		priority = 4,
+		id = "progression_cycle_completed",
 		notification_type = HUDNotification.RAID_UNLOCKED
 	}
 
@@ -1382,8 +1382,8 @@ function HUDManager:on_greed_loot_picked_up(old_progress, new_progress, notifica
 	end
 
 	managers.notification:add_notification({
-		id = "greed_item_picked_up",
 		shelf_life = 8,
+		id = "greed_item_picked_up",
 		notification_type = HUDNotification.GREED_ITEM,
 		initial_progress = old_progress,
 		new_progress = new_progress,
@@ -1647,6 +1647,21 @@ end
 
 function HUDManager:player_turret_cooldown()
 	self._turret_hud:cooldown()
+end
+
+function HUDManager:_create_drama_hud(hud)
+	self._drama_hud = HUDDrama:new(hud)
+
+	self._drama_hud:set_x(480)
+	self._drama_hud:set_bottom(hud.panel:h())
+end
+
+function HUDManager:show_drama_hud(data)
+	self._drama_hud:show(data)
+end
+
+function HUDManager:hide_drama_hud(data)
+	self._drama_hud:hide(data)
 end
 
 function HUDManager:_create_watermark(hud)

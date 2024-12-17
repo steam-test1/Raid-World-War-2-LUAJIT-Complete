@@ -33,13 +33,13 @@ function BlurZoneUnitElement:_build_panel(panel, panel_sizer)
 	panel = panel or self._panel
 	panel_sizer = panel_sizer or self._panel_sizer
 	local mode_params = {
-		name_proportions = 1,
-		name = "Mode:",
 		ctrlr_proportions = 2,
-		tooltip = "Set the mode, 0 is disable, 2 is flash, 1 is normal",
-		min = 0,
-		floats = 0,
+		name_proportions = 1,
 		max = 2,
+		min = 0,
+		tooltip = "Set the mode, 0 is disable, 2 is flash, 1 is normal",
+		floats = 0,
+		name = "Mode:",
 		panel = panel,
 		sizer = panel_sizer,
 		value = self._hed.mode
@@ -56,12 +56,12 @@ function BlurZoneUnitElement:_build_panel(panel, panel_sizer)
 	})
 
 	local radius_params = {
-		name = "Radius:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the radius",
 		min = 1,
+		tooltip = "Set the radius",
 		floats = 0,
+		name = "Radius:",
 		panel = panel,
 		sizer = panel_sizer,
 		value = self._hed.radius
@@ -78,12 +78,12 @@ function BlurZoneUnitElement:_build_panel(panel, panel_sizer)
 	})
 
 	local height_params = {
-		name = "Height:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the height",
 		min = 0,
+		tooltip = "Set the height",
 		floats = 0,
+		name = "Height:",
 		panel = panel,
 		sizer = panel_sizer,
 		value = self._hed.height

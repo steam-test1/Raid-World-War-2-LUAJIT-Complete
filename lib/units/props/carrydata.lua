@@ -157,11 +157,11 @@ function CarryData:bullet_hit()
 end
 
 CarryData.EXPLOSION_SETTINGS = {
-	damage = 40,
-	range = 1000,
+	effect = "effects/vanilla/explosions/exp_bag_explosion_001",
 	curve_pow = 3,
+	damage = 40,
 	player_damage = 20,
-	effect = "effects/vanilla/explosions/exp_bag_explosion_001"
+	range = 1000
 }
 CarryData.EXPLOSION_CUSTOM_PARAMS = {
 	camera_shake_mul = 4,
@@ -410,50 +410,50 @@ function CarryData:_chk_register_steal_SO()
 	end
 
 	local drop_objective = {
-		type = "act",
 		interrupt_health = 0.9,
-		action_duration = 2,
+		interrupt_dis = 700,
 		haste = "walk",
 		pose = "crouch",
-		interrupt_dis = 700,
+		action_duration = 2,
+		type = "act",
 		nav_seg = drop_nav_seg,
 		pos = drop_pos,
 		area = drop_area,
 		fail_clbk = callback(self, self, "on_secure_SO_failed"),
 		complete_clbk = callback(self, self, "on_secure_SO_completed"),
 		action = {
-			variant = "untie",
-			align_sync = true,
 			body_part = 1,
+			align_sync = true,
+			variant = "untie",
 			type = "act"
 		}
 	}
 	local pickup_objective = {
-		destroy_clbk_key = false,
-		type = "act",
-		haste = "run",
 		interrupt_health = 0.9,
-		pose = "crouch",
 		interrupt_dis = 700,
+		haste = "run",
+		destroy_clbk_key = false,
+		pose = "crouch",
+		type = "act",
 		nav_seg = pickup_nav_seg,
 		area = pickup_area,
 		pos = pickup_pos,
 		fail_clbk = callback(self, self, "on_pickup_SO_failed"),
 		complete_clbk = callback(self, self, "on_pickup_SO_completed"),
 		action = {
-			variant = "untie",
-			align_sync = true,
 			body_part = 1,
+			align_sync = true,
+			variant = "untie",
 			type = "act"
 		},
 		action_duration = math.lerp(1, 2.5, math.random()),
 		followup_objective = drop_objective
 	}
 	local so_descriptor = {
-		interval = 0,
-		base_chance = 1,
-		chance_inc = 0,
 		usage_amount = 1,
+		interval = 0,
+		chance_inc = 0,
+		base_chance = 1,
 		objective = pickup_objective,
 		search_pos = pickup_objective.pos,
 		verification_clbk = callback(self, self, "clbk_pickup_SO_verification"),

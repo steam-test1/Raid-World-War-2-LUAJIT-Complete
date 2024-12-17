@@ -26,7 +26,10 @@ function GenericUserManager:init()
 
 	if not self:is_global_initialized() then
 		Global.user_manager = {
+			reset_network_setting_map = nil,
 			initializing = true,
+			[""] = nil,
+			add_setting_changed_callback = nil,
 			setting_map = {},
 			setting_data_map = {},
 			setting_data_id_to_name_map = {},
@@ -152,6 +155,7 @@ function GenericUserManager:setup_setting_map()
 	self:setup_setting(73, "camera_shake", 1)
 	self:setup_setting(74, "hud_crosshairs", true)
 	self:setup_setting(75, "skip_cinematics", false)
+	self:setup_setting(76, "warcry_ready_indicator", true)
 end
 
 function GenericUserManager:setup_setting(id, name, default_value)
@@ -266,7 +270,8 @@ function GenericUserManager:reset_interface_setting_map()
 		"motion_dot_color",
 		"motion_dot_toggle_aim",
 		"objective_reminder",
-		"skip_cinematics"
+		"skip_cinematics",
+		"warcry_ready_indicator"
 	}
 
 	for _, name in pairs(settings) do

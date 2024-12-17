@@ -1150,10 +1150,10 @@ function TurretWeapon:_create_turret_SO()
 	managers.navigation:destroy_nav_tracker(tracker_align)
 
 	local turret_objective = {
-		pose = "stand",
 		destroy_clbk_key = false,
-		type = "turret",
+		pose = "stand",
 		haste = "run",
+		type = "turret",
 		nav_seg = align_nav_seg,
 		area = align_area,
 		pos = align_pos,
@@ -1161,25 +1161,25 @@ function TurretWeapon:_create_turret_SO()
 		fail_clbk = callback(self, self, "on_turret_SO_failed"),
 		complete_clbk = callback(self, self, "on_turret_SO_completed"),
 		action = {
-			align_sync = true,
-			needs_full_blend = true,
-			type = "act",
 			body_part = 1,
+			type = "act",
+			needs_full_blend = true,
+			align_sync = true,
 			variant = variant,
 			blocks = {
+				walk = -1,
 				heavy_hurt = -1,
-				hurt = -1,
 				action = -1,
-				walk = -1
+				hurt = -1
 			}
 		}
 	}
 	local twk_data = tweak_data.weapon[self.name_id]
 	local SO_descriptor = {
-		interval = 1,
-		search_dis_sq = 4000000,
 		AI_group = "enemies",
 		usage_amount = 1,
+		interval = 1,
+		search_dis_sq = 4000000,
 		objective = turret_objective,
 		search_pos = turret_objective.pos,
 		base_chance = twk_data.SO_CHANCE_BASE or 1,
@@ -1210,6 +1210,7 @@ end
 
 function TurretWeapon:sync_administered_unit(unit)
 	self._administered_unit_data = {
+		SO = nil,
 		unit = unit
 	}
 end
@@ -1430,9 +1431,9 @@ function TurretWeapon:_cancel_active_SO()
 			admin_unit_brain:set_objective(nil)
 			admin_unit_brain:set_logic("idle", nil)
 			admin_unit_brain:action_request({
-				sync = true,
 				body_part = 2,
-				type = "idle"
+				type = "idle",
+				sync = true
 			})
 			self:on_turret_SO_failed(self._administered_unit_data.unit)
 
@@ -1637,8 +1638,8 @@ function TurretWeapon:_shell_explosion_on_client(position, radius, damage, playe
 	local sound_event = "grenade_explode"
 	local damage_radius = radius or tweak_data.weapon[self.name_id].damage_radius or 1000
 	local custom_params = {
-		camera_shake_max_mul = 4,
 		sound_muffle_effect = true,
+		camera_shake_max_mul = 4,
 		effect = self._effect_name,
 		sound_event = sound_event,
 		feedback_range = damage_radius * 2

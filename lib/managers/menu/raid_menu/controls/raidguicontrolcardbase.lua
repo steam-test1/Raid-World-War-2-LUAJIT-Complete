@@ -58,8 +58,8 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 		h = cip and cip.h or self._card_panel:h()
 	}
 	self._card_image = self._card_panel:bitmap({
-		name = "card_image",
 		layer = 100,
+		name = "card_image",
 		x = card_rect.x or 0,
 		y = card_rect.y or 0,
 		w = card_rect.w or self._card_panel:w(),
@@ -70,10 +70,10 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	local title_h = self._card_image:h() * RaidGUIControlCardBase.TITLE_H
 	local title_font_size = math.ceil(RaidGUIControlCardBase.TITLE_TEXT_SIZE * self._card_image:h() / 255)
 	self._card_title = self._card_panel:label({
-		name = "card_title",
-		wrap = true,
-		align = "center",
 		vertical = "center",
+		wrap = true,
+		name = "card_title",
+		align = "center",
 		blend_mode = "normal",
 		w = self._card_image:w() * (1 - 2 * RaidGUIControlCardBase.TITLE_PADDING),
 		h = title_h,
@@ -94,14 +94,14 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	end
 
 	local params_card_description = {
-		w = 0,
-		name = "card_description",
-		h = 0,
-		wrap = true,
-		align = "left",
 		visible = false,
+		w = 0,
+		wrap = true,
+		h = 0,
 		y = 0,
 		x = 0,
+		name = "card_description",
+		align = "left",
 		font = RaidGUIControlCardBase.TITLE_FONT,
 		font_size = math.ceil(RaidGUIControlCardBase.DESCRIPTION_TEXT_SIZE * self._card_image:h() / 255),
 		layer = self._card_image:layer() + 1,
@@ -110,9 +110,9 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	}
 	self._card_description = self._card_panel:label(params_card_description)
 	local params_xp_bonus = {
-		name = "xp_bonus",
-		vertical = "center",
 		align = "center",
+		vertical = "center",
+		name = "xp_bonus",
 		y = self._card_image:y() + self._card_image:h() * RaidGUIControlCardBase.XP_BONUS_Y,
 		w = self._card_image:w() * RaidGUIControlCardBase.XP_BONUS_W,
 		h = self._card_image:h() * RaidGUIControlCardBase.XP_BONUS_H,
@@ -174,8 +174,8 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 	self._card_stackable_image:set_center(self._card_image:center())
 
 	self._card_amount_background = self._card_panel:image({
-		name = "card_amount_background",
 		visible = false,
+		name = "card_amount_background",
 		layer = self._card_image:layer() + 1,
 		x = self._card_image:w() * 0.145,
 		y = self._card_image:h() * 0.7,
@@ -185,11 +185,11 @@ function RaidGUIControlCardBase:init(parent, params, item_data, grid_params)
 		texture_rect = tweak_data.gui.icons.card_counter_bg_large.texture_rect
 	})
 	self._card_amount_label = self._card_panel:label({
-		name = "card_amount_label",
-		vertical = "center",
-		align = "center",
 		visible = false,
 		text = "99x",
+		vertical = "center",
+		name = "card_amount_label",
+		align = "center",
 		layer = self._card_amount_background:layer() + 1,
 		w = self._card_amount_background:w() * 0.9,
 		h = self._card_amount_background:h(),

@@ -20,8 +20,8 @@ function RaidGUIControlListItemMenu:init(parent, params, data)
 		h = params.h
 	})
 	self._item_label = self._object:label({
-		vertical = "center",
 		y = 0,
+		vertical = "center",
 		x = 32,
 		name = "list_item_label_" .. self._name,
 		w = params.w,
@@ -33,8 +33,8 @@ function RaidGUIControlListItemMenu:init(parent, params, data)
 	})
 	self._item_background = self._object:rect({
 		y = 1,
-		visible = false,
 		x = 0,
+		visible = false,
 		name = "list_item_back_" .. self._name,
 		w = params.w,
 		h = params.h - 2,
@@ -43,9 +43,9 @@ function RaidGUIControlListItemMenu:init(parent, params, data)
 	})
 	self._item_highlight_marker = self._object:rect({
 		y = 1,
-		w = 3,
-		visible = false,
 		x = 0,
+		visible = false,
+		w = 3,
 		name = "list_item_highlight_" .. self._name,
 		h = params.h - 2,
 		color = tweak_data.gui.colors.raid_red

@@ -289,12 +289,12 @@ function WaypointUnitElement:_build_panel(panel, panel_sizer)
 	self._width_params = width_params
 
 	width:connect("EVT_COMMAND_TEXT_ENTER", callback(self, self, "set_shape_property"), {
-		value = "width",
-		property = "width"
+		property = "width",
+		value = "width"
 	})
 	width:connect("EVT_KILL_FOCUS", callback(self, self, "set_shape_property"), {
-		value = "width",
-		property = "width"
+		property = "width",
+		value = "width"
 	})
 
 	local depth, depth_params = self:_build_value_number(panel, panel_sizer, "depth", {
@@ -307,12 +307,12 @@ function WaypointUnitElement:_build_panel(panel, panel_sizer)
 	self._depth_params = depth_params
 
 	depth:connect("EVT_COMMAND_TEXT_ENTER", callback(self, self, "set_shape_property"), {
-		value = "depth",
-		property = "depth"
+		property = "depth",
+		value = "depth"
 	})
 	depth:connect("EVT_KILL_FOCUS", callback(self, self, "set_shape_property"), {
-		value = "depth",
-		property = "depth"
+		property = "depth",
+		value = "depth"
 	})
 
 	local radius, radius_params = self:_build_value_number(panel, panel_sizer, "radius", {
@@ -325,12 +325,12 @@ function WaypointUnitElement:_build_panel(panel, panel_sizer)
 	self._radius_params = radius_params
 
 	radius:connect("EVT_COMMAND_TEXT_ENTER", callback(self, self, "set_shape_property"), {
-		value = "radius",
-		property = "radius"
+		property = "radius",
+		value = "radius"
 	})
 	radius:connect("EVT_KILL_FOCUS", callback(self, self, "set_shape_property"), {
-		value = "radius",
-		property = "radius"
+		property = "radius",
+		value = "radius"
 	})
 	self:scale_slider(panel, panel_sizer, width_params, "width", "Width scale:")
 	self:scale_slider(panel, panel_sizer, depth_params, "depth", "Depth scale:")

@@ -45,8 +45,8 @@ end
 
 function HUDSuspicionIndicator:_create_panel(hud)
 	local panel_params = {
-		name = "suspicion_indicator",
 		alpha = 0,
+		name = "suspicion_indicator",
 		w = HUDSuspicionIndicator.W,
 		h = HUDSuspicionIndicator.H
 	}

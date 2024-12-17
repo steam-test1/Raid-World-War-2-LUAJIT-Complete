@@ -184,6 +184,10 @@ function VehicleDrivingExt:set_tweak_data(data)
 	self._loot_points = deep_clone(self._tweak_data.loot_points)
 	self._secure_loot = self._tweak_data.secure_loot
 
+	if self._secure_loot then
+		self:enable_securing_loot()
+	end
+
 	for _, seat in pairs(self._seats) do
 		seat.occupant = nil
 		seat.object = self._unit:get_object(Idstring(VehicleDrivingExt.SEAT_PREFIX .. seat.name))
@@ -479,11 +483,10 @@ function VehicleDrivingExt:add_loot(carry_id, multiplier)
 		self._unit:damage():run_sequence_simple("action_add_bag")
 	end
 
-	if self._secure_loot then
-		Application:trace("[VehicleDrivingExt:add_loot] secure the loot", carry_id, multiplier)
-
+	if self:is_securing_loot_enabled() then
 		local silent = self._secure_loot == "secure_silent"
 
+		Application:trace("[VehicleDrivingExt:add_loot] secure the loot", carry_id, multiplier, silent)
 		managers.loot:secure(carry_id, multiplier, silent)
 	end
 end
@@ -880,6 +883,32 @@ function VehicleDrivingExt:is_accepting_loot_enabled()
 	return self._accepting_loot_enabled
 end
 
+function VehicleDrivingExt:enable_securing_loot()
+	Application:trace("[VehicleDrivingExt][enable_securing_loot] Securing loot enabled")
+
+	if Network:is_server() then
+		managers.network:session():send_to_peers_synched("sync_vehicle_securing_loot", self._unit, true)
+	end
+
+	self._securing_loot_enabled = true
+	self._secure_loot = self._tweak_data.secure_loot or "secure"
+end
+
+function VehicleDrivingExt:disable_securing_loot()
+	Application:trace("[VehicleDrivingExt][disable_securing_loot] Securing loot disabled")
+
+	if Network:is_server() then
+		managers.network:session():send_to_peers_synched("sync_vehicle_securing_loot", self._unit, false)
+	end
+
+	self._securing_loot_enabled = false
+	self._secure_loot = false
+end
+
+function VehicleDrivingExt:is_securing_loot_enabled()
+	return self._securing_loot_enabled
+end
+
 function VehicleDrivingExt:enter_vehicle(player)
 	local seat = self:find_seat_for_player(player)
 
@@ -993,7 +1022,8 @@ function VehicleDrivingExt:place_player_on_seat(player, seat_name, move, previou
 		self._interaction_enter_vehicle = false
 
 		managers.dialog:queue_dialog("gen_vehicle_good_to_go", {
-			skip_idle_check = true
+			skip_idle_check = true,
+			position = nil
 		})
 	end
 
@@ -1145,9 +1175,9 @@ function VehicleDrivingExt:evacuate_seat(seat)
 		-- Nothing
 	elseif Network:is_server() then
 		seat.occupant:movement():action_request({
-			sync = true,
 			body_part = 1,
-			type = "idle"
+			type = "idle",
+			sync = true
 		})
 	end
 
@@ -1370,9 +1400,9 @@ function VehicleDrivingExt:on_team_ai_enter(ai_unit)
 
 			if Network:is_server() then
 				ai_unit:movement():action_request({
-					sync = true,
 					body_part = 1,
-					type = "idle"
+					type = "idle",
+					sync = true
 				})
 			end
 
@@ -2109,8 +2139,8 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 	end
 
 	local ride_objective = {
-		pose = "stand",
 		destroy_clbk_key = false,
+		pose = "stand",
 		type = "act",
 		haste = haste,
 		nav_seg = align_nav_seg,
@@ -2119,27 +2149,27 @@ function VehicleDrivingExt:_create_seat_SO(seat)
 		rot = align_rot,
 		fail_clbk = callback(self, self, "on_drive_SO_failed", seat),
 		action = {
-			align_sync = false,
-			needs_full_blend = true,
-			type = "act",
 			body_part = 1,
+			align_sync = false,
+			type = "act",
+			needs_full_blend = true,
 			variant = team_ai_animation,
 			blocks = {
 				act = 1,
-				hurt = -1,
-				action = -1,
 				heavy_hurt = -1,
-				walk = -1
+				action = -1,
+				walk = -1,
+				hurt = -1
 			}
 		},
 		objective_type = VehicleDrivingExt.SPECIAL_OBJECTIVE_TYPE_DRIVING
 	}
 	local SO_descriptor = {
-		interval = 0,
-		base_chance = 1,
 		AI_group = "friendlies",
-		chance_inc = 0,
 		usage_amount = 1,
+		interval = 0,
+		chance_inc = 0,
+		base_chance = 1,
 		objective = ride_objective,
 		search_pos = ride_objective.pos,
 		verification_clbk = callback(self, self, "clbk_drive_SO_verification"),

@@ -34,8 +34,8 @@ end
 
 function RaidGUIControlRewardCardPack:_create_panel()
 	local panel_params = {
-		visible = false,
 		name = "local_player_card_pack_reward_panel",
+		visible = false,
 		x = self._params.x or 0,
 		y = self._params.y or 0,
 		w = self._params.w,
@@ -67,9 +67,9 @@ end
 
 function RaidGUIControlRewardCardPack:_create_title()
 	local title_description_params = {
+		alpha = 0,
 		name = "title_description",
 		vertical = "center",
-		alpha = 0,
 		align = "left",
 		y = RaidGUIControlRewardCardPack.TITLE_DESCRIPTION_Y,
 		h = RaidGUIControlRewardCardPack.TITLE_DESCRIPTION_H,
@@ -87,9 +87,9 @@ function RaidGUIControlRewardCardPack:_create_title()
 	self._title_description:set_w(w)
 
 	local title_params = {
-		vertical = "top",
-		name = "pack_title",
 		alpha = 0,
+		name = "pack_title",
+		vertical = "top",
 		align = "center",
 		y = self._title_description:y() + self._title_description:h() + RaidGUIControlRewardCardPack.TITLE_PADDING_TOP,
 		font = RaidGUIControlRewardCardPack.FONT,
@@ -108,16 +108,16 @@ end
 
 function RaidGUIControlRewardCardPack:_create_cards_control()
 	local cards_control_params = {
-		visible = false,
 		name = "cards_control",
 		h = 900,
-		y = 0,
 		w = 780,
+		y = 0,
 		x = 0,
+		visible = false,
 		item_params = {
-			item_w = 256,
+			wrapper_h = 600,
 			item_h = 352,
-			wrapper_h = 600
+			item_w = 256
 		}
 	}
 	self._cards_control = self._left_panel:create_custom_control(RaidGUIControlLootRewardCards, cards_control_params)
@@ -139,11 +139,11 @@ end
 
 function RaidGUIControlRewardCardPack:_create_description()
 	local description_params = {
-		vertical = "top",
-		name = "description",
 		wrap = true,
-		align = "left",
 		alpha = 0,
+		name = "description",
+		vertical = "top",
+		align = "left",
 		y = RaidGUIControlRewardCardPack.DESCRIPTION_Y,
 		w = RaidGUIControlRewardCardPack.DESCRIPTION_W,
 		font = RaidGUIControlRewardCardPack.DESCRIPTION_FONT,
@@ -158,10 +158,10 @@ end
 
 function RaidGUIControlRewardCardPack:_create_item_description_name()
 	local item_type_params = {
+		alpha = 0,
 		name = "item_type",
 		vertical = "center",
 		align = "left",
-		alpha = 0,
 		x = self._description:x(),
 		y = RaidGUIControlRewardCardPack.ITEM_TYPE_Y,
 		w = self._right_panel:w(),

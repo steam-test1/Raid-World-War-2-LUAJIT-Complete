@@ -500,9 +500,9 @@ function PlayerStandard:_create_on_controller_disabled_input()
 	local release_interact = Global.game_settings.single_player or not managers.menu:get_controller():get_input_bool("interact")
 	local input = {
 		btn_melee_release = true,
+		btn_use_item_release = true,
 		btn_steelsight_release = true,
 		is_customized = true,
-		btn_use_item_release = true,
 		btn_interact_release = release_interact
 	}
 
@@ -971,6 +971,7 @@ function PlayerStandard:_update_foley(t, input)
 
 		local fall_data = self._state_data.dive_data or {}
 		fall_data.height = self._state_data.enter_air_pos_z - self._pos.z
+		fall_data.onto_ladder = self:on_ladder()
 		local damage_taken = self._unit:character_damage():damage_fall(fall_data)
 
 		if damage_taken then
@@ -1183,7 +1184,7 @@ function PlayerStandard:_stance_entered(unequipped)
 	self._camera_unit:base():clbk_stance_entered(misc_attribs.shoulders, head_stance, misc_attribs.vel_overshot, new_fov, misc_attribs.shakers, stance_mod, duration_multiplier, duration)
 	managers.menu:set_mouse_sensitivity(self:in_steelsight())
 
-	local sensitivity_multiplier = self:get_sensitivity_multiplier()
+	local sensitivity_multiplier = self:get_sensitivity_multiplier(new_fov)
 
 	self._camera_unit:base():set_sensitivity_multiplier(sensitivity_multiplier)
 end
@@ -1564,8 +1565,8 @@ function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	if not skip_can_stand_check and not self:_can_stand() then
 		managers.notification:add_notification({
 			duration = 2,
-			shelf_life = 5,
 			id = "hint_cant_stand_up",
+			shelf_life = 5,
 			text = managers.localization:text("hint_cant_stand_up")
 		})
 
@@ -2883,6 +2884,7 @@ function PlayerStandard:_start_action_use_item(t)
 	})
 
 	managers.hud:show_progress_timer({
+		ratio = nil,
 		text = text
 	})
 
@@ -4562,7 +4564,7 @@ function PlayerStandard:get_zoom_fov(stance_data)
 	return fov * fov_multiplier
 end
 
-function PlayerStandard:get_sensitivity_multiplier()
+function PlayerStandard:get_sensitivity_multiplier(current_fov)
 	local multiplier = 1
 
 	if self._state_data.in_steelsight and managers.player:has_category_upgrade("player", "farsighted_steelsight_fov_multiplier") then

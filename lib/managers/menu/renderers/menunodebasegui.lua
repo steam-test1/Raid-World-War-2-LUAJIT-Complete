@@ -74,14 +74,14 @@ function MenuNodeBaseGui:create_text_button(params)
 	local gui_blur = button_panel:bitmap({
 		texture = "guis/textures/test_blur_df",
 		name = "button_blur",
-		render_template = "VertexColorTexturedBlur3D",
 		layer = -1,
+		render_template = "VertexColorTexturedBlur3D",
 		visible = not hide_blur
 	})
 	local gui_text = button_panel:text({
-		name = "button_text",
-		blend_mode = "add",
 		layer = 0,
+		blend_mode = "add",
+		name = "button_text",
 		text = text,
 		font = font,
 		font_size = font_size,
@@ -120,6 +120,7 @@ function MenuNodeBaseGui:create_text_button(params)
 	end
 
 	table.insert(self._text_buttons, {
+		legend_text = nil,
 		highlighted = false,
 		panel = button_panel,
 		text = gui_text,

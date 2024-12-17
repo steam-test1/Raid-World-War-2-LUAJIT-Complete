@@ -22,8 +22,8 @@ function MenuItemMultiChoiceRaid:setup_gui(node, row_item)
 		w = node.item_panel:w()
 	})
 	row_item.choice_text = row_item.choice_panel:text({
-		vertical = "center",
 		align = "center",
+		vertical = "center",
 		y = 0,
 		x = 0,
 		font_size = row_item.font_size,
@@ -39,8 +39,8 @@ function MenuItemMultiChoiceRaid:setup_gui(node, row_item)
 	local base = 20
 	local height = 15
 	row_item.arrow_left = row_item.gui_panel:bitmap({
-		texture = "guis/textures/menu_arrows",
 		y = 0,
+		texture = "guis/textures/menu_arrows",
 		x = 0,
 		texture_rect = {
 			0,
@@ -54,8 +54,8 @@ function MenuItemMultiChoiceRaid:setup_gui(node, row_item)
 		blend_mode = node.row_item_blend_mode
 	})
 	row_item.arrow_right = row_item.gui_panel:bitmap({
-		texture = "guis/textures/menu_arrows",
 		y = 0,
+		texture = "guis/textures/menu_arrows",
 		x = 0,
 		texture_rect = {
 			24,

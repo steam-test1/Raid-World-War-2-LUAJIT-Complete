@@ -91,10 +91,10 @@ function TextGui:_create_text_gui(row)
 	local font_size = text_data.font_size or self.FONT_SIZE
 	local font = text_data.font or self.FONT
 	local gui = self._panel:text({
-		y = 0,
+		visible = true,
 		vertical = "center",
 		align = "center",
-		visible = true,
+		y = 0,
 		layer = 0,
 		text = text_data.text,
 		font = font,

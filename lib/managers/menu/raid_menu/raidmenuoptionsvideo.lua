@@ -99,8 +99,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	table.insert(self._fullscreen_only_controls, self._stepper_menu_refresh_rate)
 
 	previous_panel = {
-		name = "window_mode",
 		stepper_w = 280,
+		name = "window_mode",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		w = default_width,
@@ -114,8 +114,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._stepper_menu_window_mode = self._root_panel:stepper(previous_panel)
 	previous_panel = {
-		name = "effect_quality",
 		value_format = "%02d%%",
+		name = "effect_quality",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_effect_quality"),
@@ -127,9 +127,9 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._progress_bar_menu_effect_quality = self._root_panel:slider(previous_panel)
 	previous_panel = {
-		name = "progress_bar_menu_brightness",
 		value = 0,
 		value_format = "%02d%%",
+		name = "progress_bar_menu_brightness",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_brightness"),
@@ -172,8 +172,8 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._toggle_menu_camera_accel = self._root_panel:toggle_button(previous_panel)
 	previous_panel = {
-		name = "camera_shake",
 		value_format = "%02d%%",
+		name = "camera_shake",
 		x = start_x,
 		y = previous_panel.y + RaidGuiBase.PADDING,
 		description = managers.localization:to_upper_text("menu_options_video_camera_shake"),
@@ -199,9 +199,9 @@ function RaidMenuOptionsVideo:_layout_video()
 	}
 	self._progress_bar_menu_fov_adjustment = self._root_panel:slider(previous_panel)
 	local default_video_settings_button = {
-		name = "default_video",
 		y = 832,
 		x = 1472,
+		name = "default_video",
 		layer = RaidGuiBase.FOREGROUND_LAYER,
 		text = managers.localization:to_upper_text("menu_options_controls_default"),
 		on_click_callback = callback(self, self, "on_click_default_video"),

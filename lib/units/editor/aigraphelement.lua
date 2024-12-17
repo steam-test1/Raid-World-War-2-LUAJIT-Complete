@@ -32,8 +32,8 @@ function AIGraphUnitElement:update_selected(t, dt)
 		for _, id in ipairs(self._hed.graph_ids) do
 			if unit:unit_data().unit_id == id then
 				self:_draw_link({
-					g = 0.75,
 					b = 0,
+					g = 0.75,
 					r = 0,
 					from_unit = self._unit,
 					to_unit = unit
@@ -109,11 +109,11 @@ function AIGraphUnitElement:_build_panel(panel, panel_sizer)
 	panel_sizer:add(self._btn_toolbar, 0, 1, "EXPAND,LEFT")
 
 	local operations_params = {
-		name = "Operation:",
-		name_proportions = 1,
-		tooltip = "Select an operation to perform on the selected graphs",
 		sorted = true,
 		ctrlr_proportions = 2,
+		name_proportions = 1,
+		tooltip = "Select an operation to perform on the selected graphs",
+		name = "Operation:",
 		panel = panel,
 		sizer = panel_sizer,
 		options = NavigationManager.nav_states,

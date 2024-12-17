@@ -165,39 +165,39 @@ function GreedTweakData:_init_cache_items()
 			0.94
 		},
 		sounds = {
-			dialog_fail = "player_gen_lockpick_fail",
 			dialog_success = "player_gen_lock_picked",
 			dialog_enter = "player_gen_picking_lock",
 			failed = "lock_fail",
 			success = "success",
+			dialog_fail = "player_gen_lockpick_fail",
 			circles = {
 				{
-					mechanics = "lock_mechanics_a",
-					lock = "lock_a"
+					lock = "lock_a",
+					mechanics = "lock_mechanics_a"
 				},
 				{
-					mechanics = "lock_mechanics_b",
-					lock = "lock_b"
+					lock = "lock_b",
+					mechanics = "lock_mechanics_b"
 				},
 				{
-					mechanics = "lock_mechanics_c",
-					lock = "lock_c"
+					lock = "lock_c",
+					mechanics = "lock_mechanics_c"
 				}
 			}
 		}
 	}
 	self.cache_items.regular_cache_box.sequences = {
 		{
-			sequence = "chest_open_empty",
-			max_value = 0
+			max_value = 0,
+			sequence = "chest_open_empty"
 		},
 		{
-			sequence = "chest_open_half_full",
-			max_value = 0.5
+			max_value = 0.5,
+			sequence = "chest_open_half_full"
 		},
 		{
-			sequence = "chest_open_full",
-			max_value = 1
+			max_value = 1,
+			sequence = "chest_open_full"
 		}
 	}
 end

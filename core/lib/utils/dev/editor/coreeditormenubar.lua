@@ -107,16 +107,16 @@ function CoreEditor:build_menubar()
 	self._edit_menu:append_check_item("TB_SURFACE_MOVE", "Surface Move\t(" .. self:ctrl_binding("surface_move_toggle") .. ")", "Toggle surface move on and off")
 	self._edit_menu:set_checked("TB_SURFACE_MOVE", self._use_surface_move)
 	Global.frame:connect("TB_SURFACE_MOVE", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "menu_toolbar_toggle"), {
+		menu = "_edit_menu",
 		value = "_use_surface_move",
-		toolbar = "_toolbar",
-		menu = "_edit_menu"
+		toolbar = "_toolbar"
 	})
 	self._edit_menu:append_check_item("TB_SNAPPOINTS", "Use Snappoints\t(" .. self:ctrl_binding("use_snappoints_toggle") .. ")", "Toggle use of snappoints on and off")
 	self._edit_menu:set_checked("TB_SNAPPOINTS", self._use_snappoints)
 	Global.frame:connect("TB_SNAPPOINTS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "menu_toolbar_toggle"), {
+		menu = "_edit_menu",
 		value = "_use_snappoints",
-		toolbar = "_toolbar",
-		menu = "_edit_menu"
+		toolbar = "_toolbar"
 	})
 	self._edit_menu:append_separator()
 
@@ -177,8 +177,8 @@ function CoreEditor:build_menubar()
 	Global.frame:connect("GROUP", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "group"), nil)
 	Global.frame:connect("UNGROUP", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "ungroup"), nil)
 	Global.frame:connect("DEBUG_DRAW_GROUPS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "menu_toolbar_toggle"), {
-		value = "_debug_draw_groups",
-		menu = "_group_menu"
+		menu = "_group_menu",
+		value = "_debug_draw_groups"
 	})
 	Global.frame:connect("SAVE_GROUP", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "save_group"), nil)
 	Global.frame:connect("LOAD_GROUP", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "load_group"), nil)
@@ -224,8 +224,8 @@ function CoreEditor:build_menubar()
 	self._mission_menu:append_check_item("MISSION_DEBUG_DRAW_AREAS", "Draw areas during simulation", "Will draw areas while running simulation")
 	self._mission_menu:set_checked("MISSION_DEBUG_DRAW_AREAS", self._simulation_debug_areas)
 	Global.frame:connect("MISSION_DEBUG_DRAW_AREAS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "menu_toolbar_toggle"), {
-		value = "_simulation_debug_areas",
-		menu = "_mission_menu"
+		menu = "_mission_menu",
+		value = "_simulation_debug_areas"
 	})
 	self._mission_menu:append_separator()
 	self._mission_menu:append_item("CONNECT_SLAVE", "Connect Slave System", "Full Client Sync")
@@ -351,8 +351,8 @@ function CoreEditor:build_menubar()
 		vis = true
 	})
 	Global.frame:connect("HIDE HELPERS EXCEPT LIGHTS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "on_hide_helper_units"), {
-		vis = false,
-		skip_lights = true
+		skip_lights = true,
+		vis = false
 	})
 	Global.frame:connect("RENDER_EFFECTS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "toggle_render_effects"), {
 		hide_menu,
@@ -416,9 +416,9 @@ function CoreEditor:build_menubar()
 	Global.frame:connect("CHECK DUALITY", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "on_check_duality"), "")
 	Global.frame:connect("TB_MAKE_SCREENSHOT", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "on_make_screenshot"), "")
 	Global.frame:connect("TB_DRAW_OCCLUDERS", "EVT_COMMAND_MENU_SELECTED", callback(self, self, "menu_toolbar_toggle"), {
+		menu = "_debug_menu",
 		value = "_draw_occluders",
-		toolbar = "_left_upper_toolbar",
-		menu = "_debug_menu"
+		toolbar = "_left_upper_toolbar"
 	})
 	menu_bar:append(self._debug_menu, "Debug")
 

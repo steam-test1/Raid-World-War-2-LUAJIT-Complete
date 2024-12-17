@@ -86,6 +86,11 @@ action_variants.german_gasmask_shotgun = security_variant
 action_variants.german_gasmask_commander_backup = security_variant
 action_variants.german_gasmask_commander_backup_shotgun = security_variant
 action_variants.german_light_commander_backup = security_variant
+action_variants.german_light_commander_backup_kar98 = security_variant
+action_variants.german_light_commander_backup_shotgun = security_variant
+action_variants.german_heavy_commander_backup = security_variant
+action_variants.german_heavy_commander_backup_kar98 = security_variant
+action_variants.german_heavy_commander_backup_shotgun = security_variant
 action_variants.german_heavy_commander_backup = security_variant
 action_variants.german_fallschirmjager_light = security_variant
 action_variants.german_fallschirmjager_light_kar98 = security_variant
@@ -460,21 +465,21 @@ function CopMovement:_upd_actions(t)
 
 	if has_no_action and (not self._queued_actions or not next(self._queued_actions)) then
 		self:action_request({
-			body_part = 1,
-			type = "idle"
+			type = "idle",
+			body_part = 1
 		})
 	end
 
 	if not a_actions[1] and not a_actions[2] and (not self._queued_actions or not next(self._queued_actions)) and not self:chk_action_forbidden("action") then
 		if a_actions[3] then
 			self:action_request({
-				body_part = 2,
-				type = "idle"
+				type = "idle",
+				body_part = 2
 			})
 		else
 			self:action_request({
-				body_part = 1,
-				type = "idle"
+				type = "idle",
+				body_part = 1
 			})
 		end
 	end
@@ -974,8 +979,8 @@ end
 function CopMovement:sync_stance(i_stance, instant, execute_queued)
 	if execute_queued and (self._active_actions[1] and self._active_actions[1]:type() ~= "idle" or self._active_actions[2] and self._active_actions[2]:type() ~= "idle") then
 		table.insert(self._queued_actions, {
-			block_type = "walk",
 			type = "stance",
+			block_type = "walk",
 			code = i_stance,
 			instant = instant
 		})
@@ -1313,8 +1318,8 @@ function CopMovement:on_suppressed(state)
 	if Network:is_server() and state and (not self._tweak_data.allowed_poses or self._tweak_data.allowed_poses.crouch) and (not self._tweak_data.allowed_poses or self._tweak_data.allowed_poses.stand) and not self:chk_action_forbidden("walk") then
 		if state == "panic" and not self:chk_action_forbidden("act") then
 			local action_desc = {
-				clamp_to_graph = true,
 				type = "act",
+				clamp_to_graph = true,
 				body_part = 1,
 				variant = self._ext_anim.run and self._ext_anim.move_fwd and "e_so_sup_fumble_run_fwd" or "e_so_sup_fumble_inplace",
 				blocks = {
@@ -1326,10 +1331,10 @@ function CopMovement:on_suppressed(state)
 			self:action_request(action_desc)
 		elseif self._ext_anim.idle and (not self._active_actions[2] or self._active_actions[2]:type() == "idle") then
 			local action_desc = {
-				clamp_to_graph = true,
 				type = "act",
-				body_part = 1,
+				clamp_to_graph = true,
 				variant = "suppressed_reaction",
+				body_part = 1,
 				blocks = {
 					walk = -1
 				}
@@ -1338,8 +1343,8 @@ function CopMovement:on_suppressed(state)
 			self:action_request(action_desc)
 		elseif not self._ext_anim.crouch and self._tweak_data.crouch_move and (not self._tweak_data.allowed_poses or self._tweak_data.allowed_poses.crouch) then
 			local action_desc = {
-				body_part = 4,
-				type = "crouch"
+				type = "crouch",
+				body_part = 4
 			}
 
 			self:action_request(action_desc)
@@ -1411,11 +1416,11 @@ function CopMovement:damage_clbk(my_unit, damage_info)
 
 	if not lgt_hurt then
 		blocks = {
-			act = -1,
+			walk = -1,
 			aim = -1,
+			act = -1,
 			action = -1,
-			tase = -1,
-			walk = -1
+			tase = -1
 		}
 
 		if hurt_type == "bleedout" then
@@ -1953,7 +1958,7 @@ function CopMovement:load(load_data)
 	if managers.navigation:is_data_ready() then
 		self:_do_load()
 	else
-		Application:debug("[CopMovement:load] queueng cop movement load until navigation is ready")
+		Application:debug("[CopMovement:load] queuing cop movement load until navigation is ready")
 
 		self._nav_ready_listener_key = "CopMovement" .. tostring(self._unit:key())
 
@@ -2220,10 +2225,10 @@ function CopMovement:sync_action_act_start(index, blocks_hurt, clamp_to_graph, n
 		body_part = 1,
 		variant = redir_name,
 		blocks = {
-			act = -1,
-			idle = -1,
 			action = -1,
-			walk = -1
+			walk = -1,
+			idle = -1,
+			act = -1
 		},
 		start_rot = start_rot,
 		start_pos = start_pos,
@@ -2309,17 +2314,17 @@ function CopMovement:sync_action_hurt_end()
 			local action_data = {
 				client_interrupt = true,
 				type = "act",
-				body_part = 1,
 				variant = "stand",
+				body_part = 1,
 				blocks = {
+					walk = -1,
+					aim = -1,
+					light_hurt = -1,
+					action = -1,
 					heavy_hurt = -1,
 					hurt = -1,
-					action = -1,
 					stand = -1,
-					light_hurt = -1,
-					aim = -1,
-					crouch = -1,
-					walk = -1
+					crouch = -1
 				}
 			}
 			local res = CopMovement.action_request(self, action_data)

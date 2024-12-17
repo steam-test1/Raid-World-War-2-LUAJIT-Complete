@@ -93,12 +93,12 @@ function CivilianBrain:on_cool_state_changed(state)
 	if state then
 		alert_listen_filter = managers.groupai:state():get_unit_type_filter("criminals_enemies_civilians")
 		alert_types = {
-			vo_distress = true,
-			aggression = true,
 			bullet = true,
-			vo_intimidate = true,
-			explosion = true,
 			footstep = true,
+			explosion = true,
+			aggression = true,
+			vo_distress = true,
+			vo_intimidate = true,
 			vo_cbt = true
 		}
 	else
@@ -128,10 +128,10 @@ function CivilianBrain:on_hostage_move_interaction(interacting_unit, command)
 		end
 
 		local stand_action_desc = {
-			clamp_to_graph = true,
 			variant = "stand_tied",
-			body_part = 1,
-			type = "act"
+			clamp_to_graph = true,
+			type = "act",
+			body_part = 1
 		}
 		local action = self._unit:movement():action_request(stand_action_desc)
 
@@ -142,11 +142,11 @@ function CivilianBrain:on_hostage_move_interaction(interacting_unit, command)
 		self._unit:movement():set_stance("cbt", nil, true)
 
 		local follow_objective = {
-			interrupt_health = 0,
+			lose_track_dis = 2000,
 			distance = 500,
 			type = "follow",
-			lose_track_dis = 2000,
 			stance = "cbt",
+			interrupt_health = 0,
 			interrupt_dis = 0,
 			follow_unit = interacting_unit,
 			nav_seg = interacting_unit:movement():nav_tracker():nav_segment(),
@@ -167,8 +167,8 @@ function CivilianBrain:on_hostage_move_interaction(interacting_unit, command)
 		end
 
 		self:set_objective({
-			amount = 1,
 			type = "surrender",
+			amount = 1,
 			aggressor_unit = interacting_unit
 		})
 
@@ -177,10 +177,10 @@ function CivilianBrain:on_hostage_move_interaction(interacting_unit, command)
 		end
 
 		local stand_action_desc = {
-			clamp_to_graph = true,
 			variant = "drop",
-			body_part = 1,
-			type = "act"
+			clamp_to_graph = true,
+			type = "act",
+			body_part = 1
 		}
 		local action = self._unit:movement():action_request(stand_action_desc)
 

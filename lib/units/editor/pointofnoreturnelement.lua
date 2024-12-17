@@ -33,8 +33,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on easy:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -55,8 +55,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on normal:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -77,8 +77,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on hard:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -99,8 +99,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on overkill:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -121,8 +121,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on overkill 145:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -143,8 +143,8 @@ function PointOfNoReturnElement:_build_panel(panel, panel_sizer)
 		name = "Time left on overkill 290:",
 		ctrlr_proportions = 2,
 		name_proportions = 1,
-		tooltip = "Set the time left",
 		min = 1,
+		tooltip = "Set the time left",
 		floats = 0,
 		panel = panel,
 		sizer = panel_sizer,
@@ -177,8 +177,8 @@ function PointOfNoReturnElement:update_selected(t, dt, selected_unit, all_units)
 		if draw then
 			self:_draw_link({
 				g = 0,
-				b = 0.75,
 				r = 0.75,
+				b = 0.75,
 				from_unit = self._unit,
 				to_unit = unit
 			})
@@ -188,8 +188,8 @@ end
 
 function PointOfNoReturnElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		ray_type = "editor",
-		mask = 10
+		mask = 10,
+		ray_type = "editor"
 	})
 
 	if ray and ray.unit and ray.unit:name():s() == "core/units/mission_elements/trigger_area/trigger_area" then

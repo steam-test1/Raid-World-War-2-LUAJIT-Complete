@@ -150,6 +150,10 @@ function CircleBitmapGuiObject:set_center(x, y)
 	end
 end
 
+function CircleBitmapGuiObject:center()
+	return self._circle:center()
+end
+
 function CircleBitmapGuiObject:set_visible(visible)
 	self._circle:set_visible(visible)
 

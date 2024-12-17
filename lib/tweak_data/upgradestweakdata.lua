@@ -193,6 +193,27 @@ function UpgradesTweakData:_create_boost_definitions()
 
 	self:_create_definition_levels("warcry_team_movement_speed_multiplier", UpgradesTweakData.DEF_CAT_TEAM, "warcry_movement_speed_multiplier", UpgradesTweakData.UPG_CAT_PLAYER, true, self.values.team.player.warcry_movement_speed_multiplier, self.description_data_types.generic_multiplier)
 
+	self.values.player.cache_basket_pick_up_ammo_multiplier = {
+		1.12
+	}
+
+	self:_create_definition("player_cache_basket_pick_up_ammo_multiplier", UpgradesTweakData.DEF_CAT_FEATURE, "cache_basket_pick_up_ammo_multiplier", UpgradesTweakData.UPG_CAT_PLAYER, false, 1, false, self.description_data_types.generic_multiplier)
+
+	self.values.player.cache_basket_ammo_total_increase = {
+		1.15
+	}
+
+	self:_create_definition("player_cache_basket_ammo_total_increase", UpgradesTweakData.DEF_CAT_FEATURE, "cache_basket_ammo_total_increase", UpgradesTweakData.UPG_CAT_PLAYER, false, 1, false, self.description_data_types.generic_multiplier)
+
+	self.values.team.player.warcry_ammo_regeneration = {
+		1.035,
+		1.04,
+		1.045,
+		1.05
+	}
+
+	self:_create_definition_levels("warcry_team_ammo_regeneration", UpgradesTweakData.DEF_CAT_TEAM, "warcry_ammo_regeneration", UpgradesTweakData.UPG_CAT_PLAYER, true, self.values.team.player.warcry_ammo_regeneration, self.description_data_types.generic_multiplier)
+
 	self.values.player.critbrain_critical_hit_chance = {
 		1.08
 	}
@@ -726,16 +747,16 @@ function UpgradesTweakData:_create_talent_definitions()
 
 	self.medic_health_share_distance = 1500
 	self.values.player.pack_mule_ammo_total_increase = {
-		1.38
+		1.25
 	}
 
 	self:_create_definition("player_pack_mule_ammo_total_increase", UpgradesTweakData.DEF_CAT_FEATURE, "pack_mule_ammo_total_increase", UpgradesTweakData.UPG_CAT_PLAYER, false, 1, false, self.description_data_types.generic_multiplier)
 
-	self.values.player.pack_mule_pick_up_ammo_multiplier = {
-		1.21
+	self.values.player.pack_mule_equipment_quantity = {
+		1
 	}
 
-	self:_create_definition("player_pack_mule_pick_up_ammo_multiplier", UpgradesTweakData.DEF_CAT_FEATURE, "pack_mule_pick_up_ammo_multiplier", UpgradesTweakData.UPG_CAT_PLAYER, false, 1, false, self.description_data_types.generic_multiplier)
+	self:_create_definition("player_pack_mule_equipment_quantity", UpgradesTweakData.DEF_CAT_FEATURE, "pack_mule_equipment_quantity", UpgradesTweakData.UPG_CAT_PLAYER, true, 1, false, self.description_data_types.raw_value_amount)
 
 	self.values.carry.pack_mule_weight_increase = {
 		2
@@ -744,7 +765,7 @@ function UpgradesTweakData:_create_talent_definitions()
 	self:_create_definition("carry_pack_mule_weight_increase", UpgradesTweakData.DEF_CAT_FEATURE, "pack_mule_weight_increase", UpgradesTweakData.UPG_CAT_CARRY, false, 1, false, self.description_data_types.raw_value_amount)
 
 	self.values.player.pack_mule_ammo_share_team = {
-		1.13
+		1.15
 	}
 
 	self:_create_definition("player_pack_mule_ammo_share_team", UpgradesTweakData.DEF_CAT_FEATURE, "pack_mule_ammo_share_team", UpgradesTweakData.UPG_CAT_PLAYER, false, 1, false, self.description_data_types.generic_multiplier)
@@ -1558,25 +1579,25 @@ function UpgradesTweakData:_create_talent_definitions()
 	self.high_dive_land_effect = Idstring("effects/upd_skills/character/high_dive_land")
 	self.high_dive_land_decal = Idstring("explosion_std")
 	self.values.primary_weapon.anatomist_bodyshot_damage_multiplier = {
-		1.22
+		1.2
 	}
 
 	self:_create_definition("primary_weapon_anatomist_bodyshot_damage_multiplier", UpgradesTweakData.DEF_CAT_FEATURE, "anatomist_bodyshot_damage_multiplier", "primary_weapon", true, 1, false, self.description_data_types.generic_multiplier)
 
 	self.values.secondary_weapon.anatomist_headshot_damage_multiplier = {
-		1.14
+		1.2
 	}
 
 	self:_create_definition("secondary_weapon_anatomist_headshot_damage_multiplier", UpgradesTweakData.DEF_CAT_FEATURE, "anatomist_headshot_damage_multiplier", "secondary_weapon", true, 1, false, self.description_data_types.generic_multiplier)
 
 	self.values.snp.anatomist_critical_hit_chance = {
-		1.19
+		1.2
 	}
 
 	self:_create_definition("snp_anatomist_critical_hit_chance", UpgradesTweakData.DEF_CAT_FEATURE, "anatomist_critical_hit_chance", "snp", true, 1, false, self.description_data_types.generic_multiplier)
 
 	self.values.smg.anatomist_critical_hit_chance = {
-		1.08
+		1.1
 	}
 
 	self:_create_definition("smg_anatomist_critical_hit_chance", UpgradesTweakData.DEF_CAT_FEATURE, "anatomist_critical_hit_chance", "smg", true, 1, false, self.description_data_types.generic_multiplier)
@@ -1751,8 +1772,8 @@ function UpgradesTweakData:_create_raid_definitions_abilities()
 		{
 			name = 1,
 			radius = 2,
-			time = 1,
 			cooldown = 10,
+			time = 1,
 			data = 1
 		}
 	}
@@ -2849,10 +2870,10 @@ function UpgradesTweakData:_init_pd2_values()
 	self.morale_boost_reload_speed_bonus = 1.2
 	self.morale_boost_base_cooldown = 3.5
 	self.hostage_max_num = {
-		damage_dampener = 1,
-		health_regen = 1,
 		stamina = 10,
-		health = 10
+		health = 10,
+		health_regen = 1,
+		damage_dampener = 1
 	}
 	self.on_headshot_dealt_cooldown = 2
 	self.on_killshot_cooldown = 2
@@ -3467,34 +3488,34 @@ end
 
 function UpgradesTweakData:_player_definitions()
 	self.definitions.body_armor1 = {
-		name_id = "bm_armor_level_2",
+		category = "armor",
 		armor_id = "level_2",
-		category = "armor"
+		name_id = "bm_armor_level_2"
 	}
 	self.definitions.body_armor2 = {
-		name_id = "bm_armor_level_3",
+		category = "armor",
 		armor_id = "level_3",
-		category = "armor"
+		name_id = "bm_armor_level_3"
 	}
 	self.definitions.body_armor3 = {
-		name_id = "bm_armor_level_4",
+		category = "armor",
 		armor_id = "level_4",
-		category = "armor"
+		name_id = "bm_armor_level_4"
 	}
 	self.definitions.body_armor4 = {
-		name_id = "bm_armor_level_5",
+		category = "armor",
 		armor_id = "level_5",
-		category = "armor"
+		name_id = "bm_armor_level_5"
 	}
 	self.definitions.body_armor5 = {
-		name_id = "bm_armor_level_6",
+		category = "armor",
 		armor_id = "level_6",
-		category = "armor"
+		name_id = "bm_armor_level_6"
 	}
 	self.definitions.body_armor6 = {
-		name_id = "bm_armor_level_7",
+		category = "armor",
 		armor_id = "level_7",
-		category = "armor"
+		name_id = "bm_armor_level_7"
 	}
 	self.definitions.player_detection_risk_damage_multiplier = {
 		name_id = "menu_player_detection_risk_damage_multiplier",
@@ -3572,9 +3593,9 @@ function UpgradesTweakData:_player_definitions()
 		name_id = "menu_team_passive_armor_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "armor",
 			value = 1,
-			upgrade = "multiplier",
-			category = "armor"
+			upgrade = "multiplier"
 		}
 	}
 	self.definitions.player_armor_multiplier = {
@@ -3661,39 +3682,39 @@ function UpgradesTweakData:_player_definitions()
 		}
 	}
 	self.definitions.player_damage_dampener_outnumbered_strong = {
-		name_id = "menu_player_dmg_dampener_outnumbered_strong",
 		category = "temporary",
+		name_id = "menu_player_dmg_dampener_outnumbered_strong",
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "dmg_dampener_outnumbered_strong",
-			category = "temporary"
+			upgrade = "dmg_dampener_outnumbered_strong"
 		}
 	}
 	self.definitions.player_damage_dampener_close_contact_1 = {
-		name_id = "menu_player_dmg_dampener_close_contact",
 		category = "temporary",
+		name_id = "menu_player_dmg_dampener_close_contact",
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "dmg_dampener_close_contact",
-			category = "temporary"
+			upgrade = "dmg_dampener_close_contact"
 		}
 	}
 	self.definitions.player_damage_dampener_close_contact_2 = {
-		name_id = "menu_player_dmg_dampener_close_contact",
 		category = "temporary",
+		name_id = "menu_player_dmg_dampener_close_contact",
 		upgrade = {
+			category = "temporary",
 			value = 2,
-			upgrade = "dmg_dampener_close_contact",
-			category = "temporary"
+			upgrade = "dmg_dampener_close_contact"
 		}
 	}
 	self.definitions.player_damage_dampener_close_contact_3 = {
-		name_id = "menu_player_dmg_dampener_close_contact",
 		category = "temporary",
+		name_id = "menu_player_dmg_dampener_close_contact",
 		upgrade = {
+			category = "temporary",
 			value = 3,
-			upgrade = "dmg_dampener_close_contact",
-			category = "temporary"
+			upgrade = "dmg_dampener_close_contact"
 		}
 	}
 	self.definitions.player_passive_armor_multiplier_1 = {
@@ -3790,21 +3811,21 @@ function UpgradesTweakData:_player_definitions()
 		}
 	}
 	self.definitions.player_damage_multiplier_outnumbered = {
-		name_id = "menu_player_dmg_mul_outnumbered",
 		category = "temporary",
+		name_id = "menu_player_dmg_mul_outnumbered",
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "dmg_multiplier_outnumbered",
-			category = "temporary"
+			upgrade = "dmg_multiplier_outnumbered"
 		}
 	}
 	self.definitions.player_damage_dampener_outnumbered = {
-		name_id = "menu_player_dmg_damp_outnumbered",
 		category = "temporary",
+		name_id = "menu_player_dmg_damp_outnumbered",
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "dmg_dampener_outnumbered",
-			category = "temporary"
+			upgrade = "dmg_dampener_outnumbered"
 		}
 	}
 	self.definitions.player_suppression_mul_2 = {
@@ -3961,19 +3982,19 @@ function UpgradesTweakData:_player_definitions()
 		}
 	}
 	self.definitions.toolset = {
-		description_text_id = "toolset",
-		category = "equipment",
-		equipment_id = "toolset",
-		tree = 4,
-		image = "upgrades_toolset",
-		image_slice = "upgrades_toolset_slice",
-		title_id = "debug_upgrade_player_upgrade",
-		slot = 2,
-		subtitle_id = "debug_upgrade_toolset1",
-		name_id = "debug_upgrade_toolset1",
-		icon = "equipment_toolset",
 		unlock_lvl = 0,
+		image_slice = "upgrades_toolset_slice",
+		slot = 2,
+		image = "upgrades_toolset",
+		icon = "equipment_toolset",
+		subtitle_id = "debug_upgrade_toolset1",
+		category = "equipment",
+		title_id = "debug_upgrade_player_upgrade",
+		equipment_id = "toolset",
+		name_id = "debug_upgrade_toolset1",
 		step = 1,
+		tree = 4,
+		description_text_id = "toolset",
 		aquire = {
 			upgrade = "toolset1"
 		}
@@ -3984,12 +4005,12 @@ function UpgradesTweakData:_player_definitions()
 		local unlock_lvl = 3
 		local prio = i == 1 and "high"
 		self.definitions["toolset" .. i] = {
-			description_text_id = "toolset",
-			tree = 4,
-			image = "upgrades_toolset",
 			image_slice = "upgrades_toolset_slice",
-			title_id = "debug_upgrade_player_upgrade",
+			image = "upgrades_toolset",
 			icon = "equipment_toolset",
+			title_id = "debug_upgrade_player_upgrade",
+			tree = 4,
+			description_text_id = "toolset",
 			step = self.steps.player.toolset[i],
 			category = UpgradesTweakData.DEF_CAT_FEATURE,
 			subtitle_id = "debug_upgrade_toolset" .. i,
@@ -4008,66 +4029,66 @@ end
 
 function UpgradesTweakData:_trip_mine_definitions()
 	self.definitions.trip_mine = {
-		description_text_id = "trip_mine",
-		category = "equipment",
-		slot = 1,
-		equipment_id = "trip_mine",
-		tree = 2,
-		image = "upgrades_tripmines",
-		image_slice = "upgrades_tripmines_slice",
-		title_id = "debug_upgrade_new_equipment",
-		prio = "high",
-		subtitle_id = "debug_trip_mine",
-		name_id = "debug_trip_mine",
-		icon = "equipment_trip_mine",
 		unlock_lvl = 0,
-		step = 4
+		image_slice = "upgrades_tripmines_slice",
+		prio = "high",
+		image = "upgrades_tripmines",
+		slot = 1,
+		icon = "equipment_trip_mine",
+		subtitle_id = "debug_trip_mine",
+		category = "equipment",
+		title_id = "debug_upgrade_new_equipment",
+		equipment_id = "trip_mine",
+		name_id = "debug_trip_mine",
+		step = 4,
+		tree = 2,
+		description_text_id = "trip_mine"
 	}
 	self.definitions.trip_mine_quantity_increase_1 = {
 		name_id = "menu_trip_mine_quantity_increase_1",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "trip_mine",
 			value = 1,
-			upgrade = "quantity_1",
-			category = "trip_mine"
+			upgrade = "quantity_1"
 		}
 	}
 	self.definitions.trip_mine_quantity_increase_2 = {
 		name_id = "menu_trip_mine_quantity_increase_1",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "trip_mine",
 			value = 1,
-			upgrade = "quantity_2",
-			category = "trip_mine"
+			upgrade = "quantity_2"
 		}
 	}
 	self.definitions.trip_mine_quantity_increase_3 = {
 		name_id = "menu_trip_mine_quantity_increase_1",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "trip_mine",
 			value = 1,
-			upgrade = "quantity_3",
-			category = "trip_mine"
+			upgrade = "quantity_3"
 		}
 	}
 end
 
 function UpgradesTweakData:_ammo_bag_definitions()
 	self.definitions.ammo_bag = {
-		description_text_id = "ammo_bag",
-		category = "equipment",
-		slot = 1,
-		equipment_id = "ammo_bag",
-		tree = 1,
-		image = "upgrades_ammobag",
-		image_slice = "upgrades_ammobag_slice",
-		title_id = "debug_upgrade_new_equipment",
-		prio = "high",
-		subtitle_id = "debug_ammo_bag",
-		name_id = "debug_ammo_bag",
-		icon = "equipment_ammo_bag",
 		unlock_lvl = 0,
-		step = 2
+		image_slice = "upgrades_ammobag_slice",
+		prio = "high",
+		image = "upgrades_ammobag",
+		slot = 1,
+		icon = "equipment_ammo_bag",
+		subtitle_id = "debug_ammo_bag",
+		category = "equipment",
+		title_id = "debug_upgrade_new_equipment",
+		equipment_id = "ammo_bag",
+		name_id = "debug_ammo_bag",
+		step = 2,
+		tree = 1,
+		description_text_id = "ammo_bag"
 	}
 
 	for i, _ in ipairs(self.values.ammo_bag.ammo_increase) do
@@ -4075,13 +4096,13 @@ function UpgradesTweakData:_ammo_bag_definitions()
 		local unlock_lvl = 11
 		local prio = i == 1 and "high"
 		self.definitions["ammo_bag_ammo_increase" .. i] = {
-			description_text_id = "ammo_bag_increase",
-			tree = 1,
-			image = "upgrades_ammobag",
 			image_slice = "upgrades_ammobag_slice",
-			title_id = "debug_ammo_bag",
-			category = "equipment_upgrade",
+			image = "upgrades_ammobag",
 			icon = "equipment_ammo_bag",
+			category = "equipment_upgrade",
+			title_id = "debug_ammo_bag",
+			tree = 1,
+			description_text_id = "ammo_bag_increase",
 			step = self.steps.ammo_bag.ammo_increase[i],
 			name_id = "debug_upgrade_ammo_bag_ammo_increase" .. i,
 			subtitle_id = "debug_upgrade_amount_increase" .. i,
@@ -4089,8 +4110,8 @@ function UpgradesTweakData:_ammo_bag_definitions()
 			unlock_lvl = unlock_lvl,
 			prio = prio,
 			upgrade = {
-				upgrade = "ammo_increase",
 				category = "ammo_bag",
+				upgrade = "ammo_increase",
 				value = i
 			}
 		}
@@ -4099,20 +4120,20 @@ end
 
 function UpgradesTweakData:_doctor_bag_definitions()
 	self.definitions.doctor_bag = {
-		description_text_id = "doctor_bag",
-		category = "equipment",
-		slot = 1,
-		equipment_id = "doctor_bag",
-		tree = 3,
-		image = "upgrades_doctorbag",
-		image_slice = "upgrades_doctorbag_slice",
-		title_id = "debug_upgrade_new_equipment",
-		prio = "high",
-		subtitle_id = "debug_doctor_bag",
-		name_id = "debug_doctor_bag",
-		icon = "equipment_doctor_bag",
 		unlock_lvl = 2,
-		step = 5
+		image_slice = "upgrades_doctorbag_slice",
+		prio = "high",
+		image = "upgrades_doctorbag",
+		slot = 1,
+		icon = "equipment_doctor_bag",
+		subtitle_id = "debug_doctor_bag",
+		category = "equipment",
+		title_id = "debug_upgrade_new_equipment",
+		equipment_id = "doctor_bag",
+		name_id = "debug_doctor_bag",
+		step = 5,
+		tree = 3,
+		description_text_id = "doctor_bag"
 	}
 
 	for i, _ in ipairs(self.values.doctor_bag.amount_increase) do
@@ -4120,13 +4141,13 @@ function UpgradesTweakData:_doctor_bag_definitions()
 		local unlock_lvl = 3
 		local prio = i == 1 and "high"
 		self.definitions["doctor_bag_amount_increase" .. i] = {
-			description_text_id = "doctor_bag_increase",
-			tree = 3,
-			image = "upgrades_doctorbag",
 			image_slice = "upgrades_doctorbag_slice",
-			title_id = "debug_doctor_bag",
-			category = "equipment_upgrade",
+			image = "upgrades_doctorbag",
 			icon = "equipment_doctor_bag",
+			category = "equipment_upgrade",
+			title_id = "debug_doctor_bag",
+			tree = 3,
+			description_text_id = "doctor_bag_increase",
 			step = self.steps.doctor_bag.amount_increase[i],
 			name_id = "debug_upgrade_doctor_bag_amount_increase" .. i,
 			subtitle_id = "debug_upgrade_amount_increase" .. i,
@@ -4134,29 +4155,29 @@ function UpgradesTweakData:_doctor_bag_definitions()
 			unlock_lvl = unlock_lvl,
 			prio = prio,
 			upgrade = {
-				upgrade = "amount_increase",
 				category = "doctor_bag",
+				upgrade = "amount_increase",
 				value = i
 			}
 		}
 	end
 
 	self.definitions.doctor_bag_quantity = {
-		name_id = "menu_doctor_bag_quantity",
 		category = "equipment_upgrade",
+		name_id = "menu_doctor_bag_quantity",
 		upgrade = {
+			category = "doctor_bag",
 			value = 1,
-			upgrade = "quantity",
-			category = "doctor_bag"
+			upgrade = "quantity"
 		}
 	}
 	self.definitions.passive_doctor_bag_interaction_speed_multiplier = {
 		name_id = "menu_passive_doctor_bag_interaction_speed_multiplier",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "doctor_bag",
 			value = 1,
-			upgrade = "interaction_speed_multiplier",
-			category = "doctor_bag"
+			upgrade = "interaction_speed_multiplier"
 		}
 	}
 end
@@ -4166,18 +4187,18 @@ function UpgradesTweakData:_weapon_upgrades_definitions()
 		name_id = "menu_assault_rifle_move_spread_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "assault_rifle",
 			value = 1,
-			upgrade = "move_spread_index_addend",
-			category = "assault_rifle"
+			upgrade = "move_spread_index_addend"
 		}
 	}
 	self.definitions.snp_move_spread_index_addend = {
 		name_id = "menu_snp_move_spread_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "snp",
 			value = 1,
-			upgrade = "move_spread_index_addend",
-			category = "snp"
+			upgrade = "move_spread_index_addend"
 		}
 	}
 	self.definitions.weapon_silencer_spread_index_addend = {
@@ -4193,27 +4214,27 @@ function UpgradesTweakData:_weapon_upgrades_definitions()
 		name_id = "menu_pistol_spread_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "pistol",
 			value = 1,
-			upgrade = "spread_index_addend",
-			category = "pistol"
+			upgrade = "spread_index_addend"
 		}
 	}
 	self.definitions.akimbo_spread_index_addend = {
 		name_id = "menu_akimbo_spread_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "spread_index_addend",
-			category = "akimbo"
+			upgrade = "spread_index_addend"
 		}
 	}
 	self.definitions.shotgun_hip_fire_spread_index_addend = {
 		name_id = "menu_shotgun_hip_fire_spread_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "shotgun",
 			value = 1,
-			upgrade = "hip_fire_spread_index_addend",
-			category = "shotgun"
+			upgrade = "hip_fire_spread_index_addend"
 		}
 	}
 	self.definitions.weapon_hip_fire_spread_index_addend = {
@@ -4238,63 +4259,63 @@ function UpgradesTweakData:_weapon_upgrades_definitions()
 		name_id = "menu_shotgun_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "shotgun",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "shotgun"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.assault_rifle_recoil_index_addend = {
 		name_id = "menu_assault_rifle_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "assault_rifle",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "assault_rifle"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.lmg_recoil_index_addend = {
 		name_id = "menu_lmg_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "lmg",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "lmg"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.snp_recoil_index_addend = {
 		name_id = "menu_snp_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "snp",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "snp"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.akimbo_recoil_index_addend_1 = {
 		name_id = "menu_akimbo_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "akimbo"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.akimbo_recoil_index_addend_2 = {
 		name_id = "menu_akimbo_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "akimbo",
 			value = 2,
-			upgrade = "recoil_index_addend",
-			category = "akimbo"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.akimbo_recoil_index_addend_3 = {
 		name_id = "menu_akimbo_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "akimbo",
 			value = 3,
-			upgrade = "recoil_index_addend",
-			category = "akimbo"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.weapon_silencer_recoil_index_addend = {
@@ -4457,18 +4478,18 @@ function UpgradesTweakData:_team_definitions()
 		name_id = "menu_team_pistol_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "pistol",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "pistol"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.team_akimbo_recoil_index_addend = {
 		name_id = "menu_team_akimbo_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "recoil_index_addend",
-			category = "akimbo"
+			upgrade = "recoil_index_addend"
 		}
 	}
 	self.definitions.team_weapon_recoil_index_addend = {
@@ -4484,18 +4505,18 @@ function UpgradesTweakData:_team_definitions()
 		name_id = "menu_team_pistol_suppression_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "pistol",
 			value = 1,
-			upgrade = "suppression_recoil_index_addend",
-			category = "pistol"
+			upgrade = "suppression_recoil_index_addend"
 		}
 	}
 	self.definitions.team_akimbo_suppression_recoil_index_addend = {
 		name_id = "menu_team_akimbo_suppression_recoil_index_addend",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "suppression_recoil_index_addend",
-			category = "akimbo"
+			upgrade = "suppression_recoil_index_addend"
 		}
 	}
 	self.definitions.team_weapon_suppression_recoil_index_addend = {
@@ -4511,36 +4532,36 @@ function UpgradesTweakData:_team_definitions()
 		name_id = "menu_team_pistol_suppression_recoil_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "pistol",
 			value = 1,
-			upgrade = "suppression_recoil_multiplier",
-			category = "pistol"
+			upgrade = "suppression_recoil_multiplier"
 		}
 	}
 	self.definitions.team_akimbo_suppression_recoil_multiplier = {
 		name_id = "menu_team_akimbo_suppression_recoil_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "suppression_recoil_multiplier",
-			category = "akimbo"
+			upgrade = "suppression_recoil_multiplier"
 		}
 	}
 	self.definitions.team_pistol_recoil_multiplier = {
 		name_id = "menu_team_pistol_recoil_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "pistol",
 			value = 1,
-			upgrade = "recoil_multiplier",
-			category = "pistol"
+			upgrade = "recoil_multiplier"
 		}
 	}
 	self.definitions.team_akimbo_recoil_multiplier = {
 		name_id = "menu_team_akimbo_recoil_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "akimbo",
 			value = 1,
-			upgrade = "recoil_multiplier",
-			category = "akimbo"
+			upgrade = "recoil_multiplier"
 		}
 	}
 	self.definitions.team_weapon_suppression_recoil_multiplier = {
@@ -4565,63 +4586,63 @@ function UpgradesTweakData:_team_definitions()
 		name_id = "menu_team_xp_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "xp",
 			value = 1,
-			upgrade = "multiplier",
-			category = "xp"
+			upgrade = "multiplier"
 		}
 	}
 	self.definitions.team_stamina_multiplier = {
 		name_id = "menu_team_stamina_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "stamina",
 			value = 1,
-			upgrade = "multiplier",
-			category = "stamina"
+			upgrade = "multiplier"
 		}
 	}
 	self.definitions.team_passive_stamina_multiplier_1 = {
 		name_id = "menu_team_stamina_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "stamina",
 			value = 1,
-			upgrade = "passive_multiplier",
-			category = "stamina"
+			upgrade = "passive_multiplier"
 		}
 	}
 	self.definitions.team_passive_stamina_multiplier_2 = {
 		name_id = "menu_team_stamina_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "stamina",
 			value = 2,
-			upgrade = "passive_multiplier",
-			category = "stamina"
+			upgrade = "passive_multiplier"
 		}
 	}
 	self.definitions.team_passive_health_multiplier = {
 		name_id = "menu_team_health_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "health",
 			value = 1,
-			upgrade = "passive_multiplier",
-			category = "health"
+			upgrade = "passive_multiplier"
 		}
 	}
 	self.definitions.team_hostage_health_multiplier = {
 		name_id = "menu_team_hostage_health_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "health",
 			value = 1,
-			upgrade = "hostage_multiplier",
-			category = "health"
+			upgrade = "hostage_multiplier"
 		}
 	}
 	self.definitions.team_hostage_stamina_multiplier = {
 		name_id = "menu_team_hostage_stamina_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "stamina",
 			value = 1,
-			upgrade = "hostage_multiplier",
-			category = "stamina"
+			upgrade = "hostage_multiplier"
 		}
 	}
 	self.definitions.team_move_spread_multiplier = {
@@ -4637,96 +4658,96 @@ function UpgradesTweakData:_team_definitions()
 		name_id = "menu_team_hostage_damage_dampener_multiplier",
 		category = UpgradesTweakData.DEF_CAT_TEAM,
 		upgrade = {
+			category = "damage_dampener",
 			value = 1,
-			upgrade = "hostage_multiplier",
-			category = "damage_dampener"
+			upgrade = "hostage_multiplier"
 		}
 	}
 end
 
 function UpgradesTweakData:_temporary_definitions()
 	self.definitions.temporary_revive_health_boost = {
-		name_id = "menu_temporary_revive_health_boost",
 		category = "temporary",
+		name_id = "menu_temporary_revive_health_boost",
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "revive_health_boost",
-			category = "temporary"
+			upgrade = "revive_health_boost"
 		}
 	}
 	self.definitions.temporary_passive_revive_damage_reduction_1 = {
 		name_id = "menu_passive_revive_damage_reduction_1",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "temporary",
 			value = 1,
-			upgrade = "passive_revive_damage_reduction_1",
-			category = "temporary"
+			upgrade = "passive_revive_damage_reduction_1"
 		}
 	}
 	self.definitions.temporary_passive_revive_damage_reduction_2 = {
 		name_id = "menu_passive_revive_damage_reduction",
 		category = UpgradesTweakData.DEF_CAT_FEATURE,
 		upgrade = {
+			category = "temporary",
 			value = 2,
-			upgrade = "passive_revive_damage_reduction",
-			category = "temporary"
+			upgrade = "passive_revive_damage_reduction"
 		}
 	}
 end
 
 function UpgradesTweakData:_shape_charge_definitions()
 	self.definitions.shape_charge = {
-		name_id = "menu_shape_charge",
+		category = "equipment",
 		equipment_id = "shape_charge",
-		category = "equipment"
+		name_id = "menu_shape_charge"
 	}
 end
 
 function UpgradesTweakData:_first_aid_kit_definitions()
 	self.definitions.first_aid_kit = {
-		name_id = "menu_equipment_first_aid_kit",
+		category = "equipment",
 		slot = 1,
 		equipment_id = "first_aid_kit",
-		category = "equipment"
+		name_id = "menu_equipment_first_aid_kit"
 	}
 	self.definitions.first_aid_kit_quantity_increase_1 = {
 		incremental = true,
-		name_id = "menu_first_aid_kit_quantity_1",
 		category = "equipment_upgrade",
+		name_id = "menu_first_aid_kit_quantity_1",
 		upgrade = {
+			category = "first_aid_kit",
 			value = 1,
-			upgrade = "quantity",
-			category = "first_aid_kit"
+			upgrade = "quantity"
 		}
 	}
 	self.definitions.first_aid_kit_quantity_increase_2 = {
 		incremental = true,
-		name_id = "menu_first_aid_kit_quantity_2",
 		category = "equipment_upgrade",
+		name_id = "menu_first_aid_kit_quantity_2",
 		upgrade = {
+			category = "first_aid_kit",
 			value = 1,
-			upgrade = "quantity",
-			category = "first_aid_kit"
+			upgrade = "quantity"
 		}
 	}
 	self.definitions.first_aid_kit_deploy_time_multiplier = {
 		incremental = true,
-		name_id = "menu_first_aid_kit_deploy_time_multiplier",
 		category = "equipment_upgrade",
+		name_id = "menu_first_aid_kit_deploy_time_multiplier",
 		upgrade = {
+			category = "first_aid_kit",
 			value = 1,
-			upgrade = "deploy_time_multiplier",
-			category = "first_aid_kit"
+			upgrade = "deploy_time_multiplier"
 		}
 	}
 	self.definitions.first_aid_kit_damage_reduction_upgrade = {
 		incremental = true,
-		name_id = "menu_first_aid_kit_damage_reduction_upgrade",
 		category = "equipment_upgrade",
+		name_id = "menu_first_aid_kit_damage_reduction_upgrade",
 		upgrade = {
+			category = "first_aid_kit",
 			value = 1,
-			upgrade = "damage_reduction_upgrade",
-			category = "first_aid_kit"
+			upgrade = "damage_reduction_upgrade"
 		}
 	}
 end

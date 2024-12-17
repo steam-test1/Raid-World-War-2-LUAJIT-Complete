@@ -41,9 +41,9 @@ function FlamerTank:detonate(in_pos, range, damage, player_damage, attacker_unit
 		end
 
 		managers.explosion:detect_and_give_dmg({
+			no_raycast_check_characters = true,
 			curve_pow = 3,
 			ignite_character = true,
-			no_raycast_check_characters = true,
 			hit_pos = pos,
 			range = range,
 			collision_slotmask = managers.slot:get_mask("explosion_targets"),

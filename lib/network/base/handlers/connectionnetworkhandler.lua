@@ -956,9 +956,9 @@ function ConnectionNetworkHandler:sync_picked_up_loot_values(picked_up_current_l
 	managers.lootdrop:set_picked_up_current_leg(picked_up_current_leg)
 	managers.lootdrop:set_picked_up_total(picked_up_total)
 	managers.notification:add_notification({
+		shelf_life = 5,
 		id = "hud_hint_grabbed_nazi_gold",
 		duration = 2,
-		shelf_life = 5,
 		notification_type = HUDNotification.DOG_TAG,
 		acquired = picked_up_current_leg,
 		total = picked_up_total

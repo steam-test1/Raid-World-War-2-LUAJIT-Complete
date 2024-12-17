@@ -141,8 +141,8 @@ function CivilianLogicSurrender.queued_update(rubbish, data)
 	if my_data.submission_meter == 0 and not data.is_tied and (not data.unit:anim_data().react_enter or not not data.unit:anim_data().idle) then
 		if data.unit:anim_data().drop then
 			local new_action = {
-				variant = "stand",
 				body_part = 1,
+				variant = "stand",
 				type = "act"
 			}
 
@@ -193,15 +193,15 @@ function CivilianLogicSurrender.on_tied(data, aggressor_unit, not_tied)
 		data.unit:character_damage():set_pickup(nil)
 	else
 		local action_data = {
-			variant = "tied",
 			body_part = 1,
+			variant = "tied",
 			type = "act",
 			blocks = {
-				heavy_hurt = -1,
+				walk = -1,
 				hurt_sick = -1,
+				heavy_hurt = -1,
 				hurt = -1,
-				light_hurt = -1,
-				walk = -1
+				light_hurt = -1
 			}
 		}
 		local action_res = data.unit:brain():action_request(action_data)

@@ -29,16 +29,16 @@ function SpecializationBoxGui:_create_text_box(ws, title, text, content_data, co
 	local points_present = math.min(content_data.points_present, available_points)
 	local conversion_rate_number = math.round(xp_present / points_present)
 	local small_text = {
-		text = "",
-		blend_mode = "add",
 		layer = 1,
+		blend_mode = "add",
+		text = "",
 		font = tweak_data.menu.pd2_small_font,
 		font_size = tweak_data.menu.pd2_small_font_size
 	}
 	local medium_text = {
-		text = "",
-		blend_mode = "add",
 		layer = 1,
+		blend_mode = "add",
+		text = "",
 		font = tweak_data.menu.pd2_medium_font,
 		font_size = tweak_data.menu.pd2_medium_font_size
 	}
@@ -59,9 +59,9 @@ function SpecializationBoxGui:_create_text_box(ws, title, text, content_data, co
 	progress_bg:set_w(self._scroll_panel:w() - progress_bg:left() - 5)
 
 	local progress_bar = self._scroll_panel:rect({
+		layer = 2,
 		alpha = 1,
 		blend_mode = "add",
-		layer = 2,
 		color = Color.white
 	})
 
@@ -72,9 +72,9 @@ function SpecializationBoxGui:_create_text_box(ws, title, text, content_data, co
 	progress_bar:set_center_y(progress_bg:center_y())
 
 	local progress_end = self._scroll_panel:rect({
+		layer = 3,
 		alpha = 1,
 		blend_mode = "add",
-		layer = 3,
 		color = Color.white
 	})
 
@@ -169,12 +169,12 @@ function SpecializationBoxGui:_create_text_box(ws, title, text, content_data, co
 	self._scroll_panel:set_y(math.round(self._scroll_panel:y()))
 
 	self._anim_data = {
-		progress_width = 0,
-		start_points_present = 0,
 		points_present = 0,
 		goto_end = false,
-		start_progress_width = 0,
+		start_points_present = 0,
 		end_xp_present = 0,
+		progress_width = 0,
+		start_progress_width = 0,
 		progress_bar = progress_bar,
 		end_progress_width = progress_end:right() - progress_bar:left(),
 		exp_count_text = exp_count_text,

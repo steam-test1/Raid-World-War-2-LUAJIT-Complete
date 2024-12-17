@@ -92,13 +92,13 @@ function RaidMenuCreditsGui:_build_credits_panel(file)
 
 			local height = font_size + 5
 			local text_field = self._credits_panel:text({
-				vertical = "top",
-				wrap = true,
 				align = "center",
 				word_wrap = true,
-				halign = "left",
-				x = 0,
+				wrap = true,
 				layer = 3,
+				x = 0,
+				vertical = "top",
+				halign = "left",
 				text = data.text,
 				y = ypos,
 				w = text_width,

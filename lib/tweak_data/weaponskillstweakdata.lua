@@ -551,8 +551,8 @@ function WeaponSkillsTweakData:_init_geco_skill_tree(tweak_data)
 	self.skill_trees.geco[4] = {
 		{
 			{
-				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				value = 8,
+				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				challenge_briefing_id = "weapon_skill_kill_within_range_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_WIDER_SPREAD,
 				challenge_tasks = {
@@ -612,8 +612,8 @@ function WeaponSkillsTweakData:_init_geco_skill_tree(tweak_data)
 							300
 						},
 						modifiers = {
-							headshot = true,
 							hip_fire = true,
+							headshot = true,
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
@@ -1305,8 +1305,8 @@ function WeaponSkillsTweakData:_init_thompson_skill_tree(tweak_data)
 							11
 						},
 						modifiers = {
-							headshot = true,
 							hip_fire = true,
+							headshot = true,
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
@@ -1319,8 +1319,8 @@ function WeaponSkillsTweakData:_init_thompson_skill_tree(tweak_data)
 		{
 			{
 				cost = 6,
-				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				value = 5,
+				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				challenge_briefing_id = "weapon_skill_steelsight_kill_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
 				weapon_parts = {
@@ -1346,8 +1346,8 @@ function WeaponSkillsTweakData:_init_thompson_skill_tree(tweak_data)
 		{
 			{
 				cost = 6,
-				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				value = 4,
+				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				challenge_briefing_id = "weapon_skill_kill_specials_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
 				weapon_parts = {
@@ -2065,8 +2065,8 @@ function WeaponSkillsTweakData:_init_sten_skill_tree(tweak_data)
 							11
 						},
 						modifiers = {
-							headshot = true,
 							hip_fire = true,
+							headshot = true,
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
@@ -2100,8 +2100,8 @@ function WeaponSkillsTweakData:_init_sten_skill_tree(tweak_data)
 		{
 			{
 				cost = 1,
-				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				value = 4,
+				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				challenge_briefing_id = "weapon_skill_kill_specials_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
 				weapon_parts = {
@@ -2130,8 +2130,8 @@ function WeaponSkillsTweakData:_init_sten_skill_tree(tweak_data)
 		{
 			{
 				cost = 6,
-				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				value = 4,
+				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				challenge_briefing_id = "weapon_skill_steelsight_kill_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
 				weapon_parts = {
@@ -3074,8 +3074,8 @@ function WeaponSkillsTweakData:_init_garand_skill_tree(tweak_data)
 		{
 			{
 				cost = 6,
-				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				value = 4,
+				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				challenge_briefing_id = "weapon_skill_kill_specials_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
 				weapon_parts = {
@@ -3104,8 +3104,8 @@ function WeaponSkillsTweakData:_init_garand_skill_tree(tweak_data)
 		{
 			{
 				cost = 8,
-				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				value = 2,
+				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				challenge_briefing_id = "weapon_skill_steelsight_kill_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
 				weapon_parts = {
@@ -3415,8 +3415,8 @@ function WeaponSkillsTweakData:_init_garand_golden_skill_tree(tweak_data)
 		{
 			{
 				cost = 6,
-				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				value = 4,
+				challenge_done_text_id = "weapon_skill_kill_specials_completed",
 				challenge_briefing_id = "weapon_skill_kill_specials_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_TIGHTER_SPREAD,
 				weapon_parts = {
@@ -3445,8 +3445,8 @@ function WeaponSkillsTweakData:_init_garand_golden_skill_tree(tweak_data)
 		{
 			{
 				cost = 8,
-				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				value = 2,
+				challenge_done_text_id = "weapon_skill_steelsight_kill_completed",
 				challenge_briefing_id = "weapon_skill_steelsight_kill_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_INCREASE_MAGAZINE,
 				weapon_parts = {
@@ -4494,8 +4494,8 @@ function WeaponSkillsTweakData:_init_m1912_skill_tree(tweak_data)
 							300
 						},
 						modifiers = {
-							headshot = true,
 							hip_fire = true,
+							headshot = true,
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
@@ -4508,8 +4508,8 @@ function WeaponSkillsTweakData:_init_m1912_skill_tree(tweak_data)
 		{
 			{
 				cost = 4,
-				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				value = 8,
+				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				challenge_briefing_id = "weapon_skill_kill_within_range_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_WIDER_SPREAD,
 				weapon_parts = {
@@ -4786,8 +4786,8 @@ function WeaponSkillsTweakData:_init_ithaca_skill_tree(tweak_data)
 							300
 						},
 						modifiers = {
-							headshot = true,
 							hip_fire = true,
+							headshot = true,
 							damage_type = WeaponTweakData.DAMAGE_TYPE_BULLET
 						}
 					}
@@ -4800,8 +4800,8 @@ function WeaponSkillsTweakData:_init_ithaca_skill_tree(tweak_data)
 		{
 			{
 				cost = 4,
-				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				value = 8,
+				challenge_done_text_id = "weapon_skill_kill_within_range_completed",
 				challenge_briefing_id = "weapon_skill_kill_within_range_briefing",
 				skill_name = WeaponSkillsTweakData.SKILL_WIDER_SPREAD,
 				weapon_parts = {

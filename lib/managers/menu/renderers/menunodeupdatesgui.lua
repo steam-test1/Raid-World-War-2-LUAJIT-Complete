@@ -165,11 +165,11 @@ function MenuNodeUpdatesGui:setup()
 
 	if MenuBackdropGUI then
 		local bg_text = panel:text({
+			layer = -1,
 			vertical = "top",
-			alpha = 0.4,
 			align = "left",
 			rotation = 360,
-			layer = -1,
+			alpha = 0.4,
 			text = title_text,
 			font_size = tweak_data.menu.pd2_massive_font_size,
 			font = tweak_data.menu.pd2_massive_font,
@@ -182,11 +182,11 @@ function MenuNodeUpdatesGui:setup()
 
 		if managers.menu:is_pc_controller() then
 			local bg_back = panel:text({
+				layer = -1,
 				vertical = "bottom",
-				alpha = 0.4,
 				align = "right",
 				rotation = 360,
-				layer = -1,
+				alpha = 0.4,
 				text = managers.localization:to_upper_text("menu_back"),
 				font_size = tweak_data.menu.pd2_massive_font_size,
 				font = tweak_data.menu.pd2_massive_font,
@@ -215,9 +215,9 @@ function MenuNodeUpdatesGui:setup()
 	self._previous_content_updates = previous_updates
 	self._num_previous_updates = num_previous_updates
 	local latest_update_panel = panel:panel({
-		name = "lastest_content_update",
 		y = 70,
 		x = 0,
+		name = "lastest_content_update",
 		w = panel:w() / 2,
 		h = panel:w() / 4
 	})
@@ -290,9 +290,9 @@ function MenuNodeUpdatesGui:setup()
 		x = self.PADDING
 	})
 	local desc_text = latest_desc_panel:text({
-		name = "desc_text",
-		wrap = true,
 		word_wrap = true,
+		wrap = true,
+		name = "desc_text",
 		text = desc_string,
 		font = tweak_data.menu.pd2_small_font,
 		font_size = tweak_data.menu.pd2_small_font_size,
@@ -321,10 +321,10 @@ function MenuNodeUpdatesGui:setup()
 
 		if self._tweak_data.button.text_id then
 			local text = top_button:text({
-				vertical = "top",
 				halign = "right",
-				align = "right",
 				valign = "top",
+				vertical = "top",
+				align = "right",
 				text = managers.localization:to_upper_text(self._tweak_data.button.text_id),
 				font_size = tweak_data.menu.pd2_medium_font_size,
 				font = tweak_data.menu.pd2_medium_font,
@@ -341,8 +341,8 @@ function MenuNodeUpdatesGui:setup()
 
 		if self._tweak_data.button.image then
 			local bitmap = top_button:bitmap({
-				valign = "top",
 				halign = "right",
+				valign = "top",
 				texture = self._tweak_data.button.image,
 				color = tweak_data.screen_colors.button_stage_3
 			})
@@ -361,8 +361,8 @@ function MenuNodeUpdatesGui:setup()
 
 	local small_width = w / num_previous_updates - self.PADDING * 2
 	local previous_updates_panel = panel:panel({
-		name = "previous_content_updates",
 		x = 0,
+		name = "previous_content_updates",
 		w = w,
 		h = small_width / 2 + self.PADDING * 2,
 		y = math.max(latest_update_panel:bottom(), latest_desc_panel:bottom()) + 30
@@ -461,16 +461,16 @@ function MenuNodeUpdatesGui:setup()
 			h = tweak_data.menu.pd2_medium_font_size
 		})
 		local prev_text = self._prev_page:text({
-			name = "text_obj",
 			vertical = "center",
+			name = "text_obj",
 			align = "center",
 			text = managers.menu:is_pc_controller() and "<" or managers.localization:get_default_macro("BTN_BOTTOM_L"),
 			font = tweak_data.menu.pd2_medium_font,
 			font_size = tweak_data.menu.pd2_medium_font_size
 		})
 		local next_text = self._next_page:text({
-			name = "text_obj",
 			vertical = "center",
+			name = "text_obj",
 			align = "center",
 			text = managers.menu:is_pc_controller() and ">" or managers.localization:get_default_macro("BTN_BOTTOM_R"),
 			font = tweak_data.menu.pd2_medium_font,

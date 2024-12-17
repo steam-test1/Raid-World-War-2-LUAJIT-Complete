@@ -44,8 +44,8 @@ function RaidMenuOptionsControls:_layout_controls()
 	}
 	self._btn_keybinding = self._root_panel:long_tertiary_button(previous_params)
 	previous_params = {
-		name = "slider_look_sensitivity_horizontal",
 		value_step = 1,
+		name = "slider_look_sensitivity_horizontal",
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_look_sensitivity_horizontal")),
 		x = start_x,
@@ -58,8 +58,8 @@ function RaidMenuOptionsControls:_layout_controls()
 	}
 	self._progress_bar_menu_camera_sensitivity_horizontal = self._root_panel:slider(previous_params)
 	previous_params = {
-		name = "slider_look_sensitivity_vertical",
 		value_step = 1,
+		name = "slider_look_sensitivity_vertical",
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_look_sensitivity_vertical")),
 		x = start_x,
@@ -72,8 +72,8 @@ function RaidMenuOptionsControls:_layout_controls()
 	}
 	self._progress_bar_menu_camera_sensitivity_vertical = self._root_panel:slider(previous_params)
 	previous_params = {
-		name = "slider_aiming_sensitivity_horizontal",
 		value_step = 1,
+		name = "slider_aiming_sensitivity_horizontal",
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_aiming_sensitivity_horizontal")),
 		x = start_x,
@@ -86,8 +86,8 @@ function RaidMenuOptionsControls:_layout_controls()
 	}
 	self._progress_bar_menu_camera_zoom_sensitivity_horizontal = self._root_panel:slider(previous_params)
 	previous_params = {
-		name = "slider_aiming_sensitivity_vertical",
 		value_step = 1,
+		name = "slider_aiming_sensitivity_vertical",
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_aiming_sensitivity_vertical")),
 		x = start_x,
@@ -216,9 +216,9 @@ function RaidMenuOptionsControls:_layout_controls()
 	}
 	self._toggle_menu_controller_southpaw = self._root_panel:toggle_button(previous_params)
 	local default_controls_params = {
-		name = "default_controls",
 		y = 832,
 		x = 1472,
+		name = "default_controls",
 		text = utf8.to_upper(managers.localization:text("menu_options_controls_default")),
 		on_click_callback = callback(self, self, "on_click_default_controls"),
 		layer = RaidGuiBase.FOREGROUND_LAYER

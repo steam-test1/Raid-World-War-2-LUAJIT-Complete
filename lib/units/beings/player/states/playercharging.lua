@@ -226,6 +226,9 @@ function PlayerCharging:interaction_blocked()
 	return true
 end
 
+function PlayerCharging:_start_action_ducking(t)
+end
+
 function PlayerCharging:_get_max_walk_speed(t)
 	local speed_tweak = self._tweak_data.movement.speed
 

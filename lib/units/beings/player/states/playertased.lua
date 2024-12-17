@@ -341,15 +341,15 @@ function PlayerTased:_register_revive_SO()
 	local objective = {
 		scan = true,
 		destroy_clbk_key = false,
-		type = "follow",
 		called = true,
+		type = "follow",
 		follow_unit = self._unit,
 		nav_seg = self._unit:movement():nav_tracker():nav_segment()
 	}
 	local so_descriptor = {
+		search_dis_sq = 25000000,
 		interval = 6,
 		chance_inc = 0,
-		search_dis_sq = 25000000,
 		base_chance = 1,
 		usage_amount = 1,
 		AI_group = "friendlies",

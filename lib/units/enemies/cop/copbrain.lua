@@ -79,7 +79,11 @@ logic_variants.german_gasmask_shotgun = security_variant
 logic_variants.german_gasmask_commander_backup = security_variant
 logic_variants.german_gasmask_commander_backup_shotgun = security_variant
 logic_variants.german_light_commander_backup = security_variant
+logic_variants.german_light_commander_backup_kar98 = security_variant
+logic_variants.german_light_commander_backup_shotgun = security_variant
 logic_variants.german_heavy_commander_backup = security_variant
+logic_variants.german_heavy_commander_backup_kar98 = security_variant
+logic_variants.german_heavy_commander_backup_shotgun = security_variant
 logic_variants.german_fallschirmjager_light = security_variant
 logic_variants.german_fallschirmjager_light_kar98 = security_variant
 logic_variants.german_fallschirmjager_light_shotgun = security_variant
@@ -203,7 +207,7 @@ function CopBrain:post_init()
 		debug_pause_unit(self._unit, "[CopBrain:post_init] character missing contour extension", self._unit)
 	end
 
-	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_ATTACK_ONLY_IN_AIR) and self._unit:damage() then
+	if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_PUMKIN_HEADS) and self._unit:damage() then
 		self._unit:damage():has_then_run_sequence_simple("halloween_2017")
 	end
 end
@@ -596,8 +600,8 @@ function CopBrain:cancel_trade()
 
 	if self._logic_data.is_converted then
 		local action_data = {
-			body_part = 4,
-			type = "stand"
+			type = "stand",
+			body_part = 4
 		}
 
 		self:action_request(action_data)
@@ -882,14 +886,14 @@ function CopBrain:on_cool_state_changed(state)
 	if state then
 		alert_listen_filter = managers.groupai:state():get_unit_type_filter("criminals_enemies_civilians")
 		alert_types = {
-			vo_distress = true,
-			fire = true,
-			bullet = true,
-			vo_intimidate = true,
-			explosion = true,
-			footstep = true,
 			aggression = true,
-			vo_cbt = true
+			vo_distress = true,
+			vo_intimidate = true,
+			vo_cbt = true,
+			bullet = true,
+			footstep = true,
+			fire = true,
+			explosion = true
 		}
 
 		if self._logic_data and self._logic_data.internal_data.vision_cool then
@@ -900,10 +904,10 @@ function CopBrain:on_cool_state_changed(state)
 	else
 		alert_listen_filter = managers.groupai:state():get_unit_type_filter("criminal")
 		alert_types = {
-			explosion = true,
-			fire = true,
 			aggression = true,
-			bullet = true
+			bullet = true,
+			fire = true,
+			explosion = true
 		}
 
 		if self._logic_data then
@@ -1038,15 +1042,15 @@ function CopBrain:convert_to_criminal(mastermind_criminal)
 
 	local action_data = {
 		clamp_to_graph = true,
-		type = "act",
 		body_part = 1,
+		type = "act",
 		variant = "attached_collar_enter",
 		blocks = {
-			heavy_hurt = -1,
 			hurt = -1,
 			action = -1,
-			light_hurt = -1,
-			walk = -1
+			walk = -1,
+			heavy_hurt = -1,
+			light_hurt = -1
 		}
 	}
 

@@ -40,8 +40,8 @@ function EnableSoundEnvironmentElement:update_selected(t, dt)
 		for _, name in ipairs(self._hed.elements) do
 			if area:name() == name then
 				self:_draw_link({
-					g = 0.5,
 					b = 1,
+					g = 0.5,
 					r = 0.9,
 					from_unit = self._unit,
 					to_unit = area:unit()

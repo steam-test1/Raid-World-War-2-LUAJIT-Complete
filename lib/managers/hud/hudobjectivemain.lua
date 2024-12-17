@@ -67,8 +67,8 @@ function HUDObjectiveMain:_create_timer()
 
 	local timer_fill_params = {
 		name = "timer_fill",
-		visible = false,
 		render_template = "VertexColorTexturedRadial",
+		visible = false,
 		texture = tweak_data.gui.icons[HUDObjectiveMain.TIMER_FILL_ICON].texture,
 		texture_rect = {
 			tweak_data.gui:icon_w(HUDObjectiveMain.TIMER_FILL_ICON),
@@ -86,13 +86,13 @@ function HUDObjectiveMain:_create_timer()
 	self._timer_fill:set_center_y(self._timer_panel:h() / 2)
 
 	local timer_minutes_text_params = {
-		vertical = "center",
-		name = "minute_text",
-		visible = false,
-		align = "center",
-		text = "00:00",
 		halign = "center",
+		text = "00:00",
+		vertical = "center",
+		align = "center",
 		valign = "center",
+		visible = false,
+		name = "minute_text",
 		font = HUDObjectiveMain.AMOUNT_TEXT_FONT,
 		font_size = HUDObjectiveMain.AMOUNT_TEXT_FONT_SIZE,
 		layer = self._timer_fill:layer() + 1
@@ -107,12 +107,12 @@ function HUDObjectiveMain:_create_timer()
 
 	local timer_seconds_text_params = {
 		vertical = "center",
-		name = "seconds_text",
-		visible = false,
-		align = "center",
 		text = "00",
-		halign = "center",
+		align = "center",
 		valign = "center",
+		halign = "center",
+		visible = false,
+		name = "seconds_text",
 		font = HUDObjectiveMain.TIMER_SECONDS_FONT,
 		font_size = HUDObjectiveMain.TIMER_SECONDS_FONT_SIZE,
 		layer = self._timer_fill:layer() + 1

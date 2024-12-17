@@ -116,7 +116,9 @@ function Warcry:activate()
 		})
 	end
 
-	self._local_player:character_damage():set_health_effects_blocked(true)
+	if alive(self._local_player) then
+		self._local_player:character_damage():set_health_effects_blocked(true)
+	end
 end
 
 function Warcry:deactivate()
@@ -136,7 +138,9 @@ function Warcry:deactivate()
 		managers.warcry:set_warcry_post_effect(ids_empty)
 	end
 
-	self._local_player:character_damage():set_health_effects_blocked(false)
+	if alive(self._local_player) then
+		self._local_player:character_damage():set_health_effects_blocked(false)
+	end
 
 	if self._tweak_data.activation_spawn_unit and alive(self._activation_spawned_unit) then
 		if self._activation_spawned_unit:damage() then

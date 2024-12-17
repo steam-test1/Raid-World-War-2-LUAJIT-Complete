@@ -21,10 +21,10 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 	})
 	self._update_date = self._object:text({
 		vertical = "center",
-		h = 32,
-		w = 192,
 		align = "left",
 		text = "",
+		h = 32,
+		w = 192,
 		y = 112,
 		x = 96,
 		layer = self._object:layer() + 2,
@@ -34,10 +34,10 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 	})
 	self._update_person = self._object:text({
 		vertical = "center",
-		h = 32,
-		w = 192,
 		align = "right",
 		text = "",
+		h = 32,
+		w = 192,
 		y = 112,
 		x = 96,
 		layer = self._object:layer() + 2,
@@ -49,20 +49,20 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 	self._update_person:set_right(self._object:w() - 128)
 
 	local content_panel_scrollable_area_params = {
-		scrollbar_width = 10,
-		name = "content_panel_scrollable_area",
 		h = 512,
-		y = 208,
-		w = 576,
-		x = 256,
+		name = "content_panel_scrollable_area",
 		scroll_step = 19,
+		scrollbar_width = 10,
+		w = 576,
+		y = 208,
+		x = 256,
 		layer = self._object:layer() + 2
 	}
 	self.content_panel_scrollable_area = self._object:scrollable_area(content_panel_scrollable_area_params)
 	local content_panel_params = {
 		h = 512,
-		y = 0,
 		w = 572,
+		y = 0,
 		x = 0,
 		layer = self._object:layer() + 2
 	}
@@ -72,9 +72,9 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 
 	self._title = self._content_panel:text({
 		vertical = "center",
-		wrap = true,
 		align = "center",
 		text = "",
+		wrap = true,
 		y = 0,
 		x = 0,
 		w = self._content_panel:w(),
@@ -85,9 +85,9 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 	})
 	self._text = self._content_panel:text({
 		vertical = "top",
-		wrap = true,
 		align = "left",
 		text = "",
+		wrap = true,
 		y = 0,
 		x = 0,
 		w = self._content_panel:w(),
@@ -98,8 +98,8 @@ function RaidGUIControlIntelOperationalStatus:_layout()
 	})
 	self._title_image = self._content_panel:bitmap({
 		h = 288,
-		y = 0,
 		w = 512,
+		y = 0,
 		x = 32,
 		layer = self._object:layer() + 2,
 		texture = tweak_data.gui.icons.intel_table_newspapers.texture,

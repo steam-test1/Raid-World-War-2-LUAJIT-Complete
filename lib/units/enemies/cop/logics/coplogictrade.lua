@@ -64,13 +64,13 @@ function CopLogicTrade.hostage_trade(unit, enable, trade_success)
 				if not unit:brain():is_tied() then
 					action_data = {
 						clamp_to_graph = true,
-						type = "act",
-						body_part = 1,
 						variant = "tied",
+						body_part = 1,
+						type = "act",
 						blocks = {
-							light_hurt = -1,
-							hurt = -1,
 							heavy_hurt = -1,
+							hurt = -1,
+							light_hurt = -1,
 							walk = -1
 						}
 					}
@@ -78,13 +78,13 @@ function CopLogicTrade.hostage_trade(unit, enable, trade_success)
 			else
 				action_data = {
 					clamp_to_graph = true,
-					type = "act",
-					body_part = 1,
 					variant = "tied_all_in_one",
+					body_part = 1,
+					type = "act",
 					blocks = {
-						light_hurt = -1,
-						hurt = -1,
 						heavy_hurt = -1,
+						hurt = -1,
+						light_hurt = -1,
 						walk = -1
 					}
 				}

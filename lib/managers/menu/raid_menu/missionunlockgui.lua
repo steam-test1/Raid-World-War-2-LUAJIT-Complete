@@ -151,14 +151,14 @@ function MissionUnlockGui:_play_control_briefing_video(mission_id)
 	end
 
 	local video_panel_params = {
-		is_root_panel = true,
-		layer = 100
+		layer = 100,
+		is_root_panel = true
 	}
 	self._video_panel = RaidGUIPanel:new(self._full_panel, video_panel_params)
 	local video_panel_background_params = {
-		layer = 1,
 		name = "video_background",
 		halign = "scale",
+		layer = 1,
 		valign = "scale",
 		color = Color.black
 	}

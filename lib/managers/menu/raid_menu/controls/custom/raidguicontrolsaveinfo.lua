@@ -26,10 +26,10 @@ end
 
 function RaidGUIControlSaveInfo:_create_info_icons()
 	local info_icons_panel_params = {
+		x = 0,
 		name = "info_icons_panel",
 		h = 96,
 		y = 18,
-		x = 0,
 		w = self._object:w() * 0.78
 	}
 	self._info_icons_panel = self._object:panel(info_icons_panel_params)
@@ -38,11 +38,11 @@ function RaidGUIControlSaveInfo:_create_info_icons()
 
 	local h = self._info_icons_panel:h()
 	local dog_tag_panel_params = {
+		x = 0,
 		name = "dog_tag_panel",
 		h = 64,
-		y = 23,
 		w = 180,
-		x = 0
+		y = 23
 	}
 	self._dog_tag_panel = self._info_icons_panel:panel(dog_tag_panel_params)
 	local dog_tag_icon_params = {
@@ -56,11 +56,11 @@ function RaidGUIControlSaveInfo:_create_info_icons()
 	dog_tag_icon:set_center_y(self._dog_tag_panel:h() / 2)
 
 	local dog_tag_count_params = {
-		vertical = "center",
+		text = "120 / 140",
 		name = "dog_tag_count",
+		vertical = "center",
 		h = 32,
 		align = "center",
-		text = "120 / 140",
 		y = 0,
 		x = RaidGUIControlSaveInfo.DOG_TAG_LABEL_X,
 		font = RaidGUIControlPeerDetails.FONT,
@@ -88,11 +88,11 @@ end
 
 function RaidGUIControlSaveInfo:_create_separator()
 	local separator_params = {
+		x = 34,
 		name = "separator",
 		h = 2,
-		y = 123,
 		w = 446,
-		x = 34,
+		y = 123,
 		color = tweak_data.gui.colors.raid_black
 	}
 	self._separator = self._object:rect(separator_params)
@@ -100,10 +100,10 @@ end
 
 function RaidGUIControlSaveInfo:_create_peer_details_title()
 	local peer_details_title_params = {
-		name = "peer_details_title",
-		h = 32,
-		vertical = "center",
 		align = "left",
+		name = "peer_details_title",
+		vertical = "center",
+		h = 32,
 		y = 137,
 		x = self._info_icons_panel:x(),
 		w = self._info_icons_panel:w(),

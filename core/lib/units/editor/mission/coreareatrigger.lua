@@ -52,8 +52,8 @@ function CoreAreaTriggerUnitElement:draw_links(t, dt, selected_unit, all_units)
 
 		if self:_should_draw_link(selected_unit, unit) then
 			self:_draw_link({
-				g = 0,
 				b = 0,
+				g = 0,
 				r = 0.75,
 				from_unit = self._unit,
 				to_unit = unit
@@ -68,8 +68,8 @@ function CoreAreaTriggerUnitElement:draw_links(t, dt, selected_unit, all_units)
 			if alive(unit) then
 				if self:_should_draw_link(selected_unit, unit) then
 					self:_draw_link({
-						g = 0.5,
 						b = 0.75,
+						g = 0.5,
 						r = 0,
 						from_unit = unit,
 						to_unit = self._unit
@@ -148,8 +148,8 @@ end
 
 function CoreAreaTriggerUnitElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		ray_type = "editor",
-		mask = 10
+		mask = 10,
+		ray_type = "editor"
 	})
 
 	if ray and ray.unit then
@@ -195,8 +195,8 @@ function CoreAreaTriggerUnitElement:add_element()
 	end
 
 	local ray = managers.editor:unit_by_raycast({
-		ray_type = "body editor",
-		mask = 1
+		mask = 1,
+		ray_type = "body editor"
 	})
 
 	if ray and ray.unit then
@@ -332,8 +332,8 @@ end
 
 function CoreAreaTriggerUnitElement:create_values_ctrlrs(panel, panel_sizer, disable)
 	self:_build_value_number(panel, panel_sizer, "interval", {
-		floats = 2,
-		min = 0.01
+		min = 0.01,
+		floats = 2
 	}, "Set the check interval for the area, in seconds.")
 
 	if not disable or not disable.trigger_type then
@@ -385,8 +385,8 @@ function CoreAreaTriggerUnitElement:_build_panel(panel, panel_sizer, disable_par
 	end
 
 	local width, width_params = self:_build_value_number(panel, panel_sizer, "width", {
-		floats = 0,
-		min = 0
+		min = 0,
+		floats = 0
 	}, "Set the width for the shape")
 
 	width_params.name_ctrlr:set_label("Width[cm]:")
@@ -403,8 +403,8 @@ function CoreAreaTriggerUnitElement:_build_panel(panel, panel_sizer, disable_par
 	})
 
 	local depth, depth_params = self:_build_value_number(panel, panel_sizer, "depth", {
-		floats = 0,
-		min = 0
+		min = 0,
+		floats = 0
 	}, "Set the depth for the shape")
 
 	depth_params.name_ctrlr:set_label("Depth[cm]:")
@@ -421,8 +421,8 @@ function CoreAreaTriggerUnitElement:_build_panel(panel, panel_sizer, disable_par
 	})
 
 	local height, height_params = self:_build_value_number(panel, panel_sizer, "height", {
-		floats = 0,
-		min = 0
+		min = 0,
+		floats = 0
 	}, "Set the height for the shape")
 
 	height_params.name_ctrlr:set_label("Height[cm]:")
@@ -439,8 +439,8 @@ function CoreAreaTriggerUnitElement:_build_panel(panel, panel_sizer, disable_par
 	})
 
 	local radius, radius_params = self:_build_value_number(panel, panel_sizer, "radius", {
-		floats = 0,
-		min = 0
+		min = 0,
+		floats = 0
 	}, "Set the radius for the shape")
 
 	radius_params.name_ctrlr:set_label("Radius[cm]:")
@@ -561,8 +561,8 @@ function CoreAreaOperatorUnitElement:draw_links(t, dt, selected_unit, all_units)
 
 		if draw then
 			self:_draw_link({
-				g = 0.75,
 				b = 0.25,
+				g = 0.75,
 				r = 0.75,
 				from_unit = self._unit,
 				to_unit = unit
@@ -576,8 +576,8 @@ end
 
 function CoreAreaOperatorUnitElement:add_element()
 	local ray = managers.editor:unit_by_raycast({
-		ray_type = "editor",
-		mask = 10
+		mask = 10,
+		ray_type = "editor"
 	})
 
 	if ray and ray.unit and ray.unit:name():s() == "core/units/mission_elements/trigger_area/trigger_area" then

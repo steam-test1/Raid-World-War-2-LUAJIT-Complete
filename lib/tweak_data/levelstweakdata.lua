@@ -123,23 +123,23 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
-				x = -200,
-				y = -2850
+				y = -2850,
+				x = -200
 			},
 			world_borders = {
+				left = -29736,
 				down = -28846,
 				up = 23122,
-				left = -29736,
 				right = 34700
 			},
 			panel_shape = {
-				w = 885,
-				h = 710,
+				y = 220,
 				x = 105,
-				y = 220
+				h = 710,
+				w = 885
 			}
 		}
 	}
@@ -156,23 +156,23 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
-				x = -200,
-				y = -2850
+				y = -2850,
+				x = -200
 			},
 			world_borders = {
+				left = -29736,
 				down = -28846,
 				up = 23122,
-				left = -29736,
 				right = 34700
 			},
 			panel_shape = {
-				w = 885,
-				h = 710,
+				y = 220,
 				x = 105,
-				y = 220
+				h = 710,
+				w = 885
 			}
 		}
 	}
@@ -189,23 +189,23 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
-				x = -200,
-				y = -2850
+				y = -2850,
+				x = -200
 			},
 			world_borders = {
+				left = -29736,
 				down = -28846,
 				up = 23122,
-				left = -29736,
 				right = 34700
 			},
 			panel_shape = {
-				w = 885,
-				h = 710,
+				y = 220,
 				x = 105,
-				y = 220
+				h = 710,
+				w = 885
 			}
 		}
 	}
@@ -222,23 +222,23 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
-				x = -200,
-				y = -2850
+				y = -2850,
+				x = -200
 			},
 			world_borders = {
+				left = -29736,
 				down = -28846,
 				up = 23122,
-				left = -29736,
 				right = 34700
 			},
 			panel_shape = {
-				w = 885,
-				h = 710,
+				y = 220,
 				x = 105,
-				y = 220
+				h = 710,
+				w = 885
 			}
 		}
 	}
@@ -255,23 +255,23 @@ function LevelsTweakData:init()
 			-10000
 		},
 		map = {
-			texture = "map",
 			base_icon = "map_camp",
+			texture = "map",
 			base_location = {
-				x = -200,
-				y = -2850
+				y = -2850,
+				x = -200
 			},
 			world_borders = {
+				left = -29736,
 				down = -28846,
 				up = 23122,
-				left = -29736,
 				right = 34700
 			},
 			panel_shape = {
-				w = 885,
-				h = 710,
+				y = 220,
 				x = 105,
-				y = 220
+				h = 710,
+				w = 885
 			}
 		}
 	}
@@ -388,7 +388,6 @@ function LevelsTweakData:init()
 		"kelly",
 		"fury_railway"
 	}
-	self.escape_levels = {}
 end
 
 function LevelsTweakData:get_level_index()
@@ -488,28 +487,28 @@ function LevelsTweakData:get_team_setup()
 		teams = {
 			criminal1 = {
 				foes = {
-					law1 = true,
-					mobster1 = true
+					mobster1 = true,
+					law1 = true
 				}
 			},
 			law1 = {
 				foes = {
-					converted_enemy = true,
+					mobster1 = true,
 					criminal1 = true,
-					mobster1 = true
+					converted_enemy = true
 				}
 			},
 			mobster1 = {
 				foes = {
+					criminal1 = true,
 					converted_enemy = true,
-					law1 = true,
-					criminal1 = true
+					law1 = true
 				}
 			},
 			converted_enemy = {
 				foes = {
-					law1 = true,
-					mobster1 = true
+					mobster1 = true,
+					law1 = true
 				}
 			},
 			neutral1 = {
@@ -517,8 +516,8 @@ function LevelsTweakData:get_team_setup()
 			},
 			hacked_turret = {
 				foes = {
-					law1 = true,
-					mobster1 = true
+					mobster1 = true,
+					law1 = true
 				}
 			}
 		}

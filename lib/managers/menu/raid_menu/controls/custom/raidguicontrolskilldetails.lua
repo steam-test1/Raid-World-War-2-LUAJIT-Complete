@@ -58,10 +58,10 @@ end
 
 function RaidGUIControlSkillDetails:_create_control_panel_bg()
 	self._background = self._object:nine_cut_bitmap({
-		name = "background",
-		alpha = 0.8,
-		icon = "dialog_rect",
 		corner_size = 64,
+		name = "background",
+		icon = "dialog_rect",
+		alpha = 0.8,
 		w = self._object:w(),
 		h = self._object:h(),
 		layer = self._object:layer() - 1
@@ -70,9 +70,9 @@ end
 
 function RaidGUIControlSkillDetails:_create_skill_title()
 	self._title = self._main:label({
-		name = "skill_title",
 		align = "center",
 		text = "DEFAULT DABBLER",
+		name = "skill_title",
 		y = 4,
 		w = self._main:w(),
 		h = RaidGUIControlSkillDetails.TITLE_H,
@@ -83,9 +83,9 @@ function RaidGUIControlSkillDetails:_create_skill_title()
 	})
 	self._seperator_title = self._main:gradient({
 		name = "seperator_title",
-		h = 4,
 		orientation = "horizontal",
 		layer = 2,
+		h = 4,
 		y = self._title:top() - 4,
 		w = self._main:w()
 	})
@@ -129,12 +129,12 @@ function RaidGUIControlSkillDetails:_create_skill_description()
 	local text = "Sunburn can occur in less than 15 minutes, and in seconds when exposed to non-shielded welding arcs or other sources of intense ultraviolet light."
 	local template = {
 		vertical = "center",
-		h = 68,
-		wrap = true,
 		align = "left",
-		word_wrap = true,
-		y = 0,
 		rotation = 360,
+		word_wrap = true,
+		wrap = true,
+		h = 68,
+		y = 0,
 		x = tier_icon_size + padding,
 		w = self._description_panel:w() - tier_icon_size - padding,
 		font = RaidGUIControlSkillDetails.DESCRIPTION_FONT,
@@ -186,9 +186,9 @@ function RaidGUIControlSkillDetails:_create_skill_flavor()
 	local text = "Cuba is the largest island in the Caribbean, it is the second-most populous after Hispaniola!"
 	local h = RaidGUIControlSkillDetails.FLAVOR_FONT_SIZE * 2
 	self._flavor = self._main:label({
-		name = "skill_flavor",
 		vertical = "center",
 		align = "center",
+		name = "skill_flavor",
 		text = text,
 		y = self._main:h() - h,
 		w = self._main:w(),
@@ -201,9 +201,9 @@ function RaidGUIControlSkillDetails:_create_skill_flavor()
 	local padding = 50
 	self._seperator_flavor = self._main:gradient({
 		name = "seperator_flavor",
-		h = 2,
 		orientation = "horizontal",
 		layer = 2,
+		h = 2,
 		x = padding,
 		y = self._flavor:top() - 4,
 		w = self._main:w() - padding * 2

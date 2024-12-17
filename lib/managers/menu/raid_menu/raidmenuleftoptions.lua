@@ -26,11 +26,11 @@ end
 
 function RaidMenuLeftOptions:_layout_list_menu()
 	local list_menu_options_params = {
-		selection_enabled = true,
 		name = "list_menu_options",
+		loop_items = true,
+		selection_enabled = true,
 		h = 640,
 		w = 480,
-		loop_items = true,
 		y = 144,
 		x = 0,
 		on_item_clicked_callback = callback(self, self, "_on_list_menu_options_item_selected"),

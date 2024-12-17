@@ -41,6 +41,7 @@ function RaycastWeaponBase:init(unit)
 	self._autohit_data = tweak_data.weapon[self._name_id].autohit
 	self._autohit_current = self._autohit_data.INIT_RATIO
 	self._shoot_through_data = {
+		_shooting = nil,
 		kills = 0,
 		from = Vector3()
 	}
@@ -1345,6 +1346,7 @@ function RaycastWeaponBase:replenish()
 		end
 
 		ammo_max_multiplier = ammo_max_multiplier * managers.player:upgrade_value("player", "pack_mule_ammo_total_increase", 1)
+		ammo_max_multiplier = ammo_max_multiplier * managers.player:upgrade_value("player", "cache_basket_ammo_total_increase", 1)
 	end
 
 	local ammo_max_per_clip = self:calculate_ammo_max_per_clip()
@@ -1592,6 +1594,10 @@ function RaycastWeaponBase:on_reload()
 	if self._setup.expend_ammo then
 		local reload_full_magazine = managers.player:has_category_upgrade("weapon", "clipazines_reload_full_magazine")
 
+		if managers.buff_effect:is_effect_active(BuffEffectManager.EFFECT_PLAYER_RANDOM_RELOAD) then
+			ammo_max_per_clip = math.random(0, ammo_max_per_clip)
+		end
+
 		if reload_full_magazine then
 			self:set_ammo_remaining_in_clip(ammo_max_per_clip)
 
@@ -1643,7 +1649,7 @@ function RaycastWeaponBase:add_ammo_ratio(ratio)
 	return true
 end
 
-function RaycastWeaponBase:add_ammo(ratio, add_amount_override)
+function RaycastWeaponBase:add_ammo(ratio, add_amount_override, skip_event)
 	if self:ammo_max() then
 		return false, self._ammo_pickup_amount, 0
 	end
@@ -1658,10 +1664,12 @@ function RaycastWeaponBase:add_ammo(ratio, add_amount_override)
 
 	local ammo_actually_picked_up = self:get_ammo_total() - ammo_before_pickup
 
-	managers.system_event_listener:call_listeners(CoreSystemEventListenerManager.SystemEventListenerManager.PLAYER_PICKED_UP_AMMO, {
-		weapon = self._name_id,
-		amount = ammo_actually_picked_up
-	})
+	if not skip_event then
+		managers.system_event_listener:call_listeners(CoreSystemEventListenerManager.SystemEventListenerManager.PLAYER_PICKED_UP_AMMO, {
+			weapon = self._name_id,
+			amount = ammo_actually_picked_up
+		})
+	end
 
 	if Application:production_build() then
 		managers.player:add_weapon_ammo_gain(self._name_id, add_amount)
@@ -1802,6 +1810,13 @@ InstantBulletBase = InstantBulletBase or class()
 
 function InstantBulletBase:on_collision(col_ray, weapon_unit, user_unit, damage, blank, no_sound)
 	local weapon_base = weapon_unit:base()
+
+	if not weapon_base or not weapon_base.weapon_tweak_data or not weapon_base:weapon_tweak_data() then
+		Application:error("[InstantBulletBase:on_collision] Cannot progress without weapon tweakdata from weapon unit!", weapon_unit, weapon_base.weapon_tweak_data)
+
+		return
+	end
+
 	local weapon_tweak_data = weapon_base and weapon_base:weapon_tweak_data()
 	local hit_unit = col_ray.unit
 	local play_impact = hit_unit:vehicle() or not hit_unit:character_damage() or not hit_unit:character_damage()._no_blood
@@ -1943,10 +1958,10 @@ InstantExplosiveBulletBase.CURVE_POW = tweak_data.upgrades.explosive_bullet.curv
 InstantExplosiveBulletBase.PLAYER_DMG_MUL = tweak_data.upgrades.explosive_bullet.player_dmg_mul
 InstantExplosiveBulletBase.RANGE = tweak_data.upgrades.explosive_bullet.range
 InstantExplosiveBulletBase.EFFECT_PARAMS = {
+	sound_muffle_effect = true,
+	on_unit = true,
 	sound_event = "round_explode",
 	effect = "effects/vanilla/weapons/shotgun/sho_explosive_round",
-	on_unit = true,
-	sound_muffle_effect = true,
 	feedback_range = tweak_data.upgrades.explosive_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.explosive_bullet.camera_shake_max_mul,
 	idstr_decal = Idstring("explosion_round"),
@@ -2049,8 +2064,8 @@ function InstantExplosiveBulletBase:on_collision_server(position, normal, damage
 
 		if enemies_hit > 0 then
 			managers.statistics:shot_fired({
-				skip_bullet_count = true,
 				hit = true,
+				skip_bullet_count = true,
 				weapon_unit = weapon_unit
 			})
 		end
@@ -2076,8 +2091,8 @@ end
 
 FlameBulletBase = FlameBulletBase or class(InstantExplosiveBulletBase)
 FlameBulletBase.EFFECT_PARAMS = {
-	sound_event = "round_explode",
 	sound_muffle_effect = true,
+	sound_event = "round_explode",
 	on_unit = true,
 	feedback_range = tweak_data.upgrades.flame_bullet.feedback_range,
 	camera_shake_max_mul = tweak_data.upgrades.flame_bullet.camera_shake_max_mul,
@@ -2268,8 +2283,8 @@ DOTBulletBase = DOTBulletBase or class(InstantBulletBase)
 DOTBulletBase.DOT_DATA = {
 	hurt_animation_chance = 1,
 	dot_damage = 0.5,
-	dot_length = 6,
-	dot_tick_period = 0.5
+	dot_tick_period = 0.5,
+	dot_length = 6
 }
 
 function DOTBulletBase:on_collision(col_ray, weapon_unit, user_unit, damage, blank)

@@ -24,7 +24,7 @@ function DropLootTweakData:_init_pickups_properties()
 		player_voice_over = "player_gain_huge_health"
 	}
 	self.health_medium = {
-		health_restored = 75,
+		health_restored = 55,
 		player_voice_over = "player_gain_moderate_health"
 	}
 	self.health_small = {
@@ -475,16 +475,16 @@ end
 function DropLootTweakData:_init_drop_rate_multipliers()
 	self.drop_rate_multipliers = {
 		health = {
-			min_multiplier = 2,
+			min_ratio = 0.2,
 			max_multiplier = 1.5,
 			max_ratio = 0.5,
-			min_ratio = 0.2
+			min_multiplier = 2
 		},
 		grenade = {
-			min_multiplier = 3,
+			min_ratio = 0.01,
 			max_multiplier = 1.5,
 			max_ratio = 0.5,
-			min_ratio = 0.01
+			min_multiplier = 3
 		}
 	}
 end

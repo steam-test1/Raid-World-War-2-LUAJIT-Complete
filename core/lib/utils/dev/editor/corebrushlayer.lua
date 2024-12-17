@@ -472,7 +472,7 @@ function BrushLayer:build_panel(notebook)
 
 	sizer_pb:add(self:create_slider("Density [/m2]", "_brush_density", 0, 30), 0, 0, "EXPAND")
 	sizer_pb:add(self:create_slider("Pressure", "_brush_pressure", 1, 20), 0, 0, "EXPAND")
-	sizer_pb:add(self:create_slider("Radius [cm]", "_brush_size", 1, 1000), 0, 0, "EXPAND")
+	sizer_pb:add(self:create_slider("Radius [cm]", "_brush_size", 1, 400), 0, 0, "EXPAND")
 	sizer_pb:add(self:create_slider("Smoothness", "_brush_smoothness", 1, 16), 0, 0, "EXPAND")
 	h_sizer:add(sizer_pb, 1, 2, "EXPAND")
 
@@ -722,9 +722,9 @@ function BrushLayer:create_slider(name, value, s_value, e_value, default_value)
 	slider_sizer:add(EWS:StaticText(self._ews_panel, name, "", "ALIGN_LEFT"), 0, 0, "EXPAND")
 
 	local slider_params = {
-		floats = 0,
 		slider_ctrlr_proportions = 0.2,
 		number_ctrlr_proportions = 0.1,
+		floats = 0,
 		panel = self._ews_panel,
 		sizer = slider_sizer,
 		value = default_value or s_value,

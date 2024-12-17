@@ -68,15 +68,15 @@ end
 function CopLogicSpotter.throw_flare_so(data)
 	local action_desc = {
 		variant = "spotter_cbt_sup_throw_flare",
-		body_part = 1,
 		type = "act",
+		body_part = 1,
 		blocks = {
-			light_hurt = -1,
-			hurt = -1,
-			action = -1,
 			heavy_hurt = -1,
-			aim = -1,
-			walk = -1
+			hurt = -1,
+			light_hurt = -1,
+			walk = -1,
+			action = -1,
+			aim = -1
 		}
 	}
 

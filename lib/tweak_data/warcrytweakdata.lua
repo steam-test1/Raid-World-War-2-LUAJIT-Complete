@@ -16,17 +16,17 @@ end
 
 function WarcryTweakData:_init_sharpshooter()
 	self.sharpshooter = {
-		base_kill_fill_amount = 0.06666666666666667,
 		base_duration = 10,
+		name_id = "warcry_sharpshooter_name",
 		overlay_pulse_freq = 0.5,
-		headshot_multiplier = 0.5,
 		overlay_pulse_ampl = 0.1,
-		desc_id = "warcry_sharpshooter_desc",
 		health_boost_sound = "recon_warcry_enemy_hit",
+		headshot_multiplier = 0.5,
+		base_kill_fill_amount = 0.06666666666666667,
 		hud_icon = "player_panel_warcry_sharpshooter",
 		sound_switch = "warcry_echo",
-		name_id = "warcry_sharpshooter_name",
 		lerp_duration = 0.75,
+		desc_id = "warcry_sharpshooter_desc",
 		buffs = {
 			{
 				"warcry_player_aim_assist",
@@ -52,19 +52,19 @@ end
 
 function WarcryTweakData:_init_silver_bullet()
 	self.silver_bullet = {
-		base_kill_fill_amount = 0.08333333333333333,
 		base_duration = 7.5,
+		name_id = "skill_warcry_silver_bullet_name",
 		activation_callout = "warcry_sharpshooter",
+		duration_bonus_diminish = 0.65,
+		fill_drain_multiplier = 0.0025,
 		tint_fov = 0.2,
 		grain_noise_strength = 1,
 		desaturation = 0.5,
-		desc_id = "warcry_silver_bullet_desc",
-		fill_drain_multiplier = 0.0025,
+		base_kill_fill_amount = 0.08333333333333333,
 		hud_icon = "player_panel_warcry_silver_bullet",
 		sound_switch = "warcry_heartbeat",
-		name_id = "skill_warcry_silver_bullet_name",
-		duration_bonus_diminish = 0.65,
 		lerp_duration = 0.75,
+		desc_id = "warcry_silver_bullet_desc",
 		buffs = {
 			{
 				"warcry_player_silver_bullet_tint_distance_1",
@@ -90,18 +90,18 @@ end
 
 function WarcryTweakData:_init_berserk()
 	self.berserk = {
-		name_id = "warcry_berserk_name",
-		base_kill_fill_amount = 0.06666666666666667,
 		base_duration = 10,
+		name_id = "warcry_berserk_name",
+		lens_distortion_value = 0.92,
+		distorts_lense = true,
+		lerp_duration = 0.75,
 		overlay_pulse_freq = 1.3,
 		overlay_pulse_ampl = 0.1,
-		desc_id = "warcry_berserk_desc",
-		distorts_lense = true,
+		base_kill_fill_amount = 0.06666666666666667,
 		hud_icon = "player_panel_warcry_berserk",
 		sound_switch = "warcry_flame",
 		dismemberment_multiplier = 0.3,
-		lens_distortion_value = 0.92,
-		lerp_duration = 0.75,
+		desc_id = "warcry_berserk_desc",
 		buffs = {
 			{
 				"warcry_player_ammo_consumption_1",
@@ -126,18 +126,18 @@ end
 
 function WarcryTweakData:_init_sentry()
 	self.sentry = {
-		base_kill_fill_amount = 0.09090909090909091,
 		base_duration = 6,
+		name_id = "skill_warcry_sentry_name",
 		activation_callout = "warcry_berserk",
+		distorts_lense = true,
+		lens_distortion_value = 1.02,
 		overlay_pulse_freq = 1.3,
 		overlay_pulse_ampl = 0.1,
-		desc_id = "warcry_sentry_desc",
-		distorts_lense = true,
+		base_kill_fill_amount = 0.09090909090909091,
 		hud_icon = "player_panel_warcry_sentry",
 		sound_switch = "warcry_spiral",
-		name_id = "skill_warcry_sentry_name",
-		lens_distortion_value = 1.02,
 		lerp_duration = 0.75,
+		desc_id = "warcry_sentry_desc",
 		buffs = {
 			{
 				"warcry_player_shooting_movement_speed_reduction",
@@ -164,17 +164,17 @@ end
 
 function WarcryTweakData:_init_ghost()
 	self.ghost = {
-		base_kill_fill_amount = 0.06666666666666667,
-		base_duration = 10,
-		desaturation = 0.8,
-		grain_noise_strength = 10,
-		tint_distance = 3200,
-		desc_id = "warcry_ghost_desc",
 		melee_multiplier = 0.3,
+		name_id = "warcry_ghost_name",
+		base_duration = 10,
+		tint_distance = 3200,
+		grain_noise_strength = 10,
+		desaturation = 0.8,
+		base_kill_fill_amount = 0.06666666666666667,
 		hud_icon = "player_panel_warcry_invisibility",
 		sound_switch = "warcry_heartbeat",
-		name_id = "warcry_ghost_name",
 		lerp_duration = 0.75,
+		desc_id = "warcry_ghost_desc",
 		buffs = {
 			{
 				"warcry_player_dodge_1"
@@ -195,18 +195,18 @@ end
 
 function WarcryTweakData:_init_pain_train()
 	self.pain_train = {
-		base_kill_fill_amount = 0.08333333333333333,
-		distorts_lense = true,
-		knockdown_distance = 170,
-		activation_threshold = 0.5,
-		desc_id = "warcry_pain_train_desc",
-		knockdown_fill_penalty = 0.15,
 		hud_icon = "player_panel_warcry_pain_train",
-		base_duration = 4.6,
 		name_id = "skill_warcry_pain_train_name",
 		lens_distortion_value = 1.02,
+		distorts_lense = true,
 		interrupt_penalty_percentage = 0.1,
+		knockdown_fill_penalty = 0.15,
+		activation_threshold = 0.5,
+		base_kill_fill_amount = 0.08333333333333333,
+		base_duration = 4.6,
+		knockdown_distance = 170,
 		lerp_duration = 0.75,
+		desc_id = "warcry_pain_train_desc",
 		buffs = {
 			{
 				"warcry_player_charge_damage_reduction_1",
@@ -227,15 +227,15 @@ end
 
 function WarcryTweakData:_init_clustertruck()
 	self.clustertruck = {
-		base_kill_fill_amount = 0.06666666666666667,
 		base_duration = 8,
-		fire_opacity = 0.5,
-		desc_id = "warcry_clustertruck_desc",
-		hud_icon = "player_panel_warcry_cluster_truck",
-		sound_switch = "warcry_spiral",
 		name_id = "warcry_clustertruck_name",
 		fire_intensity = 2.6,
+		fire_opacity = 0.5,
+		base_kill_fill_amount = 0.06666666666666667,
+		hud_icon = "player_panel_warcry_cluster_truck",
+		sound_switch = "warcry_spiral",
 		lerp_duration = 0.75,
+		desc_id = "warcry_clustertruck_desc",
 		buffs = {
 			{
 				"warcry_player_grenade_refill_amounts_1",

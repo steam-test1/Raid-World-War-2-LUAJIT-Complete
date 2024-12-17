@@ -151,6 +151,21 @@ function PlayerInventory:get_latest_addition_hud_data()
 	}
 end
 
+function PlayerInventory:recreate_weapon_panels()
+	for i = PlayerInventory.SLOT_1, PlayerInventory.SLOT_2 do
+		local unit = self._available_selections[i].unit
+		local hud_data = {
+			force = true,
+			is_equip = i == self._selected_primary,
+			inventory_index = i,
+			unit = unit
+		}
+
+		managers.hud:add_weapon(hud_data)
+		managers.hud:set_ammo_amount(i, unit:base():ammo_info())
+	end
+end
+
 function PlayerInventory:add_unit_by_name(new_unit_name, equip, instant)
 	for _, selection in pairs(self._available_selections) do
 		if selection.unit:name() == new_unit_name then
@@ -160,9 +175,9 @@ function PlayerInventory:add_unit_by_name(new_unit_name, equip, instant)
 
 	local new_unit = World:spawn_unit(new_unit_name, Vector3(), Rotation())
 	local setup_data = {
-		expend_ammo = true,
-		autoaim = true,
 		alert_AI = true,
+		autoaim = true,
+		expend_ammo = true,
 		user_unit = self._unit,
 		ignore_units = {
 			self._unit,
@@ -198,9 +213,9 @@ function PlayerInventory:add_unit_by_factory_name(factory_name, equip, instant, 
 	end
 
 	local setup_data = {
-		expend_ammo = true,
-		autoaim = true,
 		alert_AI = true,
+		autoaim = true,
+		expend_ammo = true,
 		user_unit = self._unit,
 		ignore_units = {
 			self._unit,
@@ -702,9 +717,15 @@ end
 function PlayerInventory:set_grenade(grenade)
 	local unit_name = tweak_data.projectiles[grenade].unit_hand
 
-	Application:debug("[PlayerInventory:set_grenade(grenade)] spawning grenade", grenade, unit_name)
+	Application:debug("[PlayerInventory:set_grenade ] spawning grenade", grenade, unit_name)
 
-	local unit = World:spawn_unit(Idstring(unit_name), Vector3(), Rotation())
+	local ids_unit_name = Idstring(unit_name)
+
+	if not managers.dyn_resource:is_resource_ready(IDS_UNIT, ids_unit_name, managers.dyn_resource.DYN_RESOURCES_PACKAGE) then
+		managers.dyn_resource:load(IDS_UNIT, ids_unit_name, managers.dyn_resource.DYN_RESOURCES_PACKAGE, nil)
+	end
+
+	local unit = World:spawn_unit(ids_unit_name, Vector3(), Rotation())
 
 	unit:base():set_thrower_unit(self._unit)
 	unit:base():set_thrower_peer_id(managers.network:session():local_peer():id())
@@ -735,10 +756,10 @@ function PlayerInventory:set_ammo_with_empty_clip(ammo)
 	end
 end
 
-function PlayerInventory:add_ammo(ammo)
+function PlayerInventory:add_ammo(ratio, ammo)
 	for id, weapon in pairs(self._available_selections) do
 		if weapon.unit:base():uses_ammo() then
-			weapon.unit:base():add_ammo(1, ammo)
+			weapon.unit:base():add_ammo(ratio, ammo)
 			managers.hud:set_ammo_amount(id, weapon.unit:base():ammo_info())
 		end
 	end

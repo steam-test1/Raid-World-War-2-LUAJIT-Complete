@@ -13,6 +13,7 @@ local UpgradeToughness = require("lib/managers/upgrades/UpgradeToughness")
 local UpgradeRevenant = require("lib/managers/upgrades/UpgradeRevenant")
 local UpgradeLeaded = require("lib/managers/upgrades/UpgradeLeaded")
 local UpgradeRally = require("lib/managers/upgrades/UpgradeRally")
+local UpgradeCacheBasket = require("lib/managers/upgrades/UpgradeCacheBasket")
 
 function PlayerManager:init()
 	self._coroutine_mgr = CoroutineManager:new()
@@ -26,26 +27,26 @@ function PlayerManager:init()
 	}
 	self._viewport_configs[1][1] = {
 		dimensions = {
-			w = 1,
-			h = 1,
 			x = 0,
+			h = 1,
+			w = 1,
 			y = 0
 		}
 	}
 	self._viewport_configs[2] = {
 		{
 			dimensions = {
-				w = 1,
-				h = 0.5,
 				x = 0,
+				h = 0.5,
+				w = 1,
 				y = 0
 			}
 		},
 		{
 			dimensions = {
-				w = 1,
-				h = 0.5,
 				x = 0,
+				h = 0.5,
+				w = 1,
 				y = 0.5
 			}
 		}
@@ -56,20 +57,20 @@ function PlayerManager:init()
 
 	self._local_player_minions = 0
 	self._player_states = {
-		incapacitated = "ingame_incapacitated",
-		carry = "ingame_standard",
-		carry_corpse = "ingame_standard",
-		freefall = "ingame_freefall",
-		parachuting = "ingame_parachuting",
+		fatal = "ingame_fatal",
+		turret = "ingame_standard",
 		bleed_out = "ingame_bleed_out",
+		parachuting = "ingame_parachuting",
+		standard = "ingame_standard",
+		freefall = "ingame_freefall",
 		foxhole = "ingame_standard",
 		driving = "ingame_driving",
-		turret = "ingame_standard",
-		fatal = "ingame_fatal",
-		charging = "ingame_standard",
-		standard = "ingame_standard",
 		bipod = "ingame_standard",
-		tased = "ingame_electrified"
+		carry_corpse = "ingame_standard",
+		carry = "ingame_standard",
+		incapacitated = "ingame_incapacitated",
+		tased = "ingame_electrified",
+		charging = "ingame_standard"
 	}
 	self._DEFAULT_STATE = "standard"
 	self._current_state = self._DEFAULT_STATE
@@ -185,6 +186,7 @@ end
 function PlayerManager:soft_reset()
 	self._listener_holder = EventListenerHolder:new()
 	self._equipment = {
+		nationality = nil,
 		selections = {},
 		specials = {}
 	}
@@ -200,6 +202,7 @@ end
 
 function PlayerManager:_setup()
 	self._equipment = {
+		nationality = nil,
 		selections = {},
 		specials = {}
 	}
@@ -268,6 +271,10 @@ function PlayerManager:_setup_upgrades()
 	UpgradeRevenant:check_activate()
 	UpgradeLeaded:check_activate()
 	UpgradeRally:check_activate()
+end
+
+function PlayerManager:warcry_ammo_regeneration()
+	UpgradeCacheBasket:check_activate()
 end
 
 function PlayerManager:get_customization_equiped_head_name()
@@ -1176,10 +1183,11 @@ function PlayerManager:activate_temporary_upgrade(category, upgrade)
 		return
 	end
 
-	local time = upgrade_value[2]
+	local lifetime = upgrade_value[2]
+	local upgrade_level = self:upgrade_level(category, upgrade, 0)
 	self._temporary_upgrades[category] = self._temporary_upgrades[category] or {}
 	self._temporary_upgrades[category][upgrade] = {
-		expire_time = Application:time() + time
+		expire_time = Application:time() + lifetime
 	}
 end
 
@@ -1196,11 +1204,11 @@ function PlayerManager:activate_temporary_upgrade_by_level(category, upgrade, le
 		return
 	end
 
-	local time = upgrade_value[2]
+	local lifetime = upgrade_value[2]
 	self._temporary_upgrades[category] = self._temporary_upgrades[category] or {}
 	self._temporary_upgrades[category][upgrade] = {
 		upgrade_value = upgrade_value[1],
-		expire_time = Application:time() + time
+		expire_time = Application:time() + lifetime
 	}
 end
 
@@ -2271,6 +2279,12 @@ function PlayerManager:aquire_team_upgrade(upgrade)
 	self._global.team_upgrades[upgrade.category][upgrade.upgrade] = upgrade.value
 
 	self:update_team_upgrades_to_peers()
+
+	local value = tweak_data.upgrades.values.team[upgrade.category][upgrade.upgrade][upgrade.value]
+
+	if self[upgrade.upgrade] then
+		self[upgrade.upgrade](self, value)
+	end
 end
 
 function PlayerManager:unaquire_team_upgrade(upgrade_definition)
@@ -3135,9 +3149,9 @@ end
 
 function PlayerManager:_set_grenade(params)
 	local grenade = params.grenade
-	local tweak_data = tweak_data.projectiles[grenade]
+	local grenade_data = tweak_data.projectiles[grenade]
 	local amount = params.amount
-	local icon = tweak_data.icon
+	local icon = grenade_data.icon
 	local player = self:player_unit()
 
 	self:update_grenades_amount_to_peers(grenade, amount)
@@ -3255,14 +3269,27 @@ end
 function PlayerManager:get_max_grenades(grenade_id)
 	grenade_id = grenade_id or managers.blackmarket:equipped_grenade()
 	local projectile_tweak = tweak_data.projectiles[grenade_id]
-	local upgrade = projectile_tweak and projectile_tweak.upgrade_amount
+
+	if not projectile_tweak then
+		return 0
+	end
+
 	local upgrade_amount = 0
 
-	if upgrade then
+	if projectile_tweak.upgrade_amount then
+		local upgrade = projectile_tweak.upgrade_amount
 		upgrade_amount = self:upgrade_value(upgrade.category, upgrade.upgrade, 0)
 	end
 
-	return projectile_tweak and (projectile_tweak.max_amount or 0) + upgrade_amount
+	if projectile_tweak.upgrade_amounts then
+		for _, upgrade in pairs(projectile_tweak.upgrade_amounts) do
+			upgrade_amount = upgrade_amount + managers.player:upgrade_value(upgrade.category, upgrade.upgrade, 0)
+		end
+	end
+
+	local max_amount = projectile_tweak.max_amount or 0
+
+	return max_amount + upgrade_amount
 end
 
 function PlayerManager:got_max_grenades()
@@ -3417,8 +3444,8 @@ function PlayerManager:_update_carry_wheel()
 	while carry_max >= i do
 		local option = {
 			icon = "comm_wheel_no",
-			disabled = true,
 			text_id = "",
+			disabled = true,
 			id = "carry_" .. i
 		}
 
@@ -3496,9 +3523,9 @@ function PlayerManager:drop_carry(carry_id, zipline_unit, skip_cooldown)
 
 	if carry_needs_headroom and not player:movement():current_state():_can_stand() then
 		managers.notification:add_notification({
-			duration = 2,
-			shelf_life = 5,
 			id = "cant_throw_body",
+			shelf_life = 5,
+			duration = 2,
 			text = managers.localization:text("cant_throw_body")
 		})
 
@@ -3517,6 +3544,13 @@ function PlayerManager:drop_carry(carry_id, zipline_unit, skip_cooldown)
 
 	local camera_ext = player:camera()
 	local position, rotation = self:carry_align_throw()
+
+	if carry_tweak and carry_tweak.throw_positions then
+		local offset = mvector3.copy(carry_tweak.throw_positions)
+
+		mvector3.rotate_with(offset, rotation)
+		mvector3.add(position, offset)
+	end
 
 	if carry_tweak and carry_tweak.throw_rotations then
 		rotation = Rotation(rotation:yaw() + carry_tweak.throw_rotations:yaw(), rotation:pitch() + carry_tweak.throw_rotations:pitch(), rotation:roll() + carry_tweak.throw_rotations:roll())
@@ -4249,14 +4283,14 @@ function PlayerManager:remove_from_player_list(unit)
 	end
 end
 
-function PlayerManager:add_ammo_to_weapons(ammo)
+function PlayerManager:add_ammo_to_weapons(ratio, ammo)
 	local player = self:local_player()
 
 	if not alive(player) then
 		return
 	end
 
-	player:inventory():add_ammo(ammo)
+	player:inventory():add_ammo(ratio, ammo)
 end
 
 function PlayerManager:add_ammo_to_equipped_weapon(ratio, ammo)
@@ -4429,6 +4463,54 @@ function PlayerManager:_on_camp_presence_changed()
 	end
 end
 
+function PlayerManager:is_player_looking_at(target_pos, data)
+	local player = data and data.player_unit or managers.player:player_unit()
+	local sensitivity = data and data.sensitivity or 0.65
+
+	if alive(player) and player:camera() then
+		local camera_fwd = player:camera():forward()
+		local camera_pos = player:camera():position()
+		local dir = target_pos - camera_pos
+
+		if data then
+			if data.distance and data.distance > 0 then
+				local distance = dir:length()
+
+				if data.distance < distance then
+					return false
+				end
+			end
+
+			if data.at_facing then
+				local dot = camera_fwd:dot(data.at_facing)
+
+				if dot > 0 then
+					return false
+				end
+			end
+
+			if data.raycheck then
+				local ray = World:raycast("ray", camera_pos, target_pos, "ray_type", "ai_vision", "slot_mask", managers.slot:get_mask("world_geometry"), "report")
+
+				if ray then
+					return false
+				end
+			end
+		end
+
+		dir = dir:normalized()
+		local dot = camera_fwd:dot(dir)
+
+		if sensitivity <= dot then
+			return true
+		else
+			return false
+		end
+	end
+
+	return false
+end
+
 function PlayerManager:tutorial_make_invulnerable()
 	managers.raid_job:revert_temp_play_flag()
 
@@ -4521,8 +4603,8 @@ function PlayerManager:tutorial_prompt_jump()
 	}))
 
 	managers.hud:set_big_prompt({
-		duration = 3,
 		id = "prompt_hint_tutorial_jump",
+		duration = 3,
 		text = text
 	})
 end
@@ -4533,8 +4615,8 @@ function PlayerManager:tutorial_prompt_duck()
 	}))
 
 	managers.hud:set_big_prompt({
-		duration = 3,
 		id = "prompt_hint_tutorial_crouch",
+		duration = 3,
 		text = text
 	})
 end
@@ -4545,8 +4627,8 @@ function PlayerManager:tutorial_prompt_detection()
 	}))
 
 	managers.hud:set_big_prompt({
-		duration = 3,
 		id = "prompt_hint_tutorial_detection",
+		duration = 3,
 		text = text
 	})
 end
@@ -4555,8 +4637,8 @@ function PlayerManager:tutorial_prompt_ammo()
 	local text = utf8.to_upper(managers.localization:text("hud_hint_tutorial_ammo"))
 
 	managers.hud:set_big_prompt({
-		duration = 3,
 		id = "prompt_hint_tutorial_ammo",
+		duration = 3,
 		text = text
 	})
 end
@@ -4567,8 +4649,8 @@ function PlayerManager:tutorial_prompt_weapons()
 	}))
 
 	managers.hud:set_big_prompt({
-		duration = 3,
 		id = "prompt_hint_tutorial_switch_weapon",
+		duration = 3,
 		text = text
 	})
 end

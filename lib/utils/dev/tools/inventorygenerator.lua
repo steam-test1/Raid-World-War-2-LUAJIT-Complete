@@ -25,8 +25,8 @@ function InventoryGenerator.next_defid(category, defid_list)
 		local categories = {
 			safes = 50000,
 			bundles = 30000,
-			gameplay = 1,
 			contents = 10000,
+			gameplay = 1,
 			weapon_skins = 100000,
 			drills = 70000
 		}

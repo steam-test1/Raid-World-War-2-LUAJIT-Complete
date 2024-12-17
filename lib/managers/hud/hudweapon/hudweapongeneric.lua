@@ -48,11 +48,11 @@ end
 
 function HUDWeaponGeneric:_create_icon(icon)
 	local icon_panel_params = {
-		halign = "center",
+		valign = "top",
 		name = "icon_panel",
+		halign = "center",
 		y = 0,
 		x = 0,
-		valign = "top",
 		w = self._object:w(),
 		h = self._object:h() / 2
 	}
@@ -86,10 +86,10 @@ end
 function HUDWeaponGeneric:_create_clip_left_info(weapons_panel)
 	local current_clip_background_border_params = {
 		halign = "left",
+		valign = "top",
 		name = "current_clip_background_border",
 		y = 0,
 		x = 0,
-		valign = "top",
 		w = HUDWeaponGeneric.CLIP_BACKGROUND_W,
 		h = self._ammo_panel:h(),
 		color = HUDWeaponGeneric.CLIP_BACKGROUND_OUTLINE_COLOR,
@@ -98,8 +98,8 @@ function HUDWeaponGeneric:_create_clip_left_info(weapons_panel)
 	local current_clip_background_border = self._ammo_panel:rect(current_clip_background_border_params)
 	local current_clip_background_params = {
 		halign = "left",
-		name = "current_clip_background",
 		valign = "top",
+		name = "current_clip_background",
 		x = HUDWeaponGeneric.CLIP_BACKGROUND_THICKNESS,
 		y = HUDWeaponGeneric.CLIP_BACKGROUND_THICKNESS,
 		w = current_clip_background_border:w() - HUDWeaponGeneric.CLIP_BACKGROUND_THICKNESS * 2,
@@ -110,10 +110,10 @@ function HUDWeaponGeneric:_create_clip_left_info(weapons_panel)
 	}
 	self._current_clip_background = self._ammo_panel:rect(current_clip_background_params)
 	local current_clip_text_params = {
-		text = "",
-		name = "current_clip_amount",
-		halign = "left",
 		valign = "top",
+		name = "current_clip_amount",
+		text = "",
+		halign = "left",
 		font = tweak_data.gui:get_font_path(HUDWeaponGeneric.CURRENT_CLIP_FONT, HUDWeaponGeneric.CURRENT_CLIP_FONT_SIZE),
 		font_size = HUDWeaponGeneric.CURRENT_CLIP_FONT_SIZE,
 		color = HUDWeaponGeneric.CURRENT_CLIP_TEXT_COLOR,
@@ -127,10 +127,10 @@ end
 
 function HUDWeaponGeneric:_create_ammo_left_info(weapons_panel)
 	local ammo_left_text_params = {
-		text = "",
-		name = "ammo_left_amount",
-		halign = "right",
 		valign = "top",
+		halign = "right",
+		name = "ammo_left_amount",
+		text = "",
 		font = HUDWeaponGeneric.AMMO_LEFT_FONT,
 		font_size = HUDWeaponGeneric.AMMO_LEFT_FONT_SIZE,
 		color = HUDWeaponGeneric.AMMO_LEFT_TEXT_COLOR,

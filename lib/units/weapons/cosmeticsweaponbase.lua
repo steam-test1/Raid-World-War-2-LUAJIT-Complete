@@ -130,16 +130,16 @@ local material_defaults = {
 	diffuse_layer3_texture = Idstring("texture_removed_in_cleanup")
 }
 local material_textures = {
-	pattern = "diffuse_layer0_texture",
-	sticker = "diffuse_layer3_texture",
 	pattern_gradient = "diffuse_layer2_texture",
-	base_gradient = "diffuse_layer1_texture"
+	base_gradient = "diffuse_layer1_texture",
+	sticker = "diffuse_layer3_texture",
+	pattern = "diffuse_layer0_texture"
 }
 local material_variables = {
 	cubemap_pattern_control = "cubemap_pattern_control",
 	pattern_pos = "pattern_pos",
-	uv_scale = "uv_scale",
 	uv_offset_rot = "uv_offset_rot",
+	uv_scale = "uv_scale",
 	pattern_tweak = "pattern_tweak",
 	wear_and_tear = Application:production_build() and "wear_tear_value" or nil
 }

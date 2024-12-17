@@ -21,27 +21,27 @@ end
 
 function RaidGUIControlListItemCharacterCreateNation:_layout()
 	self._background = self._object:rect({
-		visible = false,
-		y = 0,
 		w = 416,
+		y = 0,
 		x = 0,
+		visible = false,
 		h = self._params.h,
 		color = tweak_data.gui.colors.raid_list_background
 	})
 	self._red_selected_line = self._object:rect({
-		visible = false,
-		y = 0,
 		w = 2,
+		y = 0,
 		x = 0,
+		visible = false,
 		h = self._params.h,
 		color = tweak_data.gui.colors.raid_red
 	})
 	local nationality_text = self:translate("character_profile_creation_" .. self._nation_name, true)
 	self._nation_name_label = self._object:label({
-		h = 32,
-		y = 32,
 		w = 272,
+		y = 32,
 		x = 96,
+		h = 32,
 		text = nationality_text,
 		font = tweak_data.gui.fonts.din_compressed,
 		font_size = tweak_data.gui.font_sizes.size_32,

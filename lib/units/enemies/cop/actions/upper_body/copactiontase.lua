@@ -156,8 +156,8 @@ function CopActionTase:on_exit()
 
 		if self._expired then
 			self._ext_movement:action_request({
-				body_part = 3,
-				type = "idle"
+				type = "idle",
+				body_part = 3
 			})
 		end
 	end
@@ -344,9 +344,9 @@ end
 
 function CopActionTase:get_husk_interrupt_desc()
 	local action_desc = {
-		block_type = "action",
 		body_part = 3,
-		type = "tase"
+		type = "tase",
+		block_type = "action"
 	}
 
 	return action_desc

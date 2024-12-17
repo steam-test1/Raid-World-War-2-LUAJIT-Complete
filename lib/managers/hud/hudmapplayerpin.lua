@@ -27,9 +27,9 @@ function HUDMapPlayerPin:_create_nationality_icon(params)
 	local nationality = params.nationality or "german"
 	local nationality_icon = "player_panel_nationality_" .. nationality
 	local nationality_icon_params = {
+		halign = "center",
 		name = "nationality_icon",
 		valign = "center",
-		halign = "center",
 		texture = tweak_data.gui.icons[nationality_icon].texture,
 		texture_rect = tweak_data.gui.icons[nationality_icon].texture_rect
 	}

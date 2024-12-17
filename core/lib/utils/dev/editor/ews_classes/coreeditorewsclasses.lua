@@ -143,72 +143,72 @@ function UnitList:init()
 	self._column_states = {}
 
 	table.insert(self._column_states, {
-		value = "name",
-		state = "ascending"
+		state = "ascending",
+		value = "name"
 	})
 	table.insert(self._column_states, {
-		value = "amount",
-		state = "random"
+		state = "random",
+		value = "amount"
 	})
 	table.insert(self._column_states, {
-		value = "memory",
-		state = "random"
+		state = "random",
+		value = "memory"
 	})
 	table.insert(self._column_states, {
-		value = "models",
-		state = "random"
+		state = "random",
+		value = "models"
 	})
 	table.insert(self._column_states, {
-		value = "nr_bodies",
-		state = "random"
+		state = "random",
+		value = "nr_bodies"
 	})
 	table.insert(self._column_states, {
-		value = "slot",
-		state = "random"
+		state = "random",
+		value = "slot"
 	})
 	table.insert(self._column_states, {
-		value = "mass",
-		state = "random"
+		state = "random",
+		value = "mass"
 	})
 	table.insert(self._column_states, {
-		value = "nr_textures",
-		state = "random"
+		state = "random",
+		value = "nr_textures"
 	})
 	table.insert(self._column_states, {
-		value = "nr_materials",
-		state = "random"
+		state = "random",
+		value = "nr_materials"
 	})
 	table.insert(self._column_states, {
-		value = "vertices_per_tris",
-		state = "random"
+		state = "random",
+		value = "vertices_per_tris"
 	})
 	table.insert(self._column_states, {
-		value = "instanced",
-		state = "random"
+		state = "random",
+		value = "instanced"
 	})
 	table.insert(self._column_states, {
-		value = "author",
-		state = "random"
+		state = "random",
+		value = "author"
 	})
 	table.insert(self._column_states, {
-		value = "unit_filename",
-		state = "random"
+		state = "random",
+		value = "unit_filename"
 	})
 	table.insert(self._column_states, {
-		value = "model_filename",
-		state = "random"
+		state = "random",
+		value = "model_filename"
 	})
 	table.insert(self._column_states, {
-		value = "diesel_filename",
-		state = "random"
+		state = "random",
+		value = "diesel_filename"
 	})
 	table.insert(self._column_states, {
-		value = "material_filename",
-		state = "random"
+		state = "random",
+		value = "material_filename"
 	})
 	table.insert(self._column_states, {
-		value = "last_exported_from",
-		state = "random"
+		state = "random",
+		value = "last_exported_from"
 	})
 	panel_sizer:add(self._list, 2, 0, "EXPAND,TOP,BOTTOM")
 
@@ -1810,7 +1810,7 @@ function MoveTransformTypeIn:update_spin(data)
 		data.ctrl:set_value(0)
 	end
 
-	data.ctrl:set_value(string.format("%.2f", data.ctrl:get_value() + data.step))
+	data.ctrl:set_value(string.format("%.3f", data.ctrl:get_value() + data.step))
 	self:update_absolut(data)
 end
 
@@ -1827,7 +1827,7 @@ function MoveTransformTypeIn:update_absolut(data)
 		local pos = self._unit:position()
 		pos = pos["with_" .. data.coor](pos, value)
 
-		data.ctrl:change_value(string.format("%.2f", value / 100))
+		data.ctrl:change_value(string.format("%.3f", value / 100))
 		data.ctrl:set_selection(-1, -1)
 		managers.editor:set_selected_units_position(pos)
 	end
@@ -1865,15 +1865,15 @@ function MoveTransformTypeIn:update(t, dt)
 		local pos = self._unit:position()
 
 		if not self._ax:in_focus() then
-			self._ax:change_value(string.format("%.2f", pos.x / 100))
+			self._ax:change_value(string.format("%.3f", pos.x / 100))
 		end
 
 		if not self._ay:in_focus() then
-			self._ay:change_value(string.format("%.2f", pos.y / 100))
+			self._ay:change_value(string.format("%.3f", pos.y / 100))
 		end
 
 		if not self._az:in_focus() then
-			self._az:change_value(string.format("%.2f", pos.z / 100))
+			self._az:change_value(string.format("%.3f", pos.z / 100))
 		end
 	end
 end
@@ -1964,7 +1964,7 @@ function RotateTransformTypeIn:update_spin(data)
 		data.ctrl:set_value(0)
 	end
 
-	data.ctrl:set_value(string.format("%.2f", data.ctrl:get_value() + data.step))
+	data.ctrl:set_value(string.format("%.3f", data.ctrl:get_value() + data.step))
 	self:update_absolut(data)
 end
 
@@ -1986,7 +1986,7 @@ function RotateTransformTypeIn:update_absolut(data)
 			rot = Rotation(rot:yaw(), rot:pitch(), value)
 		end
 
-		data.ctrl:change_value(string.format("%.2f", value))
+		data.ctrl:change_value(string.format("%.3f", value))
 		data.ctrl:set_selection(-1, -1)
 		managers.editor:set_selected_units_rotation(rot * self._unit:rotation():inverse())
 	end
@@ -2024,15 +2024,15 @@ function RotateTransformTypeIn:update(t, dt)
 		local rot = self._unit:rotation()
 
 		if not self._ax:in_focus() then
-			self._ax:change_value(string.format("%.2f", rot:yaw()))
+			self._ax:change_value(string.format("%.3f", rot:yaw()))
 		end
 
 		if not self._ay:in_focus() then
-			self._ay:change_value(string.format("%.2f", rot:pitch()))
+			self._ay:change_value(string.format("%.3f", rot:pitch()))
 		end
 
 		if not self._az:in_focus() then
-			self._az:change_value(string.format("%.2f", rot:roll()))
+			self._az:change_value(string.format("%.3f", rot:roll()))
 		end
 	end
 end
@@ -2122,7 +2122,7 @@ function ScaleTransformTypeIn:update_spin(data)
 		data.ctrl:set_value(0)
 	end
 
-	data.ctrl:set_value(string.format("%.2f", data.ctrl:get_value() + data.step))
+	data.ctrl:set_value(string.format("%.3f", data.ctrl:get_value() + data.step))
 	self:update_absolut(data)
 end
 
@@ -2139,7 +2139,7 @@ function ScaleTransformTypeIn:update_absolut(data)
 		local pos = self._unit:position()
 		pos = pos["with_" .. data.coor](pos, value)
 
-		data.ctrl:change_value(string.format("%.2f", value / 100))
+		data.ctrl:change_value(string.format("%.3f", value / 100))
 		data.ctrl:set_selection(-1, -1)
 		managers.editor:set_selected_units_scale(pos)
 	end
@@ -2177,15 +2177,15 @@ function ScaleTransformTypeIn:update(t, dt)
 		local scale = self._unit:position()
 
 		if not self._ax:in_focus() then
-			self._ax:change_value(string.format("%.2f", scale.x / 100))
+			self._ax:change_value(string.format("%.3f", scale.x / 100))
 		end
 
 		if not self._ay:in_focus() then
-			self._ay:change_value(string.format("%.2f", scale.y / 100))
+			self._ay:change_value(string.format("%.3f", scale.y / 100))
 		end
 
 		if not self._az:in_focus() then
-			self._az:change_value(string.format("%.2f", scale.z / 100))
+			self._az:change_value(string.format("%.3f", scale.z / 100))
 		end
 	end
 end
@@ -2392,7 +2392,7 @@ function CameraTransformTypeIn:update_far_range()
 
 	value = value * 100
 
-	self._far_range:set_value(string.format("%.2f", value / 100))
+	self._far_range:set_value(string.format("%.3f", value / 100))
 	self._far_range:set_selection(-1, -1)
 	managers.editor:set_camera_far_range(value)
 end
@@ -2431,7 +2431,7 @@ function CameraTransformTypeIn:update(t, dt)
 	end
 
 	if not self._far_range:in_focus() then
-		self._far_range:change_value(string.format("%.2f", managers.editor:camera_far_range() / 100))
+		self._far_range:change_value(string.format("%.3f", managers.editor:camera_far_range() / 100))
 	end
 end
 
@@ -2740,12 +2740,12 @@ function BrushLayerDebug:init(...)
 	self._column_states = {}
 
 	table.insert(self._column_states, {
-		value = "name",
-		state = "ascending"
+		state = "ascending",
+		value = "name"
 	})
 	table.insert(self._column_states, {
-		value = "amount",
-		state = "random"
+		state = "random",
+		value = "amount"
 	})
 
 	local toolbar_sizer = EWS:BoxSizer("VERTICAL")
