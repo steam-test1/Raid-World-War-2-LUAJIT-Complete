@@ -2898,6 +2898,18 @@ function SkillTreeTweakData:_init_skill_list()
 				"d343"
 			}
 		},
+		weapon_unlock_grenade_mills = {
+			name_id = "skill_weapon_unlock_grenade_mills_name",
+			desc_id = "skill_weapon_unlock_grenade_mills_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"mills"
+			}
+		},
 		weapon_unlock_dp28 = {
 			name_id = "skill_weapon_unlock_dp28_name",
 			desc_id = "skill_weapon_unlock_dp28_desc",
@@ -2944,6 +2956,30 @@ function SkillTreeTweakData:_init_skill_list()
 			acquires = {},
 			upgrades = {
 				"kar_98k"
+			}
+		},
+		weapon_unlock_lee_enfield = {
+			name_id = "skill_weapon_unlock_lee_enfield_name",
+			desc_id = "skill_weapon_unlock_lee_enfield_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"lee_enfield"
+			}
+		},
+		weapon_unlock_shotty = {
+			name_id = "skill_weapon_unlock_shotty_name",
+			desc_id = "skill_weapon_unlock_shotty_desc",
+			icon_xy = {
+				1,
+				1
+			},
+			acquires = {},
+			upgrades = {
+				"shotty"
 			}
 		},
 		pistol_damage_multiplier_1 = {
@@ -5279,6 +5315,11 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 				"weapon_unlock_kar_98k"
 			}
 		},
+		[11] = {
+			weapons = {
+				"weapon_unlock_shotty"
+			}
+		},
 		[13] = {
 			weapons = {
 				"weapon_unlock_garand",
@@ -5319,6 +5360,16 @@ function SkillTreeTweakData:_init_recon_unlock_progression()
 		[30] = {
 			weapons = {
 				"weapon_unlock_m1911"
+			}
+		},
+		[31] = {
+			weapons = {
+				"weapon_unlock_grenade_mills"
+			}
+		},
+		[33] = {
+			weapons = {
+				"weapon_unlock_lee_enfield"
 			}
 		},
 		[35] = {
@@ -5373,6 +5424,11 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 				"weapon_unlock_garand_golden"
 			}
 		},
+		[11] = {
+			weapons = {
+				"weapon_unlock_shotty"
+			}
+		},
 		[13] = {
 			weapons = {
 				"weapon_unlock_thompson"
@@ -5412,6 +5468,11 @@ function SkillTreeTweakData:_init_assault_unlock_progression()
 		[30] = {
 			weapons = {
 				"weapon_unlock_m1911"
+			}
+		},
+		[31] = {
+			weapons = {
+				"weapon_unlock_grenade_mills"
 			}
 		},
 		[33] = {
@@ -5470,6 +5531,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 				"weapon_unlock_thompson"
 			}
 		},
+		[11] = {
+			weapons = {
+				"weapon_unlock_shotty"
+			}
+		},
 		[13] = {
 			weapons = {
 				"weapon_unlock_geco"
@@ -5507,6 +5573,11 @@ function SkillTreeTweakData:_init_infiltrator_unlock_progression()
 		[30] = {
 			weapons = {
 				"weapon_unlock_m1911"
+			}
+		},
+		[31] = {
+			weapons = {
+				"weapon_unlock_grenade_mills"
 			}
 		},
 		[33] = {
@@ -5555,6 +5626,16 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 				"weapon_unlock_grenade_concrete"
 			}
 		},
+		[6] = {
+			weapons = {
+				"weapon_unlock_grenade_concrete"
+			}
+		},
+		[8] = {
+			weapons = {
+				"weapon_unlock_shotty"
+			}
+		},
 		[10] = {
 			weapons = {
 				"weapon_unlock_geco"
@@ -5597,6 +5678,11 @@ function SkillTreeTweakData:_init_demolitions_unlock_progression()
 		[30] = {
 			weapons = {
 				"weapon_unlock_m1911"
+			}
+		},
+		[31] = {
+			weapons = {
+				"weapon_unlock_grenade_mills"
 			}
 		},
 		[35] = {

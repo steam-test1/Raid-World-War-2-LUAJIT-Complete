@@ -214,7 +214,9 @@ function StatisticsTweakData:statistics_table()
 		"dp28",
 		"tt33",
 		"kar_98k",
-		"bren"
+		"bren",
+		"lee_enfield",
+		"shotty"
 	}
 	local melee_list = {
 		"weapon",
@@ -229,7 +231,10 @@ function StatisticsTweakData:statistics_table()
 		"lc14b"
 	}
 	local grenade_list = {
-		"m24"
+		"m24",
+		"concrete",
+		"d343",
+		"mills"
 	}
 	local enemy_list = {
 		"german_black_waffen_sentry_gasmask",

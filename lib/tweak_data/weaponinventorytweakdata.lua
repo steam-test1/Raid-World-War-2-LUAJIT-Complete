@@ -69,6 +69,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "bren",
 			slot = 17
+		},
+		{
+			weapon_id = "lee_enfield",
+			slot = 20
 		}
 	}
 	self.weapon_secondaries_index = {
@@ -87,6 +91,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "tt33",
 			slot = 4
+		},
+		{
+			weapon_id = "shotty",
+			slot = 5
 		}
 	}
 	self.weapon_grenades_index = {
@@ -102,6 +110,10 @@ function WeaponInventoryTweakData:init()
 		{
 			weapon_id = "d343",
 			slot = 3
+		},
+		{
+			weapon_id = "mills",
+			slot = 4
 		}
 	}
 	self.weapon_melee_index = {

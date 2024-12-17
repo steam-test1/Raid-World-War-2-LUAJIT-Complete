@@ -98,6 +98,38 @@ function ProjectilesTweakData:init(tweak_data)
 	self.d343.gui.initial_rotation.yaw = 0
 	self.d343.gui.initial_rotation.pitch = 90
 	self.d343.gui.initial_rotation.roll = 30
+	self.mills = {
+		name_id = "bm_grenade_mills",
+		unit = "units/upd_015/weapons/wpn_fps_gre_mills/wpn_fps_gre_mills",
+		unit_hand = "units/upd_015/weapons/wpn_fps_gre_mills/wpn_fps_gre_mills_hand",
+		unit_dummy = "units/upd_015/weapons/wpn_fps_gre_mills/wpn_fps_gre_mills_husk",
+		icon = "frag_grenade",
+		throwable = true,
+		max_amount = 3,
+		anim_global_param = "projectile_frag",
+		throw_allowed_expire_t = 0.1,
+		expire_t = 1.1,
+		repeat_expire_t = 1.5,
+		is_a_grenade = true,
+		damage = 750,
+		player_damage = 24,
+		range = 1350,
+		killzone_range = 0.75,
+		init_timer = 4.5,
+		animations = {}
+	}
+	self.mills.animations.equip_id = "equip_welrod"
+	self.mills.sound_event = "mills_grenade_explode"
+	self.mills.gui = {
+		rotation_offset = 0,
+		distance_offset = -120,
+		height_offset = -8,
+		display_offset = 16,
+		initial_rotation = {}
+	}
+	self.mills.gui.initial_rotation.yaw = -90
+	self.mills.gui.initial_rotation.pitch = 60
+	self.mills.gui.initial_rotation.roll = 0
 	self.cluster = {
 		name_id = "bm_grenade_frag",
 		unit = "units/vanilla/dev/dev_shrapnel/dev_shrapnel",
@@ -205,7 +237,8 @@ function ProjectilesTweakData:init(tweak_data)
 		"mortar_shell",
 		"flamer_death_fake",
 		"concrete",
-		"d343"
+		"d343",
+		"mills"
 	}
 
 	self:_add_desc_from_name_macro(self)

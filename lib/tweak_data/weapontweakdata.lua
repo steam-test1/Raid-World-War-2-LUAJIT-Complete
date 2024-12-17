@@ -34,18 +34,20 @@ function WeaponTweakData:init(tweak_data)
 	self:_init_data_m1912_npc()
 	self:_init_data_mp38_npc()
 	self:_init_data_mp44_npc()
-	self:_init_data_welrod_npc()
 	self:_init_data_geco_npc()
 	self:_init_data_dp28_npc()
 	self:_init_data_tt33_npc()
 	self:_init_data_kar_98k_npc()
 	self:_init_data_bren_npc()
+	self:_init_data_lee_enfield_npc()
+	self:_init_data_shotty_npc()
 	self:_init_data_tiger_main_gun_module_npc(difficulty_index)
 	self:_init_data_tiger_machinegun_module_npc(difficulty_index)
 	self:_init_data_junker_machinegun_module_npc(difficulty_index)
 	self:_init_data_m24()
 	self:_init_data_concrete()
 	self:_init_data_d343()
+	self:_init_data_mills()
 	self:_init_data_molotov()
 	self:_init_data_kar98_npc()
 	self:_init_data_sniper_kar98_npc()
@@ -504,6 +506,57 @@ function WeaponTweakData:_init_data_d343()
 	}
 end
 
+function WeaponTweakData:_init_data_mills()
+	self.mills = {
+		sounds = {},
+		use_data = {},
+		usage = "c45",
+		usage_anim = "c45",
+		name_id = "bm_grenade_mills"
+	}
+	self.mills.sounds.prefix = ""
+	self.mills.sounds.single = "new_grenade_explode"
+	self.mills.sounds.autofire_start = nil
+	self.mills.sounds.autofire_stop = nil
+	self.mills.use_data.selection_index = 3
+	self.mills.auto = {
+		fire_rate = 0.4
+	}
+	self.mills.hold = "grenade"
+	self.mills.alert_size = 5000
+	self.mills.suppression = 1
+	self.mills.timers = {
+		reload_not_empty = 1.25,
+		reload_empty = 1.65,
+		unequip = 0.25,
+		equip = 0.3
+	}
+	self.mills.weapon_movement_penalty = 1
+	self.mills.exit_run_speed_multiplier = 1
+	self.mills.transition_duration = 0
+	self.mills.stance = "mills"
+	self.mills.weapon_hold = "mills"
+	self.mills.use_data = {
+		equip = {
+			align_place = "right_hand"
+		},
+		selection_index = 3,
+		unequip = {
+			align_place = "back"
+		}
+	}
+	self.mills.sound_event = "new_grenade_explode"
+	self.mills.damage_melee = 66
+	self.mills.damage_melee_effect_mul = 1
+	self.mills.hud = {
+		icon = "weapons_panel_gre_mills",
+		panel_class = "grenade"
+	}
+	self.mills.gui = {
+		icon_large = "weapon_gre_mills_large"
+	}
+end
+
 function WeaponTweakData:_init_data_molotov()
 	self.molotov = {
 		sounds = {},
@@ -597,6 +650,32 @@ function WeaponTweakData:_init_data_kar_98k_npc()
 	self.kar_98k_npc.suppression = 1
 end
 
+function WeaponTweakData:_init_data_lee_enfield_npc()
+	self.lee_enfield_npc = {
+		sounds = {},
+		use_data = {},
+		usage = "springfield",
+		usage_anim = "springfield"
+	}
+	self.lee_enfield_npc.sounds.prefix = ""
+	self.lee_enfield_npc.sounds.single = "lee_fire_npc_single"
+	self.lee_enfield_npc.sounds.autofire_start = nil
+	self.lee_enfield_npc.sounds.autofire_stop = nil
+	self.lee_enfield_npc.use_data.selection_index = 2
+	self.lee_enfield_npc.DAMAGE = 2
+	self.lee_enfield_npc.muzzleflash = "effects/vanilla/weapons/556_auto"
+	self.lee_enfield_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_556"
+	self.lee_enfield_npc.CLIP_AMMO_MAX = 6
+	self.lee_enfield_npc.NR_CLIPS_MAX = 8
+	self.lee_enfield_npc.AMMO_MAX = self.lee_enfield_npc.CLIP_AMMO_MAX * self.lee_enfield_npc.NR_CLIPS_MAX
+	self.lee_enfield_npc.auto = {
+		fire_rate = 1.2
+	}
+	self.lee_enfield_npc.hold = "springfield"
+	self.lee_enfield_npc.alert_size = 5000
+	self.lee_enfield_npc.suppression = 1
+end
+
 function WeaponTweakData:_init_data_m1912_npc()
 	self.m1912_npc = {
 		sounds = {},
@@ -610,8 +689,8 @@ function WeaponTweakData:_init_data_m1912_npc()
 	self.m1912_npc.sounds.autofire_stop = nil
 	self.m1912_npc.use_data.selection_index = 2
 	self.m1912_npc.DAMAGE = 6
-	self.m1912_npc.muzzleflash = "effects/vanilla/weapons/556_auto"
-	self.m1912_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_556"
+	self.m1912_npc.muzzleflash = "effects/vanilla/weapons/12g_auto_fps"
+	self.m1912_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_slug_semi"
 	self.m1912_npc.CLIP_AMMO_MAX = 4
 	self.m1912_npc.NR_CLIPS_MAX = 64
 	self.m1912_npc.AMMO_MAX = self.m1912_npc.CLIP_AMMO_MAX * self.m1912_npc.NR_CLIPS_MAX
@@ -810,28 +889,30 @@ function WeaponTweakData:_init_data_sterling_npc()
 	self.sterling_npc.suppression = 1
 end
 
-function WeaponTweakData:_init_data_welrod_npc()
-	self.welrod_npc = {
+function WeaponTweakData:_init_data_shotty_npc()
+	self.shotty_npc = {
 		sounds = {},
 		use_data = {},
 		usage = "c45",
 		usage_anim = "c45"
 	}
-	self.welrod_npc.sounds.prefix = ""
-	self.welrod_npc.sounds.single = ""
-	self.welrod_npc.sounds.autofire_start = nil
-	self.welrod_npc.sounds.autofire_stop = nil
-	self.welrod_npc.use_data.selection_index = 1
-	self.welrod_npc.DAMAGE = 1
-	self.welrod_npc.muzzleflash = "effects/vanilla/weapons/9mm_auto_silence"
-	self.welrod_npc.muzzleflash_silenced = "effects/vanilla/weapons/9mm_auto_silence"
-	self.welrod_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_9mm"
-	self.welrod_npc.CLIP_AMMO_MAX = 10
-	self.welrod_npc.NR_CLIPS_MAX = 5
-	self.welrod_npc.AMMO_MAX = self.welrod_npc.CLIP_AMMO_MAX * self.welrod_npc.NR_CLIPS_MAX
-	self.welrod_npc.hold = "pistol"
-	self.welrod_npc.alert_size = 5000
-	self.welrod_npc.suppression = 1
+	self.shotty_npc.sounds.prefix = ""
+	self.shotty_npc.sounds.single = "shotty_fire_npc_single"
+	self.shotty_npc.sounds.autofire_start = nil
+	self.shotty_npc.sounds.autofire_stop = nil
+	self.shotty_npc.use_data.selection_index = 2
+	self.shotty_npc.DAMAGE = 6
+	self.shotty_npc.muzzleflash = "effects/vanilla/weapons/shotgun/sho_muzzleflash"
+	self.shotty_npc.shell_ejection = "effects/vanilla/weapons/shells/shell_empty"
+	self.shotty_npc.CLIP_AMMO_MAX = 2
+	self.shotty_npc.NR_CLIPS_MAX = 32
+	self.shotty_npc.AMMO_MAX = self.shotty_npc.CLIP_AMMO_MAX * self.shotty_npc.NR_CLIPS_MAX
+	self.shotty_npc.auto = {
+		fire_rate = 0.8
+	}
+	self.shotty_npc.hold = "pistol"
+	self.shotty_npc.alert_size = 5000
+	self.shotty_npc.suppression = 1
 end
 
 function WeaponTweakData:_init_data_c45_npc()
@@ -2514,6 +2595,8 @@ function WeaponTweakData:_init_new_weapons(weapon_data)
 	self:_init_tt33(weapon_data)
 	self:_init_kar_98k(weapon_data)
 	self:_init_bren(weapon_data)
+	self:_init_lee_enfield(weapon_data)
+	self:_init_shotty(weapon_data)
 end
 
 function WeaponTweakData:_init_flamethrower_mk2(weapon_data)
@@ -3423,6 +3506,166 @@ function WeaponTweakData:_init_m1912_winchester(weapon_data)
 		alert_size = 7,
 		spread = 6,
 		recoil = 4,
+		value = 1,
+		extra_ammo = 6,
+		suppression = 6,
+		concealment = 12
+	}
+end
+
+function WeaponTweakData:_init_shotty(weapon_data)
+	self.shotty = {
+		inventory_texture = "ui/temp/customization_temp_df",
+		category = WeaponTweakData.WEAPON_CATEGORY_SHOTGUN,
+		use_shotgun_reload = false,
+		dismember_chance = 1,
+		damage_melee = 100,
+		damage_melee_effect_mul = weapon_data.damage_melee_effect_multiplier_default,
+		sounds = {}
+	}
+	self.shotty.sounds.fire = "shotty_fire_1p_single"
+	self.shotty.sounds.dryfire = "primary_dryfire"
+	self.shotty.timers = {
+		reload_not_empty = 2.1,
+		reload_empty = 2.1,
+		unequip = 0.85,
+		equip = 0.75
+	}
+	self.shotty.name_id = "bm_w_shotty"
+	self.shotty.desc_id = "bm_w_shotty_desc"
+	self.shotty.description_id = "des_shotty"
+	self.shotty.muzzleflash = "effects/vanilla/weapons/12g_auto_fps"
+	self.shotty.shell_ejection = "effects/vanilla/weapons/shells/shell_empty"
+	self.shotty.use_data = {
+		selection_index = 1,
+		align_place = "right_hand"
+	}
+	self.shotty.damage_profile = {
+		{
+			damage = 135,
+			range = 500
+		},
+		{
+			damage = 80,
+			range = 1500
+		}
+	}
+	self.shotty.headshot_multiplier = 3
+	self.shotty.rays = 12
+	self.shotty.CLIP_AMMO_MAX = 2
+	self.shotty.NR_CLIPS_MAX = 15
+	self.shotty.AMMO_MAX = self.shotty.CLIP_AMMO_MAX * self.shotty.NR_CLIPS_MAX
+	self.shotty.AMMO_PICKUP = self:_pickup_chance(self.shotty.AMMO_MAX, 1)
+	self.shotty.ammo_pickup_base = 2
+	self.shotty.FIRE_MODE = "single"
+	self.shotty.fire_mode_data = {
+		fire_rate = 0.2
+	}
+	self.shotty.CAN_TOGGLE_FIREMODE = false
+	self.shotty.single = {
+		fire_rate = 0.2
+	}
+	self.shotty.spread = {
+		standing = 5,
+		crouching = 5,
+		steelsight = 5,
+		moving_standing = 5,
+		moving_crouching = 5,
+		moving_steelsight = 5,
+		per_shot = 0,
+		per_shot_steelsight = 0,
+		recovery = 12,
+		recovery_wait_multiplier = 0.5
+	}
+	self.shotty.kick = {
+		standing = {
+			8.3,
+			9.6,
+			-4.9,
+			4.7
+		},
+		crouching = {
+			7.8,
+			9.4,
+			-4.6,
+			4.9
+		},
+		steelsight = {
+			7.7,
+			8.7,
+			-4.6,
+			4.8
+		},
+		crouching_steelsight = {
+			7.4,
+			7.5,
+			-4.2,
+			4.2
+		}
+	}
+	self.shotty.gun_kick = {
+		hip_fire = {
+			142,
+			184,
+			-127,
+			127
+		},
+		steelsight = {
+			116,
+			138,
+			-109,
+			-109
+		},
+		position_ratio = -0.075
+	}
+	self.shotty.crosshair = {
+		standing = {},
+		crouching = {},
+		steelsight = {}
+	}
+	self.shotty.crosshair.standing.offset = 0.7
+	self.shotty.crosshair.standing.moving_offset = 0.7
+	self.shotty.crosshair.standing.kick_offset = 0.8
+	self.shotty.crosshair.crouching.offset = 0.65
+	self.shotty.crosshair.crouching.moving_offset = 0.65
+	self.shotty.crosshair.crouching.kick_offset = 0.75
+	self.shotty.crosshair.steelsight.hidden = true
+	self.shotty.crosshair.steelsight.offset = 0
+	self.shotty.crosshair.steelsight.moving_offset = 0
+	self.shotty.crosshair.steelsight.kick_offset = 0
+	self.shotty.shake = {
+		fire_multiplier = 2,
+		fire_steelsight_multiplier = -2
+	}
+	self.shotty.autohit = weapon_data.autohit_shotgun_default
+	self.shotty.aim_assist = weapon_data.aim_assist_shotgun_default
+	self.shotty.weapon_hold = "shotty"
+	self.shotty.animations = {
+		equip_id = "equip_shotty",
+		recoil_steelsight = true
+	}
+	self.shotty.panic_suppression_chance = 0.2
+	self.shotty.gui = {
+		rotation_offset = -10,
+		distance_offset = -50,
+		height_offset = -5,
+		display_offset = 12,
+		initial_rotation = {}
+	}
+	self.shotty.gui.initial_rotation.yaw = -90
+	self.shotty.gui.initial_rotation.pitch = 0
+	self.shotty.gui.initial_rotation.roll = 0
+	self.shotty.gui.icon_large = "weapon_panel_shotty"
+	self.shotty.hud = {
+		icon = "weapon_panel_shotty"
+	}
+	self.shotty.stats = {
+		zoom = 3,
+		total_ammo_mod = 21,
+		spread_moving = 9,
+		alert_size = 7,
+		spread = 6,
+		recoil = 11,
 		value = 1,
 		extra_ammo = 6,
 		suppression = 6,
@@ -5662,7 +5905,7 @@ function WeaponTweakData:_init_m1903_springfield(weapon_data)
 		icon = "weapon_panel_snp_m1903"
 	}
 	self.m1903.stats = {
-		zoom = 1,
+		zoom = 6,
 		total_ammo_mod = 21,
 		spread_moving = 9,
 		alert_size = 7,
@@ -5845,12 +6088,196 @@ function WeaponTweakData:_init_kar_98k(weapon_data)
 		icon = "weapons_panel_kar_98k"
 	}
 	self.kar_98k.stats = {
-		zoom = 1,
+		zoom = 6,
 		total_ammo_mod = 21,
 		spread_moving = 8,
 		alert_size = 7,
 		spread = 5,
 		recoil = 3,
+		value = 1,
+		extra_ammo = 6,
+		suppression = 8,
+		concealment = 10
+	}
+end
+
+function WeaponTweakData:_init_lee_enfield(weapon_data)
+	self.lee_enfield = {
+		inventory_texture = "ui/temp/customization_temp_df",
+		category = WeaponTweakData.WEAPON_CATEGORY_SNP,
+		use_shotgun_reload = true,
+		dismember_chance = 0.25,
+		damage_melee = 100,
+		damage_melee_effect_mul = weapon_data.damage_melee_effect_multiplier_default,
+		sounds = {}
+	}
+	self.lee_enfield.sounds.fire_single = "lee_fire_1p_single"
+	self.lee_enfield.sounds.dryfire = "primary_dryfire"
+	self.lee_enfield.timers = {
+		reload_empty = 2.07,
+		reload_not_empty = 2.07,
+		shotgun_reload_enter = 0.6333333333333333,
+		shotgun_reload_exit_empty = 0.8333333333333334,
+		shotgun_reload_exit_not_empty = 0.8333333333333334,
+		shotgun_reload_shell = 0.8666666666666667,
+		shotgun_reload_first_shell_offset = 0.16666666666666666,
+		unequip = 0.6,
+		equip = 0.5
+	}
+	self.lee_enfield.name_id = "bm_w_lee_enfield"
+	self.lee_enfield.desc_id = "bm_w_lee_enfield_desc"
+	self.lee_enfield.description_id = "des_lee_enfield"
+	self.lee_enfield.muzzleflash = "effects/vanilla/weapons/762_auto_fps"
+	self.lee_enfield.shell_ejection = "effects/vanilla/weapons/shells/shell_sniper"
+	self.lee_enfield.use_data = {
+		selection_index = 2
+	}
+	self.lee_enfield.damage_profile = {
+		{
+			damage = 290,
+			range = 1000
+		}
+	}
+	self.lee_enfield.headshot_multiplier = 3.5
+	self.lee_enfield.CLIP_AMMO_MAX = 5
+	self.lee_enfield.NR_CLIPS_MAX = 9
+	self.lee_enfield.AMMO_MAX = self.lee_enfield.CLIP_AMMO_MAX * self.lee_enfield.NR_CLIPS_MAX
+	self.lee_enfield.AMMO_PICKUP = {
+		0.7,
+		1
+	}
+	self.lee_enfield.ammo_pickup_base = 5
+	self.lee_enfield.FIRE_MODE = "single"
+	self.lee_enfield.fire_mode_data = {
+		fire_rate = 1.2
+	}
+	self.lee_enfield.CAN_TOGGLE_FIREMODE = false
+	self.lee_enfield.auto = {
+		fire_rate = 1.2
+	}
+	self.lee_enfield.spread = {
+		standing = 4.1,
+		crouching = 2.8,
+		steelsight = 0.05,
+		moving_standing = 8.4,
+		moving_crouching = 6,
+		moving_steelsight = 0.11,
+		per_shot = 0.8,
+		per_shot_steelsight = 0.1,
+		recovery = 16,
+		recovery_wait_multiplier = 0.9
+	}
+	self.lee_enfield.kick = {
+		standing = {
+			2.3,
+			2.6,
+			-2.4,
+			2.4
+		},
+		crouching = {
+			2.1,
+			2.4,
+			-2.1,
+			2.1
+		},
+		steelsight = {
+			2.05,
+			2.3,
+			-2,
+			2.05
+		},
+		crouching_steelsight = {
+			1.95,
+			2.2,
+			-1.95,
+			1.95
+		},
+		recenter_speed = 490,
+		recenter_speed_steelsight = 400
+	}
+	self.lee_enfield.minimum_view_kick = {
+		standing = {
+			0,
+			1.9
+		},
+		crouching = {
+			0,
+			1.75
+		},
+		steelsight = {
+			0,
+			1.65
+		},
+		crouching_steelsight = {
+			0,
+			1.4
+		}
+	}
+	self.lee_enfield.gun_kick = {
+		hip_fire = {
+			40,
+			40,
+			-40,
+			40
+		},
+		steelsight = {
+			0,
+			0,
+			0,
+			0
+		}
+	}
+	self.lee_enfield.crosshair = {
+		standing = {},
+		crouching = {},
+		steelsight = {}
+	}
+	self.lee_enfield.crosshair.standing.offset = 0.16
+	self.lee_enfield.crosshair.standing.moving_offset = 0.8
+	self.lee_enfield.crosshair.standing.kick_offset = 0.6
+	self.lee_enfield.crosshair.crouching.offset = 0.08
+	self.lee_enfield.crosshair.crouching.moving_offset = 0.7
+	self.lee_enfield.crosshair.crouching.kick_offset = 0
+	self.lee_enfield.crosshair.steelsight.hidden = true
+	self.lee_enfield.crosshair.steelsight.offset = 0
+	self.lee_enfield.crosshair.steelsight.moving_offset = 0
+	self.lee_enfield.crosshair.steelsight.kick_offset = 0.1
+	self.lee_enfield.shake = {
+		fire_multiplier = 2,
+		fire_steelsight_multiplier = -1
+	}
+	self.lee_enfield.autohit = weapon_data.autohit_snp_default
+	self.lee_enfield.aim_assist = weapon_data.aim_assist_snp_default
+	self.lee_enfield.weapon_hold = "lee_enfield"
+	self.lee_enfield.animations = {
+		equip_id = "lee_enfield",
+		recoil_steelsight = true
+	}
+	self.lee_enfield.can_shoot_through_enemy = true
+	self.lee_enfield.can_shoot_through_shield = false
+	self.lee_enfield.can_shoot_through_wall = false
+	self.lee_enfield.armor_piercing_chance = 1
+	self.lee_enfield.gui = {
+		rotation_offset = -27,
+		distance_offset = 70,
+		height_offset = -6,
+		display_offset = -8,
+		initial_rotation = {}
+	}
+	self.lee_enfield.gui.initial_rotation.yaw = -90
+	self.lee_enfield.gui.initial_rotation.pitch = 0
+	self.lee_enfield.gui.initial_rotation.roll = 0
+	self.lee_enfield.gui.icon_large = "weapon_enfield_large"
+	self.lee_enfield.hud = {
+		icon = "weapons_panel_enfield"
+	}
+	self.lee_enfield.stats = {
+		zoom = 6,
+		total_ammo_mod = 21,
+		spread_moving = 8,
+		alert_size = 7,
+		spread = 10,
+		recoil = 6,
 		value = 1,
 		extra_ammo = 6,
 		suppression = 8,
@@ -6029,7 +6456,7 @@ function WeaponTweakData:_init_mosin(weapon_data)
 		icon = "weapon_panel_snp_mosin"
 	}
 	self.mosin.stats = {
-		zoom = 1,
+		zoom = 6,
 		total_ammo_mod = 21,
 		recoil = 4,
 		alert_size = 7,

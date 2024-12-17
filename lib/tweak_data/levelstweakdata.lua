@@ -272,6 +272,16 @@ function LevelsTweakData:init()
 		cube = "cube_apply_heist_bank",
 		predefined_world = "sto"
 	}
+	self.silo = {
+		name_id = "silo",
+		briefing_id = "silo_briefing",
+		world_name = "upg_002/silo/silo_start",
+		packages = {
+			"packages/zone_germany"
+		},
+		cube = "cube_apply_heist_bank",
+		predefined_world = "silo"
+	}
 	self._level_index = {
 		"streaming_level",
 		"germany_zone",
@@ -290,7 +300,8 @@ function LevelsTweakData:init()
 		"hunters",
 		"convoy",
 		"spies_test",
-		"sto"
+		"sto",
+		"silo"
 	}
 	self.escape_levels = {}
 end

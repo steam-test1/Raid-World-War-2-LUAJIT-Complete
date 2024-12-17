@@ -204,6 +204,10 @@ function OperationsTweakData:_init_loading_screens()
 		image = "loading_screens_07",
 		text = "loading_bridge"
 	}
+	self._loading_screens.silo = {
+		image = "loading_screens_07",
+		text = "loading_bridge"
+	}
 end
 
 function OperationsTweakData:_init_raids()
@@ -220,7 +224,8 @@ function OperationsTweakData:_init_raids()
 		"hunters",
 		"convoy",
 		"spies_test",
-		"sto"
+		"sto",
+		"silo"
 	}
 	self.missions.streaming_level = {
 		name_id = "menu_stream",
@@ -1096,6 +1101,69 @@ function OperationsTweakData:_init_raids()
 			}
 		}
 	}
+	self.missions.silo = {
+		name_id = "menu_silo_hl",
+		level_id = "silo",
+		briefing_id = "menu_silo_desc",
+		sub_worlds_spawned = 2,
+		audio_briefing_id = "",
+		short_audio_briefing_id = "",
+		music_id = "random",
+		region = "germany",
+		dogtags_min = 30,
+		dogtags_max = 37,
+		trophy = {
+			position = "snap_17",
+			unit = "units/vanilla/props/props_camp_upgrades/props_camp_trophy_case/props_trophy_silo"
+		},
+		xp = 2500,
+		stealth_bonus = 1.5,
+		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
+		mission_flag = "level_raid_silo",
+		job_type = OperationsTweakData.JOB_TYPE_RAID,
+		progression_groups = {
+			OperationsTweakData.PROGRESSION_GROUP_STANDARD
+		},
+		icon_menu_big = "xp_events_missions_silo",
+		icon_menu = "missions_silo",
+		icon_hud = "missions_silo",
+		control_brief_video = {
+			"movies/vanilla/mission_briefings/02_mission_brief_a2_cause-carnage_v005",
+			"movies/vanilla/mission_briefings/02_mission_brief_b1_cause-carnage_v004"
+		},
+		tab_background_image = "ui/hud/backgrounds/tab_screen_bg_raid_flak_hud",
+		loading = {
+			text = "menu_silo_loading_desc",
+			image = "loading_silo"
+		},
+		photos = {
+			{
+				title_id = "silo_mission_photo_1_title",
+				description_id = "silo_mission_photo_1_description",
+				photo = "intel_silo_01"
+			},
+			{
+				title_id = "silo_mission_photo_2_title",
+				description_id = "silo_mission_photo_2_description",
+				photo = "intel_silo_02"
+			},
+			{
+				title_id = "silo_mission_photo_3_title",
+				description_id = "silo_mission_photo_3_description",
+				photo = "intel_silo_03"
+			},
+			{
+				title_id = "silo_mission_photo_4_title",
+				description_id = "silo_mission_photo_4_description",
+				photo = "intel_silo_04"
+			},
+			{
+				title_id = "silo_mission_photo_5_title",
+				description_id = "silo_mission_photo_5_description",
+				photo = "intel_silo_05"
+			}
+		}
+	}
 end
 
 function OperationsTweakData:_init_operations()
@@ -1249,7 +1317,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.gold_rush = {
 		music_id = "reichsbank",
-		xp = 750,
+		xp = 975,
 		stealth_bonus = 1.5,
 		start_in_stealth = true,
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
@@ -1269,7 +1337,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.mini_raid_2 = {
 		music_id = "random",
-		xp = 750,
+		xp = 1200,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		mission_flag = "level_operation_01_mission_03",
 		checkpoint = true,
@@ -1292,7 +1360,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.mini_raid_2_park = {
 		music_id = "random",
-		xp = 750,
+		xp = 1200,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		mission_flag = "level_operation_01_mission_03",
 		checkpoint = true,
@@ -1315,7 +1383,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.mini_raid_2_destroyed = {
 		music_id = "random",
-		xp = 750,
+		xp = 1200,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		mission_flag = "level_operation_01_mission_03",
 		checkpoint = true,
@@ -1338,7 +1406,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.radio_defense = {
 		music_id = "radio_defense",
-		xp = 750,
+		xp = 1425,
 		stealth_bonus = 1.5,
 		start_in_stealth = true,
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
@@ -1358,7 +1426,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.mini_raid_3 = {
 		music_id = "random",
-		xp = 750,
+		xp = 1425,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		mission_flag = "level_operation_01_mission_05",
 		checkpoint = true,
@@ -1381,7 +1449,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.clear_skies.events.railyard = {
 		music_id = "train_yard",
-		xp = 750,
+		xp = 1650,
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
 		mission_flag = "level_operation_01_mission_06",
 		checkpoint = true,
@@ -1401,7 +1469,7 @@ function OperationsTweakData:_init_operations()
 		level_id = "flakturm",
 		music_id = "flakturm",
 		start_in_stealth = true,
-		xp = 750,
+		xp = 1875,
 		icon_menu = "missions_raid_flaktower_menu",
 		icon_hud = "miissions_raid_flaktower",
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
@@ -1559,7 +1627,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.oper_flamable.events.mini_raid_2_destroyed = {
 		music_id = "random",
-		xp = 750,
+		xp = 975,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		checkpoint = true,
 		icon_menu = "missions_mini_raid_2_menu",
@@ -1582,7 +1650,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.oper_flamable.events.mini_raid_2_roundabout = {
 		music_id = "random",
-		xp = 750,
+		xp = 975,
 		mission_state = OperationsTweakData.STATE_ZONE_MISSION_SELECTED,
 		checkpoint = true,
 		icon_menu = "missions_mini_raid_2_menu",
@@ -1605,7 +1673,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.oper_flamable.events.bridge = {
 		music_id = "ger_bridge",
-		xp = 750,
+		xp = 1200,
 		dogtags_min = 26,
 		dogtags_max = 33,
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,
@@ -1625,7 +1693,7 @@ function OperationsTweakData:_init_operations()
 	}
 	self.missions.oper_flamable.events.castle = {
 		music_id = "castle",
-		xp = 750,
+		xp = 1425,
 		icon_menu = "missions_raid_castle_menu",
 		icon_hud = "missions_raid_castle",
 		mission_state = OperationsTweakData.STATE_LOCATION_MISSION_SELECTED,

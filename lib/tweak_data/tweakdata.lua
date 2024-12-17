@@ -824,44 +824,53 @@ You've reached the end of our PAX EAST demo.
 	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_3] = 5
 	self.experience_manager.difficulty_multiplier[TweakData.DIFFICULTY_4] = 10
 	local multiplier = 1
-	self.experience_manager.levels = {
-		{
-			points = 0 * multiplier
-		},
-		{
-			points = 1200 * multiplier
-		},
-		{
-			points = 1400 * multiplier
-		},
-		{
-			points = 1800 * multiplier
-		},
-		{
-			points = 2200 * multiplier
-		},
-		{
-			points = 2700 * multiplier
-		},
-		{
-			points = 3200 * multiplier
-		},
-		{
-			points = 3800 * multiplier
-		},
-		{
-			points = 4400 * multiplier
-		}
+	local level_xp_requirements = {
+		0,
+		1200,
+		1440,
+		1728,
+		2074,
+		2488,
+		2986,
+		3583,
+		4300,
+		5160,
+		6192,
+		7430,
+		8916,
+		10254,
+		11381,
+		12520,
+		13771,
+		15149,
+		16664,
+		18330,
+		20163,
+		22179,
+		24397,
+		26837,
+		29520,
+		32472,
+		35720,
+		39292,
+		43221,
+		47543,
+		52297,
+		57527,
+		63280,
+		69608,
+		80049,
+		92056,
+		105864,
+		121744,
+		140006,
+		161007
 	}
-	local exp_step_start = 10
-	local exp_step_end = 40
-	local exp_step = 1 / (exp_step_end - exp_step_start)
-	local exp_step_last_points = 5000
-	local exp_step_curve = 1.5
+	self.experience_manager.levels = {}
 
-	for i = exp_step_start, exp_step_end do
+	for i = 1, #level_xp_requirements do
 		self.experience_manager.levels[i] = {
-			points = math.round((250000 - exp_step_last_points) * math.pow(exp_step * (i - exp_step_start), exp_step_curve) + exp_step_last_points) * multiplier
+			points = level_xp_requirements[i] * multiplier
 		}
 	end
 

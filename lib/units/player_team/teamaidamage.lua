@@ -128,7 +128,7 @@ function TeamAIDamage:force_bleedout()
 		variant = "bullet"
 	}
 	attack_data.result = result
-	local damage_percent, health_subtracted = self:_apply_damage(attack_data, result)
+	local damage_percent, health_subtracted = self:_apply_damage(attack_data, result, true)
 	self._next_allowed_dmg_t = TimerManager:game():time() + self._dmg_interval
 	self._last_received_dmg = health_subtracted
 
@@ -335,17 +335,22 @@ function TeamAIDamage:damage_tase(attack_data)
 	return damage_info
 end
 
-function TeamAIDamage:_apply_damage(attack_data, result)
+function TeamAIDamage:_apply_damage(attack_data, result, force)
 	local damage = attack_data.damage * 0.8
 	damage = math.clamp(damage, self._HEALTH_TOTAL_PERCENT, self._HEALTH_TOTAL)
 	local damage_percent = math.ceil(damage / self._HEALTH_TOTAL_PERCENT)
 	damage = damage_percent * self._HEALTH_TOTAL_PERCENT
 	attack_data.damage = damage
-	local dodged = self:inc_dodge_count(damage_percent / 2)
+	local dodged = nil
+
+	if not force then
+		dodged = self:inc_dodge_count(damage_percent / 2)
+	end
+
 	attack_data.pos = attack_data.pos or attack_data.col_ray.position
 	attack_data.result = result
 
-	if dodged or self._unit:anim_data().dodge then
+	if not force and (dodged or self._unit:anim_data().dodge) then
 		result.type = "none"
 
 		return 0, 0
