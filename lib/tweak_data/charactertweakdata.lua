@@ -3698,7 +3698,7 @@ function CharacterTweakData:_presets(tweak_data)
 	}
 	presets.weapon.expert.ger_luger_npc.FALLOFF = {
 		{
-			dmg_mul = 5,
+			dmg_mul = 4.5,
 			r = 800,
 			acc = {
 				0.6,
@@ -3991,7 +3991,7 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		},
 		{
-			dmg_mul = 4,
+			dmg_mul = 3.5,
 			r = 1000,
 			acc = {
 				0.5,
@@ -7561,10 +7561,10 @@ function CharacterTweakData:_set_difficulty_3()
 	self.flashbang_multiplier = 1.5
 	self.presets.weapon.sniper.ger_kar98_npc.FALLOFF = {
 		{
-			dmg_mul = 4,
+			dmg_mul = 3.5,
 			r = 700,
 			acc = {
-				0.4,
+				0.5,
 				0.95
 			},
 			recoil = {
@@ -7579,10 +7579,10 @@ function CharacterTweakData:_set_difficulty_3()
 			}
 		},
 		{
-			dmg_mul = 4,
+			dmg_mul = 3.5,
 			r = 3500,
 			acc = {
-				0.4,
+				0.5,
 				0.75
 			},
 			recoil = {
