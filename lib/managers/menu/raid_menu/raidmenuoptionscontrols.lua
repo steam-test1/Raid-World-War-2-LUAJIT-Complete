@@ -29,7 +29,7 @@ function RaidMenuOptionsControls:_layout_controls()
 	local start_x = 0
 	local start_y = 320
 	local default_width = 512
-	self.SLIDER_PADDING = RaidGuiBase.PADDING + 24
+	RaidMenuOptionsControls.SLIDER_PADDING = RaidGuiBase.PADDING + 24
 	local btn_keybinding_params = {
 		name = "btn_keybinding",
 		x = start_x,
@@ -60,7 +60,7 @@ function RaidMenuOptionsControls:_layout_controls()
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_look_sensitivity_vertical")),
 		x = start_x,
-		y = look_sensitivity_horizontal_params.y + self.SLIDER_PADDING,
+		y = look_sensitivity_horizontal_params.y + (self._progress_bar_menu_camera_sensitivity_horizontal._double_height and RaidMenuOptionsControls.SLIDER_PADDING or RaidGuiBase.PADDING),
 		on_value_change_callback = callback(self, self, "on_value_change_camera_sensitivity_vertical"),
 		on_menu_move = {
 			down = "slider_aiming_sensitivity_horizontal",
@@ -73,7 +73,7 @@ function RaidMenuOptionsControls:_layout_controls()
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_aiming_sensitivity_horizontal")),
 		x = start_x,
-		y = look_sensitivity_vertical_params.y + self.SLIDER_PADDING,
+		y = look_sensitivity_vertical_params.y + (self._progress_bar_menu_camera_sensitivity_vertical._double_height and RaidMenuOptionsControls.SLIDER_PADDING or RaidGuiBase.PADDING),
 		on_value_change_callback = callback(self, self, "on_value_change_camera_zoom_sensitivity_horizontal"),
 		on_menu_move = {
 			down = "slider_aiming_sensitivity_vertical",
@@ -86,7 +86,7 @@ function RaidMenuOptionsControls:_layout_controls()
 		value_format = "%02d%%",
 		description = utf8.to_upper(managers.localization:text("menu_options_controls_aiming_sensitivity_vertical")),
 		x = start_x,
-		y = aiming_sensitivity_horizontal_params.y + self.SLIDER_PADDING,
+		y = aiming_sensitivity_horizontal_params.y + (self._progress_bar_menu_camera_zoom_sensitivity_horizontal._double_height and RaidMenuOptionsControls.SLIDER_PADDING or RaidGuiBase.PADDING),
 		on_value_change_callback = callback(self, self, "on_value_change_camera_zoom_sensitivity_vertical"),
 		on_menu_move = {
 			down = "separate_aiming_settings",
@@ -98,7 +98,7 @@ function RaidMenuOptionsControls:_layout_controls()
 		name = "separate_aiming_settings",
 		description = utf8.to_upper(managers.localization:text("menu_options_separate_aiming_settings")),
 		x = start_x,
-		y = aiming_sensitivity_vertical_params.y + self.SLIDER_PADDING,
+		y = aiming_sensitivity_vertical_params.y + (self._progress_bar_menu_camera_zoom_sensitivity_vertical._double_height and RaidMenuOptionsControls.SLIDER_PADDING or RaidGuiBase.PADDING),
 		w = default_width,
 		on_click_callback = callback(self, self, "on_click_toggle_zoom_sensitivity"),
 		on_menu_move = {

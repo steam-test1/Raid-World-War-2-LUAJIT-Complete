@@ -3624,7 +3624,8 @@ function WeaponTweakData:_init_sten_mk2(weapon_data)
 		per_shot = 0.08,
 		per_shot_steelsight = 0.05,
 		recovery = 8,
-		recovery_wait_multiplier = 2
+		recovery_wait_multiplier = 2,
+		max = 2
 	}
 	self.sten.kick = {
 		standing = {
@@ -3804,7 +3805,8 @@ function WeaponTweakData:_init_thompson(weapon_data)
 		per_shot = 0.09,
 		per_shot_steelsight = 0.05,
 		recovery = 10,
-		recovery_wait_multiplier = 3
+		recovery_wait_multiplier = 3,
+		max = 2
 	}
 	self.thompson.kick = {
 		standing = {
@@ -3982,7 +3984,8 @@ function WeaponTweakData:_init_mp38(weapon_data)
 		per_shot = 0.12,
 		per_shot_steelsight = 0.048,
 		recovery = 10,
-		recovery_wait_multiplier = 2
+		recovery_wait_multiplier = 2,
+		max = 2
 	}
 	self.mp38.kick = {
 		standing = {
@@ -5013,7 +5016,8 @@ function WeaponTweakData:_init_dp28(weapon_data)
 		per_shot = 0.27,
 		per_shot_steelsight = 0.052,
 		recovery = 10,
-		recovery_wait_multiplier = 1
+		recovery_wait_multiplier = 1,
+		max = 2
 	}
 	self.dp28.kick = {
 		standing = {
@@ -5184,7 +5188,8 @@ function WeaponTweakData:_init_mg42(weapon_data)
 		moving_crouching = 5.83,
 		moving_steelsight = 3.13,
 		per_shot = 0.12,
-		per_shot_steelsight = 0.036
+		per_shot_steelsight = 0.036,
+		max = 2
 	}
 	self.mg42.kick = {
 		standing = {
